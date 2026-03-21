@@ -88,6 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
           adminNav.style.display = "block";
           alert("Admin section unlocked!");
           console.log("Admin section unlocked successfully!");
+          // Automatically switch to admin page
+          setTimeout(() => {
+            adminNav.click();
+          }, 500);
         } else {
           console.error("Could not find #admin-nav element!");
         }
