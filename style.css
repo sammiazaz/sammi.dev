@@ -65,6 +65,7 @@ body {
   height: 110px;
   margin-bottom: 18px;
   flex-shrink: 0;
+  pointer-events: auto;
 }
 
 .avatar-img {
@@ -74,6 +75,8 @@ body {
   object-fit: cover;
   background: #333;
   display: block;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .online-dot {
@@ -86,6 +89,7 @@ body {
   border-radius: 50%;
   border: 2px solid var(--card);
   box-shadow: 0 0 8px #4ade80;
+  pointer-events: none;
 }
 
 .s-name {
@@ -94,6 +98,7 @@ body {
   color: #fff;
   text-align: center;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .s-role {
