@@ -928,15 +928,18 @@ body {
 
 @media (max-width: 1024px) {
   .app {
-    padding: 20px;
+    padding: 30px 40px;
     flex-direction: column;
     height: auto;
   }
   .sidebar {
     width: 100%;
+    margin-bottom: 20px;
   }
   .main {
-    padding: 20px;
+    padding: 30px;
+    height: auto;
+    overflow: visible;
   }
   .page-title {
     padding-right: 0;
@@ -947,6 +950,70 @@ body {
     justify-content: space-around;
     left: 20px;
     right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 20px 15px;
+  }
+  .cards-grid,
+  .port-grid,
+  .resume-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .c-row {
+    grid-template-columns: 1fr;
+  }
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+  .topnav {
+    top: 15px;
+    padding: 4px 6px;
+  }
+  .nb {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+  }
+  .page-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 15px 10px;
+  }
+  .main {
+    padding: 20px 15px;
+  }
+  .topnav {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    z-index: 1001;
+    background: #1c1c1e;
+    border-top: 1px solid var(--border);
+    padding: 10px 5px;
+  }
+  .page-title {
+    margin-top: 10px;
+    font-size: 1.3rem;
+  }
+  .s-contacts {
+    align-items: flex-start;
+  }
+  .cv-download-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .back-to-top {
+    bottom: 70px; /* avoid nav bar on mobile */
   }
 }
 
