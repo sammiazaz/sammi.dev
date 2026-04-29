@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sammi Azaz – Software Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Sammi Azaz, a Software Developer specializing in ML/AI, Web Development, and Cloud Technologies." />
+  <meta name="keywords"
+    content="Sammi Azaz, Software Developer, ML, AI, Web Development, React, Python, AWS, Portfolio" />
+  <meta property="og:title" content="Sammi Azaz – Software Developer" />
+  <meta property="og:description"
+    content="Explore the portfolio of Sammi Azaz, featuring projects in AI/ML and full-stack web development." />
+  <meta property="og:image" content="hero.png" />
+  <meta property="og:url" content="https://sammiazaz.in" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- ======= SIDEBAR ======= -->
+    <aside class="sidebar">
+      <div class="avatar-box">
+        <img src="avatar.png" alt="Sammi Azaz" class="avatar-img" />
+        <span class="online-dot"></span>
+      </div>
+      <h2 class="s-name">Sammi Azaz</h2>
+      <span class="s-role">Software Developer</span>
+
+      <div class="s-divider"></div>
+
+      <ul class="s-contacts">
+        <li>
+          <div class="s-icon"><i class="fa-regular fa-envelope"></i></div>
+          <div class="s-detail">
+            <span class="s-label">EMAIL</span>
+            <span class="s-value">sammiazaz2005@gmail.com</span>
+          </div>
+        </li>
+        <li>
+          <div class="s-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div class="s-detail">
+            <span class="s-label">PHONE</span>
+            <span class="s-value">+91 8102842575</span>
+          </div>
+        </li>
+        <li>
+          <div class="s-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="s-detail">
+            <span class="s-label">LOCATION</span>
+            <span class="s-value">Delhi, India</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="s-divider"></div>
+
+      <div class="s-socials">
+        <a href="https://linkedin.com/in/sammi-azazb07a7028b" target="_blank" class="sc-btn"><i
+            class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="sc-btn"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="sc-btn"><i class="fa-brands fa-google"></i></a>
+        <a href="#" class="sc-btn"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </aside>
+
+    <!-- ======= MAIN ======= -->
+    <main class="main">
+
+      <!-- NAV top-right -->
+      <nav class="topnav">
+        <button class="nb active" data-target="about">About</button>
+        <button class="nb" data-target="resume">Resume</button>
+        <button class="nb" data-target="projects">Projects</button>
+        <button class="nb" data-target="experience">Work Experience</button>
+        <button class="nb" data-target="contact">Contact</button>
+        <button class="nb" id="admin-nav" data-target="admin" style="display: none;">Admin (Messages)</button>
+      </nav>
+
+      <!-- ====== ABOUT ====== -->
+      <section class="page active" id="about">
+        <h1 class="page-title">About <span class="highlight">Me</span></h1>
+        <div class="gold-bar"></div>
+
+        <p class="about-p">A passionate Computer Science student and developer with strong expertise in full-stack web
+          development, machine learning, and cloud technologies. Proven track record in building intelligent
+          applications using Python, React, and AWS — from AI-powered recommendation systems to predictive healthcare
+          models.</p>
+        <p class="about-p">If you're looking for a driven developer who blends solid engineering fundamentals with a
+          curiosity for AI/ML, I'm here to collaborate and turn ideas into impactful products. Let's build something
+          great together!</p>
+
+        <h2 class="section-sub">What I'm Doing</h2>
+        <div class="cards-grid">
+          <div class="svc-card">
+            <div class="svc-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="svc-body">
+              <h3>ML / AI Development</h3>
+              <p>Building intelligent models using TensorFlow, PyTorch, Scikit-learn and deploying them at scale.</p>
+            </div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="svc-body">
+              <h3>Web Development</h3>
+              <p>Crafting responsive web apps with React, Node.js, Flask, and Spring Boot.</p>
+            </div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon"><i class="fa-brands fa-aws"></i></div>
+            <div class="svc-body">
+              <h3>Cloud & DevOps</h3>
+              <p>Deploying scalable solutions on AWS (EC2, S3, Lambda, SageMaker) with Docker and Git.</p>
+            </div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon"><i class="fa-solid fa-database"></i></div>
+            <div class="svc-body">
+              <h3>Database Engineering</h3>
+              <p>Working with MySQL, PostgreSQL, MongoDB, and Firebase for robust data management.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-sub">Skills</h2>
+        <div class="skills-row">
+          <div class="skill-chip java"><i class="fa-brands fa-java"></i> Java</div>
+          <div class="skill-chip python"><i class="fa-brands fa-python"></i> Python</div>
+          <div class="skill-chip js"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /> JavaScript
+          </div>
+          <div class="skill-chip react"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /> React</div>
+          <div class="skill-chip node"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /> Node.js</div>
+          <div class="skill-chip mongo"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" /> MongoDB</div>
+          <div class="skill-chip aws"><i class="fa-brands fa-aws"></i> AWS</div>
+          <div class="skill-chip docker"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" /> Docker</div>
+        </div>
+      </section>
+
+      <!-- ====== RESUME ====== -->
+      <section class="page" id="resume">
+        <h1 class="page-title">My <span class="highlight">Resume</span></h1>
+        <div class="gold-bar"></div>
+
+        <div class="cv-body">
+
+          <!-- EDUCATION -->
+          <div class="cv-section">
+            <div class="cv-section-header">
+              <i class="fa-solid fa-graduation-cap cv-sec-icon"></i>
+              <h2 class="cv-sec-title">Education</h2>
+            </div>
+            <div class="cv-list">
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">B.Tech – Computer Science &amp; Engineering</h4>
+                  <p class="cv-company">IILM University, Greater Noida, India</p>
+                  <span class="cv-date">July 2023 – Aug 2027</span>
+                  <ul class="cv-bullets">
+                    <li>Relevant Coursework: Data Structures &amp; Algorithms, OOP, DBMS, Operating Systems, Computer
+                      Networks</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TECHNICAL SKILLS -->
+          <div class="cv-section">
+            <div class="cv-section-header">
+              <i class="fa-solid fa-laptop-code cv-sec-icon"></i>
+              <h2 class="cv-sec-title">Technical Skills</h2>
+            </div>
+            <div class="cv-list">
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <div class="skill-block">
+                    <div class="skill-row-item"><span class="sk-label">Languages</span><span class="sk-val">Java,
+                        Python, C++, JavaScript, SQL, HTML/CSS</span></div>
+                    <div class="skill-row-item"><span class="sk-label">ML / AI</span><span class="sk-val">TensorFlow,
+                        PyTorch, Scikit-learn, Keras, NLP, Computer Vision, Model Optimization</span></div>
+                    <div class="skill-row-item"><span class="sk-label">Web &amp; Cloud</span><span class="sk-val">React,
+                        Node.js, Spring Boot, Flask, AWS (EC2, S3, Lambda, SageMaker), Docker, Git</span></div>
+                    <div class="skill-row-item"><span class="sk-label">Databases</span><span class="sk-val">MySQL,
+                        PostgreSQL, MongoDB, Firebase</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECTS -->
+          <div class="cv-section">
+            <div class="cv-section-header">
+              <i class="fa-solid fa-rocket cv-sec-icon"></i>
+              <h2 class="cv-sec-title">Projects</h2>
+            </div>
+            <div class="cv-list">
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">AI-Powered Movie Recommendation System</h4>
+                  <p class="cv-company">Python, Streamlit, Scikit-learn, TMDB API</p>
+                  <span class="cv-date">March 2025</span>
+                  <ul class="cv-bullets">
+                    <li>Developed recommendation system suggesting movies based on user preferences using cosine
+                      similarity with movie metadata including genre, cast, and keywords.</li>
+                    <li>Deployed interactive web application with Streamlit featuring dynamic filtering options to
+                      enhance user experience.</li>
+                    <li>Processed TMDB dataset from Kaggle using Pandas and NumPy for efficient data handling and
+                      feature engineering.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">Human Heart Disease Prediction</h4>
+                  <p class="cv-company">Python, Scikit-learn, SMOTE</p>
+                  <span class="cv-date">Dec 2025</span>
+                  <ul class="cv-bullets">
+                    <li>Developed ML model to predict likelihood of heart disease based on health indicators using
+                      Logistic Regression and Random Forest.</li>
+                    <li>Implemented SMOTE technique to handle class imbalance and improve model accuracy for identifying
+                      high-risk individuals.</li>
+                    <li>Performed comprehensive data preprocessing and feature selection using Pandas and NumPy for
+                      early medical intervention.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WORK EXPERIENCE -->
+          <div class="cv-section">
+            <div class="cv-section-header">
+              <i class="fa-solid fa-briefcase cv-sec-icon"></i>
+              <h2 class="cv-sec-title">Work Experience</h2>
+            </div>
+            <div class="cv-list">
+
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">Python Developer Intern</h4>
+                  <p class="cv-company">Shadowfox · Remote</p>
+                  <span class="cv-date">July 2025 – Aug 2025 · 2 mo</span>
+                  <ul class="cv-bullets">
+                    <li>Assisted in developing and testing Python scripts and applications with guidance from senior
+                      developers.</li>
+                    <li>Supported data collection, cleaning, and basic analysis using Python libraries such as Pandas
+                      and NumPy.</li>
+                    <li>Collaborated with team to fix code issues and learned software development best practices and
+                      debugging techniques.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">Web Developer Intern</h4>
+                  <p class="cv-company">Prodigy Infotech · Remote</p>
+                  <span class="cv-date">June 2025 – July 2025 · 2 mo</span>
+                  <ul class="cv-bullets">
+                    <li>Developed responsive web applications using HTML, CSS, and JavaScript with focus on user
+                      experience.</li>
+                    <li>Optimized web applications for performance, accessibility, and cross-browser compatibility.</li>
+                    <li>Utilized Git/GitHub for version control and deployed projects on cloud platforms.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CERTIFICATIONS -->
+          <div class="cv-section">
+            <div class="cv-section-header">
+              <i class="fa-solid fa-certificate cv-sec-icon"></i>
+              <h2 class="cv-sec-title">Certifications</h2>
+            </div>
+            <div class="cv-list">
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">AWS Academy Machine Learning Foundations</h4>
+                  <p class="cv-company">AWS Academy Graduate</p>
+                </div>
+              </div>
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">Web Development · Java Programming Beginner to Master</h4>
+                  <p class="cv-company">Udemy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- HACKATHONS -->
+          <div class="cv-section">
+            <div class="cv-section-header">
+              <i class="fa-solid fa-trophy cv-sec-icon"></i>
+              <h2 class="cv-sec-title">Hackathons &amp; Participation</h2>
+            </div>
+            <div class="cv-list">
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">Google Cloud Agentic AI Day</h4>
+                  <p class="cv-company">Hack2Skill</p>
+                  <span class="cv-date">Feb 2025</span>
+                </div>
+              </div>
+              <div class="cv-item">
+                <div class="cv-dot"></div>
+                <div class="cv-content">
+                  <h4 class="cv-role">Bharatiya Antariksh Hackathon 2025</h4>
+                  <p class="cv-company">National Level Participation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end cv-body -->
+
+        <!-- Download CV button -->
+        <div class="cv-download-wrap">
+          <a href="resume.pdf" class="cv-download-btn" download="Sammi_Azaz_Resume.pdf">
+            <i class="fa-solid fa-download"></i> Download CV
+          </a>
+        </div>
+
+      </section>
+
+
+      <!-- ====== WORK EXPERIENCE ====== -->
+      <section class="page" id="experience">
+        <h1 class="page-title">Work <span class="highlight">Experience</span></h1>
+        <div class="gold-bar"></div>
+
+        <div class="resume-grid" style="grid-template-columns: 1fr;">
+          <div>
+            <h3 class="r-col-title"><i class="fa-solid fa-briefcase"></i> Internships</h3>
+            <div class="tl-item">
+              <span class="tl-yr">July 2025 – Aug 2025</span>
+              <h4>Python Developer Intern</h4>
+              <p>Shadowfox · Remote</p>
+              <ul class="cv-bullets" style="margin-top: 10px; margin-bottom: 20px;">
+                <li>Assisted in developing and testing Python scripts and applications with guidance from senior
+                  developers.</li>
+                <li>Supported data collection, cleaning, and basic analysis using Python libraries such as Pandas and
+                  NumPy.</li>
+                <li>Collaborated with team to fix code issues and learned software development best practices and
+                  debugging techniques.</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <span class="tl-yr">June 2025 – July 2025</span>
+              <h4>Web Developer Intern</h4>
+              <p>Prodigy Infotech · Remote</p>
+              <ul class="cv-bullets" style="margin-top: 10px;">
+                <li>Developed responsive web applications using HTML, CSS, and JavaScript with focus on user experience.
+                </li>
+                <li>Optimized web applications for performance, accessibility, and cross-browser compatibility.</li>
+                <li>Utilized Git/GitHub for version control and deployed projects on cloud platforms.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== PORTFOLIO ====== -->
+      <!-- ====== PROJECTS ====== -->
+      <section class="page" id="projects">
+        <h1 class="page-title">My <span class="highlight">Projects</span></h1>
+        <div class="gold-bar"></div>
+        <div class="port-grid">
+          <div class="port-card">
+            <div class="port-img" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)">
+              <i class="fa-solid fa-film fa-2x"></i>
+            </div>
+            <div class="port-body">
+              <h3>AI Movie Recommendation System</h3>
+              <p>Cosine similarity–based movie recommender using TMDB dataset. Deployed as a Streamlit web app with
+                dynamic filtering.</p>
+              <div class="port-tags">
+                <span>Python</span><span>Streamlit</span><span>Scikit-learn</span><span>TMDB API</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-card">
+            <div class="port-img" style="background:linear-gradient(135deg,#dc2626,#ec4899)">
+              <i class="fa-solid fa-heart-pulse fa-2x"></i>
+            </div>
+            <div class="port-body">
+              <h3>Heart Disease Prediction ML</h3>
+              <p>Logistic Regression & Random Forest model with SMOTE for class imbalance. Comprehensive feature
+                selection using Pandas &amp; NumPy.</p>
+              <div class="port-tags">
+                <span>Python</span><span>Scikit-learn</span><span>SMOTE</span><span>Pandas</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-card">
+            <div class="port-img" style="background:linear-gradient(135deg,#0ea5e9,#06b6d4)">
+              <i class="fa-brands fa-aws fa-2x"></i>
+            </div>
+            <div class="port-body">
+              <h3>Cloud-Deployed Web App</h3>
+              <p>Responsive web application deployed on AWS with EC2, S3, and Lambda. Optimized for performance and
+                cross-browser compatibility.</p>
+              <div class="port-tags">
+                <span>React</span><span>Node.js</span><span>AWS</span><span>Docker</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-card">
+            <div class="port-img" style="background:linear-gradient(135deg,#10b981,#059669)">
+              <i class="fa-solid fa-globe fa-2x"></i>
+            </div>
+            <div class="port-body">
+              <h3>Portfolio Website</h3>
+              <p>This personal portfolio built with HTML, CSS &amp; JavaScript showcasing projects, skills and
+                experience.</p>
+              <div class="port-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====== CONTACT ====== -->
+      <section class="page" id="contact">
+        <h1 class="page-title">Contact <span class="highlight">Me</span></h1>
+        <div class="gold-bar"></div>
+        <div class="contact-wrap">
+          <form class="c-form" id="contact-form" action="" method="POST">
+            <div class="c-row">
+              <div class="c-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name"
+                  required /></div>
+              <div class="c-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com"
+                  required /></div>
+            </div>
+            <div class="c-group"><label>Subject</label><input type="text" name="subject" placeholder="Message subject"
+                required /></div>
+            <div class="c-group"><label>Message</label><textarea name="message" rows="5"
+                placeholder="Write your message..." required></textarea></div>
+            <button type="submit" class="c-submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <div class="c-info">
+            <div class="c-info-card"><i class="fa-regular fa-envelope"></i>
+              <div><strong>Email</strong>
+                <p>sammiazaz2005@gmail.com</p>
+              </div>
+            </div>
+            <div class="c-info-card"><i class="fa-solid fa-phone"></i>
+              <div><strong>Phone</strong>
+                <p>+91 8102842575</p>
+              </div>
+            </div>
+            <div class="c-info-card"><i class="fa-solid fa-location-dot"></i>
+              <div><strong>Location</strong>
+                <p>Delhi, India</p>
+              </div>
+            </div>
+            <div class="c-info-card"><i class="fa-brands fa-linkedin-in"></i>
+              <div><strong>LinkedIn</strong>
+                <p>linkedin.com/in/sammi-azazb07a7028b</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== ADMIN (MESSAGES) ====== -->
+      <section class="page" id="admin">
+        <h1 class="page-title">Admin <span class="highlight">Inbox</span></h1>
+        <div class="gold-bar"></div>
+        <div id="messages-container" class="messages-list">
+          <p class="about-p">Loading messages...</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <button id="backToTop" class="back-to-top" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <script src="script.js"></script>
+</body>
+
+</html>

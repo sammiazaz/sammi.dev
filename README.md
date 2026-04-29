@@ -1,0 +1,38 @@
+# Sammi Azaz – Portfolio Website
+
+A premium, responsive portfolio website showcasing my skills, experience, and projects in Software Development, AI/ML, and Cloud Technologies.
+
+## 🚀 Features
+
+- **Modern Glassmorphism UI**: A sleek, dark-themed interface with gold accents.
+- **Dynamic Navigation**: Smooth transitions between About, Resume, Projects, and Contact pages.
+- **Fully Responsive**: Optimized for desktops, tablets, and mobile devices.
+- **Back to Top**: Easy navigation for long pages.
+- **Project Showcase**: Detailed cards for my top projects with tech stack tags.
+- **Contact Form**: Interactive form for potential collaborations.
+
+## 🛠️ Built With
+
+- **HTML5**: Semantic structure.
+- **CSS3**: Custom styling with CSS variables and Flexbox/Grid.
+- **JavaScript**: Dynamic page switching and interactive elements.
+- **Font Awesome**: Premium iconography.
+- **Google Fonts**: Inter typeface for a modern look.
+
+## 📂 Project Structure
+
+```text
+├── index.html    # Main entry point
+├── style.css     # Styles and layout
+├── script.js     # Interactivity and navigation logic
+├── avatar.png    # Profile picture
+└── hero.png      # Hero image/og-image
+```
+
+## 🌐 Live Demo
+
+Visit [sammiazaz.in](https://sammiazaz.in) (replace with actual URL if different).
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
