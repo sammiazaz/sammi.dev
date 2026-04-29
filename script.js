@@ -16,7 +16,18 @@ navBtns.forEach(btn => {
   });
 });
 
-// Firebase Configuration is now loaded from config.js (which is hidden from Git)
+// Firebase Configuration (Using placeholder - you need to replace this with your own config)
+// Go to Firebase Console -> Project Settings -> General -> Your Apps
+const firebaseConfig = {
+  apiKey: "AIzaSyCB0jKHh0UKcNfs0E03g8xsfAUuCjdNK1E",
+  authDomain: "sammi-portfolio.firebaseapp.com",
+  databaseURL: "https://sammi-portfolio-default-rtdb.firebaseio.com",
+  projectId: "sammi-portfolio",
+  storageBucket: "sammi-portfolio.firebasestorage.app",
+  messagingSenderId: "1015583673307",
+  appId: "1:1015583673307:web:9e7d7e47c9ee9f632f75fe",
+  measurementId: "G-R7GJQGEST7"
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -43,7 +54,7 @@ if (contactForm) {
       await database.ref('messages').push(data);
 
       // 2. Send to Formspree
-      const response = await fetch(contactForm.action, {
+      const response = await fetch(FORMSPREE_URL, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -79,7 +90,7 @@ const adminNav = document.getElementById('admin-nav');
 
 sName.addEventListener('dblclick', () => {
   const pin = prompt("Enter Admin PIN:");
-  if (pin === "1234") { // Change this to your secret PIN
+  if (pin === ADMIN_PIN) { 
     adminNav.style.display = "block";
     alert("Admin section unlocked!");
   } else {
