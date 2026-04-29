@@ -448,14 +448,14 @@
         <h1 class="page-title">Contact <span class="highlight">Me</span></h1>
         <div class="gold-bar"></div>
         <div class="contact-wrap">
-          <form class="c-form" onsubmit="handleSubmit(event)">
+          <form class="c-form" id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
             <div class="c-row">
-              <div class="c-group"><label>Full Name</label><input type="text" placeholder="Your name" /></div>
-              <div class="c-group"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
+              <div class="c-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required /></div>
+              <div class="c-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required /></div>
             </div>
-            <div class="c-group"><label>Subject</label><input type="text" placeholder="Message subject" /></div>
-            <div class="c-group"><label>Message</label><textarea rows="5"
-                placeholder="Write your message..."></textarea></div>
+            <div class="c-group"><label>Subject</label><input type="text" name="subject" placeholder="Message subject" required /></div>
+            <div class="c-group"><label>Message</label><textarea name="message" rows="5"
+                placeholder="Write your message..." required></textarea></div>
             <button type="submit" class="c-submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
           </form>
           <div class="c-info">
