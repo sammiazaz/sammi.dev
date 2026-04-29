@@ -87,11 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (adminNav) {
           adminNav.style.display = "block";
           alert("Admin section unlocked!");
+          console.log("Admin section unlocked successfully!");
         } else {
           console.error("Could not find #admin-nav element!");
         }
       } else {
-        alert("Incorrect PIN.");
+        if (pin !== null) {
+          alert("Incorrect PIN.");
+          console.log("Incorrect PIN entered: " + pin);
+        }
       }
     };
 
@@ -99,12 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
       sName.style.cursor = 'pointer';
       sName.addEventListener('dblclick', unlockAdmin);
       console.log("Attached dblclick to name.");
+    } else {
+      console.error("Could not find .s-name element!");
     }
     
     if (avatar) {
       avatar.style.cursor = 'pointer';
       avatar.addEventListener('dblclick', unlockAdmin);
       console.log("Attached dblclick to avatar.");
+    } else {
+      console.error("Could not find .avatar-img element!");
     }
 
     // Fetch Messages for Admin
