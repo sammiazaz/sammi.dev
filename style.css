@@ -1068,3 +1068,35 @@ body {
   color: var(--muted);
   margin-top: 8px;
 }
+
+.msg-card {
+  position: relative;
+}
+
+.msg-delete {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 69, 58, 0.1);
+  color: #ff453a;
+  border: 1px solid rgba(255, 69, 58, 0.2);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.msg-card:hover .msg-delete {
+  opacity: 1;
+}
+
+.msg-delete:hover {
+  background: #ff453a;
+  color: #fff;
+}
