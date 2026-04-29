@@ -949,3 +949,55 @@ body {
     right: auto;
   }
 }
+
+/* Admin Messages */
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.msg-card {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px;
+  border-left: 3px solid var(--gold);
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}
+
+.msg-name {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.msg-date {
+  color: var(--muted);
+}
+
+.msg-subject {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+.msg-body {
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.msg-email {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 8px;
+}

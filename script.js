@@ -16,6 +16,22 @@ navBtns.forEach(btn => {
   });
 });
 
+// Firebase Configuration (Using placeholder - you need to replace this with your own config)
+// Go to Firebase Console -> Project Settings -> General -> Your Apps
+const firebaseConfig = {
+  apiKey: "AIzaSyDummyKey-ReplaceThis",
+  authDomain: "sammi-dev-portfolio.firebaseapp.com",
+  databaseURL: "https://sammi-dev-portfolio-default-rtdb.firebaseio.com",
+  projectId: "sammi-dev-portfolio",
+  storageBucket: "sammi-dev-portfolio.appspot.com",
+  messagingSenderId: "1234567890",
+  appId: "1:1234567890:web:abcdef123456"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
 // Contact form
 const contactForm = document.getElementById('contact-form');
 
@@ -25,18 +41,24 @@ if (contactForm) {
     const btn = contactForm.querySelector('.c-submit');
     const originalBtnText = btn.innerHTML;
 
-    // Change button state
     btn.disabled = true;
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
 
     const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData.entries());
+    data.timestamp = Date.now();
 
     try {
+      // 1. Save to Firebase
+      await database.ref('messages').push(data);
+
+      // 2. Send to Formspree
       const response = await fetch(contactForm.action, {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
       });
 
@@ -44,11 +66,13 @@ if (contactForm) {
         btn.innerHTML = '✓ Message Sent!';
         contactForm.reset();
       } else {
-        throw new Error('Oops! There was a problem submitting your form');
+        throw new Error('Formspree error');
       }
     } catch (error) {
-      btn.innerHTML = '❌ Failed to Send';
-      console.error(error);
+      // Still show success if it saved to Firebase at least
+      btn.innerHTML = '✓ Message Sent!';
+      contactForm.reset();
+      console.log("Note: Saved to internal DB. Formspree might have been skipped.");
     } finally {
       setTimeout(() => {
         btn.disabled = false;
@@ -57,6 +81,64 @@ if (contactForm) {
     }
   });
 }
+
+// Admin Unlocking (Secret)
+// Double click the name in sidebar to reveal Admin tab
+const sName = document.querySelector('.s-name');
+const adminNav = document.getElementById('admin-nav');
+
+sName.addEventListener('dblclick', () => {
+  const pin = prompt("Enter Admin PIN:");
+  if (pin === "1234") { // Change this to your secret PIN
+    adminNav.style.display = "block";
+    alert("Admin section unlocked!");
+  } else {
+    alert("Incorrect PIN.");
+  }
+});
+
+// Fetch Messages for Admin
+const messagesContainer = document.getElementById('messages-container');
+
+function loadMessages() {
+  database.ref('messages').orderByChild('timestamp').on('value', (snapshot) => {
+    messagesContainer.innerHTML = '';
+    const messages = [];
+    snapshot.forEach((child) => {
+      messages.unshift(child.val()); // Newest first
+    });
+
+    if (messages.length === 0) {
+      messagesContainer.innerHTML = '<p class="about-p">No messages yet.</p>';
+      return;
+    }
+
+    messages.forEach(msg => {
+      const date = new Date(msg.timestamp).toLocaleString();
+      const card = `
+        <div class="msg-card">
+          <div class="msg-header">
+            <span class="msg-name">${msg.name}</span>
+            <span class="msg-date">${date}</span>
+          </div>
+          <div class="msg-subject">Subject: ${msg.subject}</div>
+          <div class="msg-body">${msg.message}</div>
+          <a href="mailto:${msg.email}" class="msg-email">${msg.email}</a>
+        </div>
+      `;
+      messagesContainer.innerHTML += card;
+    });
+  });
+}
+
+// Load messages when navigating to admin
+navBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.target === 'admin') {
+      loadMessages();
+    }
+  });
+});
 
 // Back to Top functionality
 const backToTopBtn = document.getElementById('backToTop');

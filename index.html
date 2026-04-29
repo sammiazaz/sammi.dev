@@ -16,6 +16,9 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 </head>
 
 <body>
@@ -77,6 +80,7 @@
         <button class="nb" data-target="projects">Projects</button>
         <button class="nb" data-target="experience">Work Experience</button>
         <button class="nb" data-target="contact">Contact</button>
+        <button class="nb" id="admin-nav" data-target="admin" style="display: none;">Admin (Messages)</button>
       </nav>
 
       <!-- ====== ABOUT ====== -->
@@ -483,6 +487,14 @@
         </div>
       </section>
 
+      <!-- ====== ADMIN (MESSAGES) ====== -->
+      <section class="page" id="admin">
+        <h1 class="page-title">Admin <span class="highlight">Inbox</span></h1>
+        <div class="gold-bar"></div>
+        <div id="messages-container" class="messages-list">
+          <p class="about-p">Loading messages...</p>
+        </div>
+      </section>
     </main>
   </div>
   <button id="backToTop" class="back-to-top" title="Back to Top">
