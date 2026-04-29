@@ -16,18 +16,7 @@ navBtns.forEach(btn => {
   });
 });
 
-// Firebase Configuration (Using placeholder - you need to replace this with your own config)
-// Go to Firebase Console -> Project Settings -> General -> Your Apps
-const firebaseConfig = {
-  apiKey: "AIzaSyCB0jKHh0UKcNfs0E03g8xsfAUuCjdNK1E",
-  authDomain: "sammi-portfolio.firebaseapp.com",
-  databaseURL: "https://sammi-portfolio-default-rtdb.firebaseio.com",
-  projectId: "sammi-portfolio",
-  storageBucket: "sammi-portfolio.firebasestorage.app",
-  messagingSenderId: "1015583673307",
-  appId: "1:1015583673307:web:9e7d7e47c9ee9f632f75fe",
-  measurementId: "G-R7GJQGEST7"
-};
+// Firebase Configuration is now loaded from config.js (which is hidden from Git)
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
