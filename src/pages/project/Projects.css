@@ -17,7 +17,7 @@
 }
 
 .projects-header h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: -1px;
   color: var(--black);
@@ -25,7 +25,9 @@
 }
 
 .projects-header h1 span {
-  color: var(--red);
+  background: linear-gradient(135deg, var(--red) 0%, #ff6b76 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .projects-header p {
@@ -385,7 +387,7 @@
 /* Responsive adjust */
 @media (max-width: 768px) {
   .projects-header h1 {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
   
   .projects-grid {

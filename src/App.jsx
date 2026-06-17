@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Projects from './pages/project/Projects';
 import Experience from './pages/experience/Experience';
 import Resume from './pages/resume/Resume';
+import Contact from './pages/contact/Contact';
 import './index.css';
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -87,7 +89,7 @@ function App() {
           </div>
           <button
             className="btn btn-solid"
-            onClick={() => window.location.href = 'mailto:sammiazaz@gmail.com'}
+            onClick={() => navigate('/contact')}
           >
             Contact Me
           </button>
@@ -100,6 +102,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );

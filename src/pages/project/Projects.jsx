@@ -19,8 +19,8 @@ const PROJECTS = [
   },
   {
     id: 2,
-    title: 'Human heart disease pridiction system',
-    subtitle: 'Predictive Analytics & User Engagent Tracking',
+    title: 'Human Heart Disease Prediction System',
+    subtitle: 'Predictive Analytics & User Engagement Tracking',
     description: 'Real-time analytics dashboard powered by machine learning models to track user engagement, user behavior mapping, and predict trends. The platform processes live telemetry data and provides visual forecasts for metric growth.',
     objective: 'Integrate predictive ML pipelines with a responsive front-end dashboard to enable businesses to make proactive data-driven decisions based on live forecasting.',
     tech: ['React', 'Python', 'TensorFlow', 'WebSockets', 'Chart.js', 'Tailwind'],

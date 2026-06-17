@@ -63,10 +63,10 @@
 
 /* ─── Subtitles ─── */
 .section-subtitle {
-  font-size: 1.6rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: var(--black);
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   margin-bottom: 25px;
   text-align: center;
 }
@@ -212,7 +212,8 @@
 }
 
 @media (max-width: 768px) {
-  .about-title {
+  .about-title,
+  .section-subtitle {
     font-size: 2.0rem;
   }
 

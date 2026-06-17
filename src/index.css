@@ -144,13 +144,14 @@ nav {
   width: 100%;
 }
 
-.nav-links a.accent {
+.nav-links a.active {
   color: var(--red);
   /* Restore active accent color */
 }
 
-.nav-links a.accent::after {
+.nav-links a.active::after {
   background: var(--red);
+  width: 100%;
 }
 
 .nav-actions {
@@ -298,6 +299,11 @@ nav {
 .mono-dot {
   color: var(--red);
   animation: cursorBlink 1.2s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-box {

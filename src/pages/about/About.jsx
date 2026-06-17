@@ -114,7 +114,7 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.15 }}
         >
           <p>
-            Hello, everyone! My name is Sammi azazsh. I am a Final-year undergraduate student at IILM UNIVERSITY. I have a strong interest in systems programming and software engineering. I have been programming using Java, JS/TS, Python, and C++. While I have most experiences in web development, I have made Java my main focus in my software engineering career, focusing on systems development.
+            Hello, everyone! My name is Sammi Azaz. I am a final-year undergraduate student at IILM University. I have a strong interest in systems programming and software engineering. I have been programming using Java, JS/TS, Python, and C++. While I have significant experience in web development, I have made Java my main focus in my software engineering career, focusing on systems development.
           </p>
           <p>
             I have experience working with TypeScript, React, Python, and more. I'm passionate about clean code, system design, and open source contributions.
