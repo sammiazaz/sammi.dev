@@ -14,16 +14,17 @@
   --border: #ddd;
   --bg: #f8f8f8;
   --pill-bg: #ffffff;
-  
+
   --card-bg: rgba(255, 255, 255, 0.6);
   --card-border: rgba(0, 0, 0, 0.08);
   --card-shadow: rgba(0, 0, 0, 0.03);
   --nav-bg: rgba(248, 248, 248, 0.88);
   --shadow-sm: rgba(0, 0, 0, 0.05);
   --grid-color: rgba(0, 0, 0, 0.04);
-  
-  --btn-color:  #ff4d5a;
+
+  --btn-color: #ff4d5a;
   --btn-hover: #ffffff;
+  ;
 }
 
 [data-theme="dark"] {
@@ -34,14 +35,14 @@
   --border: #222;
   --bg: #000000;
   --pill-bg: #111111;
-  
+
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.08);
   --card-shadow: rgba(0, 0, 0, 0.4);
   --nav-bg: rgba(0, 0, 0, 0.85);
   --shadow-sm: rgba(0, 0, 0, 0.6);
   --grid-color: rgba(255, 255, 255, 0.03);
-  
+
   --btn-color: #000000;
   --btn-hover: #e0e0e0;
 }

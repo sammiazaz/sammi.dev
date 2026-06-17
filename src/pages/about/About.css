@@ -8,50 +8,53 @@
 
 .about-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
+  /* Matched to Skills/Projects container width */
 }
 
 /* ─── Header Section ─── */
 .about-header-section {
   position: relative;
-  margin-bottom: 24px;
-  text-align: left;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .about-title {
-  font-size: 2.3rem;
-  font-weight: 900;
-  letter-spacing: -1.2px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
   color: var(--black);
   line-height: 1.1;
   margin: 0;
 }
 
 .about-title span {
-  background: linear-gradient(135deg, #ffb84d 0%, #ff7733 100%);
+  background: linear-gradient(135deg, var(--red) 0%, #ff6b76 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .about-title-underline {
-  height: 4px;
-  width: 32px;
-  background: linear-gradient(90deg, #ffb84d 0%, #ff7733 100%);
+  height: 5px;
+  width: 40px;
+  background: linear-gradient(90deg, var(--red) 0%, #ff6b76 100%);
   border-radius: 10px;
-  margin-top: 8px;
+  margin: 10px auto 0 auto;
 }
 
 /* ─── Bio Intro ─── */
 .about-intro {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .about-intro p {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
+  /* Matched to header descriptions (1.15rem) */
   color: var(--grey);
-  line-height: 1.6;
-  margin-bottom: 16px;
-  max-width: 800px;
+  line-height: 1.65;
+  margin: 0 auto 14px auto;
+  max-width: 850px;
 }
 
 .about-intro p:last-child {
@@ -60,60 +63,62 @@
 
 /* ─── Subtitles ─── */
 .section-subtitle {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--black);
   letter-spacing: -0.5px;
-  margin-bottom: 20px;
-  text-align: left;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 /* ─── What I'm Doing Grid ─── */
 .doing-section {
-  margin-bottom: 45px;
+  margin-bottom: 55px;
 }
 
 .doing-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 30px;
+  /* Matched to Projects grid gap */
 }
 
 .doing-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px var(--card-shadow);
+  border-radius: 20px;
+  padding: 32px;
+  /* Matched to Skill card padding */
+  box-shadow: 0 10px 40px var(--card-shadow);
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: flex-start;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .doing-icon-wrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(255, 139, 36, 0.08);
-  border: 1.5px solid rgba(255, 139, 36, 0.2);
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--red-light);
+  border: 1.5px solid rgba(230, 57, 70, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff8b24;
+  color: var(--red);
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
 .doing-icon-wrapper svg {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
 }
 
 .doing-card:hover .doing-icon-wrapper {
-  background: #ff8c24b9;
+  background: var(--red);
   color: #ffffff;
-  border-color: #ff8b24;
+  border-color: var(--red);
   transform: rotate(5deg) scale(1.05);
 }
 
@@ -122,38 +127,39 @@
 }
 
 .doing-info h3 {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -0.2px;
 }
 
 .doing-info p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--grey);
-  line-height: 1.45;
+  line-height: 1.5;
   margin: 0;
 }
 
 /* ─── Skills Pills ─── */
 .skills-section {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .skills-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  justify-content: center;
 }
 
 .skill-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 8px;
+  padding: 8px 18px;
   border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   background: var(--skill-bg-alpha);
@@ -164,8 +170,8 @@
 }
 
 .skill-pill-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   display: inline-block;
   transition: transform 0.2s ease;
@@ -176,7 +182,7 @@
   color: #ffffff !important;
   border-color: var(--skill-color) !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--skill-border-alpha);
+  box-shadow: 0 4px 12px var(--skill-border-alpha);
 }
 
 .skill-pill:hover .skill-pill-dot {
@@ -188,16 +194,16 @@
 @media (max-width: 900px) {
   .doing-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 24px;
   }
 }
 
 @media (max-width: 768px) {
   .about-title {
-    font-size: 2rem;
+    font-size: 2.0rem;
   }
 
   .doing-card {
-    padding: 18px;
+    padding: 24px;
   }
 }
