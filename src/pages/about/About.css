@@ -219,4 +219,74 @@
   .doing-card {
     padding: 24px;
   }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Skills Grid & Cards (moved from Skills.css) ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.skill-category-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px var(--card-shadow);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.card-header p {
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.skill-tag {
+  background: rgba(var(--red-rgb), 0.08);
+  color: var(--red);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(var(--red-rgb), 0.15);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.skill-category-card:hover .skill-tag {
+  background: rgba(var(--red-rgb), 0.12);
+  border-color: rgba(var(--red-rgb), 0.25);
+}
+
+.skill-tag:hover {
+  background: var(--red) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--red-rgb), 0.3);
 }

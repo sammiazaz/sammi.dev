@@ -58,8 +58,8 @@ function Pill({ skill, smoothMouseX, smoothMouseY, windowSize, onClick, index, s
           layoutId={skill.label}
           className={`pill ${skill.style}`}
           onClick={() => onClick(skill)}
-          whileHover={{ scale: 1.3, zIndex: 50 }}
-          transition={{ duration: 0.2 }}
+          whileHover={{ scale: 2, zIndex: 50 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {skill.label}
         </motion.div>
@@ -119,9 +119,8 @@ export default function Home() {
           transition={!hasPlayedEntrance ? { duration: 0.8, ease: "easeOut" } : { duration: 0 }}
           style={{ x: heroX, y: heroY }}
         >
-          <div className="hero-monogram">s<span className="mono-dot">:</span></div>
           <div className="hero-box">
-            <h1>Software Developer</h1>
+            <h1><span className="terminal-logo">&gt;<span className="mono-dot">_</span></span> Software Developer</h1>
           </div>
         </motion.div>
 

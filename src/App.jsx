@@ -3,7 +3,6 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Projects from './pages/project/Projects';
-import Skills from './pages/Skills';
 import Experience from './pages/experience/Experience';
 import Resume from './pages/resume/Resume';
 import './index.css';
@@ -26,7 +25,7 @@ function App() {
   return (
     <>
       <nav>
-        <Link to="/" className="logo">dev<span className="colon">:</span></Link>
+        <Link to="/" className="logo">sammiazaz</Link>
         <ul className="nav-links">
           <li>
             <Link to="/" className={location.pathname === '/' ? 'accent active' : 'accent'}>
@@ -36,11 +35,6 @@ function App() {
           <li>
             <Link to="/about" className={location.pathname === '/about' ? 'accent active' : 'accent'}>
               About
-            </Link>
-          </li>
-          <li>
-            <Link to="/skills" className={location.pathname === '/skills' ? 'accent active' : 'accent'}>
-              Skills
             </Link>
           </li>
           <li>
@@ -103,7 +97,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/resume" element={<Resume />} />
