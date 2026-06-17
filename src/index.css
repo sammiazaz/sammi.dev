@@ -21,6 +21,9 @@
   --nav-bg: rgba(248, 248, 248, 0.88);
   --shadow-sm: rgba(0, 0, 0, 0.05);
   --grid-color: rgba(0, 0, 0, 0.04);
+  
+  --btn-color:  #ff4d5a;
+  --btn-hover: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -38,6 +41,9 @@
   --nav-bg: rgba(0, 0, 0, 0.85);
   --shadow-sm: rgba(0, 0, 0, 0.6);
   --grid-color: rgba(255, 255, 255, 0.03);
+  
+  --btn-color: #000000;
+  --btn-hover: #e0e0e0;
 }
 
 html,
@@ -210,16 +216,16 @@ nav {
 
 .btn-ghost:hover {
   background: var(--black);
-  color: #fff;
+  color: var(--btn-color);
 }
 
 .btn-solid {
   background: var(--black);
-  color: #fff;
+  color: var(--btn-color);
 }
 
 .btn-solid:hover {
-  background: #2a2a2a;
+  background: var(--btn-hover);
 }
 
 /* ─── Hero ─── */

@@ -91,7 +91,10 @@ function App() {
               </svg>
             </a>
           </div>
-          <button className="btn btn-solid">
+          <button 
+            className="btn btn-solid"
+            onClick={() => window.location.href = 'mailto:sammiazaz@gmail.com'}
+          >
             Contact Me
           </button>
         </div>
