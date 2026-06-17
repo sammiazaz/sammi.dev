@@ -14,6 +14,30 @@
   --border: #ddd;
   --bg: #f8f8f8;
   --pill-bg: #ffffff;
+  
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.03);
+  --nav-bg: rgba(248, 248, 248, 0.88);
+  --shadow-sm: rgba(0, 0, 0, 0.05);
+  --grid-color: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] {
+  --red: #ff4d5a;
+  --red-light: rgba(255, 77, 90, 0.15);
+  --black: #ffffff;
+  --grey: #a0a0a0;
+  --border: #222;
+  --bg: #000000;
+  --pill-bg: #111111;
+  
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(0, 0, 0, 0.85);
+  --shadow-sm: rgba(0, 0, 0, 0.6);
+  --grid-color: rgba(255, 255, 255, 0.03);
 }
 
 html,
@@ -24,6 +48,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--black);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 #root {
@@ -42,9 +67,38 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 18px 44px;
-  background: rgba(248, 248, 248, 0.88);
+  background: var(--nav-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+}
+
+.theme-toggle-btn:hover {
+  color: var(--black);
+  background: var(--card-bg);
+  border-color: var(--red);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .logo {
@@ -186,8 +240,8 @@ nav {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 60px 60px;
   z-index: 0;
 }
@@ -217,9 +271,10 @@ nav {
   border: 2.5px dashed var(--red);
   border-radius: 14px;
   padding: 18px 38px;
-  background: rgba(248, 248, 248, 0.75);
+  background: var(--card-bg);
   backdrop-filter: blur(6px);
   position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .hero-box h1 {
