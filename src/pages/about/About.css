@@ -101,7 +101,7 @@
   height: 46px;
   border-radius: 12px;
   background: var(--red-light);
-  border: 1.5px solid rgba(230, 57, 70, 0.15);
+  border: 1.5px solid rgba(var(--red-rgb), 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,6 +188,15 @@
 .skill-pill:hover .skill-pill-dot {
   background-color: #ffffff !important;
   transform: scale(1.2);
+}
+
+.section-description {
+  font-size: 1.15rem;
+  color: var(--grey);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: -10px auto 40px auto;
+  text-align: center;
 }
 
 /* ─── Responsive ─── */

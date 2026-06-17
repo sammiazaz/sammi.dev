@@ -8,7 +8,8 @@
 
 :root {
   --red: #e63946;
-  --red-light: #fde8ea;
+  --red-rgb: 230, 57, 70;
+  --red-light: rgba(var(--red-rgb), 0.08);
   --black: #111111;
   --grey: #555;
   --border: #ddd;
@@ -22,14 +23,14 @@
   --shadow-sm: rgba(0, 0, 0, 0.05);
   --grid-color: rgba(0, 0, 0, 0.04);
 
-  --btn-color: #ff4d5a;
+  --btn-color: #ff4b33;
   --btn-hover: #ffffff;
-  ;
 }
 
 [data-theme="dark"] {
-  --red: #ff4d5a;
-  --red-light: rgba(255, 77, 90, 0.15);
+  --red: #ff4b33;
+  --red-rgb: 255, 75, 51;
+  --red-light: rgba(var(--red-rgb), 0.15);
   --black: #ffffff;
   --grey: #a0a0a0;
   --border: #222;
@@ -41,7 +42,7 @@
   --card-shadow: rgba(0, 0, 0, 0.4);
   --nav-bg: rgba(0, 0, 0, 0.85);
   --shadow-sm: rgba(0, 0, 0, 0.6);
-  --grid-color: rgba(255, 255, 255, 0.03);
+  --grid-color: rgba(255, 255, 255, 0.08);
 
   --btn-color: #000000;
   --btn-hover: #e0e0e0;
@@ -242,16 +243,6 @@ nav {
   mask-image: linear-gradient(to bottom, transparent 0px, transparent 80px, black 180px, black 100%);
 }
 
-#hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 60px 60px;
-  z-index: 0;
-}
 
 .hero-content {
   display: flex;
@@ -296,11 +287,11 @@ nav {
 /* ─── Skill Pills ─── */
 .pill {
   position: absolute;
-  padding: 8px 20px;
+  padding: 6px 14px;
   border-radius: 100px;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: #333;
+  color: var(--black);
   background: var(--pill-bg);
   border: 1.5px solid var(--border);
   white-space: nowrap;
@@ -360,7 +351,7 @@ nav {
   border-radius: 20px;
   max-width: 350px;
   width: 90%;
-  box-shadow: 0 20px 50px rgba(230, 57, 70, 0.3);
+  box-shadow: 0 20px 50px rgba(var(--red-rgb), 0.3);
   position: relative;
   text-align: left;
   color: #fff;

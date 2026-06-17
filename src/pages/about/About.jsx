@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './About.css';
+import '../Skills.css';
 
 const DOING_DATA = [
   {
@@ -45,6 +46,50 @@ const DOING_DATA = [
   }
 ];
 
+const SKILLS_CATEGORIES = [
+  {
+    title: 'Frontend Development',
+    description: 'Building responsive, accessible, and performant user interfaces.',
+    skills: ['React', 'Next.js', 'Vue.js', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Framer Motion']
+  },
+  {
+    title: 'Backend Development',
+    description: 'Architecting scalable server-side applications and APIs.',
+    skills: ['Node.js', 'Python', 'Express.js', 'GraphQL', 'RESTful APIs']
+  },
+  {
+    title: 'Database Management',
+    description: 'Designing robust data structures and optimizing queries.',
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Prisma']
+  },
+  {
+    title: 'AI & Machine Learning',
+    description: 'Integrating intelligent features and working with data models.',
+    skills: ['TensorFlow', 'PyTorch', 'OpenAI API', 'Data Science', 'Pandas']
+  },
+  {
+    title: 'DevOps & Other',
+    description: 'Deploying, monitoring, and maintaining robust infrastructure.',
+    skills: ['Docker', 'AWS', 'CI/CD', 'Git', 'Linux', 'Web3', 'Blockchain']
+  }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 20 }
+  }
+};
 
 export default function About() {
   return (
@@ -87,6 +132,15 @@ export default function About() {
             What I'm Doing
           </motion.h2>
 
+          <motion.p 
+            className="section-description"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+          >
+            Here is a breakdown of my core areas of interest, systems engineering, and development focus.
+          </motion.p>
+
           <div className="doing-grid">
             {DOING_DATA.map((item, idx) => (
               <motion.div
@@ -109,6 +163,54 @@ export default function About() {
           </div>
         </div>
 
+        <div className="skills-section" style={{ marginTop: '60px' }}>
+          <motion.h2 
+            className="section-subtitle"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            Technical Expertise
+          </motion.h2>
+
+          <motion.p 
+            className="section-description"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+          >
+            A comprehensive overview of the tools, languages, and technologies I use to build modern applications.
+          </motion.p>
+
+          <motion.div 
+            className="skills-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {SKILLS_CATEGORIES.map((category, index) => (
+              <motion.div 
+                key={category.title} 
+                className="skill-category-card"
+                variants={cardVariants}
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="card-header">
+                  <h2>{category.title}</h2>
+                  <p>{category.description}</p>
+                </div>
+                <div className="skills-tags">
+                  {category.skills.map(skill => (
+                    <span key={skill} className="skill-tag">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
 
       </div>
     </section>

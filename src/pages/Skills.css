@@ -75,27 +75,27 @@
 }
 
 .skill-tag {
-  background: rgba(230, 57, 70, 0.08);
+  background: rgba(var(--red-rgb), 0.08);
   color: var(--red);
   font-size: 0.85rem;
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 100px;
-  border: 1px solid rgba(230, 57, 70, 0.15);
+  border: 1px solid rgba(var(--red-rgb), 0.15);
   transition: all 0.2s ease;
   user-select: none;
 }
 
 .skill-category-card:hover .skill-tag {
-  background: rgba(230, 57, 70, 0.12);
-  border-color: rgba(230, 57, 70, 0.25);
+  background: rgba(var(--red-rgb), 0.12);
+  border-color: rgba(var(--red-rgb), 0.25);
 }
 
 .skill-tag:hover {
   background: var(--red) !important;
   color: #fff !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--red-rgb), 0.3);
 }
 
 @media (max-width: 768px) {

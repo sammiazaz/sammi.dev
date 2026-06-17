@@ -68,8 +68,8 @@
 
 .exp-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(230, 57, 70, 0.15);
-  border-color: rgba(230, 57, 70, 0.3);
+  box-shadow: 0 20px 60px rgba(var(--red-rgb), 0.15);
+  border-color: rgba(var(--red-rgb), 0.3);
 }
 
 .exp-card:hover::before {

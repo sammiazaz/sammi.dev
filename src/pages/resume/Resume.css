@@ -1,6 +1,6 @@
 .resume-page {
   --tl-accent: var(--red);
-  --tl-line: rgba(230, 57, 70, 0.4); /* highly visible translucent red line */
+  --tl-line: rgba(var(--red-rgb), 0.4); /* highly visible translucent red line */
   
   padding: 100px 5%;
   min-height: 100vh;

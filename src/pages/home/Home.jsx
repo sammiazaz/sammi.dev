@@ -58,7 +58,7 @@ function Pill({ skill, smoothMouseX, smoothMouseY, windowSize, onClick, index, s
           layoutId={skill.label}
           className={`pill ${skill.style}`}
           onClick={() => onClick(skill)}
-          whileHover={{ scale: 1.8, zIndex: 50 }}
+          whileHover={{ scale: 1.3, zIndex: 50 }}
           transition={{ duration: 0.2 }}
         >
           {skill.label}
