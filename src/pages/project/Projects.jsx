@@ -74,7 +74,7 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1>Featured Projects</h1>
+          <h1>Featured <span>Projects</span></h1>
           <p>A comprehensive showcase of the real-world applications, platforms, and solutions I have built.</p>
         </motion.div>
 

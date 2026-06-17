@@ -170,7 +170,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            Technical Expertise
+            Technical <span>Expertise</span>
           </motion.h2>
 
           <motion.p 

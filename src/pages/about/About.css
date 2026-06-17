@@ -71,6 +71,10 @@
   text-align: center;
 }
 
+.section-subtitle span {
+  color: var(--red);
+}
+
 /* ─── What I'm Doing Grid ─── */
 .doing-section {
   margin-bottom: 55px;

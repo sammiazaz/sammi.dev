@@ -24,6 +24,10 @@
   margin-bottom: 16px;
 }
 
+.skills-header h1 span {
+  color: var(--red);
+}
+
 .skills-header p {
   font-size: 1.15rem;
   color: var(--grey);

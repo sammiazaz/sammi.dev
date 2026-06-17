@@ -57,7 +57,7 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1>Technical Expertise</h1>
+          <h1>Technical <span>Expertise</span></h1>
           <p>A comprehensive overview of the tools, languages, and technologies I use to build modern applications.</p>
         </motion.div>
 

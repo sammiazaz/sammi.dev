@@ -25,6 +25,10 @@
   margin-bottom: 16px;
 }
 
+.projects-header h1 span {
+  color: var(--red);
+}
+
 .projects-header p {
   font-size: 1.15rem;
   color: var(--grey);

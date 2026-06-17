@@ -33,7 +33,7 @@ export default function Experience() {
       <div className="timeline-container">
         
         <div className="page-title">
-          <h1>Work Experience</h1>
+          <h1>Work <span>Experience</span></h1>
           <p>My professional journey and internships in software development.</p>
         </div>
 
