@@ -11,22 +11,22 @@
   --red-rgb: 230, 57, 70;
   --red-light: rgba(var(--red-rgb), 0.08);
   --black: #111111;
-  --grey: #555;
-  --border: #ddd;
+  --grey: #555555;
+  --border: #dddddd;
   --bg: #f8f8f8;
   --pill-bg: #ffffff;
-
   --card-bg: rgba(255, 255, 255, 0.6);
   --card-border: rgba(0, 0, 0, 0.08);
   --card-shadow: rgba(0, 0, 0, 0.03);
   --nav-bg: rgba(248, 248, 248, 0.88);
   --shadow-sm: rgba(0, 0, 0, 0.05);
   --grid-color: rgba(0, 0, 0, 0.04);
-
   --btn-color: #ff4b33;
   --btn-hover: #ffffff;
+  --skill-bg-alpha: rgba(var(--red-rgb), 0.08);
+  --skill-border-alpha: rgba(var(--red-rgb), 0.18);
+  --skill-color: var(--red);
 }
-
 
 [data-theme="dark"] {
   --red: #ff4b33;
@@ -34,46 +34,76 @@
   --red-light: rgba(var(--red-rgb), 0.15);
   --black: #ffffff;
   --grey: #a0a0a0;
-  --border: #222;
+  --border: #222222;
   --bg: #000000;
   --pill-bg: #111111;
-
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.08);
   --card-shadow: rgba(0, 0, 0, 0.4);
   --nav-bg: rgba(0, 0, 0, 0.85);
   --shadow-sm: rgba(0, 0, 0, 0.6);
   --grid-color: rgba(255, 255, 255, 0.08);
-
   --btn-color: #000000;
   --btn-hover: #e0e0e0;
+  --skill-bg-alpha: rgba(var(--red-rgb), 0.15);
+  --skill-border-alpha: rgba(var(--red-rgb), 0.3);
 }
 
-html,
-body {
+html {
   width: 100%;
   min-height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--black);
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-
+  scroll-snap-type: y proximity;
 }
 
 #root {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 }
 
-/* ─── Navbar ─── */
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.page-stack {
+  position: relative;
+}
+
+.page-panel {
+  width: 100%;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-margin-top: 112px;
+}
+
+.page-panel-home {
+  position: relative;
+}
+
 nav {
   position: fixed;
   top: 20px;
   left: 24px;
   right: 24px;
   z-index: 999;
-  /* Higher z-index to overlay above content */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,9 +112,7 @@ nav {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 2.5px dashed var(--red);
-  /* Dashed accent color border */
   border-radius: 14px;
-  /* More rounded retro-dashed corners matching software developer tag */
   box-shadow: 0 8px 30px var(--card-shadow);
   transition: all 0.3s ease;
 }
@@ -95,12 +123,6 @@ nav {
   color: var(--black);
   letter-spacing: -0.5px;
   text-decoration: none;
-}
-
-.logo .colon {
-  color: var(--red);
-  display: inline;
-  /* Restore colon display */
 }
 
 .nav-links {
@@ -117,10 +139,8 @@ nav {
   color: var(--grey);
   font-size: 0.9rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
   position: relative;
-  font-family: inherit;
-  /* Restore original sans font family */
 }
 
 .nav-links a::after {
@@ -132,8 +152,6 @@ nav {
   height: 1.5px;
   background: var(--black);
   transition: width 0.25s ease;
-  display: block;
-  /* Restore hover underline animation */
 }
 
 .nav-links a:hover {
@@ -146,12 +164,11 @@ nav {
 
 .nav-links a.active {
   color: var(--red);
-  /* Restore active accent color */
 }
 
 .nav-links a.active::after {
-  background: var(--red);
   width: 100%;
+  background: var(--red);
 }
 
 .nav-actions {
@@ -165,11 +182,6 @@ nav {
   gap: 16px;
   align-items: center;
   margin-right: 8px;
-  border: none;
-  /* Remove outline box */
-  border-radius: 0;
-  padding: 0;
-  background: none;
 }
 
 .social-icon {
@@ -185,8 +197,6 @@ nav {
 .social-icon:hover {
   color: var(--red);
   transform: translateY(-2px);
-  /* Restore hover shift */
-  opacity: 1;
 }
 
 .social-icon svg {
@@ -197,7 +207,6 @@ nav {
 .theme-toggle-btn {
   background: transparent;
   border: 1px solid var(--border);
-  /* Restore original border */
   cursor: pointer;
   color: var(--grey);
   display: flex;
@@ -216,6 +225,11 @@ nav {
   border-color: var(--red);
 }
 
+.theme-icon {
+  width: 20px;
+  height: 20px;
+}
+
 .btn {
   font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
@@ -223,7 +237,6 @@ nav {
   padding: 9px 22px;
   border-radius: 8px;
   border: 1.5px solid var(--black);
-  /* Restore original solid black outline */
   cursor: pointer;
   transition: all 0.2s ease;
   letter-spacing: -0.2px;
@@ -239,39 +252,15 @@ nav {
   color: var(--black);
 }
 
-/* Navbar Mobile Responsiveness */
-@media (max-width: 768px) {
-  nav {
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    padding: 10px 18px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .nav-links {
-    position: static;
-    transform: none;
-    width: 100%;
-    justify-content: center;
-    gap: 20px;
-    order: 3;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid var(--card-border);
-  }
-
-  .nav-actions {
-    gap: 8px;
-  }
+.home-page {
+  position: relative;
+  min-height: 100vh;
 }
 
-/* ─── Hero ─── */
 #hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,7 +268,6 @@ nav {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0px, transparent 80px, black 180px, black 100%);
   mask-image: linear-gradient(to bottom, transparent 0px, transparent 80px, black 180px, black 100%);
 }
-
 
 .hero-content {
   display: flex;
@@ -302,8 +290,14 @@ nav {
 }
 
 @keyframes cursorBlink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
+  from,
+  to {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-box {
@@ -325,7 +319,6 @@ nav {
   line-height: 1;
 }
 
-/* ─── Skill Pills ─── */
 .pill {
   position: absolute;
   padding: 6px 14px;
@@ -350,35 +343,26 @@ nav {
   box-shadow: 0 0 0 6px var(--red-light);
 }
 
-.pill.dim {
-  color: #aaa;
-  border-color: #e8e8e8;
-  font-size: 0.8rem;
-  box-shadow: none;
-}
-
-.pill.hot {
-  background: var(--red-light);
-  border-color: var(--red);
-  border-style: dashed;
-  color: var(--red);
-  font-weight: 600;
-}
-
-/* ─── Footer hint ─── */
 .scroll-hint {
-  position: fixed;
-  bottom: 28px;
+  position: absolute;
   left: 50%;
+  bottom: 28px;
   transform: translateX(-50%);
   font-size: 0.78rem;
-  color: #aaa;
+  color: #888888;
   letter-spacing: 0.5px;
-  z-index: 100;
-  pointer-events: none;
+  z-index: 40;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* ─── Modal ─── */
+.scroll-hint:hover {
+  color: var(--red);
+  transform: translateX(-50%) translateY(-4px);
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -391,17 +375,17 @@ nav {
   padding: 30px;
   border-radius: 20px;
   max-width: 350px;
-  width: 90%;
+  width: min(350px, calc(100vw - 32px));
   box-shadow: 0 20px 50px rgba(var(--red-rgb), 0.3);
   position: relative;
   text-align: left;
-  color: #fff;
+  color: #ffffff;
 }
 
 .modal-content h2 {
   font-size: 1.5rem;
   margin-bottom: 8px;
-  color: #fff;
+  color: #ffffff;
   letter-spacing: -0.5px;
 }
 
@@ -413,17 +397,104 @@ nav {
 }
 
 .modal-close {
-  background: #fff;
+  background: #ffffff;
   color: var(--red);
   border: none;
   padding: 8px 20px;
   border-radius: 8px;
-  font-family: inherit;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease;
 }
 
 .modal-close:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 148px;
+  }
+
+  .page-panel {
+    scroll-margin-top: 148px;
+  }
+
+  nav {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    order: 3;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--card-border);
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  .hero-box {
+    padding: 16px 20px;
+  }
+
+  .hero-box h1 {
+    font-size: 2.2rem;
+    white-space: normal;
+    letter-spacing: -1.2px;
+    text-align: center;
+  }
+
+  .scroll-hint {
+    bottom: 18px;
+    width: calc(100% - 32px);
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  .btn {
+    padding: 9px 16px;
+  }
+
+  .hero-box h1 {
+    font-size: 1.8rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
 }

@@ -83,8 +83,8 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { type: "spring", stiffness: 100, damping: 20 }
   }
@@ -131,7 +131,7 @@ export default function About() {
             What I'm Doing
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             className="section-description"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -163,7 +163,7 @@ export default function About() {
         </div>
 
         <div className="skills-section" style={{ marginTop: '60px' }}>
-          <motion.h2 
+          <motion.h2
             className="section-subtitle"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -172,7 +172,7 @@ export default function About() {
             Technical <span>Expertise</span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             className="section-description"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -181,15 +181,15 @@ export default function About() {
             A comprehensive overview of the tools, languages, and technologies I use to build modern applications.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             className="skills-grid"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             {SKILLS_CATEGORIES.map((category, index) => (
-              <motion.div 
-                key={category.title} 
+              <motion.div
+                key={category.title}
                 className="skill-category-card"
                 variants={cardVariants}
                 whileHover={{ y: -5 }}

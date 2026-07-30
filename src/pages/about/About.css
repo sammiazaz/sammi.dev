@@ -212,6 +212,7 @@
 }
 
 @media (max-width: 768px) {
+
   .about-title,
   .section-subtitle {
     font-size: 2.0rem;

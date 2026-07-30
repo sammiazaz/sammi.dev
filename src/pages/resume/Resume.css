@@ -1,7 +1,8 @@
 .resume-page {
   --tl-accent: var(--red);
-  --tl-line: rgba(var(--red-rgb), 0.4); /* highly visible translucent red line */
-  
+  --tl-line: rgba(var(--red-rgb), 0.4);
+  /* highly visible translucent red line */
+
   padding: 100px 5%;
   min-height: 100vh;
   background-color: var(--bg);
@@ -62,7 +63,8 @@
   height: 46px;
   background: var(--bg);
   border: 1.5px solid var(--red);
-  border-radius: 8px; /* Sharper rounded square */
+  border-radius: 8px;
+  /* Sharper rounded square */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +86,10 @@
 
 .section-body {
   position: relative;
-  margin-left: 23px; /* centers under the 46px icon */
-  border-left: 1.5px solid var(--tl-line); /* slightly thicker to ensure visibility */
+  margin-left: 23px;
+  /* centers under the 46px icon */
+  border-left: 1.5px solid var(--tl-line);
+  /* slightly thicker to ensure visibility */
   padding-left: 35px;
   padding-bottom: 10px;
 }
@@ -101,7 +105,8 @@
 
 .timeline-dot {
   position: absolute;
-  left: -42px; /* aligns perfectly with the border */
+  left: -42px;
+  /* aligns perfectly with the border */
   top: 4px;
   width: 13px;
   height: 13px;
@@ -212,7 +217,7 @@
     margin-left: 15px;
     padding-left: 20px;
   }
-  
+
   .timeline-dot {
     left: -27px;
   }

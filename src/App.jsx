@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Projects from './pages/project/Projects';
@@ -8,53 +7,130 @@ import Resume from './pages/resume/Resume';
 import Contact from './pages/contact/Contact';
 import './index.css';
 
+const SECTIONS = [
+  { id: 'home', label: 'Home', Component: Home },
+  { id: 'about', label: 'About', Component: About },
+  { id: 'projects', label: 'Projects', Component: Projects },
+  { id: 'experience', label: 'Experience', Component: Experience },
+  { id: 'resume', label: 'Resume', Component: Resume },
+  { id: 'contact', label: 'Contact', Component: Contact },
+];
+
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
-  });
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    const validSectionIds = new Set(SECTIONS.map((section) => section.id));
+    const sectionElements = SECTIONS
+      .map((section) => document.getElementById(section.id))
+      .filter(Boolean);
+
+    const syncFromHash = () => {
+      const hashTarget = window.location.hash.replace('#', '');
+
+      if (!validSectionIds.has(hashTarget)) {
+        return;
+      }
+
+      const targetSection = document.getElementById(hashTarget);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+        setActiveSection(hashTarget);
+      }
+    };
+
+    if (window.location.hash) {
+      requestAnimationFrame(syncFromHash);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
+
+        if (!visibleSection) {
+          return;
+        }
+
+        const nextSectionId = visibleSection.target.id;
+        const nextUrl = nextSectionId === 'home'
+          ? `${window.location.pathname}${window.location.search}`
+          : `${window.location.pathname}${window.location.search}#${nextSectionId}`;
+
+        setActiveSection(nextSectionId);
+        window.history.replaceState(null, '', nextUrl);
+      },
+      {
+        rootMargin: '-30% 0px -45% 0px',
+        threshold: [0.2, 0.35, 0.55, 0.75],
+      },
+    );
+
+    sectionElements.forEach((section) => observer.observe(section));
+    window.addEventListener('hashchange', syncFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('hashchange', syncFromHash);
+    };
+  }, []);
+
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  const scrollToSection = (sectionId) => {
+    const targetId = SECTIONS.some((section) => section.id === sectionId) ? sectionId : 'home';
+    const targetSection = document.getElementById(targetId);
+
+    if (!targetSection) {
+      return;
+    }
+
+    const nextUrl = targetId === 'home'
+      ? `${window.location.pathname}${window.location.search}`
+      : `${window.location.pathname}${window.location.search}#${targetId}`;
+
+    setActiveSection(targetId);
+    window.history.replaceState(null, '', nextUrl);
+    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleNavClick = (event, sectionId) => {
+    event.preventDefault();
+    scrollToSection(sectionId);
   };
 
   return (
     <>
       <nav>
-        <Link to="/" className="logo">sammiazaz</Link>
+        <a href="#home" className="logo" onClick={(event) => handleNavClick(event, 'home')}>
+          sammiazaz
+        </a>
+
         <ul className="nav-links">
-          <li>
-            <Link to="/" className={location.pathname === '/' ? 'accent active' : 'accent'}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className={location.pathname === '/about' ? 'accent active' : 'accent'}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/projects" className={location.pathname === '/projects' ? 'accent active' : 'accent'}>
-              Project
-            </Link>
-          </li>
-          <li>
-            <Link to="/experience" className={location.pathname === '/experience' ? 'accent active' : 'accent'}>
-              Experience
-            </Link>
-          </li>
-          <li>
-            <Link to="/resume" className={location.pathname === '/resume' ? 'accent active' : 'accent'}>
-              Resume
-            </Link>
-          </li>
+          {SECTIONS.slice(0, 5).map((section) => (
+            <li key={section.id}>
+              <a
+                href={`#${section.id}`}
+                className={activeSection === section.id ? 'accent active' : 'accent'}
+                aria-current={activeSection === section.id ? 'page' : undefined}
+                onClick={(event) => handleNavClick(event, section.id)}
+              >
+                {section.label}
+              </a>
+            </li>
+          ))}
         </ul>
+
         <div className="nav-actions">
           <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme">
             {theme === 'light' ? (
@@ -75,6 +151,7 @@ function App() {
               </svg>
             )}
           </button>
+
           <div className="social-links">
             <a href="https://github.com" target="_blank" rel="noreferrer" className="social-icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -87,23 +164,42 @@ function App() {
               </svg>
             </a>
           </div>
+
           <button
             className="btn btn-solid"
-            onClick={() => navigate('/contact')}
+            type="button"
+            onClick={() => scrollToSection('contact')}
           >
             Contact Me
           </button>
         </div>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <main className="page-stack">
+        <section id="home" className="page-panel page-panel-home">
+          <Home onScrollNext={() => scrollToSection('about')} />
+        </section>
+
+        <section id="about" className="page-panel">
+          <About />
+        </section>
+
+        <section id="projects" className="page-panel">
+          <Projects />
+        </section>
+
+        <section id="experience" className="page-panel">
+          <Experience />
+        </section>
+
+        <section id="resume" className="page-panel">
+          <Resume />
+        </section>
+
+        <section id="contact" className="page-panel">
+          <Contact />
+        </section>
+      </main>
     </>
   );
 }

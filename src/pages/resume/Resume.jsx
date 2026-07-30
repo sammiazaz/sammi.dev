@@ -7,8 +7,8 @@ const TIMELINE_DATA = [
     category: "Education",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+        <path d="M6 12v5c3 3 9 3 12 0v-5" />
       </svg>
     ),
     items: [
@@ -160,14 +160,14 @@ export default function Resume() {
   return (
     <div className="resume-page">
       <div className="timeline-container">
-        
+
         <div className="page-title">
           <h1>My <span>Resume</span></h1>
         </div>
 
         {TIMELINE_DATA.map((section, secIdx) => (
           <div key={secIdx} className="timeline-section">
-            <motion.div 
+            <motion.div
               className="section-header"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -177,11 +177,11 @@ export default function Resume() {
               <div className="section-icon">{section.icon}</div>
               <h2>{section.category}</h2>
             </motion.div>
-            
+
             <div className="section-body">
               {section.items.map((item, itemIdx) => (
-                <motion.div 
-                  key={itemIdx} 
+                <motion.div
+                  key={itemIdx}
                   className="timeline-item"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +190,7 @@ export default function Resume() {
                 >
                   <div className="timeline-dot"></div>
                   <div className="timeline-content">
-                    
+
                     {item.isGrid ? (
                       <div className="tl-skills-grid">
                         {item.gridData.map((gridItem, gIdx) => (
@@ -205,7 +205,7 @@ export default function Resume() {
                         {item.date && <div className="date-pill">{item.date}</div>}
                         <h3>{item.title}</h3>
                         {item.subtitle && <h4>{item.subtitle}</h4>}
-                        
+
                         {item.bullets.length > 0 && (
                           <ul className="timeline-bullets">
                             {item.bullets.map((bullet, bIdx) => (

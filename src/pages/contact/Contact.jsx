@@ -79,7 +79,7 @@ export default function Contact() {
   return (
     <section className="contact-page">
       <div className="contact-container">
-        
+
         <motion.div
           className="contact-header"
           initial={{ opacity: 0, y: -20 }}
@@ -94,7 +94,7 @@ export default function Contact() {
         </motion.div>
 
         <div className="contact-grid">
-          
+
           {/* Left Column: Info Cards */}
           <motion.div
             className="contact-info-col"
