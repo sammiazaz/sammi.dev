@@ -1,204 +1,171 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route, NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import Home from './pages/home/Home';
-import About from './pages/about/About';
 import Projects from './pages/project/Projects';
 import Experience from './pages/experience/Experience';
 import Resume from './pages/resume/Resume';
 import Contact from './pages/contact/Contact';
+import Persona from './pages/persona/Persona';
+import Credentials from './pages/credentials/Credentials';
+import blackHoleBg from './assets/images/blackhole-bg.png';
 import './index.css';
 
-const SECTIONS = [
-  { id: 'home', label: 'Home', Component: Home },
-  { id: 'about', label: 'About', Component: About },
-  { id: 'projects', label: 'Projects', Component: Projects },
-  { id: 'experience', label: 'Experience', Component: Experience },
-  { id: 'resume', label: 'Resume', Component: Resume },
-  { id: 'contact', label: 'Contact', Component: Contact },
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function GlobalBackground() {
+  return (
+    <div className="fixed-global-bg-container">
+      <img src="./a3ea7022-116c-4365-8579-ffc545d8cacf.png" alt="Persona Background" className="fixed-global-bg-img" />
+      <div className="fixed-global-bg-overlay" />
+    </div>
+  );
+}
+
+
+
+const NAV_ITEMS = [
+  { path: '/projects', label: 'Projects' },
+  { path: '/credentials', label: 'Credentials' },
+  { path: '/persona', label: 'Persona' },
+  { path: '/contact', label: 'Contact' },
 ];
 
+
+
 function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
-  const [activeSection, setActiveSection] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [theme, setTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'b&w');
+  const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
-
-  useEffect(() => {
-    const validSectionIds = new Set(SECTIONS.map((section) => section.id));
-    const sectionElements = SECTIONS
-      .map((section) => document.getElementById(section.id))
-      .filter(Boolean);
-
-    const syncFromHash = () => {
-      const hashTarget = window.location.hash.replace('#', '');
-
-      if (!validSectionIds.has(hashTarget)) {
-        return;
-      }
-
-      const targetSection = document.getElementById(hashTarget);
-
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-        setActiveSection(hashTarget);
-      }
-    };
-
-    if (window.location.hash) {
-      requestAnimationFrame(syncFromHash);
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSection = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
-
-        if (!visibleSection) {
-          return;
-        }
-
-        const nextSectionId = visibleSection.target.id;
-        const nextUrl = nextSectionId === 'home'
-          ? `${window.location.pathname}${window.location.search}`
-          : `${window.location.pathname}${window.location.search}#${nextSectionId}`;
-
-        setActiveSection(nextSectionId);
-        window.history.replaceState(null, '', nextUrl);
-      },
-      {
-        rootMargin: '-30% 0px -45% 0px',
-        threshold: [0.2, 0.35, 0.55, 0.75],
-      },
-    );
-
-    sectionElements.forEach((section) => observer.observe(section));
-    window.addEventListener('hashchange', syncFromHash);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('hashchange', syncFromHash);
-    };
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
-
-  const scrollToSection = (sectionId) => {
-    const targetId = SECTIONS.some((section) => section.id === sectionId) ? sectionId : 'home';
-    const targetSection = document.getElementById(targetId);
-
-    if (!targetSection) {
-      return;
-    }
-
-    const nextUrl = targetId === 'home'
-      ? `${window.location.pathname}${window.location.search}`
-      : `${window.location.pathname}${window.location.search}#${targetId}`;
-
-    setActiveSection(targetId);
-    window.history.replaceState(null, '', nextUrl);
-    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const handleNavClick = (event, sectionId) => {
-    event.preventDefault();
-    scrollToSection(sectionId);
-  };
 
   return (
     <>
-      <nav>
-        <a href="#home" className="logo" onClick={(event) => handleNavClick(event, 'home')}>
-          sammiazaz
-        </a>
+      <ScrollToTop />
+      <GlobalBackground />
+      <nav className="floating-navbar">
+        <Link to="/" className="logo">
+          <svg className="nav-home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          <span className="logo-text">sammiazaz</span>
+        </Link>
 
         <ul className="nav-links">
-          {SECTIONS.slice(0, 5).map((section) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                className={activeSection === section.id ? 'accent active' : 'accent'}
-                aria-current={activeSection === section.id ? 'page' : undefined}
-                onClick={(event) => handleNavClick(event, section.id)}
+          {NAV_ITEMS.map((item) => (
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => (isActive ? 'accent active' : 'accent')}
+                end={item.path === '/'}
               >
-                {section.label}
-              </a>
+                {item.label}
+              </NavLink>
             </li>
           ))}
         </ul>
 
         <div className="nav-actions">
-          <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme">
-            {theme === 'light' ? (
+          <div className="theme-selector-wrapper">
+            <button
+              className="theme-nav-btn"
+              onClick={() => setIsThemeModalOpen(!isThemeModalOpen)}
+              title="Choose Theme"
+            >
               <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
               </svg>
-            ) : (
-              <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            )}
-          </button>
+              <span>{theme === 'nitro' ? 'Nitro' : theme === 'littlebird' ? 'Littlebird' : theme === 'zprox' ? 'zPROx.AI' : 'B&W'}</span>
+            </button>
 
-          <div className="social-links">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="social-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg>
-            </a>
+            {isThemeModalOpen && (
+              <div className="theme-dropdown-popup">
+                <div className="theme-popup-header">Select Theme</div>
+                <button
+                  className={`theme-option-btn ${theme === 'b&w' ? 'active' : ''}`}
+                  onClick={() => { setTheme('b&w'); setIsThemeModalOpen(false); }}
+                >
+                  <span className="theme-color-preview bw-preview"></span>
+                  <div className="theme-info">
+                    <span className="theme-name">B&W</span>
+                    <span className="theme-desc">Default Monochrome</span>
+                  </div>
+                </button>
+                <button
+                  className={`theme-option-btn ${theme === 'nitro' ? 'active' : ''}`}
+                  onClick={() => { setTheme('nitro'); setIsThemeModalOpen(false); }}
+                >
+                  <span className="theme-color-preview nitro-preview"></span>
+                  <div className="theme-info">
+                    <span className="theme-name">Nitro</span>
+                    <span className="theme-desc">Cyan & Orange Accent</span>
+                  </div>
+                </button>
+                <button
+                  className={`theme-option-btn ${theme === 'littlebird' ? 'active' : ''}`}
+                  onClick={() => { setTheme('littlebird'); setIsThemeModalOpen(false); }}
+                >
+                  <span className="theme-color-preview littlebird-preview"></span>
+                  <div className="theme-info">
+                    <span className="theme-name">Littlebird</span>
+                    <span className="theme-desc">Warm Gold & Olive</span>
+                  </div>
+                </button>
+                <button
+                  className={`theme-option-btn ${theme === 'zprox' ? 'active' : ''}`}
+                  onClick={() => { setTheme('zprox'); setIsThemeModalOpen(false); }}
+                >
+                  <span className="theme-color-preview zprox-preview"></span>
+                  <div className="theme-info">
+                    <span className="theme-name">zPROx.AI</span>
+                    <span className="theme-desc">Vibrant Red & Carbon Dark</span>
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
 
-          <button
-            className="btn btn-solid"
-            type="button"
-            onClick={() => scrollToSection('contact')}
-          >
-            Contact Me
+          <button className="nav-bot-btn" title="AI Assistant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2" />
+              <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor" />
+              <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor" />
+              <path d="M12 2v5" />
+              <circle cx="12" cy="2" r="1" fill="currentColor" />
+            </svg>
           </button>
+
+          <Link to="/resume" className="btn btn-solid">
+            Resume
+          </Link>
         </div>
       </nav>
 
-      <main className="page-stack">
-        <section id="home" className="page-panel page-panel-home">
-          <Home onScrollNext={() => scrollToSection('about')} />
-        </section>
-
-        <section id="about" className="page-panel">
-          <About />
-        </section>
-
-        <section id="projects" className="page-panel">
-          <Projects />
-        </section>
-
-        <section id="experience" className="page-panel">
-          <Experience />
-        </section>
-
-        <section id="resume" className="page-panel">
-          <Resume />
-        </section>
-
-        <section id="contact" className="page-panel">
-          <Contact />
-        </section>
+      <main className="page-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/persona" element={<Persona />} />
+          <Route path="/credentials" element={<Credentials />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
       </main>
     </>
   );
