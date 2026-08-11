@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import About from '../about/About';
 
 let hasPlayedEntrance = false;
 
@@ -178,10 +180,22 @@ export default function Home({ onScrollNext }) {
       <button
         type="button"
         className="scroll-hint"
-        onClick={() => onScrollNext?.()}
+        onClick={() => {
+          document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+        }}
       >
-        move your cursor around | scroll down to explore
+        move your cursor around | click to explore about
       </button>
+
+      <div id="about-section">
+        <About />
+      </div>
+      
+      <div className="persona-link-container">
+        <Link to="/persona" className="persona-btn">
+          Persona
+        </Link>
+      </div>
     </div>
   );
 }
