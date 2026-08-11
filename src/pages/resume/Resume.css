@@ -1,9 +1,8 @@
 .resume-page {
-  --tl-accent: var(--red);
-  --tl-line: rgba(var(--red-rgb), 0.4);
-  /* highly visible translucent red line */
+  --tl-accent: var(--primary);
+  --tl-line: rgba(255, 255, 255, 0.15);
 
-  padding: 100px 5%;
+  padding: 100px var(--container-padding);
   min-height: 100vh;
   background-color: var(--bg);
   position: relative;
@@ -12,37 +11,11 @@
 }
 
 .timeline-container {
-  max-width: 800px;
+  max-width: var(--container-width);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 50px;
-}
-
-.page-title {
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.page-title p {
-  font-size: 1.15rem;
-  color: var(--grey);
-  max-width: 600px;
-  margin: 10px auto 0;
-  line-height: 1.6;
-}
-
-.page-title h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--black);
-  letter-spacing: -1px;
-}
-
-.page-title h1 span {
-  background: linear-gradient(135deg, var(--red) 0%, #ff6b76 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .timeline-section {
@@ -61,15 +34,14 @@
 .section-icon {
   width: 46px;
   height: 46px;
-  background: var(--bg);
-  border: 1.5px solid var(--red);
-  border-radius: 8px;
-  /* Sharper rounded square */
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--tl-accent);
-  box-shadow: 0 4px 15px var(--shadow-sm);
+  color: var(--primary);
+  box-shadow: var(--glass-shadow);
   flex-shrink: 0;
 }
 
@@ -79,17 +51,16 @@
 }
 
 .section-header h2 {
-  font-size: 1.4rem;
+  font-family: 'Comfortaa', cursive, sans-serif;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: var(--black);
+  color: var(--text-primary);
 }
 
 .section-body {
   position: relative;
   margin-left: 23px;
-  /* centers under the 46px icon */
   border-left: 1.5px solid var(--tl-line);
-  /* slightly thicker to ensure visibility */
   padding-left: 35px;
   padding-bottom: 10px;
 }
@@ -106,7 +77,6 @@
 .timeline-dot {
   position: absolute;
   left: -42px;
-  /* aligns perfectly with the border */
   top: 4px;
   width: 13px;
   height: 13px;
@@ -133,7 +103,7 @@
 
 .timeline-content h3 {
   font-size: 1.05rem;
-  color: var(--black);
+  color: var(--text-primary);
   margin-bottom: 5px;
   font-weight: 700;
   line-height: 1.3;
@@ -141,7 +111,7 @@
 
 .timeline-content h4 {
   font-size: 0.85rem;
-  color: var(--grey);
+  color: var(--text-muted);
   margin-bottom: 12px;
   font-weight: 500;
 }
@@ -149,12 +119,15 @@
 .date-pill {
   display: inline-block;
   padding: 4px 10px;
-  background: var(--red-light);
-  color: var(--tl-accent);
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
 }
 
 .timeline-bullets {
@@ -167,7 +140,7 @@
 .timeline-bullets li {
   position: relative;
   padding-left: 15px;
-  color: var(--grey);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -176,12 +149,12 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--grey);
+  color: var(--text-muted);
   font-size: 0.9rem;
   top: 0px;
 }
 
-/* Skills Grid Specifics */
+/* Skills Grid */
 .tl-skills-grid {
   display: flex;
   flex-direction: column;
@@ -195,24 +168,21 @@
 }
 
 .tl-skill-label {
-  color: var(--tl-accent);
+  color: var(--primary);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   width: 90px;
   flex-shrink: 0;
+  font-family: var(--font-mono);
 }
 
 .tl-skill-value {
-  color: var(--grey);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   line-height: 1.5;
 }
 
 @media (max-width: 768px) {
-  .page-title h1 {
-    font-size: 2.0rem;
-  }
-
   .section-body {
     margin-left: 15px;
     padding-left: 20px;

@@ -17,7 +17,7 @@ const TIMELINE_DATA = [
         subtitle: "IILM University, Greater Noida, India",
         date: "July 2023 – Aug 2027",
         bullets: [
-          "Relevant Coursework: Data Structures & Algorithms, OOP, DBMS, Operating Systems, Computer Networks"
+          "Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks"
         ]
       }
     ]
@@ -34,10 +34,13 @@ const TIMELINE_DATA = [
       {
         isGrid: true,
         gridData: [
-          { label: "Languages", value: "Java, Python, C++, JavaScript, SQL, HTML/CSS" },
-          { label: "ML / AI", value: "TensorFlow, PyTorch, Scikit-learn, Keras, NLP, Computer Vision, Model Optimization" },
-          { label: "Web & Cloud", value: "React, Node.js, Spring Boot, Flask, AWS (EC2, S3, Lambda, SageMaker), Docker, Git" },
-          { label: "Databases", value: "MySQL, PostgreSQL, MongoDB, Firebase" }
+          { label: "Programming Languages", value: "Java, Python, JavaScript, SQL" },
+          { label: "Frontend", value: "HTML5, CSS3, React.js, Vite, Responsive Design" },
+          { label: "Backend", value: "Node.js, Express.js, REST APIs" },
+          { label: "Databases", value: "MySQL, MongoDB" },
+          { label: "Developer Tools", value: "Git, GitHub, VS Code, Postman, Vercel" },
+          { label: "Core CS", value: "Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks" },
+          { label: "Social Media", value: "Social Media Marketing, Content Strategy, Audience Engagement, Platform Management" }
         ]
       }
     ]
@@ -52,23 +55,24 @@ const TIMELINE_DATA = [
     ),
     items: [
       {
-        title: "AI-Powered Movie Recommendation System",
-        subtitle: "Python, Streamlit, Scikit-learn, TMDB API",
-        date: "March 2025",
+        title: "TripNest – AI-Powered Travel Planning Platform",
+        subtitle: "React.js, Vite, Node.js, Express.js, REST APIs",
+        date: "2025",
         bullets: [
-          "Developed recommendation system suggesting movies based on user preferences using cosine similarity with movie metadata including genre, cast, and keywords.",
-          "Deployed interactive web application with Streamlit featuring dynamic filtering options to enhance user experience.",
-          "Processed TMDB dataset from Kaggle using Pandas and NumPy for efficient data handling and feature engineering."
+          "Built a full-stack travel platform enabling users to discover destinations, create and manage multiple trips, and collaborate with friends, using a reusable, component-based React.js architecture",
+          "Implemented an AI-assisted trip planning experience and a memories feature for organizing travel photos, improving overall usability",
+          "Developed and integrated REST APIs with a Node.js/Express.js backend to power dynamic itinerary content, and optimized client-side routing for faster page transitions",
+          "Designed a fully responsive, cross-browser compatible UI, managed source code with Git/GitHub, and deployed the application on Vercel"
         ]
       },
       {
-        title: "Human Heart Disease Prediction",
+        title: "Human Heart Disease Prediction System",
         subtitle: "Python, Scikit-learn, SMOTE",
         date: "Dec 2025",
         bullets: [
-          "Developed ML model to predict likelihood of heart disease based on health indicators using Logistic Regression and Random Forest.",
-          "Implemented SMOTE technique to handle class imbalance and improve model accuracy for identifying high-risk individuals.",
-          "Performed comprehensive data preprocessing and feature selection using Pandas and NumPy for early medical intervention."
+          "Built a classification pipeline using Logistic Regression and Random Forest models to predict heart disease risk from multiple health indicators",
+          "Applied SMOTE to correct class imbalance across the training data, improving detection reliability for high-risk patients",
+          "Performed end-to-end data preprocessing and feature selection with Pandas and NumPy to support early medical intervention"
         ]
       }
     ]
@@ -83,23 +87,13 @@ const TIMELINE_DATA = [
     ),
     items: [
       {
-        title: "Python Developer Intern",
-        subtitle: "Shadowfox • Remote",
-        date: "July 2025 – Aug 2025 · 2 mo",
-        bullets: [
-          "Assisted in developing and testing Python scripts and applications with guidance from senior developers.",
-          "Supported data collection, cleaning, and basic analysis using Python libraries such as Pandas and NumPy.",
-          "Collaborated with team to fix code issues and learned software development best practices and debugging techniques."
-        ]
-      },
-      {
         title: "Web Developer Intern",
         subtitle: "Prodigy InfoTech • Remote",
-        date: "June 2025 – July 2025 · 2 mo",
+        date: "June 2025 – July 2025",
         bullets: [
-          "Developed responsive web applications using HTML, CSS, and JavaScript with focus on user experience.",
-          "Optimized web applications for performance, accessibility, and cross-browser compatibility.",
-          "Utilized Git/GitHub for version control and deployed projects on cloud platforms."
+          "Developed multiple responsive web applications using HTML, CSS, and JavaScript, improving usability across devices",
+          "Optimized application performance, accessibility, and cross-browser compatibility, enhancing user experience",
+          "Managed source code with Git/GitHub and communicated progress with the team while deploying to cloud platforms"
         ]
       }
     ]
@@ -114,15 +108,27 @@ const TIMELINE_DATA = [
     ),
     items: [
       {
-        title: "AWS Academy Machine Learning Foundations",
-        subtitle: "AWS Academy Graduate",
-        date: "",
+        title: "Introduction to Social Media",
+        subtitle: "Coursera",
+        date: "Jul 2026",
         bullets: []
       },
       {
-        title: "Web Development - Java Programming Beginner to Master",
+        title: "AWS Academy Machine Learning Foundations",
+        subtitle: "AWS Academy Graduate",
+        date: "2025",
+        bullets: []
+      },
+      {
+        title: "Web Development",
         subtitle: "Udemy",
-        date: "",
+        date: "2025",
+        bullets: []
+      },
+      {
+        title: "Java Programming: Beginner to Master",
+        subtitle: "Udemy",
+        date: "2025",
         bullets: []
       }
     ]
@@ -148,8 +154,8 @@ const TIMELINE_DATA = [
       },
       {
         title: "Bharatiya Antariksh Hackathon 2025",
-        subtitle: "National Level Participation",
-        date: "",
+        subtitle: "Focused on space-tech innovation",
+        date: "2025",
         bullets: []
       }
     ]
@@ -161,8 +167,9 @@ export default function Resume() {
     <div className="resume-page">
       <div className="timeline-container">
 
-        <div className="page-title">
-          <h1>My <span>Resume</span></h1>
+        <div className="persona-page-header">
+          <p className="who-i-am-label">CURRICULUM VITAE</p>
+          <h1 className="persona-main-title">Resume</h1>
         </div>
 
         {TIMELINE_DATA.map((section, secIdx) => (
