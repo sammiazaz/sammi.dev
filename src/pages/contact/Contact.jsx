@@ -80,18 +80,10 @@ export default function Contact() {
     <section className="contact-page">
       <div className="contact-container">
 
-        <motion.div
-          className="contact-header"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1>Get in <span>Touch</span></h1>
-          <div className="contact-header-underline"></div>
-          <p>
-            Have a project in mind, a job opportunity, or just want to say hello? Feel free to reach out using the form or through my social channels!
-          </p>
-        </motion.div>
+        <div className="persona-page-header">
+          <p className="who-i-am-label">GET IN TOUCH</p>
+          <h1 className="persona-main-title">Contact</h1>
+        </div>
 
         <div className="contact-grid">
 
@@ -112,7 +104,7 @@ export default function Contact() {
               </div>
               <div className="info-details">
                 <h3>Email</h3>
-                <a href="mailto:sammiazaz@gmail.com">sammiazaz@gmail.com</a>
+                <a href="mailto:sammiazaz2004@gmail.com">sammiazaz2004@gmail.com</a>
               </div>
             </motion.div>
 
@@ -126,7 +118,7 @@ export default function Contact() {
               </div>
               <div className="info-details">
                 <h3>Location</h3>
-                <p>Greater Noida, India</p>
+                <p>Delhi, India</p>
               </div>
             </motion.div>
 
@@ -139,7 +131,7 @@ export default function Contact() {
               </div>
               <div className="info-details">
                 <h3>GitHub</h3>
-                <a href="https://github.com" target="_blank" rel="noreferrer">github.com/sammiazaz</a>
+                <a href="https://github.com/sammiazaz" target="_blank" rel="noreferrer">github.com/sammiazaz</a>
               </div>
             </motion.div>
 
@@ -154,7 +146,7 @@ export default function Contact() {
               </div>
               <div className="info-details">
                 <h3>LinkedIn</h3>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer">linkedin.com/in/sammiazaz</a>
+                <a href="https://linkedin.com/in/sammiazazse" target="_blank" rel="noreferrer">linkedin.com/in/sammiazazse</a>
               </div>
             </motion.div>
           </motion.div>
