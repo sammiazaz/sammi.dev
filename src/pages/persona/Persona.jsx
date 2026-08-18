@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import './Persona.css';
 import iilmImg from './images.jpg';
@@ -109,15 +109,12 @@ const SOCIAL_LINKS = [
 export default function Persona() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12 }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.12 } }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+  const bentoVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
   };
 
   return (
@@ -126,208 +123,119 @@ export default function Persona() {
 
         {/* Header */}
         <div className="persona-page-header">
-          <p className="who-i-am-label">WHO I AM</p>
-          <h1 className="persona-main-title">Persona</h1>
+          <h1 className="persona-main-title">
+            Developer <span className="title-work-muted">Persona</span>
+          </h1>
+          <p className="section-description">
+            A comprehensive look into my background, engineering philosophy, and creative pursuits.
+          </p>
         </div>
 
         <motion.div
+          className="persona-bento-grid"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Section 1: Intro + Education */}
-          <motion.div variants={itemVariants} className="persona-hero-grid">
-            {/* Intro */}
-            <div className="persona-intro-block">
-              <h2 className="section-subheading">Hi, I'm <span className="highlight-cyan">Sammi</span></h2>
-              <div className="bio-paragraphs">
-                <p>
-                  2nd-year <span className="highlight-cyan">Undergrad</span> student at{' '}
-                  <span className="highlight-cyan">IILM University</span> — CPI <span className="highlight-gold">8.5 / 10</span>,
-                  graduating <span className="highlight-gold">August 2027</span>. I build at the intersection of full-stack engineering and applied ML.
-                </p>
-                <p>
-                  My current focus: developing scalable web applications using React.js and Node.js ecosystems,
-                  with a growing interest in integrating machine learning models into practical web solutions.
-                  I am passionate about creating clean, accessible user interfaces and robust APIs.
-                </p>
-              </div>
-              <div className="persona-tags-row">
-                <span className="persona-pill-tag">Delhi, India</span>
-                <span className="persona-pill-tag"><span className="highlight-cyan">IILM University</span> · <span className="highlight-gold">2027</span></span>
-              </div>
+          {/* 1. BIO BENTO (2x2) */}
+          <motion.div variants={bentoVariants} className="bento-card bento-bio">
+            <div className="bento-glow-bg"></div>
+            <h2 className="bento-title">Hi, I'm <span className="highlight-cyan">Sammi</span></h2>
+            <div className="bio-paragraphs">
+              <p>
+                2nd-year <span className="highlight-cyan">Undergrad</span> student at{' '}
+                <span className="highlight-cyan">IILM University</span> — CPI <span className="highlight-gold">8.5 / 10</span>,
+                graduating <span className="highlight-gold">August 2027</span>. I build at the intersection of full-stack engineering and applied ML.
+              </p>
+              <p>
+                My current focus: developing scalable web applications using React.js and Node.js ecosystems,
+                with a growing interest in integrating machine learning models into practical web solutions.
+                I am passionate about creating clean, accessible user interfaces and robust APIs.
+              </p>
             </div>
-
-            {/* Education */}
-            <div className="persona-education-block">
-              <h2 className="section-subheading">Education</h2>
-              <div className="education-card-wrapper">
-                <div className="education-card-box">
-                  <div className="edu-header">
-                    <div className="edu-badge">IILM</div>
-                    <div className="edu-info">
-                      <div className="edu-title-line">
-                        <h3>IILM University</h3>
-                        <span className="photo-hint">hover for photo</span>
-                      </div>
-                      <p className="edu-degree">Bachelor of Technology in Computer Science and Engineering</p>
-                      <p className="edu-dates">2023 – <span className="highlight-gold">2027</span></p>
-                      <div className="edu-cpi-row">
-                        <span className="cpi-text">CPI 4TH SEM</span>
-                        <span className="cpi-val highlight-gold">8.50</span>
-                        <span className="cpi-denom">/ 10</span>
-                        <span className="year-badge">2nd Year</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover Photo Popover */}
-                <div className="photo-popover">
-                  <div className="popover-card">
-                    <img
-                      src={iilmImg}
-                      alt="IILM University campus"
-                      className="popover-img"
-                    />
-                    <div className="popover-footer">
-                      <span className="popover-inst">IILM University</span>
-                      <span className="popover-est">Greater Noida, India</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="persona-tags-row">
+              <span className="persona-pill-tag">Delhi, India</span>
+              <span className="persona-pill-tag">Software Engineer</span>
+              <span className="persona-pill-tag">Zero-Knowledge Security</span>
             </div>
           </motion.div>
 
-          {/* Section 2: GitHub Contributions Chart */}
-          <motion.div variants={itemVariants} className="persona-section-card github-card">
-            <div className="card-top-bar">
-              <div className="top-bar-left">
-                <span className="cyan-dot-pulse"></span>
-                <span className="card-top-title">GitHub Contributions</span>
+          {/* 2. EDUCATION BENTO (2x1) */}
+          <motion.div variants={bentoVariants} className="bento-card bento-edu">
+            <div className="edu-header">
+              <div className="edu-badge">IILM</div>
+              <div className="edu-info">
+                <h3>IILM University</h3>
+                <p className="edu-degree">B.Tech Computer Science</p>
+                <p className="edu-dates">2023 – <span className="highlight-gold">2027</span></p>
               </div>
-              <a
-                href="https://github.com/sammiazaz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-ext-link"
-              >
-                sammiazaz
-                <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M15 3h6v6" />
-                  <path d="M10 14 21 3" />
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                </svg>
-              </a>
             </div>
-            <div className="card-content-body">
-              <img
-                src="https://ghchart.rshah.org/ffffff/sammiazaz"
-                alt="Sammi's GitHub contribution chart"
-                className="gh-chart-img"
-              />
-              <div className="chart-legend">
-                <span className="legend-txt">Less</span>
-                <span className="legend-box level-1"></span>
-                <span className="legend-box level-2"></span>
-                <span className="legend-box level-3"></span>
-                <span className="legend-box level-4"></span>
-                <span className="legend-box level-5"></span>
-                <span className="legend-txt">More</span>
+            <div className="edu-cpi-row">
+              <div className="cpi-block">
+                <span className="cpi-text">CPI 4TH SEM</span>
+                <div className="cpi-val-wrap">
+                  <span className="cpi-val highlight-gold">8.50</span>
+                  <span className="cpi-denom">/ 10</span>
+                </div>
               </div>
+              <img src={iilmImg} alt="IILM Campus" className="edu-bento-img" />
             </div>
           </motion.div>
 
-          {/* Section 3: LeetCode Activity Chart */}
-          <motion.div variants={itemVariants} className="persona-section-card leetcode-card">
-            <div className="card-top-bar leetcode-border">
-              <div className="top-bar-left">
+          {/* 3. LEETCODE BENTO (2x1) */}
+          <motion.div variants={bentoVariants} className="bento-card bento-leetcode">
+            <div className="bento-top-bar">
+              <div className="bar-left">
                 <span className="orange-dot-pulse"></span>
-                <span className="card-top-title">LeetCode Activity</span>
+                <span className="bento-subtitle">LeetCode Activity</span>
               </div>
-              <a
-                href="https://leetcode.com/u/sammiazaz21/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-ext-link orange-hover"
-              >
+              <a href="https://leetcode.com/u/sammiazaz21/" target="_blank" rel="noopener noreferrer" className="card-ext-link orange-hover">
                 sammiazaz21
-                <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M15 3h6v6" />
-                  <path d="M10 14 21 3" />
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                </svg>
               </a>
             </div>
-            <div className="card-content-body">
-              <div className="leetcode-stats-row">
-                <div className="lc-stat-pill">
-                  <span className="lc-stat-val">350+</span>
-                  <span className="lc-stat-lbl">Problems Solved</span>
-                </div>
-                <div className="lc-stat-pill">
-                  <span className="lc-stat-val">1750+</span>
-                  <span className="lc-stat-lbl">Contest Rating</span>
-                </div>
-                <div className="lc-stat-pill">
-                  <span className="lc-stat-val">Top 8%</span>
-                  <span className="lc-stat-lbl">Global Ranking</span>
-                </div>
+            <div className="leetcode-stats-row">
+              <div className="lc-stat-pill">
+                <span className="lc-stat-val">350+</span>
+                <span className="lc-stat-lbl">Solved</span>
               </div>
-              <div className="chart-legend">
-                <span className="legend-txt">Less</span>
-                <span className="legend-box lc-1"></span>
-                <span className="legend-box lc-2"></span>
-                <span className="legend-box lc-3"></span>
-                <span className="legend-box lc-4"></span>
-                <span className="legend-box lc-5"></span>
-                <span className="legend-txt">More</span>
+              <div className="lc-stat-pill">
+                <span className="lc-stat-val">1750+</span>
+                <span className="lc-stat-lbl">Rating</span>
+              </div>
+              <div className="lc-stat-pill">
+                <span className="lc-stat-val">Top 8%</span>
+                <span className="lc-stat-lbl">Global</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Section 4: Support My Work (Sponsors Card) */}
-          <motion.div variants={itemVariants} className="support-section">
-            <h2 className="section-subheading">Support my work</h2>
-            <div className="persona-section-card iframe-sponsor-card">
-              <iframe
-                src="https://github.com/sponsors/sammiazaz/card"
-                title="Sponsor sammiazaz"
-                height="225"
-                width="600"
-                className="sponsor-iframe"
-              />
+          {/* 4. GITHUB BENTO (4x1) */}
+          <motion.div variants={bentoVariants} className="bento-card bento-github">
+            <div className="bento-top-bar">
+              <div className="bar-left">
+                <span className="cyan-dot-pulse"></span>
+                <span className="bento-subtitle">GitHub Contributions</span>
+              </div>
+              <a href="https://github.com/sammiazaz" target="_blank" rel="noopener noreferrer" className="card-ext-link">
+                sammiazaz
+              </a>
+            </div>
+            <div className="github-chart-container">
+              <img src="https://ghchart.rshah.org/ffffff/sammiazaz" alt="GitHub chart" className="gh-chart-img" />
             </div>
           </motion.div>
 
-          {/* Section 5: Find Me On (Social Links Grid) */}
-          <motion.div variants={itemVariants} className="socials-section">
-            <h2 className="section-subheading">Find me on</h2>
-            <div className="socials-grid">
-              {SOCIAL_LINKS.map((link, idx) => (
-                <a
-                  key={idx}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-card-item"
-                  style={{ '--brand-color': link.color }}
-                >
-                  <div className="social-icon-wrapper" style={{ color: link.color }}>
-                    {link.icon}
-                  </div>
-                  <div className="social-meta">
-                    <div className="social-name">{link.name}</div>
-                    <div className="social-handle">{link.handle}</div>
-                  </div>
-                </a>
-              ))}
-            </div>
+          {/* 5. SOCIALS BENTO (4x1 Grid of Links) */}
+          <motion.div variants={bentoVariants} className="bento-socials">
+            {SOCIAL_LINKS.map((link, idx) => (
+              <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="bento-social-card" style={{ '--brand-color': link.color }}>
+                <div className="social-icon-wrapper" style={{ color: link.color }}>{link.icon}</div>
+                <div className="social-name">{link.name}</div>
+              </a>
+            ))}
           </motion.div>
 
         </motion.div>
-
       </div>
     </section>
   );
