@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Credentials.css';
 import oracleCert from '../../assets/images/oracle_cert_mockup.png';
@@ -72,19 +72,111 @@ const SKILL_BADGES = [
   { name: "Database Management", level: "Proficient", icon: "🗄️" },
 ];
 
-export default function Credentials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef(null);
+const VaultCard = ({ cert }) => {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
 
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const { scrollTop, clientHeight } = scrollRef.current;
-      const index = Math.round(scrollTop / clientHeight);
-      if (index !== activeIndex) {
-        setActiveIndex(index);
-      }
-    }
+  const handleMouseMove = (e) => {
+    if (window.innerWidth < 1024) return;
+    const card = e.currentTarget;
+    const box = card.getBoundingClientRect();
+    const x = e.clientX - box.left;
+    const y = e.clientY - box.top;
+    
+    const centerX = box.width / 2;
+    const centerY = box.height / 2;
+    
+    // Tilt amounts
+    const rx = ((y - centerY) / centerY) * -5;
+    const ry = ((x - centerX) / centerX) * 5;
+    
+    setRotateX(rx);
+    setRotateY(ry);
+
+    setGlare({
+      x: (x / box.width) * 100,
+      y: (y / box.height) * 100,
+      opacity: 1
+    });
   };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+    setGlare(prev => ({ ...prev, opacity: 0 }));
+  };
+
+  return (
+    <div className="vault-card-wrapper" style={{ perspective: 1200 }}>
+      <motion.article
+        className="vault-glass-card"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        animate={{ rotateX, rotateY }}
+        transition={{ type: 'spring', stiffness: 350, damping: 30, mass: 0.5 }}
+        style={{ 
+          transformStyle: "preserve-3d",
+          '--brand-color': cert.brandColor,
+          '--brand-color-rgb': cert.brandColorRgb
+        }}
+      >
+        <div 
+          className="vault-glare" 
+          style={{ 
+            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.15) 0%, transparent 60%)`,
+            opacity: glare.opacity
+          }} 
+        />
+        
+        <div className="vault-glow-border" />
+
+        <div className="vault-inner" style={{ transform: "translateZ(40px)" }}>
+          <div className="vault-image-container">
+            <img src={cert.image} alt={cert.title} draggable="false" />
+            <div className="vault-image-overlay" />
+          </div>
+
+          <div className="vault-content">
+            <div className="vault-skills-tags">
+              {cert.skills.map((skill, idx) => (
+                <span key={idx} className="vault-skill-pill">{skill}</span>
+              ))}
+            </div>
+            
+            <h3 className="vault-title">{cert.title}</h3>
+            
+            <p className="vault-meta">
+              <span className="vault-issuer">{cert.issuer}</span> — <span className="vault-date">{cert.date}</span>
+            </p>
+            
+            <p className="vault-desc">{cert.description}</p>
+            
+            <div className="vault-footer">
+              <span className="vault-id">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="verified-icon">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                {cert.credentialId}
+              </span>
+              
+              <a href={cert.verifyUrl} target="_blank" rel="noopener noreferrer" className="vault-verify-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                Verify
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.article>
+    </div>
+  );
+};
+
+export default function Credentials() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -118,132 +210,46 @@ export default function Credentials() {
           initial="hidden"
           animate="visible"
         >
-          {/* Top Section: Industry Certifications Scrollable Showcase */}
-          <motion.div variants={itemVariants} className="certs-section-wrapper">
-            {/* Dynamic Ambient Background Glow */}
-            <div 
-              className="certs-bg-glow"
-              style={{ '--brand-color-rgb': CERTIFICATIONS[activeIndex]?.brandColorRgb || '0, 243, 255' }}
-            />
-
-            <div className="certs-section-header-row">
-              <h2 className="certs-section-title">Verified Certifications</h2>
-              <div className="certs-section-header-right">
-                <span className="certs-scroll-hint">
-                  {CERTIFICATIONS.length} certificates • scroll to explore
-                </span>
-                <span className="certs-page-indicator">
-                  {String(activeIndex + 1).padStart(2, '0')} / {String(CERTIFICATIONS.length).padStart(2, '0')}
-                </span>
-              </div>
-            </div>
-            
-            <div 
-              className="certs-showcase-container"
-              style={{ 
-                '--brand-color': CERTIFICATIONS[activeIndex]?.brandColor || 'var(--primary)',
-                '--brand-color-rgb': CERTIFICATIONS[activeIndex]?.brandColorRgb || '0, 243, 255'
-              }}
-            >
-              {/* Scrollable Container */}
-              <div 
-                className="certs-scroll-window" 
-                ref={scrollRef}
-                onScroll={handleScroll}
-              >
-                {CERTIFICATIONS.map((cert, index) => (
-                  <div key={index} className="cert-slide">
-                    {/* Left Column: Certificate Image */}
-                    <div className="cert-image-side-wrapper">
-                      <div className="cert-image-side">
-                        <img src={cert.image} alt={cert.title} />
-                      </div>
-                    </div>
-                    
-                    {/* Right Column: Metadata & Details */}
-                    <div className="cert-info-side">
-                      <div className="cert-skills-tags">
-                        {cert.skills.map((skill, idx) => (
-                          <span key={idx} className="cert-skill-pill">{skill}</span>
-                        ))}
-                      </div>
-                      
-                      <h3 className="cert-main-title">{cert.title}</h3>
-                      
-                      <p className="cert-meta-subtitle">
-                        <span className="cert-meta-issuer">{cert.issuer}</span> — <span className="cert-meta-date">{cert.date}</span>
-                      </p>
-                      
-                      <p className="cert-desc-paragraph">{cert.description}</p>
-                      
-                      <div className="cert-footer-row">
-                        <span className="cert-verified-id">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="verified-badge-icon">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                          {cert.credentialId}
-                        </span>
-                        
-                        <a href={cert.verifyUrl} target="_blank" rel="noopener noreferrer" className="cert-verify-button">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="external-link-icon">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                          Verify Certificate
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Far Right: Vertical Dots Navigation */}
-              <div className="certs-dots-indicator">
-                {CERTIFICATIONS.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`cert-dot-btn ${activeIndex === index ? 'active' : ''}`}
-                    onClick={() => {
-                      if (scrollRef.current) {
-                        scrollRef.current.scrollTo({
-                          top: index * scrollRef.current.clientHeight,
-                          behavior: 'smooth'
-                        });
-                      }
-                    }}
-                    aria-label={`Go to certification ${index + 1}`}
-                  />
-                ))}
-              </div>
+          {/* Digital Vault Grid */}
+          <motion.div variants={itemVariants} className="vault-section">
+            <h2 className="vault-section-title">Digital Asset Vault</h2>
+            <div className="vault-grid">
+              {CERTIFICATIONS.map((cert, index) => (
+                <VaultCard key={index} cert={cert} />
+              ))}
             </div>
           </motion.div>
 
           {/* Middle Row */}
           <div className="cred-middle-row">
             {/* Academic Honors */}
-            <motion.div variants={itemVariants} className="cred-card academic-card">
+            <motion.div variants={itemVariants} className="cred-bento-card academic-card">
+              <div className="bento-glow" />
               <h2 className="cred-card-title">Academic Distinction</h2>
-              <div className="academic-list">
+              <div className="academic-timeline">
                 {ACADEMIC_HONORS.map((item, index) => (
-                  <div key={index} className="academic-item">
-                    <div className="academic-top">
-                      <h3>{item.title}</h3>
-                      <span className="academic-year">{item.year}</span>
+                  <div key={index} className="timeline-node">
+                    <div className="timeline-dot" />
+                    <div className="timeline-content">
+                      <div className="timeline-header">
+                        <h3>{item.title}</h3>
+                        <span className="timeline-year">{item.year}</span>
+                      </div>
+                      <p className="timeline-inst">{item.institution}</p>
+                      <p className="timeline-detail">{item.detail}</p>
                     </div>
-                    <p className="academic-inst">{item.institution}</p>
-                    <p className="academic-detail">{item.detail}</p>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             {/* Skill Verifications */}
-            <motion.div variants={itemVariants} className="cred-card skills-badge-card">
+            <motion.div variants={itemVariants} className="cred-bento-card skills-badge-card">
+              <div className="bento-glow" />
               <h2 className="cred-card-title">Verified Competencies</h2>
-              <div className="badges-list">
+              <div className="badges-cloud">
                 {SKILL_BADGES.map((badge, index) => (
-                  <div key={index} className="badge-row">
+                  <div key={index} className="floating-badge">
                     <span className="badge-icon">{badge.icon}</span>
                     <div className="badge-info">
                       <span className="badge-name">{badge.name}</span>
@@ -256,7 +262,6 @@ export default function Credentials() {
           </div>
 
         </motion.div>
-
       </div>
     </section>
   );
