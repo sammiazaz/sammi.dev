@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import './Experience.css'; 
 
@@ -36,9 +36,13 @@ export default function Experience() {
       <div className="experience-container">
         
         {/* Header */}
-        <div className="exp-page-header">
-          <p className="exp-label">MY JOURNEY</p>
-          <h1 className="exp-title">Experience</h1>
+        <div className="persona-page-header">
+          <h1 className="persona-main-title">
+            Career <span className="title-work-muted">Experience</span>
+          </h1>
+          <p className="section-description">
+            Industry internships, engineering roles, and collaborative development journey.
+          </p>
         </div>
 
         <motion.div 
