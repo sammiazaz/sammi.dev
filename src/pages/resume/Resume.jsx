@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import './Resume.css';
 
@@ -168,8 +168,12 @@ export default function Resume() {
       <div className="timeline-container">
 
         <div className="persona-page-header">
-          <p className="who-i-am-label">CURRICULUM VITAE</p>
-          <h1 className="persona-main-title">Resume</h1>
+          <h1 className="persona-main-title">
+            Curriculum <span className="title-work-muted">Vitae</span>
+          </h1>
+          <p className="section-description">
+            Academic timeline, core competencies, project milestones, and technical certifications.
+          </p>
         </div>
 
         {TIMELINE_DATA.map((section, secIdx) => (

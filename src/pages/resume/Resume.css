@@ -2,12 +2,18 @@
   --tl-accent: var(--primary);
   --tl-line: rgba(255, 255, 255, 0.15);
 
-  padding: 100px var(--container-padding);
+  padding: 125px 5% 60px 5%;
   min-height: 100vh;
   background-color: var(--bg);
   position: relative;
   z-index: 10;
   overflow-y: auto;
+}
+
+.resume-container .persona-page-header {
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 40px;
 }
 
 .timeline-container {
@@ -191,4 +197,57 @@
   .timeline-dot {
     left: -27px;
   }
+}
+
+/* ─── Codecademy Theme Overrides for Resume Page ─── */
+[data-theme="codecademy"] .resume-page {
+  background-color: #fff0e5;
+  --tl-line: #E6D9CC;
+  --tl-accent: #101832;
+}
+
+[data-theme="codecademy"] .section-icon {
+  background: #FFFCF8;
+  border: 1px solid #E6D9CC;
+  color: #101832;
+  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+}
+
+[data-theme="codecademy"] .section-header h2 {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .timeline-dot {
+  background: #fff0e5;
+  border-color: #101832;
+}
+
+[data-theme="codecademy"] .timeline-dot::after {
+  background: #FFD400;
+}
+
+[data-theme="codecademy"] .timeline-content h3 {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .timeline-content h4 {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .date-pill {
+  background: #fff0e5;
+  color: #101832;
+  border: 1px solid #E6D9CC;
+}
+
+[data-theme="codecademy"] .timeline-bullets li {
+  color: #394158;
+}
+
+[data-theme="codecademy"] .tl-skill-label {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .tl-skill-value {
+  color: #394158;
 }
