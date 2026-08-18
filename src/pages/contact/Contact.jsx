@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Contact.css';
 
@@ -81,8 +81,12 @@ export default function Contact() {
       <div className="contact-container">
 
         <div className="persona-page-header">
-          <p className="who-i-am-label">GET IN TOUCH</p>
-          <h1 className="persona-main-title">Contact</h1>
+          <h1 className="persona-main-title">
+            Get in <span className="title-work-muted">Touch</span>
+          </h1>
+          <p className="section-description">
+            Have a project in mind, an opportunity, or just want to discuss tech and machine learning? Feel free to reach out.
+          </p>
         </div>
 
         <div className="contact-grid">

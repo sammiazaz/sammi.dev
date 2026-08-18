@@ -1,9 +1,15 @@
 .contact-page {
   min-height: 100vh;
-  padding: 100px var(--container-padding) 60px;
+  padding: 125px var(--container-padding) 60px;
   display: flex;
   justify-content: center;
   background-color: var(--bg);
+}
+
+.contact-container .persona-page-header {
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 40px;
 }
 
 .contact-container {
@@ -300,4 +306,78 @@
   .contact-header h1 {
     font-size: 2.5rem;
   }
+}
+
+/* ─── Codecademy Theme Overrides for Contact Page ─── */
+[data-theme="codecademy"] .contact-page {
+  background-color: #fff0e5;
+}
+
+[data-theme="codecademy"] .info-card,
+[data-theme="codecademy"] .contact-form-card {
+  background: #FFFCF8;
+  border: 1px solid #E6D9CC;
+  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="codecademy"] .info-card:hover {
+  border-color: #101832;
+  box-shadow: 0 6px 20px rgba(16, 24, 50, 0.08);
+}
+
+[data-theme="codecademy"] .info-icon-wrapper {
+  background: #fff0e5;
+  border: 1px solid #E6D9CC;
+  color: #101832;
+}
+
+[data-theme="codecademy"] .info-card:hover .info-icon-wrapper {
+  background: #FFD400;
+  border-color: #101832;
+  color: #101832;
+}
+
+[data-theme="codecademy"] .info-details h3,
+[data-theme="codecademy"] .form-label {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .info-details p,
+[data-theme="codecademy"] .info-details a {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .form-input,
+[data-theme="codecademy"] .form-textarea {
+  background: #fff0e5;
+  border: 1px solid #E6D9CC;
+  color: #101832;
+}
+
+[data-theme="codecademy"] .form-input::placeholder,
+[data-theme="codecademy"] .form-textarea::placeholder {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .form-input:focus,
+[data-theme="codecademy"] .form-textarea:focus {
+  background: #FFFCF8;
+  border-color: #101832;
+  box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.3);
+}
+
+[data-theme="codecademy"] .submit-btn {
+  background: #101832;
+  color: #fff0e5;
+  border: 1.5px solid #101832;
+  box-shadow: 0 4px 12px rgba(16, 24, 50, 0.1);
+}
+
+[data-theme="codecademy"] .submit-btn:hover:not(:disabled) {
+  background: #FFD400;
+  color: #101832;
+  border-color: #FFD400;
+  box-shadow: 0 6px 20px rgba(255, 212, 0, 0.4);
 }
