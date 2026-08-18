@@ -1,199 +1,252 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import About from '../about/About';
+import { CONTACT_ITEMS } from '../../data/about';
+import './Home.css';
 
-let hasPlayedEntrance = false;
-
-const SKILLS_DATA = [
-  { label: 'Full Stack Developers', x: 22.6287, y: 25.7954, depth: 1.8411, style: '', info: 'Engineers proficient in both front-end user interfaces and back-end database architecture.' },
-  { label: 'Front End Developers', x: 19.7462, y: 54.484, depth: 1.4741, style: '', info: 'Specialists who build the visible parts of applications using HTML, CSS, and JavaScript.' },
-  { label: 'iOS Developers', x: 25.042, y: 87.2959, depth: 0.6032, style: '', info: 'Mobile developers focused on Apple\'s ecosystem using Swift and Objective-C.' },
-  { label: 'Android Developers', x: 30.5485, y: 49.6791, depth: 1.6770, style: '', info: 'Mobile developers building for the Android platform using Kotlin and Java.' },
-  { label: 'React Developers', x: 57.0656, y: 84.6367, depth: 0.5114, style: '', info: 'Experts in building dynamic user interfaces using the React.js library.' },
-  { label: 'Node JS Developers', x: 15.4858, y: 13.3935, depth: 1.9040, style: '', info: 'Backend developers utilizing JavaScript server-side with Node.js.' },
-  { label: 'Vue JS Developers', x: 49.8603, y: 42.2736, depth: 0.5858, style: '', info: 'Frontend engineers specializing in the progressive Vue.js framework.' },
-  { label: 'Flutter Developers', x: 61.8935, y: 71.8816, depth: 0.7918, style: '', info: 'Cross-platform mobile developers using Dart and the Flutter SDK.' },
-  { label: 'Blockchain Developers', x: 20.5389, y: 28.5018, depth: 1.7389, style: '', info: 'Engineers building decentralized applications and smart contracts.' },
-  { label: 'PostgreSQL', x: 15.9412, y: 44.8008, depth: 0.8221, style: '', info: 'A powerful, open source object-relational database system.' },
-  { label: 'MongoDB', x: 30.3332, y: 16.2993, depth: 1.7859, style: '', info: 'A popular NoSQL database known for its flexibility and scalability.' },
-  { label: 'Next.js', x: 66.0158, y: 35.9919, depth: 1.0232, style: '', info: 'A React framework providing hybrid static and server rendering.' },
-  { label: 'Tailwind CSS', x: 23.2702, y: 36.9939, depth: 1.8705, style: '', info: 'A utility-first CSS framework for rapidly building custom designs.' },
-  { label: 'TypeScript', x: 34.2144, y: 74.5856, depth: 1.9644, style: '', info: 'A strongly typed programming language that builds on JavaScript.' },
-  { label: 'JavaScript', x: 11.0619, y: 26.3897, depth: 1.5873, style: '', info: 'The core programming language of the web.' },
-  { label: 'Python', x: 64.427, y: 73.655, depth: 0.6620, style: '', info: 'A versatile language popular for AI, data science, and web backends.' },
-  { label: 'Artificial Intelligence', x: 87.1582, y: 64.8886, depth: 1.9099, style: '', info: 'Developing systems capable of performing tasks that require human intelligence.' },
-  { label: 'Web3', x: 86.121, y: 73.1735, depth: 1.1948, style: '', info: 'The decentralized web utilizing blockchain technologies.' },
-  { label: 'GraphQL', x: 41.2808, y: 47.8279, depth: 1.4169, style: '', info: 'A query language for your API, offering clients exactly what they request.' },
-  { label: 'Docker', x: 11.9695, y: 40.2946, depth: 0.7558, style: '', info: 'A platform designed to help developers build, share, and run container applications.' },
-  { label: 'AWS', x: 62.4024, y: 17.8178, depth: 1.6079, style: '', info: 'Amazon Web Services, providing comprehensive cloud infrastructure.' },
-  { label: 'CI/CD', x: 73.4798, y: 72.5322, depth: 0.8471, style: '', info: 'Continuous Integration and Continuous Deployment practices.' },
-  { label: 'Git', x: 59.3356, y: 50.5171, depth: 0.7757, style: '', info: 'A distributed version control system for tracking changes in code.' },
-  { label: 'Linux', x: 52.0868, y: 22.0058, depth: 1.6272, style: '', info: 'A widely used open-source operating system kernel.' },
-  { label: 'Cyber Security', x: 62.7918, y: 66.4909, depth: 1.7575, style: '', info: 'Protecting systems, networks, and programs from digital attacks.' },
-  { label: 'Databases', x: 76.1326, y: 35.7881, depth: 1.1109, style: '', info: 'Organized collections of structured data.' }
+const TECH_BADGES = [
+  '⚡ React.js',
+  '▲ Next.js',
+  '🐍 Python',
+  '🚀 FastAPI',
+  '🔷 TypeScript',
+  '🟢 Node.js',
+  '🧠 Scikit-Learn',
+  '🐳 Docker',
+  '🍃 MongoDB',
+  '🐘 PostgreSQL',
+  '🎨 Tailwind CSS',
+  '☁️ AWS',
+  '🛡️ Cybersecurity',
+  '🔒 AES-256',
+  '📊 Pandas & NumPy',
+  '🌐 REST APIs',
 ];
 
-function Pill({ skill, smoothMouseX, smoothMouseY, windowSize, onClick, index, skipAnimation }) {
-  const moveMax = skill.depth * 80;
-  const offsetX = useTransform(smoothMouseX, [0, windowSize.width], [moveMax, -moveMax]);
-  const offsetY = useTransform(smoothMouseY, [0, windowSize.height], [moveMax, -moveMax]);
+const STATS = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stat-icon">
+        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
+      </svg>
+    ),
+    value: '6+ Projects',
+    label: 'Built & Deployed',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stat-icon">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+      </svg>
+    ),
+    value: '280+',
+    label: 'Contributions (Year)',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stat-icon">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+    value: '56+ Solved',
+    label: 'LeetCode Problems',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stat-icon">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    value: 'Zero-Knowledge',
+    label: 'Security & ML Focus',
+  },
+];
 
-  return (
-    <motion.div
-      initial={!skipAnimation ? { left: '50%', top: '50%', opacity: 0, scale: 0.2 } : false}
-      animate={{ left: `${skill.x}%`, top: `${skill.y}%`, opacity: 1, scale: 1 }}
-      transition={!skipAnimation ? {
-        duration: 1.8,
-        delay: 0.6 + (index * 0.05),
-        ease: [0.16, 1, 0.3, 1]
-      } : { duration: 0 }}
-      style={{
-        position: 'absolute',
-        x: '-50%',
-        y: '-50%'
-      }}
-      className="pill-anchor"
-    >
-      <motion.div style={{ x: offsetX, y: offsetY }}>
-        <motion.div
-          layoutId={skill.label}
-          className={`pill ${skill.style}`}
-          onClick={() => onClick(skill)}
-          whileHover={{ scale: 2, zIndex: 50 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          {skill.label}
-        </motion.div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-export default function Home({ onScrollNext }) {
-  const isClient = typeof window !== 'undefined';
-  const mouseX = useMotionValue(isClient ? window.innerWidth / 2 : 0);
-  const mouseY = useMotionValue(isClient ? window.innerHeight / 2 : 0);
-
-  const smoothMouseX = useSpring(mouseX, { stiffness: 60, damping: 20, mass: 1 });
-  const smoothMouseY = useSpring(mouseY, { stiffness: 60, damping: 20, mass: 1 });
-
-  const [windowSize, setWindowSize] = useState({
-    width: isClient ? window.innerWidth : 1200,
-    height: isClient ? window.innerHeight : 800
-  });
-
-  useEffect(() => {
-    const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    window.addEventListener('resize', handleResize);
-
-    hasPlayedEntrance = true;
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      mouseX.set(event.clientX);
-      mouseY.set(event.clientY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  const heroX = useTransform(smoothMouseX, [0, windowSize.width], [15, -15]);
-  const heroY = useTransform(smoothMouseY, [0, windowSize.height], [15, -15]);
-
-  const [selectedSkill, setSelectedSkill] = useState(null);
-
-  const selectedMoveMax = selectedSkill ? selectedSkill.depth * 80 : 0;
-  const selectedOffsetX = useTransform(smoothMouseX, [0, windowSize.width], [selectedMoveMax, -selectedMoveMax]);
-  const selectedOffsetY = useTransform(smoothMouseY, [0, windowSize.height], [selectedMoveMax, -selectedMoveMax]);
+export default function Home() {
+  const scrollToAbout = () => {
+    const aboutEl = document.getElementById('about-section');
+    if (!aboutEl) return;
+    if (window.__lenis) {
+      window.__lenis.scrollTo(aboutEl, { duration: 1.2, offset: -20 });
+    } else {
+      aboutEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="home-page">
-      <section id="hero" style={{ perspective: '1000px' }}>
-        <motion.div
-          className="hero-content"
-          initial={!hasPlayedEntrance ? { opacity: 0, scale: 0.7, y: 30 } : false}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={!hasPlayedEntrance ? { duration: 0.8, ease: 'easeOut' } : { duration: 0 }}
-          style={{ x: heroX, y: heroY }}
-        >
-          <div className="hero-box">
-            <h1><span className="terminal-logo">&gt;<span className="mono-dot">_</span></span> Software Developer</h1>
-          </div>
-        </motion.div>
+      {/* ─── Hero Section (Split Left & Right Layout) ─── */}
+      <section className="home-hero-section" id="hero">
+        <div className="home-hero-split-container">
 
-        {SKILLS_DATA.map((skill, index) => {
-          if (selectedSkill?.label === skill.label) {
-            return null;
-          }
-
-          return (
-            <Pill
-              key={skill.label}
-              skill={skill}
-              smoothMouseX={smoothMouseX}
-              smoothMouseY={smoothMouseY}
-              windowSize={windowSize}
-              onClick={setSelectedSkill}
-              index={index}
-              skipAnimation={hasPlayedEntrance}
-            />
-          );
-        })}
-      </section>
-
-      <AnimatePresence>
-        {selectedSkill && (
+          {/* ─── Left Section: Info, Headlines, CTAs ─── */}
           <motion.div
-            className="modal-overlay"
-            onClick={() => setSelectedSkill(null)}
+            className="hero-split-left"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div
-              style={{
-                position: 'absolute',
-                left: `${selectedSkill.x}%`,
-                top: `${selectedSkill.y}%`,
-                transform: `translate(-${selectedSkill.x}%, -${selectedSkill.y}%)`
-              }}
-              className="modal-anchor"
-            >
-              <motion.div style={{ x: selectedOffsetX, y: selectedOffsetY }}>
-                <motion.div
-                  layoutId={selectedSkill.label}
-                  className="modal-content"
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  <h2>{selectedSkill.label}</h2>
-                  <p>{selectedSkill.info}</p>
-                  <button className="modal-close" onClick={() => setSelectedSkill(null)}>Close</button>
-                </motion.div>
-              </motion.div>
+            {/* Main Heading */}
+            <h1 className="hero-main-heading">
+              Building <span className="hero-gradient-text">intelligent systems</span> & resilient software.
+            </h1>
+
+            {/* Status Capsule */}
+            <div className="hero-status-pill">
+              <span className="status-dot-pulse" />
+              <span className="status-text">Available for Opportunities</span>
+              <span className="status-divider" />
+              <span className="status-location">Delhi, India</span>
+            </div>
+
+            {/* Tagline */}
+            <div className="hero-tagline">
+              Software Engineer & ML Builder
+            </div>
+
+            {/* Subtitle */}
+            <p className="hero-sub-p">
+              CS student at <strong>IILM University</strong> crafting full-stack architectures, machine learning pipelines, and security-centric digital experiences with clean engineering.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="hero-actions-row">
+              <Link to="/projects" className="hero-btn-primary">
+                Explore Projects
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
+              <Link to="/credentials" className="hero-btn-secondary">
+                View Credentials
+              </Link>
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
 
-      <button
-        type="button"
-        className="scroll-hint"
-        onClick={() => {
-          document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        move your cursor around | click to explore about
-      </button>
+          {/* ─── Right Section: Interactive Code Terminal & Bento Stats ─── */}
+          <motion.div
+            className="hero-split-right"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {/* Terminal Window Card */}
+            <div className="hero-terminal-card">
+              <div className="terminal-topbar">
+                <div className="terminal-dots">
+                  <span className="dot red" />
+                  <span className="dot yellow" />
+                  <span className="dot green" />
+                </div>
+                <span className="terminal-title">developer.config.ts</span>
+                <span className="terminal-lang">TypeScript</span>
+              </div>
+              <div className="terminal-code-body">
+                <p className="code-line"><span className="code-keyword">const</span> <span className="code-var">engineer</span> = &#123;</p>
+                <p className="code-line indent"><span className="code-prop">name</span>: <span className="code-str">'Sammi Azaz'</span>,</p>
+                <p className="code-line indent"><span className="code-prop">university</span>: <span className="code-str">'IILM University'</span>,</p>
+                <p className="code-line indent"><span className="code-prop">stack</span>: [<span className="code-str">'React'</span>, <span className="code-str">'Next.js'</span>, <span className="code-str">'FastAPI'</span>, <span className="code-str">'Python'</span>],</p>
+                <p className="code-line indent"><span className="code-prop">focus</span>: <span className="code-str">'Zero-Knowledge Security & ML'</span>,</p>
+                <p className="code-line indent"><span className="code-prop">status</span>: <span className="code-val">Status.ReadyToBuild</span></p>
+                <p className="code-line">&#125;;</p>
+              </div>
+            </div>
 
+            {/* 2x2 Bento Stats Grid */}
+            <div className="hero-stats-grid">
+              {STATS.map((st, i) => (
+                <div key={i} className="hero-stat-card">
+                  {st.icon}
+                  <div className="stat-value">{st.value}</div>
+                  <div className="stat-label">{st.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Contact Pillar Ribbon */}
+            <div className="hero-contact-pillar" aria-label="Social and contact links">
+              {CONTACT_ITEMS.map((item, idx) => {
+                const Content = (
+                  <div
+                    className="side-flip-card hero-flip-tile"
+                    style={{ '--delay-idx': idx, '--item-color': item.color }}
+                  >
+                    <div className="flip-card-inner">
+                      <div className="flip-front side-letter-tile" aria-hidden="true">
+                        {item.letter}
+                      </div>
+                      <div className="flip-back side-icon-tile" style={{ color: item.color }}>
+                        {item.icon}
+                        <span className="side-tile-tooltip hero-tile-tooltip">{item.label}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
+
+                if (item.isRouterLink) {
+                  return (
+                    <Link key={idx} to={item.href} className="side-card-link" aria-label={`Go to ${item.label}`}>
+                      {Content}
+                    </Link>
+                  );
+                }
+
+                return (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : '_self'}
+                    rel="noopener noreferrer"
+                    className="side-card-link"
+                    aria-label={`Visit my ${item.label}`}
+                  >
+                    {Content}
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Infinite Tech Marquee Stream */}
+        <div className="hero-marquee-wrapper" aria-hidden="true">
+          <div className="hero-marquee-track">
+            {TECH_BADGES.concat(TECH_BADGES).map((badge, idx) => (
+              <span key={idx} className="marquee-badge">
+                {badge}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll Hint */}
+        <button
+          type="button"
+          className="home-scroll-indicator"
+          onClick={scrollToAbout}
+          aria-label="Scroll to about section"
+        >
+          <div className="scroll-mouse-icon">
+            <div className="scroll-mouse-wheel" />
+          </div>
+          <span>Scroll to explore</span>
+        </button>
+      </section>
+
+      {/* ─── Integrated About Section ─── */}
       <div id="about-section">
         <About />
       </div>
-      
+
+      {/* ─── Persona Footer Anchor ─── */}
       <div className="persona-link-container">
         <Link to="/persona" className="persona-btn">
-          Persona
+          Explore Persona →
         </Link>
       </div>
     </div>
