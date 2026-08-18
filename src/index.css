@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: 'Italian Typewriter Unicode';
+  src: local('Italian Typewriter Unicode'), local('Italian Typewriter'), local('ItalianTypewriter-Regular'), local('ItalianTypewriter');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *,
 *::before,
@@ -59,7 +67,7 @@
   --glass-hover-border: rgba(255, 255, 255, 0.25);
 
   /* ─── Page layout ─── */
-  --container-width: 960px;
+  --container-width: 1200px;
   --container-padding: 5%;
   --page-top-padding: 100px;
 
@@ -69,6 +77,7 @@
   --color-error: rgba(255, 255, 255, 0.7);
 }
 
+[data-theme="dark"],
 [data-theme="b&w"] {
   --primary-rgb: 255, 255, 255;
   --primary: #ffffff;
@@ -89,28 +98,6 @@
 [data-theme="nitro"] .nav-home-icon {
   color: #00d9ff;
   text-shadow: 0 0 12px rgba(0, 217, 255, 0.6);
-}
-
-[data-theme="littlebird"] {
-  --primary-rgb: 235, 208, 123;
-  --primary: #ebd07b;
-  --secondary: #a2a29d;
-  --tertiary: #faeb93;
-  --accent-glow: rgba(235, 208, 123, 0.25);
-  --bg: #12130e;
-  --pill-bg: #1a1c15;
-  --border: #2c2e25;
-  --card-bg: rgba(26, 28, 22, 0.6);
-  --card-border: rgba(235, 208, 123, 0.15);
-  --text-primary: #fbfaf7;
-  --text-secondary: #ebd07b;
-  --text-muted: #6e6f69;
-}
-
-[data-theme="littlebird"] .logo-text,
-[data-theme="littlebird"] .nav-home-icon {
-  color: #ebd07b;
-  text-shadow: 0 0 12px rgba(235, 208, 123, 0.6);
 }
 
 [data-theme="zprox"] {
@@ -135,31 +122,114 @@
   text-shadow: 0 0 12px rgba(255, 0, 60, 0.6);
 }
 
+[data-theme="codecademy"] {
+  --primary-rgb: 16, 24, 50;
+  --primary: #101832;
+  --secondary: #5F6575;
+  --tertiary: #FFD400;
+  --accent-glow: rgba(255, 212, 0, 0.25);
+  --black: #101832;
+  --grey: #5F6575;
+  --border: #E6D9CC;
+  --bg: #fff0e5;
+  --pill-bg: #fff0e5;
+  --card-bg: #FFFCF8;
+  --card-border: #E6D9CC;
+  --card-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+  --nav-bg: #FFFCF8;
+  --shadow-sm: 0 2px 8px rgba(16, 24, 50, 0.04);
+  --grid-color: #E6D9CC;
+  --btn-color: #101832;
+  --btn-hover: #1C2745;
+  --skill-bg-alpha: #fff0e5;
+  --skill-border-alpha: #E6D9CC;
+  --skill-color: #101832;
+
+  --text-primary: #101832;
+  --text-secondary: #394158;
+  --text-muted: #5F6575;
+
+  --glass-bg: #FFFCF8;
+  --glass-border: #E6D9CC;
+  --glass-blur: 0px;
+  --glass-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+  --glass-hover-border: #101832;
+
+  --font-primary: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace;
+  --font-heading: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace;
+  --font-mono: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace;
+  font-family: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace !important;
+}
+
+[data-theme="codecademy"] body,
+[data-theme="codecademy"] h1,
+[data-theme="codecademy"] h2,
+[data-theme="codecademy"] h3,
+[data-theme="codecademy"] h4,
+[data-theme="codecademy"] h5,
+[data-theme="codecademy"] h6,
+[data-theme="codecademy"] p,
+[data-theme="codecademy"] a,
+[data-theme="codecademy"] span,
+[data-theme="codecademy"] button,
+[data-theme="codecademy"] div,
+[data-theme="codecademy"] input,
+[data-theme="codecademy"] textarea {
+  font-family: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace !important;
+}
+
+[data-theme="codecademy"] .who-i-am-label,
+[data-theme="codecademy"] .terminal-logo,
+[data-theme="codecademy"] .mono-label,
+[data-theme="codecademy"] .mono-dot,
+[data-theme="codecademy"] .scroll-hint,
+[data-theme="codecademy"] .theme-popup-header,
+[data-theme="codecademy"] .badge-level,
+[data-theme="codecademy"] .lc-diff-pill,
+[data-theme="codecademy"] .date-pill,
+[data-theme="codecademy"] .exp-date-badge {
+  font-family: 'Space Mono', monospace !important;
+}
+
 /* ─── Global Page Header & Typography System ─── */
 .persona-page-header {
-  text-align: center;
-  margin-bottom: 56px;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.title-work-muted {
+  color: #686868;
+}
+
+.section-description {
+  max-width: 620px;
+  margin: 12px 0 0 0;
+  text-align: left;
+  color: #a3a3a3;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .who-i-am-label {
   font-family: 'Comfortaa', cursive, monospace, sans-serif !important;
   color: #686868 !important;
-  font-size: 0.88rem !important;
+  font-size: 0.82rem !important;
   font-weight: 700 !important;
-  letter-spacing: 3px !important;
+  letter-spacing: 2.5px !important;
   text-transform: uppercase !important;
-  margin-top: 36px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: block;
 }
 
 .persona-main-title {
   font-family: 'Comfortaa', cursive, sans-serif !important;
-  font-size: clamp(3rem, 5vw, 4.5rem) !important;
-  font-weight: 900 !important;
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem) !important;
+  font-weight: 800 !important;
   color: #ffffff !important;
   margin: 0 !important;
-  line-height: 1 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -1.2px !important;
 }
 
 .section-subheading {
@@ -185,6 +255,128 @@
 .glass-card:hover {
   border: 2px solid var(--glass-hover-border);
   transform: translateY(-2px);
+}
+
+/* ─── Global Contact Flip Tile & Pillar System ─── */
+.side-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.side-flip-card {
+  width: 44px;
+  height: 44px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.34, 1.3, 0.64, 1);
+  transform-style: preserve-3d;
+  transition-delay: calc(var(--delay-idx, 0) * 0.08s);
+}
+
+.vertical-side-pill-bar:hover .flip-card-inner,
+.hero-contact-pillar:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-front.side-letter-tile {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: 'Space Mono', monospace !important;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.flip-back.side-icon-tile {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transform: rotateY(180deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-card-link:hover .flip-back.side-icon-tile {
+  background: color-mix(in srgb, var(--item-color) 12%, rgba(255, 255, 255, 0.06));
+  border-color: color-mix(in srgb, var(--item-color) 60%, rgba(255, 255, 255, 0.2));
+}
+
+.side-tile-tooltip {
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: var(--item-color);
+  color: #0d1117;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  z-index: 50;
+}
+
+.side-tile-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--item-color);
+}
+
+.side-card-link:hover .side-tile-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.vertical-side-pill-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  height: 480px;
+  position: sticky;
+  top: 110px;
+  perspective: 1000px;
 }
 
 /* ─── Standardized Pills / Tags ─── */
@@ -274,18 +466,6 @@ body {
     linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-[data-theme="littlebird"] .fixed-global-bg-img {
-  filter: sepia(0.5) brightness(0.65) contrast(1.15) hue-rotate(15deg);
-  opacity: 0.35;
-}
-
-[data-theme="littlebird"] .fixed-global-bg-overlay {
-  background:
-    radial-gradient(circle at 50% 25%, rgba(235, 208, 123, 0.15) 0%, transparent 35%),
-    radial-gradient(circle at 75% 65%, rgba(235, 208, 123, 0.08) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(18, 19, 14, 0.3) 0%, transparent 20%, transparent 80%, rgba(18, 19, 14, 0.95) 100%);
-}
-
 [data-theme="zprox"] .fixed-global-bg-img {
   filter: grayscale(60%) brightness(0.6) sepia(0.2) hue-rotate(-50deg);
   opacity: 0.35;
@@ -344,127 +524,7 @@ textarea {
   position: relative;
 }
 
-/* ─── Floating Pill Navbar (Matching Reference Design) ─── */
-nav {
-  position: fixed;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 48px);
-  max-width: 1128px;
-  height: 70px;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  background: rgba(17, 17, 17, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  border-radius: 16px;
-  box-shadow: 0 0 5px rgba(158, 158, 158, 0.5), 0 0 50px rgba(73, 73, 73, 0.25), inset 0 0 15px rgba(143, 143, 144, 0.2), 0 8px 32px rgba(0, 0, 0, 0.45);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.nav-home-icon {
-  width: 18px;
-  height: 18px;
-  color: #ffffff;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover .nav-home-icon {
-  transform: scale(1.1);
-}
-
-.logo-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  font-style: italic;
-  color: #ffffff;
-  letter-spacing: -0.2px;
-  font-family: 'Comfortaa', cursive, sans-serif;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.nav-links {
-  position: static;
-  transform: none;
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--secondary);
-  font-size: 0.92rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  position: relative;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #ffffff;
-}
-
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 8px var(--primary);
-}
-
-
-
-.nav-actions {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.nav-bot-btn {
-  background: transparent;
-  border: none;
-  color: var(--secondary);
-  cursor: pointer;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.nav-bot-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.nav-bot-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
-}
 
 /* ─── Theme Selector Dropdown ─── */
 .theme-selector-wrapper {
@@ -574,26 +634,9 @@ nav {
   border: 1px solid #00d9ff;
 }
 
-.littlebird-preview {
-  background: linear-gradient(135deg, #ebd07b 50%, #12130e 50%);
-  border: 1px solid #ebd07b;
-}
-
 .zprox-preview {
   background: linear-gradient(135deg, #ff003c 50%, #0a0a0a 50%);
   border: 1px solid #ff003c;
-}
-
-[data-theme="littlebird"] .btn-solid {
-  background: #f6f3e7;
-  color: #151610;
-  border-color: #f6f3e7;
-}
-
-[data-theme="littlebird"] .btn-solid:hover {
-  background: #ebd07b;
-  color: #151610;
-  border-color: #ebd07b;
 }
 
 [data-theme="zprox"] .btn-solid {
@@ -607,23 +650,6 @@ nav {
   color: #ffffff;
   border-color: #ff1a50;
 }
-
-.theme-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.theme-name {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.theme-desc {
-  font-size: 0.7rem;
-  color: #888888;
-}
-
 
 
 .btn {
@@ -744,6 +770,35 @@ nav {
   color: var(--primary);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Spline Background ─── */
+.spline-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.spline-bg-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.spline-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .scroll-hint {
@@ -939,4 +994,223 @@ nav {
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Codecademy Theme Overrides ─── */
+body,
+nav,
+.page-panel,
+.bento-card,
+.glass-card,
+.info-card,
+.contact-form-card,
+.experience-card,
+.project-card,
+.education-card-box,
+.cred-card,
+.pill,
+.btn,
+.flip-front,
+.flip-back,
+.vertical-side-pill-bar,
+.theme-nav-btn,
+.form-input,
+.form-textarea {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+[data-theme="codecademy"] .fixed-global-bg-img {
+  display: none;
+}
+
+[data-theme="codecademy"] .fixed-global-bg-container {
+  background-color: #fff0e5;
+  background-image: none;
+  opacity: 1;
+}
+
+[data-theme="codecademy"] #hero {
+  mask-image: none;
+  -webkit-mask-image: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5' viewBox='0 0 5 5'%3E%3Crect width='1.5' height='1.5' x='0' y='0' fill='%23101832' fill-opacity='0.45'/%3E%3C/svg%3E");
+  background-position: top center;
+  min-height: 111vh;
+  padding-bottom: 120px;
+}
+
+[data-theme="codecademy"] .fixed-global-bg-overlay {
+  background: transparent;
+}
+
+[data-theme="codecademy"] nav {
+  background: #FFFCF8;
+  border: 1.5px solid #101832;
+  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.08);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="codecademy"] .nav-home-icon {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .logo-text {
+  color: #101832;
+  text-shadow: none;
+}
+
+[data-theme="codecademy"] .nav-links a {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .nav-links a:hover,
+[data-theme="codecademy"] .nav-links a.active {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .nav-links a.active::after {
+  background: #FFD400;
+  box-shadow: 0 0 8px #FFD400;
+}
+
+[data-theme="codecademy"] .theme-nav-btn {
+  background: #fff0e5;
+  border: 1px solid #E6D9CC;
+  color: #101832;
+}
+
+[data-theme="codecademy"] .theme-nav-btn:hover {
+  background: #FFD400;
+  border-color: #101832;
+  color: #101832;
+}
+
+[data-theme="codecademy"] .theme-dropdown-popup {
+  background: #FFFCF8;
+  border: 1px solid #E6D9CC;
+  box-shadow: 0 8px 24px rgba(16, 24, 50, 0.08);
+}
+
+[data-theme="codecademy"] .theme-name {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .theme-desc {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .theme-option-btn:hover,
+[data-theme="codecademy"] .theme-option-btn.active {
+  background: #fff0e5;
+  border-color: #E6D9CC;
+}
+
+[data-theme="codecademy"] .codecademy-preview {
+  background: linear-gradient(135deg, #fff0e5 50%, #FFD400 50%);
+  border: 1px solid #101832;
+}
+
+[data-theme="codecademy"] .nav-bot-btn {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .nav-bot-btn:hover {
+  color: #101832;
+  background: #fff0e5;
+}
+
+[data-theme="codecademy"] .btn-solid {
+  background: #101832;
+  color: #fff0e5;
+  border: 1.5px solid #101832;
+}
+
+[data-theme="codecademy"] .btn-solid:hover {
+  background: #FFD400;
+  color: #101832;
+  border-color: #FFD400;
+}
+
+[data-theme="codecademy"] .hero-box {
+  background: #fff0e5;
+  border: 1px solid #101832;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="codecademy"] .hero-box h1 {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .terminal-logo {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .mono-dot {
+  color: #FFD400;
+}
+
+[data-theme="codecademy"] .pill {
+  background: #fff0e5;
+  border: 1.5px solid #E6D9CC;
+  color: #101832;
+  box-shadow: 0 2px 8px rgba(16, 24, 50, 0.04);
+}
+
+[data-theme="codecademy"] .pill:hover {
+  background: #FFD400;
+  color: #101832;
+  border-color: #101832;
+  box-shadow: 0 4px 12px rgba(16, 24, 50, 0.08);
+}
+
+[data-theme="codecademy"] .scroll-hint {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .scroll-hint:hover {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .persona-btn {
+  background: #FFFCF8;
+  border: 1.5px solid #101832;
+  color: #101832;
+  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+}
+
+[data-theme="codecademy"] .persona-btn:hover {
+  background: #FFD400;
+  border-color: #101832;
+  color: #101832;
+  box-shadow: 0 6px 20px rgba(16, 24, 50, 0.08);
+}
+
+[data-theme="codecademy"] .modal-content {
+  background: #FFFCF8;
+  border: 1px solid #E6D9CC;
+  color: #101832;
+  box-shadow: 0 8px 32px rgba(16, 24, 50, 0.1);
+}
+
+[data-theme="codecademy"] .modal-content h2 {
+  color: #101832;
+}
+
+[data-theme="codecademy"] .modal-content p {
+  color: #5F6575;
+}
+
+[data-theme="codecademy"] .modal-close {
+  background: #101832;
+  color: #FFF5EB;
+  border-color: #101832;
+}
+
+[data-theme="codecademy"] .modal-close:hover {
+  background: #FFD400;
+  color: #101832;
+  border-color: #FFD400;
 }
