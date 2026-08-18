@@ -1,0 +1,316 @@
+/* Navbar.css */
+
+.magnetic-navbar {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 12px 12px 12px 16px;
+  background: rgba(18, 18, 18, 0.4);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-container:hover {
+  background: rgba(18, 18, 18, 0.5);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Theme overrides for lighter modes */
+[data-theme="codecademy"] .navbar-container {
+  background: rgba(255, 252, 248, 0.7);
+  border-color: rgba(16, 24, 50, 0.1);
+  box-shadow: 0 8px 24px rgba(16, 24, 50, 0.08), inset 0 1px 1px #ffffff;
+}
+[data-theme="codecademy"] .navbar-container:hover {
+  background: rgba(255, 252, 248, 0.85);
+  border-color: rgba(16, 24, 50, 0.2);
+}
+
+/* ─── Brand Logo ─── */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.nav-brand-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+[data-theme="codecademy"] .nav-brand-icon {
+  background: rgba(16, 24, 50, 0.06);
+}
+
+.nav-brand-icon.active-home {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: var(--bg);
+}
+
+[data-theme="codecademy"] .nav-brand-icon.active-home {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: var(--bg);
+}
+
+.nav-brand-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-brand:hover .nav-brand-icon {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: var(--bg);
+}
+
+/* ─── Magnetic Tabs ─── */
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-tab-item {
+  position: relative;
+}
+
+.nav-tab-link {
+  position: relative;
+  display: block;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  z-index: 1;
+}
+
+.nav-tab-link:hover {
+  color: var(--primary);
+}
+
+.nav-tab-link.active {
+  color: #000;
+}
+
+[data-theme="codecademy"] .nav-tab-link.active {
+  color: #fff;
+}
+
+.nav-active-pill {
+  position: absolute;
+  inset: 0;
+  background: var(--primary);
+  border-radius: 100px;
+  z-index: -1;
+  box-shadow: 0 2px 12px var(--accent-glow);
+}
+
+/* ─── Actions ─── */
+.nav-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-icon-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--primary);
+}
+
+[data-theme="codecademy"] .nav-icon-btn:hover {
+  background: rgba(16, 24, 50, 0.08);
+}
+
+.theme-selector-wrapper {
+  position: relative;
+}
+
+.nav-resume-btn {
+  padding: 8px 18px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.nav-resume-btn:hover {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+[data-theme="codecademy"] .nav-resume-btn {
+  background: rgba(16, 24, 50, 0.05);
+  border-color: rgba(16, 24, 50, 0.15);
+}
+
+[data-theme="codecademy"] .nav-resume-btn:hover {
+  background: var(--primary);
+  color: var(--bg);
+}
+
+/* ─── Theme Dropdown Glass ─── */
+.theme-dropdown-glass {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: -20px;
+  width: 220px;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  transform-origin: top right;
+  z-index: 1001;
+}
+
+[data-theme="codecademy"] .theme-dropdown-glass {
+  background: rgba(255, 252, 248, 0.9);
+  border-color: rgba(16, 24, 50, 0.1);
+  box-shadow: 0 16px 40px rgba(16, 24, 50, 0.1), inset 0 1px 1px #ffffff;
+}
+
+.theme-header {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 8px 12px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 8px;
+}
+
+[data-theme="codecademy"] .theme-header {
+  border-bottom-color: rgba(16, 24, 50, 0.05);
+}
+
+.theme-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.theme-glass-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.theme-glass-btn:hover,
+.theme-glass-btn.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="codecademy"] .theme-glass-btn:hover,
+[data-theme="codecademy"] .theme-glass-btn.active {
+  background: rgba(16, 24, 50, 0.05);
+}
+
+.theme-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.theme-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.theme-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.dot-bw { background: linear-gradient(135deg, #fff 50%, #8f8f8f 50%); border: 1px solid #fff; }
+.dot-nitro { background: linear-gradient(135deg, #00d9ff 50%, #f59e0b 50%); border: 1px solid #00d9ff; }
+.dot-zprox { background: linear-gradient(135deg, #ff003c 50%, #0a0a0a 50%); border: 1px solid #ff003c; }
+.dot-codecademy { background: linear-gradient(135deg, #101832 50%, #FFD400 50%); border: 1px solid #101832; }
+
+@media (max-width: 768px) {
+  .nav-tab-text {
+    display: none;
+  }
+  .magnetic-navbar {
+    bottom: 24px;
+    top: auto;
+  }
+  .theme-dropdown-glass {
+    top: auto;
+    bottom: calc(100% + 16px);
+    transform-origin: bottom right;
+  }
+}
