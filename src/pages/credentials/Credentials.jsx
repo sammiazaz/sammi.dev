@@ -4,6 +4,7 @@ import './Credentials.css';
 import oracleCert from '../../assets/images/oracle_cert_mockup.png';
 import nvidiaCert from '../../assets/images/nvidia_cert_mockup.png';
 import deeplearningCert from '../../assets/images/deeplearning_cert_mockup.png';
+import awsCert from '../../assets/images/aws_ml_cert_actual.png';
 
 const CERTIFICATIONS = [
   {
@@ -11,25 +12,14 @@ const CERTIFICATIONS = [
     issuer: "AWS Academy",
     date: "2025",
     credentialId: "AWS-ML-FND",
-    image: oracleCert,
+    image: awsCert,
     skills: ["AWS", "Machine Learning", "Cloud"],
     description: "AWS Academy Graduate - Machine Learning Foundations.",
-    verifyUrl: "#",
+    verifyUrl: "/docs/aws-ml-foundations.pdf",
     brandColor: "#ff9900",
     brandColorRgb: "255, 153, 0"
   },
-  {
-    title: "Introduction to Social Media",
-    issuer: "Coursera",
-    date: "Jul 2026",
-    credentialId: "SM-INTRO-26",
-    image: nvidiaCert,
-    skills: ["Social Media Marketing", "Content Strategy"],
-    description: "Comprehensive introduction to social media management and marketing strategies.",
-    verifyUrl: "#",
-    brandColor: "#0056D2",
-    brandColorRgb: "0, 86, 210"
-  },
+
   {
     title: "Web Development",
     issuer: "Udemy",
@@ -65,6 +55,21 @@ const ACADEMIC_HONORS = [
   }
 ];
 
+const HACKATHONS = [
+  {
+    title: "Google Cloud Agentic AI Day",
+    institution: "Organized by Hack2Skill",
+    detail: "Contributed to Agentic AI development.",
+    year: "Feb 2025"
+  },
+  {
+    title: "Bharatiya Antariksh Hackathon",
+    institution: "Space-tech innovation",
+    detail: "Focused on space-tech innovation.",
+    year: "2025"
+  }
+];
+
 const SKILL_BADGES = [
   { name: "Full-Stack Web Development", level: "Advanced", icon: "🌐" },
   { name: "Machine Learning (Python)", level: "Proficient", icon: "🤖" },
@@ -73,65 +78,19 @@ const SKILL_BADGES = [
 ];
 
 const VaultCard = ({ cert }) => {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
-
-  const handleMouseMove = (e) => {
-    if (window.innerWidth < 1024) return;
-    const card = e.currentTarget;
-    const box = card.getBoundingClientRect();
-    const x = e.clientX - box.left;
-    const y = e.clientY - box.top;
-    
-    const centerX = box.width / 2;
-    const centerY = box.height / 2;
-    
-    // Tilt amounts
-    const rx = ((y - centerY) / centerY) * -5;
-    const ry = ((x - centerX) / centerX) * 5;
-    
-    setRotateX(rx);
-    setRotateY(ry);
-
-    setGlare({
-      x: (x / box.width) * 100,
-      y: (y / box.height) * 100,
-      opacity: 1
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-    setGlare(prev => ({ ...prev, opacity: 0 }));
-  };
 
   return (
-    <div className="vault-card-wrapper" style={{ perspective: 1200 }}>
+    <div className="vault-card-wrapper">
       <motion.article
         className="vault-glass-card"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        animate={{ rotateX, rotateY }}
-        transition={{ type: 'spring', stiffness: 350, damping: 30, mass: 0.5 }}
         style={{ 
-          transformStyle: "preserve-3d",
           '--brand-color': cert.brandColor,
           '--brand-color-rgb': cert.brandColorRgb
         }}
       >
-        <div 
-          className="vault-glare" 
-          style={{ 
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.15) 0%, transparent 60%)`,
-            opacity: glare.opacity
-          }} 
-        />
-        
         <div className="vault-glow-border" />
 
-        <div className="vault-inner" style={{ transform: "translateZ(40px)" }}>
+        <div className="vault-inner">
           <div className="vault-image-container">
             <img src={cert.image} alt={cert.title} draggable="false" />
             <div className="vault-image-overlay" />
@@ -230,6 +189,27 @@ export default function Credentials() {
                 {ACADEMIC_HONORS.map((item, index) => (
                   <div key={index} className="timeline-node">
                     <div className="timeline-dot" />
+                    <div className="timeline-content">
+                      <div className="timeline-header">
+                        <h3>{item.title}</h3>
+                        <span className="timeline-year">{item.year}</span>
+                      </div>
+                      <p className="timeline-inst">{item.institution}</p>
+                      <p className="timeline-detail">{item.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Hackathons */}
+            <motion.div variants={itemVariants} className="cred-bento-card academic-card">
+              <div className="bento-glow" />
+              <h2 className="cred-card-title">Hackathons & Participation</h2>
+              <div className="academic-timeline">
+                {HACKATHONS.map((item, index) => (
+                  <div key={index} className="timeline-node">
+                    <div className="timeline-dot" style={{ borderColor: 'var(--accent, #a855f7)' }} />
                     <div className="timeline-content">
                       <div className="timeline-header">
                         <h3>{item.title}</h3>
