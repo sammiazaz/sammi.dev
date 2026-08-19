@@ -104,13 +104,14 @@
 }
 
 .chat-close-btn:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   color: var(--text-primary, #111111);
 }
 
 [data-theme="editorial"] .chat-close-btn {
   border-radius: 0;
 }
+
 [data-theme="editorial"] .chat-close-btn:hover {
   background: #111111;
   color: #ffffff;
@@ -172,7 +173,8 @@
   margin-bottom: 0;
 }
 
-.chat-bubble ul, .chat-bubble ol {
+.chat-bubble ul,
+.chat-bubble ol {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   padding-left: 20px;
@@ -226,8 +228,13 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .chat-input-area {
