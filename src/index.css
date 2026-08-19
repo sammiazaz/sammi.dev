@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @font-face {
   font-family: 'Italian Typewriter Unicode';
@@ -17,33 +18,33 @@
 }
 
 :root {
-  --primary-rgb: 255, 255, 255;
-  --primary: #ffffff;
-  --secondary: #8f8f8f;
-  --accent-glow: rgba(255, 255, 255, 0.25);
+  --primary-rgb: 16, 185, 129;
+  --primary: #22c55e;
+  --secondary: #94a3b8;
+  --accent-glow: rgba(16, 185, 129, 0.25);
   --black: #ffffff;
   --grey: var(--secondary);
-  --border: #222222;
-  --bg: #000000;
-  --pill-bg: #111111;
-  --card-bg: rgba(255, 255, 255, 0.08);
-  --card-border: rgba(255, 255, 255, 0.14);
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --nav-bg: rgba(0, 0, 0, 0.85);
+  --border: #1e293b;
+  --bg: #0f172a;
+  --pill-bg: #1e293b;
+  --card-bg: #151515;
+  --card-border: rgba(16, 185, 129, 0.2);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(15, 23, 42, 0.85);
   --shadow-sm: rgba(0, 0, 0, 0.6);
-  --grid-color: rgba(255, 255, 255, 0.08);
+  --grid-color: rgba(16, 185, 129, 0.08);
   --btn-color: var(--primary);
-  --btn-hover: var(--secondary);
-  --skill-bg-alpha: rgba(255, 255, 255, 0.08);
-  --skill-border-alpha: rgba(255, 255, 255, 0.18);
-  --skill-color: var(--secondary);
+  --btn-hover: #059669;
+  --skill-bg-alpha: rgba(16, 185, 129, 0.1);
+  --skill-border-alpha: rgba(16, 185, 129, 0.25);
+  --skill-color: var(--primary);
 
   /* ─── Typography tokens ─── */
   --font-primary: 'Comfortaa', cursive, sans-serif;
   --font-mono: monospace;
   --text-primary: #ffffff;
-  --text-secondary: #a3a3a3;
-  --text-muted: #686868;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
 
   /* ─── Spacing tokens ─── */
   --space-xs: 8px;
@@ -77,120 +78,6 @@
   --color-error: rgba(255, 255, 255, 0.7);
 }
 
-[data-theme="dark"],
-[data-theme="b&w"] {
-  --primary-rgb: 255, 255, 255;
-  --primary: #ffffff;
-  --secondary: #8f8f8f;
-  --tertiary: #f59e0b;
-  --accent-glow: rgba(255, 255, 255, 0.25);
-}
-
-[data-theme="nitro"] {
-  --primary-rgb: 0, 217, 255;
-  --primary: #00d9ff;
-  --secondary: #686868;
-  --tertiary: #f59e0b;
-  --accent-glow: rgba(0, 217, 255, 0.25);
-}
-
-[data-theme="nitro"] .logo-text,
-[data-theme="nitro"] .nav-home-icon {
-  color: #00d9ff;
-  text-shadow: 0 0 12px rgba(0, 217, 255, 0.6);
-}
-
-[data-theme="zprox"] {
-  --primary-rgb: 255, 0, 60;
-  --primary: #ff003c;
-  --secondary: #a8a8a8;
-  --tertiary: #ff3366;
-  --accent-glow: rgba(255, 0, 60, 0.25);
-  --bg: #0a0a0a;
-  --pill-bg: #161616;
-  --border: #262626;
-  --card-bg: rgba(15, 15, 15, 0.8);
-  --card-border: rgba(255, 0, 60, 0.15);
-  --text-primary: #ffffff;
-  --text-secondary: #ff003c;
-  --text-muted: #777777;
-}
-
-[data-theme="zprox"] .logo-text,
-[data-theme="zprox"] .nav-home-icon {
-  color: #ff003c;
-  text-shadow: 0 0 12px rgba(255, 0, 60, 0.6);
-}
-
-[data-theme="codecademy"] {
-  --primary-rgb: 16, 24, 50;
-  --primary: #101832;
-  --secondary: #5F6575;
-  --tertiary: #FFD400;
-  --accent-glow: rgba(255, 212, 0, 0.25);
-  --black: #101832;
-  --grey: #5F6575;
-  --border: #E6D9CC;
-  --bg: #fff0e5;
-  --pill-bg: #fff0e5;
-  --card-bg: #FFFCF8;
-  --card-border: #E6D9CC;
-  --card-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
-  --nav-bg: #FFFCF8;
-  --shadow-sm: 0 2px 8px rgba(16, 24, 50, 0.04);
-  --grid-color: #E6D9CC;
-  --btn-color: #101832;
-  --btn-hover: #1C2745;
-  --skill-bg-alpha: #fff0e5;
-  --skill-border-alpha: #E6D9CC;
-  --skill-color: #101832;
-
-  --text-primary: #101832;
-  --text-secondary: #394158;
-  --text-muted: #5F6575;
-
-  --glass-bg: #FFFCF8;
-  --glass-border: #E6D9CC;
-  --glass-blur: 0px;
-  --glass-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
-  --glass-hover-border: #101832;
-
-  --font-primary: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace;
-  --font-heading: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace;
-  --font-mono: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace;
-  font-family: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace !important;
-}
-
-[data-theme="codecademy"] body,
-[data-theme="codecademy"] h1,
-[data-theme="codecademy"] h2,
-[data-theme="codecademy"] h3,
-[data-theme="codecademy"] h4,
-[data-theme="codecademy"] h5,
-[data-theme="codecademy"] h6,
-[data-theme="codecademy"] p,
-[data-theme="codecademy"] a,
-[data-theme="codecademy"] span,
-[data-theme="codecademy"] button,
-[data-theme="codecademy"] div,
-[data-theme="codecademy"] input,
-[data-theme="codecademy"] textarea {
-  font-family: 'Italian Typewriter Unicode', 'Italian Typewriter', 'Space Mono', 'Courier Prime', monospace !important;
-}
-
-[data-theme="codecademy"] .who-i-am-label,
-[data-theme="codecademy"] .terminal-logo,
-[data-theme="codecademy"] .mono-label,
-[data-theme="codecademy"] .mono-dot,
-[data-theme="codecademy"] .scroll-hint,
-[data-theme="codecademy"] .theme-popup-header,
-[data-theme="codecademy"] .badge-level,
-[data-theme="codecademy"] .lc-diff-pill,
-[data-theme="codecademy"] .date-pill,
-[data-theme="codecademy"] .exp-date-badge {
-  font-family: 'Space Mono', monospace !important;
-}
-
 /* ─── Global Page Header & Typography System ─── */
 .persona-page-header {
   text-align: left;
@@ -206,7 +93,7 @@
   max-width: 620px;
   margin: 12px 0 0 0;
   text-align: left;
-  color: #a3a3a3;
+  color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.65;
 }
@@ -226,7 +113,7 @@
   font-family: 'Comfortaa', cursive, sans-serif !important;
   font-size: clamp(2.2rem, 3.8vw, 3.6rem) !important;
   font-weight: 800 !important;
-  color: #ffffff !important;
+  color: var(--text-primary) !important;
   margin: 0 !important;
   line-height: 1.15 !important;
   letter-spacing: -1.2px !important;
@@ -236,7 +123,7 @@
   font-family: 'Comfortaa', cursive, sans-serif;
   font-size: 1.35rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin: 0 0 18px 0;
   letter-spacing: -0.3px;
 }
@@ -244,8 +131,8 @@
 /* ─── Standardized Glass Card (from Persona) ─── */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
@@ -299,18 +186,18 @@
 }
 
 .flip-front.side-letter-tile {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   font-family: 'Space Mono', monospace !important;
   font-size: 1.05rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .flip-back.side-icon-tile {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   transform: rotateY(180deg);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: background 0.2s ease, border-color 0.2s ease;
@@ -366,10 +253,10 @@
   justify-content: space-between;
   gap: 10px;
   padding: 20px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
@@ -441,43 +328,6 @@ body {
   transition: all 0.5s ease;
 }
 
-/* Theme specific background effects */
-[data-theme="b&w"] .fixed-global-bg-img {
-  filter: grayscale(100%) brightness(0.9) contrast(1.1);
-  opacity: 0.3;
-}
-
-[data-theme="b&w"] .fixed-global-bg-overlay {
-  background:
-    radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.18) 0%, transparent 35%),
-    radial-gradient(circle at 75% 65%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.8) 100%);
-}
-
-[data-theme="nitro"] .fixed-global-bg-img {
-  filter: brightness(1.15) contrast(1.25) saturate(1.6);
-  opacity: 0.5;
-}
-
-[data-theme="nitro"] .fixed-global-bg-overlay {
-  background:
-    radial-gradient(circle at 50% 25%, rgba(0, 217, 255, 0.18) 0%, transparent 35%),
-    radial-gradient(circle at 75% 65%, rgba(0, 217, 255, 0.1) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.8) 100%);
-}
-
-[data-theme="zprox"] .fixed-global-bg-img {
-  filter: grayscale(60%) brightness(0.6) sepia(0.2) hue-rotate(-50deg);
-  opacity: 0.35;
-}
-
-[data-theme="zprox"] .fixed-global-bg-overlay {
-  background:
-    radial-gradient(circle at 50% 25%, rgba(255, 0, 60, 0.18) 0%, transparent 35%),
-    radial-gradient(circle at 75% 65%, rgba(255, 0, 60, 0.1) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 20%, transparent 80%, rgba(10, 10, 10, 0.95) 100%);
-}
-
 .about-page,
 .projects-page,
 .exp-page,
@@ -535,11 +385,11 @@ textarea {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 100px;
   padding: 6px 14px;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 0.8rem;
   font-family: var(--font-primary);
   font-weight: 600;
@@ -564,9 +414,9 @@ textarea {
   right: 0;
   width: 220px;
   background: rgba(13, 17, 23, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 10px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
@@ -624,10 +474,7 @@ textarea {
   flex-shrink: 0;
 }
 
-.bw-preview {
-  background: linear-gradient(135deg, #ffffff 50%, #8f8f8f 50%);
-  border: 1px solid #ffffff;
-}
+
 
 .nitro-preview {
   background: linear-gradient(135deg, #00d9ff 50%, #f59e0b 50%);
@@ -637,18 +484,6 @@ textarea {
 .zprox-preview {
   background: linear-gradient(135deg, #ff003c 50%, #0a0a0a 50%);
   border: 1px solid #ff003c;
-}
-
-[data-theme="zprox"] .btn-solid {
-  background: linear-gradient(135deg, #ff003c 0%, #bd002a 100%);
-  color: #ffffff;
-  border-color: #ff003c;
-}
-
-[data-theme="zprox"] .btn-solid:hover {
-  background: linear-gradient(135deg, #ff1a50 0%, #d40030 100%);
-  color: #ffffff;
-  border-color: #ff1a50;
 }
 
 
@@ -732,8 +567,8 @@ textarea {
   padding: 0 38px;
   background: rgba(17, 17, 17, 0.5);
   border: 3px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(5px) saturate(180%);
-  -webkit-backdrop-filter: blur(5px) saturate(180%);
+  backdrop-filter: none saturate(180%);
+  -webkit-backdrop-filter: none saturate(180%);
   border-radius: 16px;
   box-shadow: 0 0 10px rgba(158, 158, 158, 0.5), 0 0 50px rgba(73, 73, 73, 0.25), inset 0 0 15px rgba(143, 143, 144, 0.2), 0 8px 32px rgba(0, 0, 0, 0.45);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -768,38 +603,50 @@ textarea {
 .pill:hover {
   background: rgba(255, 255, 255, 0.15);
   color: var(--primary);
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--primary);
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
 }
 
-/* ─── Spline Background ─── */
-.spline-bg-container {
+/* ─── Global Technical Background ─── */
+.global-background {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  inset: 0;
+  z-index: -1;
   pointer-events: auto;
+  /* Allow mouse events to reach Spline */
+  background-color: #030303;
+  /* near-black base */
   overflow: hidden;
 }
 
-.spline-bg-container canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
+/* 1. Ambient Glow */
+.global-bg-glow {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: globalBgPulse 15s ease-in-out infinite alternate;
 }
 
-.spline-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.6) 100%);
-  pointer-events: none;
-  z-index: 1;
+@keyframes globalBgPulse {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.1) translate(-20px, 30px);
+    opacity: 1;
+  }
 }
+
+
 
 .scroll-hint {
   position: absolute;
@@ -807,7 +654,7 @@ textarea {
   bottom: 28px;
   transform: translateX(-50%);
   font-size: 0.78rem;
-  color: #888888;
+  color: var(--text-secondary);
   letter-spacing: 0.5px;
   z-index: 40;
   background: transparent;
@@ -830,8 +677,8 @@ textarea {
 
 .modal-content {
   background: rgba(10, 13, 18, 0.95);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--glass-border);
   padding: 30px;
   border-radius: var(--radius-lg);
@@ -840,7 +687,7 @@ textarea {
   box-shadow: var(--glass-shadow);
   position: relative;
   text-align: left;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .modal-content h2 {
@@ -985,14 +832,14 @@ textarea {
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .persona-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--primary);
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -1019,198 +866,834 @@ nav,
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-[data-theme="codecademy"] .fixed-global-bg-img {
-  display: none;
+/* ─── LIGHT MODE OVERRIDES ─── */
+[data-mode="light"] {
+  /* Core palette */
+  --bg: #d6e4f0;
+  --card-bg: #e8f0f7;
+  --pill-bg: #d0e8e0;
+  --border: #b8ccd9;
+  --card-border: rgba(16, 185, 129, 0.22);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(185, 210, 228, 0.88);
+  --shadow-sm: rgba(0, 0, 0, 0.12);
+  --grid-color: rgba(16, 185, 129, 0.08);
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --black: #0f172a;
+
+  /* Glass */
+  --glass-bg: rgba(210, 228, 242, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-blur: 12px;
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --glass-hover-border: rgba(16, 185, 129, 0.4);
+
+  /* Skill tags */
+  --skill-bg-alpha: rgba(16, 185, 129, 0.12);
+  --skill-border-alpha: rgba(16, 185, 129, 0.28);
+  --skill-color: #047857;
 }
 
-[data-theme="codecademy"] .fixed-global-bg-container {
-  background-color: #fff0e5;
-  background-image: none;
-  opacity: 1;
+/* ─── Body background in light mode ─── */
+[data-mode="light"] body,
+[data-mode="light"] #root {
+  background: var(--bg);
+  color: var(--text-primary);
 }
 
-[data-theme="codecademy"] #hero {
-  mask-image: none;
-  -webkit-mask-image: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5' viewBox='0 0 5 5'%3E%3Crect width='1.5' height='1.5' x='0' y='0' fill='%23101832' fill-opacity='0.45'/%3E%3C/svg%3E");
-  background-position: top center;
-  min-height: 111vh;
-  padding-bottom: 120px;
-}
-
-[data-theme="codecademy"] .fixed-global-bg-overlay {
+/* ─── Page wrappers ─── */
+[data-mode="light"] .home-page,
+[data-mode="light"] .about-page,
+[data-mode="light"] .projects-page,
+[data-mode="light"] .credentials-page,
+[data-mode="light"] .contact-page,
+[data-mode="light"] .persona-page,
+[data-mode="light"] .experience-page,
+[data-mode="light"] .resume-page {
   background: transparent;
 }
 
-[data-theme="codecademy"] nav {
-  background: #FFFCF8;
-  border: 1.5px solid #101832;
-  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.08);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+/* ─── Navbar ─── */
+[data-mode="light"] .magnetic-navbar {
+  background: var(--nav-bg);
+  border-color: rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px);
 }
 
-[data-theme="codecademy"] .nav-home-icon {
-  color: #101832;
+[data-mode="light"] .nav-tab-link {
+  color: var(--text-secondary);
 }
 
-[data-theme="codecademy"] .logo-text {
-  color: #101832;
-  text-shadow: none;
+[data-mode="light"] .nav-tab-link.active {
+  color: var(--text-primary);
 }
 
-[data-theme="codecademy"] .nav-links a {
-  color: #5F6575;
+[data-mode="light"] .nav-active-pill {
+  background: rgba(16, 185, 129, 0.12);
 }
 
-[data-theme="codecademy"] .nav-links a:hover,
-[data-theme="codecademy"] .nav-links a.active {
-  color: #101832;
+[data-mode="light"] .nav-icon-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--text-secondary);
 }
 
-[data-theme="codecademy"] .nav-links a.active::after {
-  background: #FFD400;
-  box-shadow: 0 0 8px #FFD400;
+[data-mode="light"] .nav-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+  border-color: var(--primary);
 }
 
-[data-theme="codecademy"] .theme-nav-btn {
-  background: #fff0e5;
-  border: 1px solid #E6D9CC;
-  color: #101832;
+/* ─── Cards ─── */
+[data-mode="light"] .bento-card,
+[data-mode="light"] .glass-card,
+[data-mode="light"] .hero-terminal-card,
+[data-mode="light"] .hero-stat-card,
+[data-mode="light"] .hero-contact-pillar,
+[data-mode="light"] .hero-status-pill {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: var(--card-shadow);
 }
 
-[data-theme="codecademy"] .theme-nav-btn:hover {
-  background: #FFD400;
-  border-color: #101832;
-  color: #101832;
+/* ─── Terminal code colors (light mode) ─── */
+[data-mode="light"] .code-line {
+  color: #475569;
 }
 
-[data-theme="codecademy"] .theme-dropdown-popup {
-  background: #FFFCF8;
-  border: 1px solid #E6D9CC;
-  box-shadow: 0 8px 24px rgba(16, 24, 50, 0.08);
+[data-mode="light"] .code-keyword {
+  color: #be123c;
 }
 
-[data-theme="codecademy"] .theme-name {
-  color: #101832;
+[data-mode="light"] .code-var {
+  color: #0369a1;
 }
 
-[data-theme="codecademy"] .theme-desc {
-  color: #5F6575;
+[data-mode="light"] .code-prop {
+  color: #0f172a;
 }
 
-[data-theme="codecademy"] .theme-option-btn:hover,
-[data-theme="codecademy"] .theme-option-btn.active {
-  background: #fff0e5;
-  border-color: #E6D9CC;
+[data-mode="light"] .code-str {
+  color: #059669;
 }
 
-[data-theme="codecademy"] .codecademy-preview {
-  background: linear-gradient(135deg, #fff0e5 50%, #FFD400 50%);
-  border: 1px solid #101832;
+[data-mode="light"] .code-val {
+  color: #b45309;
 }
 
-[data-theme="codecademy"] .nav-bot-btn {
-  color: #5F6575;
+[data-mode="light"] .terminal-lang {
+  color: #94a3b8;
 }
 
-[data-theme="codecademy"] .nav-bot-btn:hover {
-  color: #101832;
-  background: #fff0e5;
+/* ─── Skill / Tag pills ─── */
+[data-mode="light"] .skill-tag,
+[data-mode="light"] .tech-badge,
+[data-mode="light"] .stat-badge {
+  background: var(--skill-bg-alpha);
+  border-color: var(--skill-border-alpha);
+  color: var(--skill-color);
 }
 
-[data-theme="codecademy"] .btn-solid {
-  background: #101832;
-  color: #fff0e5;
-  border: 1.5px solid #101832;
+/* ─── Hero buttons ─── */
+[data-mode="light"] .hero-btn-secondary {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-secondary);
 }
 
-[data-theme="codecademy"] .btn-solid:hover {
-  background: #FFD400;
-  color: #101832;
-  border-color: #FFD400;
+[data-mode="light"] .hero-btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--skill-bg-alpha);
 }
 
-[data-theme="codecademy"] .hero-box {
-  background: #fff0e5;
-  border: 1px solid #101832;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+/* ─── Flip tiles ─── */
+[data-mode="light"] .hero-flip-tile .flip-front.side-letter-tile,
+[data-mode="light"] .hero-flip-tile .flip-back.side-icon-tile {
+  background: #f1f5f9;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
 }
 
-[data-theme="codecademy"] .hero-box h1 {
-  color: #101832;
+/* ─── Section headings / labels ─── */
+[data-mode="light"] .who-i-am-label,
+[data-mode="light"] .hero-tagline,
+[data-mode="light"] .mono-label {
+  color: var(--text-muted) !important;
 }
 
-[data-theme="codecademy"] .terminal-logo {
-  color: #101832;
+/* ─── Scrollbar ─── */
+[data-mode="light"]::-webkit-scrollbar-track {
+  background: #e2e8f0;
 }
 
-[data-theme="codecademy"] .mono-dot {
-  color: #FFD400;
+[data-mode="light"]::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
 }
 
-[data-theme="codecademy"] .pill {
-  background: #fff0e5;
-  border: 1.5px solid #E6D9CC;
-  color: #101832;
-  box-shadow: 0 2px 8px rgba(16, 24, 50, 0.04);
+/* ─── Marquee badge ─── */
+[data-mode="light"] .marquee-badge {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--text-secondary);
 }
 
-[data-theme="codecademy"] .pill:hover {
-  background: #FFD400;
-  color: #101832;
-  border-color: #101832;
-  box-shadow: 0 4px 12px rgba(16, 24, 50, 0.08);
+/* ─── Page header text ─── */
+[data-mode="light"] h1,
+[data-mode="light"] h2,
+[data-mode="light"] h3,
+[data-mode="light"] h4,
+[data-mode="light"] h5,
+[data-mode="light"] h6 {
+  color: var(--text-primary);
 }
 
-[data-theme="codecademy"] .scroll-hint {
-  color: #5F6575;
+[data-mode="light"] p,
+[data-mode="light"] span,
+[data-mode="light"] a,
+[data-mode="light"] li {
+  color: var(--text-secondary);
 }
 
-[data-theme="codecademy"] .scroll-hint:hover {
-  color: #101832;
+/* Contact + Project cards */
+[data-mode="light"] .contact-card,
+[data-mode="light"] .project-card,
+[data-mode="light"] .credential-card,
+[data-mode="light"] .exp-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
 }
 
-[data-theme="codecademy"] .persona-btn {
-  background: #FFFCF8;
-  border: 1.5px solid #101832;
-  color: #101832;
-  box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
+/* Input fields */
+[data-mode="light"] input,
+[data-mode="light"] textarea {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
 }
 
-[data-theme="codecademy"] .persona-btn:hover {
-  background: #FFD400;
-  border-color: #101832;
-  color: #101832;
-  box-shadow: 0 6px 20px rgba(16, 24, 50, 0.08);
+[data-mode="light"] input::placeholder,
+[data-mode="light"] textarea::placeholder {
+  color: var(--text-muted);
 }
 
-[data-theme="codecademy"] .modal-content {
-  background: #FFFCF8;
-  border: 1px solid #E6D9CC;
-  color: #101832;
-  box-shadow: 0 8px 32px rgba(16, 24, 50, 0.1);
+/* ─── Vanta/Background overlay in light mode ─── */
+[data-mode="light"] .fixed-global-bg-overlay {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, transparent 20%, transparent 80%, rgba(241, 245, 249, 0.8) 100%);
 }
 
-[data-theme="codecademy"] .modal-content h2 {
-  color: #101832;
+[data-mode="light"] .fixed-global-bg-img {
+  opacity: 0.1;
+  filter: invert(1) brightness(0.9);
 }
 
-[data-theme="codecademy"] .modal-content p {
-  color: #5F6575;
+/* ─── Smooth mode transition on all elements ─── */
+[data-mode="light"] *,
+[data-mode="dark"] * {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-[data-theme="codecademy"] .modal-close {
-  background: #101832;
-  color: #FFF5EB;
-  border-color: #101832;
+/* ─── Bento social cards keep glassmorphism in light mode ─── */
+[data-mode="light"] .bento-social-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
-[data-theme="codecademy"] .modal-close:hover {
-  background: #FFD400;
-  color: #101832;
-  border-color: #FFD400;
+/* ─── Persona skills/tags in light mode ─── */
+[data-mode="light"] .persona-pill-tag {
+  background: var(--skill-bg-alpha);
+  border-color: var(--skill-border-alpha);
+  color: var(--skill-color);
 }
+
+/* ─── section labels ─── */
+[data-mode="light"] .title-work-muted {
+  color: #64748b;
+}
+
+/* Ensure transparent backgrounds on wrappers don't go dark */
+[data-mode="light"] .section-panel,
+[data-mode="light"] .content-container {
+  background: transparent;
+}
+
+/* Gradient text stays vibrant in light mode */
+[data-mode="light"] .hero-gradient-text {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MINIMAL EDITORIAL THEME  —  data-theme="editorial"
+   Swiss-grid · Ink-on-paper · No effects · Pure typography
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS Variable Overrides ── */
+[data-theme="editorial"] {
+  --primary: #111111;
+  --primary-rgb: 17, 17, 17;
+  --secondary: #555555;
+  --accent-glow: transparent;
+  --bg: #FAFAF8;
+  --card-bg: #FFFFFF;
+  --pill-bg: #F0F0EE;
+  --border: #111111;
+  --card-border: #111111;
+  --card-shadow: none;
+  --nav-bg: #FAFAF8;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --black: #111111;
+  --glass-bg: #FFFFFF;
+  --glass-border: #111111;
+  --glass-blur: 0px;
+  --glass-shadow: none;
+  --glass-hover-border: #000000;
+  --skill-bg-alpha: #F0F0EE;
+  --skill-border-alpha: #111111;
+  --skill-color: #111111;
+  --btn-color: #111111;
+  --btn-hover: #333333;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-pill: 2px;
+  --font-primary: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── Force Inter font on structural text/action elements ── */
+[data-theme="editorial"],
+[data-theme="editorial"] body,
+[data-theme="editorial"] h1,
+[data-theme="editorial"] h2,
+[data-theme="editorial"] h3,
+[data-theme="editorial"] h4,
+[data-theme="editorial"] h5,
+[data-theme="editorial"] h6,
+[data-theme="editorial"] p,
+[data-theme="editorial"] span,
+[data-theme="editorial"] a,
+[data-theme="editorial"] button,
+[data-theme="editorial"] input,
+[data-theme="editorial"] textarea,
+[data-theme="editorial"] li {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+/* ── Page background ── */
+[data-theme="editorial"] body,
+[data-theme="editorial"] #root {
+  background: #FAFAF8;
+  color: #111111;
+}
+
+/* ── Disable effects on card, UI container and action elements specifically ── */
+[data-theme="editorial"] .bento-card,
+[data-theme="editorial"] .glass-card,
+[data-theme="editorial"] .hero-terminal-card,
+[data-theme="editorial"] .hero-stat-card,
+[data-theme="editorial"] .hero-contact-pillar,
+[data-theme="editorial"] .hero-status-pill,
+[data-theme="editorial"] .contact-card,
+[data-theme="editorial"] .project-card,
+[data-theme="editorial"] .credential-card,
+[data-theme="editorial"] .exp-card,
+[data-theme="editorial"] .vertical-side-pill-bar,
+[data-theme="editorial"] .nav-icon-btn,
+[data-theme="editorial"] .hero-btn-primary,
+[data-theme="editorial"] .hero-btn-secondary,
+[data-theme="editorial"] .btn-solid,
+[data-theme="editorial"] .btn-outline,
+[data-theme="editorial"] input,
+[data-theme="editorial"] textarea,
+[data-theme="editorial"] .skill-tag,
+[data-theme="editorial"] .persona-pill-tag,
+[data-theme="editorial"] .marquee-badge,
+[data-theme="editorial"] .side-flip-card,
+[data-theme="editorial"] .flip-front,
+[data-theme="editorial"] .flip-back,
+[data-theme="editorial"] .tilt-tabs,
+[data-theme="editorial"] .tilt-tab-btn,
+[data-theme="editorial"] .tilt-pill,
+[data-theme="editorial"] .tilt-btn,
+[data-theme="editorial"] .vault-skill-pill,
+[data-theme="editorial"] .vault-verify-btn,
+[data-theme="editorial"] .timeline-year,
+[data-theme="editorial"] .floating-badge,
+[data-theme="editorial"] .persona-pill-tag-raw,
+[data-theme="editorial"] .edu-badge-raw,
+[data-theme="editorial"] .year-tag-raw {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* ── Text hierarchy ── */
+[data-theme="editorial"] h1,
+[data-theme="editorial"] h2,
+[data-theme="editorial"] h3,
+[data-theme="editorial"] h4 {
+  color: #111111;
+}
+[data-theme="editorial"] h5,
+[data-theme="editorial"] h6 { color: #111111; }
+[data-theme="editorial"] p { color: #555555; }
+[data-theme="editorial"] span { color: inherit; }
+[data-theme="editorial"] a { color: #111111; }
+[data-theme="editorial"] strong { color: #111111; }
+
+/* ── Navbar ── */
+[data-theme="editorial"] .magnetic-navbar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+[data-theme="editorial"] .navbar-container {
+  background: #FAFAF8 !important;
+  border: 1px solid #111111 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+[data-theme="editorial"] .nav-brand-icon {
+  color: #111111;
+  border: 1px solid #111111;
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 !important;
+}
+[data-theme="editorial"] .nav-brand-icon.active-home {
+  background: #111111;
+  color: #ffffff;
+}
+[data-theme="editorial"] .nav-tab-link {
+  color: #555555;
+}
+[data-theme="editorial"] .nav-tab-link.active {
+  color: #FFFFFF !important;
+}
+[data-theme="editorial"] .nav-active-pill {
+  background: #111111 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+[data-theme="editorial"] .nav-icon-btn {
+  color: #333333;
+  border: 1px solid #CCCCCC;
+  background: transparent;
+}
+[data-theme="editorial"] .nav-icon-btn:hover {
+  background: #111111 !important;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+/* ── Page wrappers ── */
+[data-theme="editorial"] .home-page,
+[data-theme="editorial"] .about-page,
+[data-theme="editorial"] .projects-page,
+[data-theme="editorial"] .credentials-page,
+[data-theme="editorial"] .contact-page,
+[data-theme="editorial"] .persona-page,
+[data-theme="editorial"] .experience-page,
+[data-theme="editorial"] .resume-page {
+  background: #FAFAF8;
+}
+[data-theme="editorial"] .fixed-global-bg-container,
+[data-theme="editorial"] .fixed-global-bg-img,
+[data-theme="editorial"] .fixed-global-bg-overlay {
+  display: none !important;
+}
+
+/* ── Cards & Glass ── */
+[data-theme="editorial"] .bento-card,
+[data-theme="editorial"] .bento-social-card,
+[data-theme="editorial"] .glass-card,
+[data-theme="editorial"] .tilt-glass-card,
+[data-theme="editorial"] .vault-glass-card,
+[data-theme="editorial"] .cred-bento-card,
+[data-theme="editorial"] .lc-stat-pill,
+[data-theme="editorial"] .ab-card,
+[data-theme="editorial"] .ab-avatar-badge,
+[data-theme="editorial"] .ab-location-subcard,
+[data-theme="editorial"] .ab-pillar-badge,
+[data-theme="editorial"] .ab-diff-row,
+[data-theme="editorial"] .ab-heat-cell,
+[data-theme="editorial"] .ab-skill-chip,
+[data-theme="editorial"] .ab-cta-btn,
+[data-theme="editorial"] .hero-terminal-card,
+[data-theme="editorial"] .hero-stat-card,
+[data-theme="editorial"] .hero-contact-pillar,
+[data-theme="editorial"] .hero-status-pill,
+[data-theme="editorial"] .contact-card,
+[data-theme="editorial"] .contact-form-card,
+[data-theme="editorial"] .project-card,
+[data-theme="editorial"] .credential-card,
+[data-theme="editorial"] .cred-card,
+[data-theme="editorial"] .exp-card,
+[data-theme="editorial"] .experience-card,
+[data-theme="editorial"] .education-card-box,
+[data-theme="editorial"] .social-card-item,
+[data-theme="editorial"] .info-card,
+[data-theme="editorial"] .vertical-side-pill-bar {
+  background: #FFFFFF !important;
+  border: 1px solid #111111 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border-radius: 0 !important;
+}
+
+[data-theme="editorial"] .bento-card:hover,
+[data-theme="editorial"] .bento-social-card:hover,
+[data-theme="editorial"] .glass-card:hover,
+[data-theme="editorial"] .tilt-glass-card:hover,
+[data-theme="editorial"] .vault-glass-card:hover,
+[data-theme="editorial"] .cred-bento-card:hover,
+[data-theme="editorial"] .lc-stat-pill:hover,
+[data-theme="editorial"] .ab-card:hover,
+[data-theme="editorial"] .ab-location-subcard:hover,
+[data-theme="editorial"] .ab-diff-row:hover,
+[data-theme="editorial"] .ab-skill-chip:hover,
+[data-theme="editorial"] .ab-cta-btn:hover,
+[data-theme="editorial"] .hero-stat-card:hover,
+[data-theme="editorial"] .hero-contact-pillar:hover,
+[data-theme="editorial"] .project-card:hover,
+[data-theme="editorial"] .credential-card:hover,
+[data-theme="editorial"] .cred-card:hover,
+[data-theme="editorial"] .contact-card:hover,
+[data-theme="editorial"] .contact-form-card:hover,
+[data-theme="editorial"] .education-card-box:hover,
+[data-theme="editorial"] .social-card-item:hover,
+[data-theme="editorial"] .info-card:hover,
+[data-theme="editorial"] .exp-card:hover,
+[data-theme="editorial"] .experience-card:hover {
+  background: #111111 !important;
+  border-color: #111111 !important;
+  transform: none !important;
+}
+
+[data-theme="editorial"] .bento-card:hover *,
+[data-theme="editorial"] .bento-social-card:hover *,
+[data-theme="editorial"] .glass-card:hover *,
+[data-theme="editorial"] .tilt-glass-card:hover *,
+[data-theme="editorial"] .vault-glass-card:hover *,
+[data-theme="editorial"] .cred-bento-card:hover *,
+[data-theme="editorial"] .ab-card:hover *,
+[data-theme="editorial"] .hero-stat-card:hover *,
+[data-theme="editorial"] .hero-contact-pillar:hover *,
+[data-theme="editorial"] .project-card:hover *,
+[data-theme="editorial"] .credential-card:hover *,
+[data-theme="editorial"] .cred-card:hover *,
+[data-theme="editorial"] .contact-card:hover *,
+[data-theme="editorial"] .contact-form-card:hover *,
+[data-theme="editorial"] .education-card-box:hover *,
+[data-theme="editorial"] .social-card-item:hover *,
+[data-theme="editorial"] .info-card:hover *,
+[data-theme="editorial"] .exp-card:hover *,
+[data-theme="editorial"] .experience-card:hover * {
+  color: #FFFFFF !important;
+}
+
+/* Fix inner chips visibility when parent card is hovered */
+[data-theme="editorial"] :is(
+  .bento-card, .bento-social-card, .glass-card, .tilt-glass-card, 
+  .vault-glass-card, .cred-bento-card, .project-card, .credential-card, 
+  .cred-card, .experience-card, .exp-card, .ab-card, .contact-card,
+  .education-card-box, .info-card
+):hover :is(
+  .skill-tag, .persona-pill-tag, .lc-stat-pill, .ab-skill-chip, 
+  .ab-pillar-badge, .ab-diff-row, .ab-cta-btn, .exp-tech-pill, 
+  .tech-badge, .tilt-pill, .tilt-btn, .vault-skill-pill, 
+  .vault-verify-btn, .timeline-year, .floating-badge,
+  .persona-pill-tag-raw, .edu-badge-raw, .year-tag-raw
+) {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="editorial"] :is(
+  .bento-card, .bento-social-card, .glass-card, .tilt-glass-card, 
+  .vault-glass-card, .cred-bento-card, .project-card, .credential-card, 
+  .cred-card, .experience-card, .exp-card, .ab-card, .contact-card,
+  .education-card-box, .info-card
+):hover :is(
+  .skill-tag, .persona-pill-tag, .lc-stat-pill, .ab-skill-chip, 
+  .ab-pillar-badge, .ab-diff-row, .ab-cta-btn, .exp-tech-pill, 
+  .tech-badge, .tilt-pill, .tilt-btn, .vault-skill-pill, 
+  .vault-verify-btn, .timeline-year, .floating-badge,
+  .persona-pill-tag-raw, .edu-badge-raw, .year-tag-raw
+) * {
+  color: #FFFFFF !important;
+}
+
+/* Projects card segmented tabs specific fixes for Editorial theme */
+[data-theme="editorial"] .tilt-tabs {
+  background: transparent !important;
+  border: 1px solid #111111 !important;
+  border-radius: 0 !important;
+}
+[data-theme="editorial"] .tilt-tab-btn {
+  background: transparent !important;
+  border-radius: 0 !important;
+  color: #111111 !important;
+}
+[data-theme="editorial"] .tilt-tab-btn.active {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+}
+[data-theme="editorial"] .tilt-glass-card:hover .tilt-tabs {
+  border-color: #FFFFFF !important;
+}
+[data-theme="editorial"] .tilt-glass-card:hover .tilt-tab-btn {
+  color: #FFFFFF !important;
+}
+[data-theme="editorial"] .tilt-glass-card:hover .tilt-tab-btn.active {
+  background: #FFFFFF !important;
+  color: #111111 !important;
+}
+
+[data-theme="editorial"] .tilt-btn-solid {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #111111 !important;
+}
+
+[data-theme="editorial"] .tilt-btn-outline {
+  background: transparent !important;
+  color: #111111 !important;
+  border: 1px solid #111111 !important;
+}
+
+/* When the inner chip ITSELF is hovered, invert it to stand out */
+[data-theme="editorial"] :is(
+  .skill-tag, .persona-pill-tag, .lc-stat-pill, .ab-skill-chip, 
+  .ab-pillar-badge, .ab-diff-row, .ab-cta-btn, .exp-tech-pill, 
+  .tech-badge, .tilt-pill, .tilt-btn, .vault-skill-pill, 
+  .vault-verify-btn, .timeline-year, .floating-badge,
+  .persona-pill-tag-raw, .edu-badge-raw, .year-tag-raw
+):hover {
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  border-color: #FFFFFF !important;
+}
+
+[data-theme="editorial"] :is(
+  .skill-tag, .persona-pill-tag, .lc-stat-pill, .ab-skill-chip, 
+  .ab-pillar-badge, .ab-diff-row, .ab-cta-btn, .exp-tech-pill, 
+  .tech-badge, .tilt-pill, .tilt-btn, .vault-skill-pill, 
+  .vault-verify-btn, .timeline-year, .floating-badge,
+  .persona-pill-tag-raw, .edu-badge-raw, .year-tag-raw
+):hover * {
+  color: #111111 !important;
+}
+
+/* ── Hero section ── */
+[data-theme="editorial"] .hero-main-heading {
+  color: #111111;
+}
+[data-theme="editorial"] .hero-gradient-text {
+  background: none !important;
+  -webkit-text-fill-color: #111111 !important;
+  color: #111111 !important;
+  font-style: normal;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+[data-theme="editorial"] .hero-tagline {
+  color: #888888 !important;
+}
+[data-theme="editorial"] .hero-tagline::after {
+  background: #CCCCCC;
+}
+[data-theme="editorial"] .hero-sub-p {
+  color: #555555;
+}
+
+/* ── Status pill ── */
+[data-theme="editorial"] .hero-status-pill {
+  background: #F0F0EE !important;
+  border: 1px solid #CCCCCC !important;
+}
+[data-theme="editorial"] .status-dot-pulse { background: #111111; }
+[data-theme="editorial"] .status-dot-pulse::after { background: rgba(17, 17, 17, 0.15); }
+[data-theme="editorial"] .status-text { color: #333333; }
+[data-theme="editorial"] .status-location { color: #888888; }
+
+/* ── Hero buttons ── */
+[data-theme="editorial"] .hero-btn-primary {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #111111 !important;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+[data-theme="editorial"] .hero-btn-primary:hover {
+  background: #333333 !important;
+  border-color: #333333 !important;
+  transform: none !important;
+}
+[data-theme="editorial"] .hero-btn-secondary {
+  background: transparent !important;
+  color: #111111 !important;
+  border: 1px solid #111111 !important;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+[data-theme="editorial"] .hero-btn-secondary:hover {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  transform: none !important;
+}
+
+/* ── Stat cards ── */
+[data-theme="editorial"] .stat-icon { color: #111111; }
+[data-theme="editorial"] .stat-value { color: #111111; }
+[data-theme="editorial"] .stat-label { color: #888888; }
+
+/* ── Terminal/code card ── */
+[data-theme="editorial"] .terminal-topbar {
+  background: #F0F0EE !important;
+  border-bottom: 1px solid #CCCCCC !important;
+}
+[data-theme="editorial"] .terminal-code-body {
+  background: #FAFAF8;
+}
+[data-theme="editorial"] .code-line { color: #555555; }
+[data-theme="editorial"] .code-keyword { color: #111111; }
+[data-theme="editorial"] .code-var { color: #222222; }
+[data-theme="editorial"] .code-prop { color: #444444; }
+[data-theme="editorial"] .code-str { color: #555555; font-style: italic; }
+[data-theme="editorial"] .code-val { color: #333333; }
+[data-theme="editorial"] .terminal-lang { color: #AAAAAA; }
+[data-theme="editorial"] .terminal-title { color: #888888; }
+
+/* ── Contact pillar flip tiles ── */
+[data-theme="editorial"] .flip-front.side-letter-tile,
+[data-theme="editorial"] .flip-back.side-icon-tile {
+  background: #FFFFFF !important;
+  border: 1px solid #CCCCCC !important;
+  color: #111111 !important;
+}
+[data-theme="editorial"] .hero-flip-tile .flip-front.side-letter-tile {
+  background: #F0F0EE !important;
+}
+
+/* ── Skill tags / pills / marquee ── */
+[data-theme="editorial"] .skill-tag,
+[data-theme="editorial"] .persona-pill-tag,
+[data-theme="editorial"] .marquee-badge {
+  background: #F0F0EE !important;
+  border: 1px solid #CCCCCC !important;
+  color: #333333 !important;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+[data-theme="editorial"] .skill-tag:hover,
+[data-theme="editorial"] .persona-pill-tag:hover {
+  background: #111111 !important;
+  border-color: #111111 !important;
+  color: #FFFFFF !important;
+}
+
+/* ── Section headings / labels ── */
+[data-theme="editorial"] .who-i-am-label,
+[data-theme="editorial"] .hero-tagline,
+[data-theme="editorial"] .mono-label,
+[data-theme="editorial"] .title-work-muted {
+  color: #888888 !important;
+}
+[data-theme="editorial"] .section-subheading { color: #111111; }
+[data-theme="editorial"] .persona-main-title { color: #111111 !important; }
+
+/* ── Social / bento social cards ── */
+[data-theme="editorial"] .bento-social-card {
+  background: #FFFFFF !important;
+  border: 1px solid #111111 !important;
+  backdrop-filter: none !important;
+}
+[data-theme="editorial"] .bento-social-card:hover {
+  background: #111111 !important;
+}
+[data-theme="editorial"] .bento-social-card:hover * {
+  color: #FFFFFF !important;
+}
+
+/* ── Input fields ── */
+[data-theme="editorial"] input,
+[data-theme="editorial"] textarea {
+  background: #FAFAF8 !important;
+  border: 1px solid #CCCCCC !important;
+  color: #111111 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+[data-theme="editorial"] input:focus,
+[data-theme="editorial"] textarea:focus {
+  border-color: #111111 !important;
+  outline: none;
+}
+[data-theme="editorial"] input::placeholder,
+[data-theme="editorial"] textarea::placeholder { color: #AAAAAA !important; }
+
+/* ── Buttons (generic) ── */
+[data-theme="editorial"] button:not(.nav-icon-btn) {
+  font-family: 'Inter', sans-serif !important;
+}
+[data-theme="editorial"] .btn-solid,
+[data-theme="editorial"] .btn-outline {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #111111 !important;
+  box-shadow: none !important;
+}
+[data-theme="editorial"] .btn-outline {
+  background: transparent !important;
+  color: #111111 !important;
+}
+
+/* ── Vertical side pill bar ── */
+[data-theme="editorial"] .vertical-side-pill-bar {
+  background: #FAFAF8 !important;
+  border: 1px solid #CCCCCC !important;
+}
+[data-theme="editorial"] .side-tile-tooltip {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+
+/* ── Scrollbar ── */
+[data-theme="editorial"]::-webkit-scrollbar-track { background: #F0F0EE; }
+[data-theme="editorial"]::-webkit-scrollbar-thumb { background: #CCCCCC; }
+[data-theme="editorial"]::-webkit-scrollbar-thumb:hover { background: #999999; }
+
+/* ── Transitions (specific components only) ── */
+[data-theme="editorial"] .bento-card,
+[data-theme="editorial"] .glass-card,
+[data-theme="editorial"] .project-card,
+[data-theme="editorial"] .credential-card,
+[data-theme="editorial"] .exp-card,
+[data-theme="editorial"] .hero-btn-primary,
+[data-theme="editorial"] .hero-btn-secondary,
+[data-theme="editorial"] .btn-solid,
+[data-theme="editorial"] .btn-outline,
+[data-theme="editorial"] .skill-tag,
+[data-theme="editorial"] .persona-pill-tag,
+[data-theme="editorial"] .marquee-badge,
+[data-theme="editorial"] .nav-tab-link,
+[data-theme="editorial"] .nav-icon-btn {
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, opacity 0.18s ease !important;
+}
