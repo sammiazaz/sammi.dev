@@ -21,9 +21,10 @@
 
 .project-snap-section .persona-page-header {
   align-self: flex-start;
-  text-align: left;
+  text-align: left !important;
   width: 100%;
-  margin-bottom: 5px;
+  margin-top: 15px !important;
+  margin-bottom: 12px !important;
 }
 
 .projects-container {
@@ -62,16 +63,23 @@
 .tilt-glass-card {
   position: relative;
   width: 100%;
-  border-radius: 24px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  transform-style: preserve-3d;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   cursor: crosshair;
-  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   overflow: hidden;
+}
+
+.tilt-glass-card:hover {
+  transform: translateY(-3px) !important;
+  background: var(--skill-bg-alpha);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  box-shadow: 0 10px 40px rgba(var(--primary-rgb), 0.15);
 }
 
 [data-theme="codecademy"] .tilt-glass-card {
@@ -79,12 +87,7 @@
 }
 
 .tilt-glare {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  transition: opacity 0.2s ease;
+  display: none;
 }
 
 .tilt-inner {
@@ -166,12 +169,12 @@
 .tilt-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
   z-index: 1;
 }
 
 [data-theme="codecademy"] .tilt-image-overlay {
-  background: linear-gradient(to top, rgba(16,24,50,0.2) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(16, 24, 50, 0.2) 0%, transparent 60%);
 }
 
 .tilt-header {
@@ -198,7 +201,7 @@
 /* ─── Segmented Tabs ─── */
 .tilt-tabs {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
   border-radius: 100px;
   padding: 4px;
@@ -281,7 +284,8 @@
   font-family: var(--font-primary);
   font-size: 0.85rem;
   font-weight: 700;
-  padding: 12px 0; /* Matched taller padding from image */
+  padding: 12px 0;
+  /* Matched taller padding from image */
   border-radius: 100px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -308,10 +312,12 @@
   transform: translateY(-2px);
 }
 
+
+
 .tilt-btn-outline {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--card-bg);
   color: var(--primary);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--card-border);
 }
 
 .tilt-btn-outline:hover {
@@ -335,25 +341,31 @@
   .pw-grid-3 {
     grid-template-columns: 1fr;
   }
+
   .tilt-glass-card {
     transform: none !important;
   }
+
   .tilt-horizontal .tilt-glass-card {
     height: auto;
   }
+
   .tilt-horizontal .tilt-inner {
     flex-direction: column;
   }
+
   .tilt-horizontal .tilt-image-wrapper {
     width: 100%;
     height: 240px;
     border-right: none;
     border-bottom: 1px solid var(--glass-border);
   }
+
   .tilt-horizontal .tilt-content {
     width: 100%;
     padding: 24px;
   }
+
   .tilt-vertical .tilt-glass-card {
     height: auto;
   }

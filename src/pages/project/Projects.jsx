@@ -4,65 +4,18 @@ import { PROJECTS, GRID_PROJECTS } from '../../data/projects';
 import './Projects.css';
 
 const TiltCard = ({ project, layout = "vertical" }) => {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
   const [activeTab, setActiveTab] = useState(Object.keys(project.tabs)[0]);
 
   const description = project.tabs[activeTab];
 
-  const handleMouseMove = (e) => {
-    // Only apply 3D effects on devices with a mouse (desktop)
-    if (window.innerWidth < 1024) return;
-
-    const card = e.currentTarget;
-    const box = card.getBoundingClientRect();
-    const x = e.clientX - box.left;
-    const y = e.clientY - box.top;
-    
-    const centerX = box.width / 2;
-    const centerY = box.height / 2;
-    
-    // Tilt amounts
-    const rx = ((y - centerY) / centerY) * -5;
-    const ry = ((x - centerX) / centerX) * 5;
-    
-    setRotateX(rx);
-    setRotateY(ry);
-
-    setGlare({
-      x: (x / box.width) * 100,
-      y: (y / box.height) * 100,
-      opacity: 1
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-    setGlare(prev => ({ ...prev, opacity: 0 }));
-  };
-
   return (
-    <div className={`tilt-wrapper tilt-${layout}`} style={{ perspective: 1200 }}>
+    <div className={`tilt-wrapper tilt-${layout}`}>
       <motion.article
         className="tilt-glass-card"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        animate={{ rotateX, rotateY }}
-        transition={{ type: 'spring', stiffness: 350, damping: 30, mass: 0.5 }}
-        style={{ transformStyle: "preserve-3d" }}
       >
-        <div 
-          className="tilt-glare" 
-          style={{ 
-            background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.15) 0%, transparent 60%)`,
-            opacity: glare.opacity
-          }} 
-        />
         
         {/* The inner content translates forward in 3D space for a parallax pop effect */}
-        <div className="tilt-inner" style={{ transform: "translateZ(40px)" }}>
+        <div className="tilt-inner">
           <div className="tilt-image-wrapper">
             <img src={project.image} alt={project.title} className="tilt-image" draggable="false" />
             <div className="tilt-image-overlay" />
