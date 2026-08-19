@@ -4,6 +4,18 @@ import './Experience.css';
 
 const INTERNSHIPS_DATA = [
   {
+    role: "Python Developer Intern",
+    company: "Shadowfox",
+    location: "Remote",
+    date: "July 2025 – Aug 2025",
+    bullets: [
+      "Developed and tested multiple Python scripts and applications under senior developer guidance, strengthening code quality.",
+      "Performed data collection, cleaning, and analysis using Pandas and NumPy across multiple datasets.",
+      "Collaborated with senior developers and cross-functional teams to debug issues using Agile practices."
+    ],
+    tech: ["Python", "Pandas", "NumPy", "Agile"]
+  },
+  {
     role: "Web Developer Intern",
     company: "Prodigy Infotech",
     location: "Remote",

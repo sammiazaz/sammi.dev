@@ -8,7 +8,7 @@ const SOCIAL_LINKS = [
     name: "GitHub",
     handle: "sammiazaz",
     url: "https://github.com/sammiazaz",
-    color: "#ffffff",
+    color: 'var(--text-primary)',
     icon: (
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -137,11 +137,10 @@ export default function Persona() {
           initial="hidden"
           animate="visible"
         >
-          {/* 1. BIO BENTO (2x2) */}
-          <motion.div variants={bentoVariants} className="bento-card bento-bio">
-            <div className="bento-glow-bg"></div>
-            <h2 className="bento-title">Hi, I'm <span className="highlight-cyan">Sammi</span></h2>
-            <div className="bio-paragraphs">
+          {/* 1. BIO (Raw Text, 2x2) */}
+          <motion.div variants={bentoVariants} className="bento-bio">
+            <h2 className="hero-title-raw">Hi, I'm <span className="highlight-cyan">Sammi</span></h2>
+            <div className="bio-paragraphs-raw">
               <p>
                 2nd-year <span className="highlight-cyan">Undergrad</span> student at{' '}
                 <span className="highlight-cyan">IILM University</span> — CPI <span className="highlight-gold">8.5 / 10</span>,
@@ -153,32 +152,37 @@ export default function Persona() {
                 I am passionate about creating clean, accessible user interfaces and robust APIs.
               </p>
             </div>
-            <div className="persona-tags-row">
-              <span className="persona-pill-tag">Delhi, India</span>
-              <span className="persona-pill-tag">Software Engineer</span>
-              <span className="persona-pill-tag">Zero-Knowledge Security</span>
+            <div className="persona-tags-row-raw">
+              <span className="persona-pill-tag-raw">Delhi, India</span>
+              <span className="persona-pill-tag-raw">IILM University · 2027</span>
             </div>
           </motion.div>
 
           {/* 2. EDUCATION BENTO (2x1) */}
-          <motion.div variants={bentoVariants} className="bento-card bento-edu">
-            <div className="edu-header">
-              <div className="edu-badge">IILM</div>
-              <div className="edu-info">
-                <h3>IILM University</h3>
-                <p className="edu-degree">B.Tech Computer Science</p>
-                <p className="edu-dates">2023 – <span className="highlight-gold">2027</span></p>
-              </div>
-            </div>
-            <div className="edu-cpi-row">
-              <div className="cpi-block">
-                <span className="cpi-text">CPI 4TH SEM</span>
-                <div className="cpi-val-wrap">
-                  <span className="cpi-val highlight-gold">8.50</span>
-                  <span className="cpi-denom">/ 10</span>
+          <motion.div variants={bentoVariants} className="edu-section-wrapper">
+            <h3 style={{ color: 'var(--text-primary)', fontSize: '1.4rem', marginBottom: '16px', fontWeight: 600 }}>Education</h3>
+            <div className="bento-card bento-edu">
+              <div className="bento-glow-bg"></div>
+              <div className="edu-main-flex">
+                <div className="edu-badge-raw">IILM</div>
+                <div className="edu-info-raw">
+                  <div className="edu-title-row">
+                    <h3>IILM University</h3>
+                  </div>
+                  <p className="edu-degree-raw">Bachelors of Technology in Computer Science</p>
+                  <p className="edu-dates-raw">2023 – 2027</p>
                 </div>
               </div>
-              <img src={iilmImg} alt="IILM Campus" className="edu-bento-img" />
+              <div className="edu-bottom-flex">
+                <div className="cpi-block-raw">
+                  <span className="cpi-text-raw">CPI 4TH SEM</span>
+                  <div className="cpi-val-wrap-raw">
+                    <span className="cpi-val-raw highlight-gold">8.50</span>
+                    <span className="cpi-denom-raw">/ 10</span>
+                  </div>
+                </div>
+                <span className="year-tag-raw">2nd Year</span>
+              </div>
             </div>
           </motion.div>
 

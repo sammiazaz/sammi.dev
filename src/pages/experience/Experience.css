@@ -1,7 +1,7 @@
 .experience-page {
   padding: 125px 5% 60px 5%;
   min-height: 100vh;
-  background-color: var(--bg);
+  background-color: transparent;
   display: flex;
   justify-content: center;
 }
@@ -38,7 +38,7 @@
   font-family: 'Comfortaa', cursive, sans-serif !important;
   font-size: clamp(3rem, 5vw, 4.5rem) !important;
   font-weight: 900 !important;
-  color: #ffffff !important;
+  color: var(--text-primary) !important;
   margin: 0 !important;
   line-height: 1 !important;
 }
@@ -51,23 +51,23 @@
 }
 
 .experience-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--card-bg);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 32px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   overflow: hidden;
 }
 
 .experience-card:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(var(--primary-rgb), 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.2), 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) !important;
+  background: var(--skill-bg-alpha);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  box-shadow: 0 10px 40px rgba(var(--primary-rgb), 0.15);
 }
 
 .exp-card-glow {
@@ -93,14 +93,14 @@
 .exp-role {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-primary);
   margin: 0 0 8px 0;
   font-family: 'Comfortaa', cursive, sans-serif;
 }
 
 .exp-company-location {
   font-size: 0.9rem;
-  color: #a3a3a3;
+  color: var(--text-secondary);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -116,11 +116,11 @@
   font-family: monospace;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #f59e0b;
+  color: var(--tertiary);
   padding: 8px 16px;
   border-radius: 100px;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid var(--card-border);
+  background: var(--pill-bg);
   white-space: nowrap;
 }
 
@@ -136,7 +136,7 @@
 .exp-bullets li {
   position: relative;
   padding-left: 24px;
-  color: #c0c0c0;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -155,25 +155,25 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--card-border);
   padding-top: 20px;
 }
 
 .exp-tech-pill {
   font-family: monospace;
   font-size: 0.7rem;
-  color: #a3a3a3;
+  color: var(--text-secondary);
   padding: 6px 14px;
   border-radius: 100px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--pill-bg);
   transition: all 0.2s ease;
 }
 
 .exp-tech-pill:hover {
   color: var(--primary);
   border-color: var(--primary);
-  background: rgba(var(--primary-rgb), 0.1);
+  background: var(--skill-bg-alpha);
 }
 
 @media (max-width: 600px) {
@@ -197,7 +197,7 @@
 }
 
 [data-theme="codecademy"] .experience-card {
-  background: #FFFCF8;
+  background: var(--card-bg);
   border: 1px solid #E6D9CC;
   box-shadow: 0 4px 16px rgba(16, 24, 50, 0.05);
   backdrop-filter: none;

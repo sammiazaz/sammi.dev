@@ -23,7 +23,7 @@ export const CONTACT_ITEMS = [
     letter: 'C',
     label: 'GitHub',
     href: 'https://github.com/sammiazaz',
-    color: '#ffffff',
+    color: 'var(--text-primary)',
     icon: <GitHubIcon width="22" height="22" />
   },
   {
