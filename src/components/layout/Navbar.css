@@ -18,7 +18,7 @@
   background: rgba(18, 18, 18, 0.4);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--card-border);
   border-radius: 100px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -26,18 +26,7 @@
 
 .navbar-container:hover {
   background: rgba(18, 18, 18, 0.5);
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-/* Theme overrides for lighter modes */
-[data-theme="codecademy"] .navbar-container {
-  background: rgba(255, 252, 248, 0.7);
-  border-color: rgba(16, 24, 50, 0.1);
-  box-shadow: 0 8px 24px rgba(16, 24, 50, 0.08), inset 0 1px 1px #ffffff;
-}
-[data-theme="codecademy"] .navbar-container:hover {
-  background: rgba(255, 252, 248, 0.85);
-  border-color: rgba(16, 24, 50, 0.2);
+  border-color: var(--primary);
 }
 
 /* ─── Brand Logo ─── */
@@ -60,17 +49,7 @@
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
 }
 
-[data-theme="codecademy"] .nav-brand-icon {
-  background: rgba(16, 24, 50, 0.06);
-}
-
 .nav-brand-icon.active-home {
-  transform: scale(1.1);
-  background: var(--primary);
-  color: var(--bg);
-}
-
-[data-theme="codecademy"] .nav-brand-icon.active-home {
   transform: scale(1.1);
   background: var(--primary);
   color: var(--bg);
@@ -121,10 +100,6 @@
   color: #000;
 }
 
-[data-theme="codecademy"] .nav-tab-link.active {
-  color: #fff;
-}
-
 .nav-active-pill {
   position: absolute;
   inset: 0;
@@ -165,19 +140,33 @@
   color: var(--primary);
 }
 
-[data-theme="codecademy"] .nav-icon-btn:hover {
-  background: rgba(16, 24, 50, 0.08);
+/* ─── Theme Cycle Button ─── */
+.nav-theme-cycle-btn {
+  border: 1px solid var(--card-border);
+  position: relative;
+}
+.nav-theme-cycle-btn.theme-active {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+[data-theme="editorial"] .nav-theme-cycle-btn {
+  border: 1px solid #111111;
+  color: #111111;
+}
+[data-theme="editorial"] .nav-theme-cycle-btn.theme-active {
+  background: #111111;
+  color: #ffffff;
 }
 
 .theme-selector-wrapper {
   position: relative;
 }
 
-.nav-resume-btn {
+.nav-theme-btn {
   padding: 8px 18px;
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--card-border);
   color: var(--primary);
   font-size: 0.82rem;
   font-weight: 700;
@@ -186,21 +175,11 @@
   margin-left: 8px;
 }
 
-.nav-resume-btn:hover {
+.nav-theme-btn:hover {
   background: var(--primary);
   color: var(--bg);
   border-color: var(--primary);
   transform: translateY(-1px);
-}
-
-[data-theme="codecademy"] .nav-resume-btn {
-  background: rgba(16, 24, 50, 0.05);
-  border-color: rgba(16, 24, 50, 0.15);
-}
-
-[data-theme="codecademy"] .nav-resume-btn:hover {
-  background: var(--primary);
-  color: var(--bg);
 }
 
 /* ─── Theme Dropdown Glass ─── */
@@ -212,18 +191,12 @@
   background: rgba(18, 18, 18, 0.85);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 12px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
   transform-origin: top right;
   z-index: 1001;
-}
-
-[data-theme="codecademy"] .theme-dropdown-glass {
-  background: rgba(255, 252, 248, 0.9);
-  border-color: rgba(16, 24, 50, 0.1);
-  box-shadow: 0 16px 40px rgba(16, 24, 50, 0.1), inset 0 1px 1px #ffffff;
 }
 
 .theme-header {
@@ -235,10 +208,6 @@
   padding: 4px 8px 12px 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   margin-bottom: 8px;
-}
-
-[data-theme="codecademy"] .theme-header {
-  border-bottom-color: rgba(16, 24, 50, 0.05);
 }
 
 .theme-options {
@@ -266,11 +235,6 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-[data-theme="codecademy"] .theme-glass-btn:hover,
-[data-theme="codecademy"] .theme-glass-btn.active {
-  background: rgba(16, 24, 50, 0.05);
-}
-
 .theme-text {
   display: flex;
   flex-direction: column;
@@ -292,25 +256,108 @@
   height: 16px;
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.dot-bw { background: linear-gradient(135deg, #fff 50%, #8f8f8f 50%); border: 1px solid #fff; }
-.dot-nitro { background: linear-gradient(135deg, #00d9ff 50%, #f59e0b 50%); border: 1px solid #00d9ff; }
-.dot-zprox { background: linear-gradient(135deg, #ff003c 50%, #0a0a0a 50%); border: 1px solid #ff003c; }
-.dot-codecademy { background: linear-gradient(135deg, #101832 50%, #FFD400 50%); border: 1px solid #101832; }
+
+
+.dot-nitro {
+  background: linear-gradient(135deg, #00d9ff 50%, #f59e0b 50%);
+  border: 1px solid #00d9ff;
+}
+
+.dot-zprox {
+  background: linear-gradient(135deg, #ff003c 50%, #0a0a0a 50%);
+  border: 1px solid #ff003c;
+}
+
+.dot-codecademy {
+  background: linear-gradient(135deg, #101832 50%, #FFD400 50%);
+  border: 1px solid #101832;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
 
 @media (max-width: 768px) {
-  .nav-tab-text {
+  .magnetic-navbar {
+    top: 20px;
+    bottom: auto;
+    width: max-content;
+    max-width: 95vw;
+  }
+
+  .navbar-container {
+    gap: 12px;
+    padding: 8px 12px;
+    justify-content: center;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-tabs {
+    display: none;
+    position: absolute;
+    top: calc(100% + 16px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 4px;
+    width: 220px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-tabs.mobile-open {
+    display: flex;
+  }
+
+  .nav-tab-item {
+    width: 100%;
+  }
+
+  .nav-tab-link {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+  
+  .nav-active-pill {
+    border-radius: 12px;
+  }
+
+  .nav-brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-actions-group {
+    gap: 6px;
+  }
+
+  .nav-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-theme-btn {
     display: none;
   }
-  .magnetic-navbar {
-    bottom: 24px;
-    top: auto;
-  }
+
   .theme-dropdown-glass {
-    top: auto;
-    bottom: calc(100% + 16px);
-    transform-origin: bottom right;
+    top: calc(100% + 16px);
+    bottom: auto;
+    transform-origin: top right;
   }
 }

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Navbar.css';
 
 const NAV_ITEMS = [
@@ -10,30 +10,42 @@ const NAV_ITEMS = [
   { path: '/contact', label: 'Contact' },
 ];
 
-export default function Navbar({ theme, setTheme }) {
-  const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
-  const location = useLocation();
+const THEMES = ['default', 'editorial'];
+const THEME_ICONS = {
+  default: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="5" fill="currentColor" opacity="0.2"/>
+      <circle cx="12" cy="12" r="10" />
+    </svg>
+  ),
+  editorial: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="3" width="18" height="18" />
+      <path d="M3 9h18M9 3v18" />
+    </svg>
+  ),
+};
+const THEME_LABELS = { default: 'Color', editorial: 'Editorial' };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (isThemeModalOpen && !e.target.closest('.theme-selector-wrapper')) {
-        setIsThemeModalOpen(false);
-      }
-    };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isThemeModalOpen]);
+export default function Navbar({ mode, setMode, theme, setTheme, setIsChatOpen }) {
+  const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const cycleTheme = () => {
+    const idx = THEMES.indexOf(theme);
+    setTheme(THEMES[(idx + 1) % THEMES.length]);
+  };
 
   return (
-    <motion.nav 
-      className="magnetic-navbar" 
+    <motion.nav
+      className="magnetic-navbar"
       aria-label="Main navigation"
       initial={{ y: -100, x: "-50%", opacity: 0 }}
       animate={{ y: 0, x: "-50%", opacity: 1 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
     >
       <div className="navbar-container">
-        
+
         {/* Logo */}
         <Link to="/" className="nav-brand" aria-label="Home">
           <div className={`nav-brand-icon ${location.pathname === '/' ? 'active-home' : ''}`}>
@@ -44,13 +56,17 @@ export default function Navbar({ theme, setTheme }) {
           </div>
         </Link>
 
-        {/* Magnetic Nav Links */}
-        <ul className="nav-tabs">
+        {/* Nav Links */}
+        <ul className={`nav-tabs ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           {NAV_ITEMS.map((item) => {
-            const isActive = location.pathname === item.path || (item.path === '/' && location.pathname === '/');
+            const isActive = location.pathname === item.path;
             return (
               <li key={item.path} className="nav-tab-item">
-                <Link to={item.path} className={`nav-tab-link ${isActive ? 'active' : ''}`}>
+                <Link 
+                  to={item.path} 
+                  className={`nav-tab-link ${isActive ? 'active' : ''}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   {isActive && (
                     <motion.div
                       layoutId="active-nav-pill"
@@ -66,11 +82,28 @@ export default function Navbar({ theme, setTheme }) {
           })}
         </ul>
 
-        {/* Actions (Theme & Buttons) */}
+        {/* Actions */}
         <div className="nav-actions-group">
-          
+          {/* Mobile Menu Toggle (3 lines) */}
+          <button 
+            className="nav-icon-btn mobile-menu-btn" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+          </button>
+
           {/* AI Bot Button */}
-          <button className="nav-icon-btn" title="AI Assistant" aria-label="Open AI Assistant">
+          <button 
+            className="nav-icon-btn" 
+            title="AI Assistant" 
+            aria-label="Open AI Assistant"
+            onClick={() => setIsChatOpen(true)}
+          >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="11" width="18" height="10" rx="2" />
               <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor" />
@@ -80,58 +113,32 @@ export default function Navbar({ theme, setTheme }) {
             </svg>
           </button>
 
-          {/* Theme Selector */}
-          <div className="theme-selector-wrapper">
-            <button
-              className="nav-icon-btn theme-toggle-btn"
-              onClick={() => setIsThemeModalOpen(!isThemeModalOpen)}
-              title="Select Theme"
-              aria-expanded={isThemeModalOpen}
-            >
+          {/* Theme Cycle Button */}
+          <button
+            className={`nav-icon-btn nav-theme-cycle-btn ${theme !== 'default' ? 'theme-active' : ''}`}
+            onClick={cycleTheme}
+            title={`Theme: ${THEME_LABELS[theme]} → Click to switch`}
+          >
+            {THEME_ICONS[theme]}
+          </button>
+
+          {/* Dark/Light Mode Toggle */}
+          <button
+            className="nav-icon-btn theme-toggle-btn"
+            onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
+            title="Toggle Light/Dark Mode"
+          >
+            {mode === 'dark' ? (
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="5" />
                 <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
               </svg>
-            </button>
-
-            <AnimatePresence>
-              {isThemeModalOpen && (
-                <motion.div 
-                  className="theme-dropdown-glass"
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="theme-header">Appearance</div>
-                  <div className="theme-options">
-                    {[
-                      { id: 'b&w', name: 'Monochrome', desc: 'Minimal B&W' },
-                      { id: 'nitro', name: 'Nitro', desc: 'Cyan & Orange' },
-                      { id: 'zprox', name: 'zPROx.AI', desc: 'Red & Carbon' },
-                      { id: 'codecademy', name: 'Codecademy', desc: 'Cream & Navy' },
-                    ].map(t => (
-                      <button
-                        key={t.id}
-                        className={`theme-glass-btn ${(theme === t.id || (t.id === 'b&w' && theme === 'dark')) ? 'active' : ''}`}
-                        onClick={() => { setTheme(t.id); setIsThemeModalOpen(false); }}
-                      >
-                        <span className={`theme-dot dot-${t.id === 'b&w' ? 'bw' : t.id}`} />
-                        <div className="theme-text">
-                          <span className="theme-label">{t.name}</span>
-                          <span className="theme-sub">{t.desc}</span>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <Link to="/resume" className="nav-resume-btn">
-            Resume
-          </Link>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
+          </button>
 
         </div>
       </div>
