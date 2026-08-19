@@ -77,7 +77,8 @@ export default function Home() {
   };
 
   return (
-    <div className="home-page">
+    <>
+      <div className="home-page" style={{ position: 'relative', zIndex: 1 }}>
       {/* ─── Hero Section (Split Left & Right Layout) ─── */}
       <section className="home-hero-section" id="hero">
         <div className="home-hero-split-container">
@@ -91,7 +92,7 @@ export default function Home() {
           >
             {/* Main Heading */}
             <h1 className="hero-main-heading">
-              Building <span className="hero-gradient-text">intelligent systems</span> & resilient software.
+              Building <span className="hero-gradient-text">intelligent<br />systems</span> & resilient<br />software.
             </h1>
 
             {/* Status Capsule */}
@@ -121,8 +122,8 @@ export default function Home() {
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </Link>
-              <Link to="/credentials" className="hero-btn-secondary">
-                View Credentials
+              <Link to="/resume" className="hero-btn-secondary">
+                Resume
               </Link>
             </div>
           </motion.div>
@@ -249,6 +250,7 @@ export default function Home() {
           Explore Persona →
         </Link>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
