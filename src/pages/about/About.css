@@ -558,7 +558,35 @@
 
 @media (max-width: 600px) {
   .about-page {
-    padding: 50px 5% 40px 5%;
+    padding: 30px 5% 40px 5%;
+  }
+
+  .ab-bio-text {
+    font-size: 0.96rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .ab-pillar-title {
+    font-size: 1.15rem !important;
+  }
+
+  .ab-pillar-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .ab-domain-title {
+    font-size: 1.2rem !important;
+  }
+
+  .ab-domain-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .ab-skill-chip {
+    font-size: 0.78rem !important;
+    padding: 6px 12px !important;
   }
 
   .ab-domains-grid {
@@ -583,5 +611,7 @@
   .ab-cta-btn {
     width: 100%;
     justify-content: center;
+    padding: 13px 20px !important;
+    font-size: 0.9rem !important;
   }
 }

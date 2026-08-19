@@ -111,7 +111,7 @@ export default function Projects() {
         <section className="project-snap-section" id="projects-section-1">
           <header className="persona-page-header">
             <h1 className="persona-main-title">
-              Selected <span className="title-work-muted">Work</span>
+              Selected <span className="title-work-muted">Projects</span>
             </h1>
             <p className="section-description">
               A collection of digital experiences focusing on security, transparency, and community driven innovation.

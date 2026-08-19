@@ -36,6 +36,7 @@ export default function SmoothScroll({ children }) {
     });
 
     lenisRef.current = lenis;
+    window.__lenis = lenis;
 
     // Listen for real-time changes to motion preferences
     const handleMotionChange = (e) => {

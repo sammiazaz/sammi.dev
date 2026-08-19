@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { createPortal } from 'react-dom';
+import { AnimatePresence } from 'framer-motion';
 import Home from './pages/home/Home';
 import Projects from './pages/project/Projects';
 import Experience from './pages/experience/Experience';
@@ -12,8 +12,11 @@ import SmoothScroll from './components/common/SmoothScroll';
 import Navbar from './components/layout/Navbar';
 import VantaBackground from './components/layout/VantaBackground';
 import ChatAssistant from './components/chat/ChatAssistant';
+import Preloader from './components/common/Preloader';
 import './index.css';
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [mode, setMode] = useState(() => {
     const savedMode = localStorage.getItem('portfolio-mode');
@@ -36,6 +39,12 @@ function App() {
 
   return (
     <>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <Preloader key="preloader" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
       <SmoothScroll>
         <VantaBackground mode={mode} theme={theme} />
         <Navbar mode={mode} setMode={setMode} theme={theme} setTheme={setTheme} setIsChatOpen={setIsChatOpen} />

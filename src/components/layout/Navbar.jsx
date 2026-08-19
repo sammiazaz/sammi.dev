@@ -1,16 +1,44 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
+import { Home, Briefcase, Award, User, Mail, Check } from 'lucide-react';
+import logoImg from '../../assets/logo.png';
+
 const NAV_ITEMS = [
-  { path: '/projects', label: 'Projects' },
-  { path: '/credentials', label: 'Credentials' },
-  { path: '/persona', label: 'Persona' },
-  { path: '/contact', label: 'Contact' },
+  { path: '/', label: 'Home', icon: Home, mobileOnly: true },
+  { path: '/projects', label: 'Projects', icon: Briefcase },
+  { path: '/credentials', label: 'Credentials', icon: Award },
+  { path: '/persona', label: 'Persona', icon: User },
+  { path: '/contact', label: 'Contact', icon: Mail },
 ];
 
-const THEMES = ['default', 'editorial'];
+const THEME_OPTIONS = [
+  {
+    id: 'default',
+    name: 'Default (Cyber Green)',
+    desc: 'Vibrant emerald glow & glass',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+        <circle cx="12" cy="12" r="5" fill="#22c55e" opacity="0.4"/>
+        <circle cx="12" cy="12" r="10" stroke="#22c55e" />
+      </svg>
+    ),
+  },
+  {
+    id: 'editorial',
+    name: 'Editorial',
+    desc: 'Monochrome minimalist layout',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" />
+        <path d="M3 9h18M9 3v18" stroke="currentColor" />
+      </svg>
+    ),
+  },
+];
+
 const THEME_ICONS = {
   default: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -25,16 +53,21 @@ const THEME_ICONS = {
     </svg>
   ),
 };
-const THEME_LABELS = { default: 'Color', editorial: 'Editorial' };
 
 export default function Navbar({ mode, setMode, theme, setTheme, setIsChatOpen }) {
   const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isThemePopupOpen, setIsThemePopupOpen] = useState(false);
+  const themeDropdownRef = useRef(null);
 
-  const cycleTheme = () => {
-    const idx = THEMES.indexOf(theme);
-    setTheme(THEMES[(idx + 1) % THEMES.length]);
-  };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (themeDropdownRef.current && !themeDropdownRef.current.contains(e.target)) {
+        setIsThemePopupOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <motion.nav
@@ -46,26 +79,34 @@ export default function Navbar({ mode, setMode, theme, setTheme, setIsChatOpen }
     >
       <div className="navbar-container">
 
-        {/* Logo */}
-        <Link to="/" className="nav-brand" aria-label="Home">
-          <div className={`nav-brand-icon ${location.pathname === '/' ? 'active-home' : ''}`}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-          </div>
-        </Link>
+        {/* Brand Logo & Home Group */}
+        <div className="nav-brand-group desktop-only">
+          {/* Logo.png */}
+          <Link to="/" className="nav-logo-link" aria-label="Logo">
+            <img src={logoImg} alt="Sammi Logo" className="nav-logo-img" />
+          </Link>
+
+          {/* Home Icon */}
+          <Link to="/" className="nav-brand" aria-label="Home">
+            <div className={`nav-brand-icon ${location.pathname === '/' ? 'active-home' : ''}`}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+          </Link>
+        </div>
 
         {/* Nav Links */}
-        <ul className={`nav-tabs ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <ul className="nav-tabs">
           {NAV_ITEMS.map((item) => {
             const isActive = location.pathname === item.path;
+            const IconComponent = item.icon;
             return (
-              <li key={item.path} className="nav-tab-item">
+              <li key={item.path} className={`nav-tab-item ${item.mobileOnly ? 'mobile-only' : ''}`}>
                 <Link 
                   to={item.path} 
                   className={`nav-tab-link ${isActive ? 'active' : ''}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {isActive && (
                     <motion.div
@@ -75,6 +116,7 @@ export default function Navbar({ mode, setMode, theme, setTheme, setIsChatOpen }
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
+                  <IconComponent className="nav-tab-icon" />
                   <span className="nav-tab-text">{item.label}</span>
                 </Link>
               </li>
@@ -84,18 +126,6 @@ export default function Navbar({ mode, setMode, theme, setTheme, setIsChatOpen }
 
         {/* Actions */}
         <div className="nav-actions-group">
-          {/* Mobile Menu Toggle (3 lines) */}
-          <button 
-            className="nav-icon-btn mobile-menu-btn" 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-          </button>
 
           {/* AI Bot Button */}
           <button 
@@ -113,14 +143,57 @@ export default function Navbar({ mode, setMode, theme, setTheme, setIsChatOpen }
             </svg>
           </button>
 
-          {/* Theme Cycle Button */}
-          <button
-            className={`nav-icon-btn nav-theme-cycle-btn ${theme !== 'default' ? 'theme-active' : ''}`}
-            onClick={cycleTheme}
-            title={`Theme: ${THEME_LABELS[theme]} → Click to switch`}
-          >
-            {THEME_ICONS[theme]}
-          </button>
+          {/* Theme Selector Pop-up Wrapper */}
+          <div className="theme-selector-wrapper" ref={themeDropdownRef}>
+            <button
+              className={`nav-icon-btn nav-theme-cycle-btn ${isThemePopupOpen ? 'theme-active' : ''}`}
+              onClick={() => setIsThemePopupOpen((prev) => !prev)}
+              title="Select Theme"
+              aria-label="Select Theme"
+            >
+              {THEME_ICONS[theme] || THEME_ICONS.default}
+            </button>
+
+            <AnimatePresence>
+              {isThemePopupOpen && (
+                <motion.div
+                  className="theme-dropdown-glass"
+                  initial={{ opacity: 0, scale: 0.94, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.94, y: 10 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="theme-header">Theme Selector</div>
+                  <div className="theme-options">
+                    {THEME_OPTIONS.map((opt) => {
+                      const isSelected = theme === opt.id;
+                      return (
+                        <button
+                          key={opt.id}
+                          className={`theme-glass-btn ${isSelected ? 'active' : ''}`}
+                          onClick={() => {
+                            setTheme(opt.id);
+                            setIsThemePopupOpen(false);
+                          }}
+                        >
+                          <div className="theme-btn-left">
+                            <div className="theme-icon-box">
+                              {opt.icon}
+                            </div>
+                            <div className="theme-text">
+                              <span className="theme-label">{opt.name}</span>
+                              <span className="theme-sub">{opt.desc}</span>
+                            </div>
+                          </div>
+                          {isSelected && <Check className="theme-active-check" size={16} />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Dark/Light Mode Toggle */}
           <button
