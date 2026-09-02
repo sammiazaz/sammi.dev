@@ -1,617 +1,337 @@
-/* ═══════════════════════════════════════════
-   About Page Complete Redesign Styles
-   ═══════════════════════════════════════════ */
-
 .about-page {
-  padding: 55px 5% 60px 5%;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-  color: var(--text-primary);
-  font-family: inherit;
-}
-
-.about-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 950px;
+  min-height: 100vh;
   margin: 0 auto;
+  padding: 100px 24px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  justify-content: center;
+  z-index: 10;
+  box-sizing: border-box;
 }
 
-/* ─── Header Strict Left Alignment & Clean Top Spacing ─── */
-.about-page .persona-page-header {
-  text-align: left !important;
-  margin-top: 15px !important;
-  margin-bottom: 12px !important;
+.about-content {
   width: 100%;
 }
 
-.about-page .persona-main-title {
-  text-align: left !important;
-  margin: 0 !important;
+.about-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 32px;
+  letter-spacing: -1px;
 }
 
-.about-page .section-description {
-  text-align: left !important;
-  margin: 12px 0 0 0 !important;
-  max-width: 620px;
-}
-
-
-/* ─── Shared Card Token ─── */
-.ab-card {
-  background: var(--card-bg);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 26px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.ab-card:hover {
-  transform: translateY(-3px) !important;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* ═══════════════════════════════════════════
-   Section 1: Split Story Grid (Bio + Pillars)
-   ═══════════════════════════════════════════ */
-
-.ab-split-story-grid {
+/* Bento Grid System */
+.bento-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 20px;
-  align-items: stretch;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  width: 100%;
 }
 
-/* ─── Bio Card ─── */
-.ab-bio-card {
+.bento-card {
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-.ab-bio-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.ab-avatar-badge {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-  border: 1px solid var(--card-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  letter-spacing: 1px;
-}
-
-.ab-bio-name {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin: 0;
-  letter-spacing: -0.3px;
-}
-
-.ab-bio-role {
-  font-size: 0.78rem;
-  color: #888;
-  margin: 2px 0 0 0;
-}
-
-.ab-bio-text {
-  font-size: 0.9rem;
-  color: #b0b0b0;
-  line-height: 1.75;
-  margin-bottom: 24px;
-}
-
-/* ─── Interactive Location Sub-Card ─── */
-.ab-location-subcard {
+/* Specific Grid Spans */
+.card-location {
+  grid-column: span 5;
   position: relative;
-  border-radius: 12px;
-  height: 130px;
   overflow: hidden;
-  border: 1px solid var(--card-border);
-  display: flex;
-  align-items: flex-end;
-  padding: 16px;
-  cursor: pointer;
+  padding: 0;
+  min-height: 240px;
 }
 
-.ab-map-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.5s ease;
+.card-about {
+  grid-column: span 7;
 }
 
-.ab-location-subcard:hover .ab-map-bg {
-  transform: scale(1.06);
+.card-trend {
+  grid-column: span 12;
 }
 
-.ab-map-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 100%);
+.card-growth {
+  grid-column: span 4;
 }
 
-.ab-map-info {
+.card-focus {
+  grid-column: span 4;
+}
+
+.card-craft {
+  grid-column: span 4;
+}
+
+/* Location Card Overrides */
+.card-location {
+  grid-column: span 5;
   position: relative;
+  overflow: hidden;
+  padding: 0;
+  min-height: 240px;
+  background: #18181a;
+  /* Slightly solid bg for the map lines to pop */
+}
+
+.card-about {
+  grid-column: span 7;
+}
+
+.card-trend {
+  grid-column: span 12;
+}
+
+.card-growth {
+  grid-column: span 4;
+}
+
+.card-focus {
+  grid-column: span 4;
+}
+
+.card-craft {
+  grid-column: span 4;
+}
+
+/* Map Background */
+.map-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Map Pin */
+.map-pin {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-}
-
-.ab-map-tag {
-  font-size: 0.65rem;
-  color: #aaa;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  display: block;
-}
-
-.ab-map-city {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin: 2px 0;
-}
-
-.ab-map-coords {
-  font-size: 0.68rem;
-  color: #ffd700;
-  font-family: 'Space Mono', monospace;
-}
-
-/* ─── 3 Engineering Pillars ─── */
-.ab-pillars-column {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.ab-pillar-card {
-  padding: 20px 22px;
-}
-
-.ab-pillar-top {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  transition: transform 0.3s ease;
 }
 
-.ab-pillar-num {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #555;
-  font-family: 'Space Mono', monospace;
+.pin-shadow {
+  width: 24px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0px;
+  filter: blur(2px);
+  z-index: -1;
 }
 
-.ab-pillar-badge {
-  font-size: 0.65rem;
+.card-location:hover .map-pin {
+  transform: translate(-50%, -55%);
+}
+
+/* Bottom Content Overlay */
+.card-content-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to top, rgba(11, 11, 13, 1) 0%, rgba(11, 11, 13, 0.6) 60%, transparent 100%);
+  pointer-events: none;
+}
+
+.location-subtitle {
+  font-size: 11px;
   font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 100px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: #aaa;
-  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-}
-
-.ab-pillar-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  letter-spacing: 1px;
   margin-bottom: 6px;
 }
 
-.ab-pillar-desc {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
+.card-location h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.5px;
+}
+
+.card-location .coordinates {
+  font-size: 11px;
+  color: #3ecf8e;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.card-about p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.card-about .quote {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* Trend Card (Row 2) */
+.card-trend .card-header {
+  justify-content: space-between;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  background: rgba(62, 207, 142, 0.1);
+  color: #3ecf8e;
+  padding: 4px 8px;
+  border-radius: 99px;
+  font-size: 9px;
+}
+
+.badge.warning {
+  background: rgba(249, 115, 22, 0.1);
+  color: #f97316;
+}
+
+.trend-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.trend-stats h3 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+.trend-stats p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 16px 0;
+}
+
+.trend-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.dot.blue {
+  background: #3ecf8e;
+}
+
+.dot.orange {
+  background: #f97316;
+}
+
+.trend-chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 64px;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 8px;
+}
+
+/* Bottom Cards */
+.card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 0 12px 0;
+}
+
+.card-title.purple {
+  color: #a8a8ff;
+}
+
+.card-title.blue {
+  color: #3ecf8e;
+}
+
+.card-title.orange {
+  color: #f97316;
+}
+
+.card-growth p,
+.card-focus p,
+.card-craft p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════
-   Section 2: Live Activity Metrics (LeetCode & GitHub)
-   ═══════════════════════════════════════════ */
-
-.ab-metrics-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.ab-card-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.ab-card-label {
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.4px;
-}
-
-.ab-card-source {
-  font-size: 0.72rem;
-  color: #777;
-  font-family: 'Space Mono', monospace;
-}
-
-/* ─── LeetCode Body ─── */
-.ab-lc-body {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-.ab-lc-gauge-wrap {
-  position: relative;
-  width: 130px;
-  height: 130px;
-  flex-shrink: 0;
-}
-
-.ab-gauge-svg {
-  transform: rotate(0deg);
-}
-
-.ab-gauge-center {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.ab-gauge-big {
-  font-size: 1.7rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1;
-}
-
-.ab-gauge-small {
-  font-size: 0.65rem;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
-}
-
-.ab-lc-pills {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-}
-
-.ab-diff-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--card-bg);
-  padding: 7px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--card-border);
-}
-
-.ab-diff-tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.ab-diff-tag.easy {
-  color: #00b8a3;
-}
-
-.ab-diff-tag.medium {
-  color: #ffa116;
-}
-
-.ab-diff-tag.hard {
-  color: #ef4743;
-}
-
-.ab-diff-count {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  font-family: 'Space Mono', monospace;
-}
-
-.ab-diff-count .muted {
-  color: #666;
-  font-weight: 400;
-  font-size: 0.68rem;
-}
-
-/* ─── GitHub Body ─── */
-.ab-gh-body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.ab-gh-headline {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.ab-gh-count {
-  font-size: 1.7rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1;
-}
-
-.ab-gh-sub {
-  font-size: 0.78rem;
-  color: #888;
-}
-
-.ab-gh-heatmap-grid {
-  display: grid;
-  grid-template-rows: repeat(7, 10px);
-  grid-auto-flow: column;
-  grid-auto-columns: 10px;
-  gap: 4px;
-  overflow-x: auto;
-  padding: 4px 0;
-}
-
-.ab-heat-cell {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-}
-
-.ab-heat-cell.lvl-0 {
-  background: var(--card-bg);
-}
-
-.ab-heat-cell.lvl-1 {
-  background: #0e4429;
-}
-
-.ab-heat-cell.lvl-2 {
-  background: #006d32;
-}
-
-.ab-heat-cell.lvl-3 {
-  background: #26a641;
-}
-
-.ab-heat-cell.lvl-4 {
-  background: #39d353;
-}
-
-.ab-gh-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  color: #777;
-  font-family: 'Space Mono', monospace;
-}
-
-.ab-gh-legend {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* ═══════════════════════════════════════════
-   Section 3: Technical Domain Expertise (3 Bento Cards)
-   ═══════════════════════════════════════════ */
-
-.ab-domains-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.ab-domain-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.ab-domain-top {
-  margin-bottom: 12px;
-}
-
-.ab-domain-tag {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--secondary);
-  text-transform: uppercase;
-}
-
-.ab-domain-title {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-  letter-spacing: -0.2px;
-}
-
-.ab-domain-desc {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 20px;
-}
-
-.ab-domain-skills {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-
-.ab-skill-chip {
-  padding: 4px 11px;
-  border-radius: 6px;
-  font-size: 0.68rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: #bbb;
-  font-family: 'Space Mono', monospace;
-  transition: all 0.2s ease;
-}
-
-.ab-skill-chip:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary);
-  color: var(--text-primary);
-}
-
-/* ─── Footer Action Row ─── */
-.ab-footer-cta-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  padding: 20px 0 10px 0;
-}
-
-.ab-cta-btn {
-  padding: 10px 22px;
-  border-radius: 100px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.25s ease;
-}
-
-.ab-cta-btn.primary {
-  background: #ffffff;
-  color: #000000;
-  border: 1px solid var(--card-border);
-}
-
-.ab-cta-btn.primary:hover {
-  background: #e6e6e6;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
-}
-
-.ab-cta-btn.secondary {
-  background: var(--card-bg);
-  color: #ccc;
-  border: 1px solid var(--card-border);
-}
-
-.ab-cta-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--primary);
-  color: var(--text-primary);
-  transform: translateY(-2px);
-}
-
-/* ═══════════════════════════════════════════
-   Responsive Breakpoints
-   ═══════════════════════════════════════════ */
-
-@media (max-width: 992px) {
-
-  .ab-split-story-grid,
-  .ab-metrics-grid {
-    grid-template-columns: 1fr;
+/* Responsive */
+@media (max-width: 900px) {
+  .card-location {
+    grid-column: span 12;
   }
 
-  .ab-domains-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .about-page {
-    padding: 30px 5% 40px 5%;
+  .card-about {
+    grid-column: span 12;
   }
 
-  .ab-bio-text {
-    font-size: 0.96rem !important;
-    line-height: 1.65 !important;
+  .card-growth {
+    grid-column: span 12;
   }
 
-  .ab-pillar-title {
-    font-size: 1.15rem !important;
+  .card-focus {
+    grid-column: span 12;
   }
 
-  .ab-pillar-desc {
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
+  .card-craft {
+    grid-column: span 12;
   }
 
-  .ab-domain-title {
-    font-size: 1.2rem !important;
-  }
-
-  .ab-domain-desc {
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-  }
-
-  .ab-skill-chip {
-    font-size: 0.78rem !important;
-    padding: 6px 12px !important;
-  }
-
-  .ab-domains-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ab-lc-body {
+  .trend-content {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .ab-lc-pills {
-    width: 100%;
-  }
-
-  .ab-footer-cta-row {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .ab-cta-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 13px 20px !important;
-    font-size: 0.9rem !important;
+    align-items: flex-start;
   }
 }
