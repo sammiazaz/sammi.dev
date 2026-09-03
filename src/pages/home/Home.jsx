@@ -118,6 +118,16 @@ export default function Home() {
             />
           );
         })}
+        {/* Scroll hint placed inside #hero at bottom of viewport */}
+        <button
+          type="button"
+          className="scroll-hint"
+          onClick={() => {
+            document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          move your cursor around | click to explore about
+        </button>
       </section>
 
       <AnimatePresence>
@@ -150,16 +160,6 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <button
-        type="button"
-        className="scroll-hint"
-        onClick={() => {
-          document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        move your cursor around | click to explore about
-      </button>
 
       <div id="about-section">
         <About />
