@@ -1,111 +1,204 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import './About.css';
+import { MAP_DIMENSIONS, COUNTRIES_DATA } from '../../data/mapData';
 
 export default function About() {
+  const [hoveredCountry, setHoveredCountry] = useState(null);
+
+  const handleCountryHover = (country) => {
+    setHoveredCountry(country);
+  };
+
+  const handleCountryLeave = () => {
+    setHoveredCountry(null);
+  };
   return (
-    <div id="about" className="page-container about-page">
-      <div className="about-content">
-        <h1 className="about-title">About Me</h1>
+    <section className="about-editorial-page">
+      <div className="about-editorial-container">
+        
+        {/* 2-Column Composition with 2-Row Grid Alignment */}
+        <div className="about-editorial-grid">
 
-        <div className="bento-grid">
-
-          {/* Row 1: Location & About */}
-          <div className="bento-card card-location">
-            <div className="map-bg">
-              <svg width="100%" height="100%" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Abstract stylized map lines */}
-                <path d="M -50 80 C 50 120, 120 40, 200 110 C 280 180, 320 140, 450 100" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" strokeLinecap="round" />
-                <path d="M 200 110 L 160 240" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeDasharray="4 4" />
-                <path d="M 350 0 L 320 80 L 350 120" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                <path d="M 50 0 L 70 50 L 20 90" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-              </svg>
+          {/* ROW 1, COL 1: Eyebrow + Heading */}
+          <motion.div
+            className="about-left-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="about-hud-eyebrow">
+              <span className="hud-badge">PROFILE // 01</span>
+              <span className="hud-eyebrow-tag">ENGINEERING & RESEARCH</span>
             </div>
+            <h1 className="about-heading">About Me</h1>
+          </motion.div>
 
-            <div className="map-pin">
-              <div className="pin-shadow"></div>
-              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.5C17 17 20 13 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13 9 17 12 21.5Z" fill="#3ecf8e" stroke="#18181b" strokeWidth="1.5" />
-                <circle cx="12" cy="9" r="3.5" fill="#18181b" />
-              </svg>
-            </div>
+          {/* ROW 2, COL 1: Editorial Bio starting with 'I am Sammi' */}
+          <motion.div
+            className="about-left-body"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {/* Lead Intro Paragraph */}
+            <p className="about-lead">
+              I'm <strong className="lead-name">Sammi</strong> — a Full Stack Developer and 4th-year CS student at <span className="lead-highlight-amber">IILM University</span>, with hands-on experience building responsive React.js applications and scalable Node.js/Express.js REST APIs.
+            </p>
 
-            <div className="card-content-bottom">
-              <div className="location-subtitle">📍 BASED IN</div>
-              <h2>Delhi, India</h2>
-              <p className="coordinates">28.6139° N, 77.2090° E • GMT+5:30</p>
-            </div>
-          </div>
-
-          <div className="bento-card card-about">
-            <div className="card-header">
-              <span className="slash">/</span>
-              <span>ABOUT</span>
-            </div>
-            <div className="card-body">
+            {/* Editorial Body Paragraphs */}
+            <div className="about-paragraphs">
               <p>
-                I'm Sammi — a Creative Technologist and Design Engineer building at the intersection of design and engineering. I care deeply about clean architecture, meaningful digital products, and creating experiences that defy expectations.
+                Skilled in MongoDB, MySQL, Git/GitHub, and deploying applications on cloud platforms. I enjoy taking ideas from first principles to production — crafting applications with clean architectural patterns, robust backends, and responsive user interfaces.
               </p>
-              <p className="quote">"Where aesthetics meet performance."</p>
+              <p>
+                Currently expanding expertise in Next.js, TypeScript, and authentication systems (JWT, OAuth). Strong collaborator with a problem-solving mindset and a passion for building impactful tools.
+              </p>
+              <p>
+                I care deeply about engineering discipline: building maintainable code, eliminating friction, and delivering impactful tools that solve tangible problems with speed and precision.
+              </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Row 2: Full Width Chart / Trend */}
-          <div className="bento-card card-trend">
-            <div className="card-header">
-              <span>PERFORMANCE METRICS</span>
-              <div className="badges">
-                <span className="badge">UI/UX</span>
-                <span className="badge warning">ENGINEERING</span>
-              </div>
-            </div>
-            <div className="trend-content">
-              <div className="trend-stats">
-                <h3>99.9%</h3>
-                <p>Uptime & Reliability</p>
-                <div className="trend-legend">
-                  <span className="legend-item"><span className="dot blue"></span> DESIGN</span>
-                  <span className="legend-item"><span className="dot orange"></span> CODE</span>
+          {/* ROW 2, COL 2: Signature Delhi Map + Metadata Row below it */}
+          <motion.div
+            className="about-editorial-right"
+            initial={{ opacity: 0, scale: 0.98, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="editorial-map-viewport">
+              
+              {/* Technical Viewfinder Corner Accents */}
+              <div className="viewfinder-corner top-left">+</div>
+              <div className="viewfinder-corner top-right">+</div>
+              <div className="viewfinder-corner bottom-left">+</div>
+              <div className="viewfinder-corner bottom-right">+</div>
+
+              {/* Technical Header HUD */}
+              <div className="map-hud-header">
+                <div className="hud-target">
+                  <span className="hud-badge">GEOLOCATION</span>
+                  <span className="hud-coords">
+                    {hoveredCountry ? hoveredCountry.coords : '28.6139° N, 77.2090° E'}
+                  </span>
+                </div>
+                <div className="hud-location-tag">
+                  {hoveredCountry ? `${hoveredCountry.name.toUpperCase()} [${hoveredCountry.code}]` : 'NEW DELHI, IN'}
                 </div>
               </div>
-              <div className="trend-chart">
-                <svg viewBox="0 0 400 100" className="chart-svg">
-                  <path d="M0,80 L80,60 L160,70 L240,40 L320,50 L400,20" fill="none" stroke="#3ecf8e" strokeWidth="2" />
-                  <path d="M0,90 L80,80 L160,85 L240,60 L320,80 L400,40" fill="none" stroke="#f97316" strokeWidth="2" />
-                  <circle cx="80" cy="60" r="3" fill="#3ecf8e" />
-                  <circle cx="160" cy="70" r="3" fill="#3ecf8e" />
-                  <circle cx="240" cy="40" r="3" fill="#3ecf8e" />
-                  <circle cx="320" cy="50" r="3" fill="#3ecf8e" />
-                  <circle cx="400" cy="20" r="3" fill="#3ecf8e" />
-                  <circle cx="80" cy="80" r="3" fill="#f97316" />
-                  <circle cx="160" cy="85" r="3" fill="#f97316" />
-                  <circle cx="240" cy="60" r="3" fill="#f97316" />
-                  <circle cx="320" cy="80" r="3" fill="#f97316" />
-                  <circle cx="400" cy="40" r="3" fill="#f97316" />
+
+              {/* Interactive SVG Map Canvas */}
+              <div className="interactive-svg-map-wrapper">
+                <svg
+                  viewBox={`0 0 ${MAP_DIMENSIONS.width} ${MAP_DIMENSIONS.height}`}
+                  className="interactive-svg-canvas"
+                  preserveAspectRatio="xMidYMid slice"
+                >
+                  <g className="map-countries-group">
+                    {COUNTRIES_DATA.map((country) => {
+                      const isHovered = hoveredCountry?.id === country.id;
+                      return (
+                        <path
+                          key={country.id}
+                          d={country.path}
+                          className={`country-vector-path ${country.isHome ? 'home-country' : ''} ${isHovered ? 'hovered-country' : ''}`}
+                          onMouseEnter={() => handleCountryHover(country)}
+                          onMouseLeave={handleCountryLeave}
+                        />
+                      );
+                    })}
+                  </g>
+
+                  {/* Geographically precise Delhi Location Pin */}
+                  <g
+                    className="delhi-map-pin"
+                    transform={`translate(${MAP_DIMENSIONS.delhiPoint.x}, ${MAP_DIMENSIONS.delhiPoint.y})`}
+                  >
+                    <circle r="14" className="delhi-pin-wave" />
+                    <circle r="8" className="delhi-pin-wave wave-delay" />
+                    <circle r="4" fill="#ff4b33" stroke="#ffffff" strokeWidth="1.5" />
+                    <path
+                      d="M0 -18 C -5 -18 -8 -15 -8 -10 C -8 -4 0 0 0 0 C 0 0 8 -4 8 -10 C 8 -15 5 -18 0 -18 Z"
+                      fill="#ff4b33"
+                      stroke="#ffffff"
+                      strokeWidth="1.2"
+                    />
+                    <circle cx="0" cy="-10" r="2.5" fill="#ffffff" />
+                  </g>
                 </svg>
-                <div className="chart-labels">
-                  <span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span>
+              </div>
+
+              {/* Thin Glowing Orange/Coral-Red Vertical Laser Line */}
+              <div className="editorial-laser-line" />
+
+              {/* Vignette Overlay for Technical Contrast */}
+              <div className="editorial-map-vignette" />
+
+              {/* Technical Footer HUD */}
+              <div className="map-hud-footer">
+                <div className="hud-timezone">
+                  <span className="hud-label">TIMEZONE</span>
+                  <span className="hud-val">GMT+5:30 [IST]</span>
+                </div>
+                <div className="hud-radar-status">
+                  <span className="radar-blip"></span>
+                  <span className="radar-text">{hoveredCountry ? `TRACKING ${hoveredCountry.code}` : 'ACTIVE RADAR'}</span>
                 </div>
               </div>
+
             </div>
-          </div>
 
-          {/* Row 3: Growth, Focus, Craft */}
-          <div className="bento-card card-growth">
-            <h4 className="card-title purple">GROWTH</h4>
-            <p>An explorer of systems, driven by curiosity and understanding.</p>
-          </div>
+            {/* 2. Dedicated Country Telemetry & Fact Strip (Outside map — 100% unobstructed map) */}
+            {(() => {
+              const activeCountry = hoveredCountry || COUNTRIES_DATA.find(c => c.isHome) || COUNTRIES_DATA[0];
+              return (
+                <div className={`about-fact-strip ${hoveredCountry ? 'active-hover' : ''}`}>
+                  <div className="fact-strip-header">
+                    <div className="fact-strip-left">
+                      <span className="fact-country-flag">{activeCountry.flag}</span>
+                      <span className="fact-country-name">{activeCountry.name}</span>
+                      <span className="fact-country-badge">{activeCountry.code}</span>
+                      <span className="fact-country-coords">{activeCountry.coords}</span>
+                    </div>
+                    <div className="fact-strip-right">
+                      <span className="fact-capital-tag">CAPITAL:</span>
+                      <span className="fact-capital-name">{activeCountry.capital}</span>
+                    </div>
+                  </div>
+                  <div className="fact-strip-body">
+                    <span className="fact-bulb-icon">💡</span>
+                    <p className="fact-strip-desc">{activeCountry.fact}</p>
+                  </div>
+                </div>
+              );
+            })()}
 
-          <div className="bento-card card-focus">
-            <h4 className="card-title blue">FOCUS</h4>
-            <p>Deep work on efficiency and precision in every layer built.</p>
-          </div>
-
-          <div className="bento-card card-craft">
-            <h4 className="card-title orange">CRAFT</h4>
-            <p>Discipline and dedication in every single line of code.</p>
-          </div>
+            {/* 3. Technical Metadata Row */}
+            <div className="about-metadata-row">
+              <div className="about-meta-col">
+                <span className="about-meta-label">BASED IN</span>
+                <span className="about-meta-value">Delhi, India</span>
+                <span className="about-meta-sub">28.61° N · GMT+5:30</span>
+              </div>
+              <div className="about-meta-col">
+                <span className="about-meta-label">FOCUS</span>
+                <span className="about-meta-value">Software Eng.</span>
+                <span className="about-meta-sub">Full-Stack · AI/ML</span>
+              </div>
+              <div className="about-meta-col">
+                <span className="about-meta-label">STATUS</span>
+                <span className="about-meta-value status-open">
+                  <span className="status-indicator"></span>
+                  Available
+                </span>
+                <span className="about-meta-sub">Open to Roles</span>
+              </div>
+            </div>
+          </motion.div>
 
         </div>
       </div>
-    </div>
+    </section>
   );
 }

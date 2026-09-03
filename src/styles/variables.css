@@ -1,0 +1,72 @@
+:root {
+  /* ─── Light Mode (Warm Minimalist #f5f3ee with shared #ff4b33 Primary) ─── */
+  --red: #ff4b33;
+  --red-rgb: 255, 75, 51;
+  --red-light: rgba(var(--red-rgb), 0.12);
+  --black: #111111;
+  --grey: #555555;
+  --border: #e2ded7;
+  --bg: #f5f3ee;
+  --pill-bg: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.04);
+  --nav-bg: rgba(245, 243, 238, 0.88);
+  --shadow-sm: rgba(0, 0, 0, 0.05);
+  --grid-color: rgba(0, 0, 0, 0.04);
+  --btn-color: #ff4b33;
+  --btn-hover: #111111;
+  --skill-bg-alpha: rgba(var(--red-rgb), 0.1);
+  --skill-border-alpha: rgba(var(--red-rgb), 0.2);
+  --skill-color: var(--red);
+
+  --primary: #ff4b33;
+  --primary-rgb: 255, 75, 51;
+  --secondary: var(--grey);
+
+  /* ─── Typography Tokens ─── */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: monospace;
+  --text-primary: var(--black);
+  --text-secondary: var(--grey);
+  --text-muted: #888888;
+
+  /* ─── Layout Tokens ─── */
+  --container-width: 1180px;
+
+  /* ─── Radius Tokens ─── */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+}
+
+[data-theme="dark"] {
+  /* ─── Dark Mode (from home_page_export) ─── */
+  --red: #ff4b33;
+  --red-rgb: 255, 75, 51;
+  --red-light: rgba(var(--red-rgb), 0.15);
+  --black: #ffffff;
+  --grey: #a0a0a0;
+  --border: #222222;
+  --bg: #000000;
+  --pill-bg: #111111;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(0, 0, 0, 0.85);
+  --shadow-sm: rgba(0, 0, 0, 0.6);
+  --grid-color: rgba(255, 255, 255, 0.08);
+  --btn-color: #000000;
+  --btn-hover: #e0e0e0;
+  --skill-bg-alpha: rgba(var(--red-rgb), 0.15);
+  --skill-border-alpha: rgba(var(--red-rgb), 0.3);
+  --skill-color: var(--red);
+
+  --primary: var(--red);
+  --primary-rgb: 255, 75, 51;
+  --secondary: var(--grey);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #686868;
+}

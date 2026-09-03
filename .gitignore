@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Scratch & reference exports
+home_page_export/
+ilans-/

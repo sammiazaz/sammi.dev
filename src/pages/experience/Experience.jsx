@@ -1,56 +1,77 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { INTERNSHIPS_DATA } from '../../data/experience';
 import './Experience.css';
 
 export default function Experience() {
-  const experiences = [
-    {
-      role: "Lead Design Engineer",
-      company: "TechNova Studio",
-      period: "2024 - Present",
-      description: "Leading the bridge between design and engineering to build scalable design systems and AI-integrated products.",
-      tags: ["React", "TypeScript", "Figma", "Tailwind"]
-    },
-    {
-      role: "Senior Frontend Developer",
-      company: "Creative Labs",
-      period: "2022 - 2024",
-      description: "Architected modern web applications with a focus on buttery-smooth animations and 60fps performance.",
-      tags: ["Next.js", "Framer Motion", "WebGL"]
-    },
-    {
-      role: "UI/UX Designer",
-      company: "Pixel Perfect",
-      period: "2020 - 2022",
-      description: "Designed user-centric interfaces and conducted usability research for fintech startups.",
-      tags: ["UI Design", "User Research", "Prototyping"]
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
     }
-  ];
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+  };
 
   return (
-    <div id="experience" className="page-container section-container experience-page">
-      <div className="section-content">
-        <div className="section-header">
-          <h2 className="section-title">Experience</h2>
-          <p className="section-subtitle">My professional journey</p>
-        </div>
+    <div className="experience-page">
+      <div className="experience-container">
         
-        <div className="timeline">
-          {experiences.map((exp, index) => (
-            <div className="timeline-item" key={index}>
-              <div className="timeline-dot"></div>
-              <div className="timeline-content bento-card">
-                <div className="exp-header">
-                  <h3>{exp.role}</h3>
-                  <span className="exp-period">{exp.period}</span>
+        {/* Header */}
+        <div className="exp-page-header">
+          <p className="exp-label">MY JOURNEY</p>
+          <h1 className="exp-title">Experience</h1>
+        </div>
+
+        <motion.div 
+          className="experience-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {INTERNSHIPS_DATA.map((item, idx) => (
+            <motion.div 
+              key={idx} 
+              className="experience-card"
+              variants={itemVariants}
+            >
+              <div className="exp-card-glow"></div>
+              
+              <div className="exp-header">
+                <div>
+                  <h3 className="exp-role">{item.role}</h3>
+                  <div className="exp-company-location">
+                    <span className="exp-company">{item.company}</span>
+                    <span>&bull;</span>
+                    <span>{item.location}</span>
+                  </div>
                 </div>
-                <h4 className="exp-company">{exp.company}</h4>
-                <p className="exp-desc">{exp.description}</p>
-                <div className="skills-tags">
-                  {exp.tags.map(tag => <span key={tag}>{tag}</span>)}
+                <div className="exp-date-badge">
+                  {item.date}
                 </div>
               </div>
-            </div>
+
+              <ul className="exp-bullets">
+                {item.bullets.map((bullet, bIdx) => (
+                  <li key={bIdx}>{bullet}</li>
+                ))}
+              </ul>
+
+              <div className="exp-tech-stack">
+                {item.tech.map((tech, tIdx) => (
+                  <span key={tIdx} className="exp-tech-pill">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </div>
   );

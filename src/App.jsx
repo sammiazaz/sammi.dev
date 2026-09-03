@@ -1,41 +1,38 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DotfieldBackground from './components/layout/DotfieldBackground/DotfieldBackground';
-import Navbar from './components/layout/Navbar/Navbar';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import Navbar from './components/Navbar/Navbar';
+
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
-import Experience from './pages/Experience/Experience';
 import Projects from './pages/Projects/Projects';
-import Credentials from './pages/Credentials/Credentials';
+import Experience from './pages/Experience/Experience';
+import Resume from './pages/Resume/Resume';
+import Contact from './pages/Contact/Contact';
 import Persona from './pages/Persona/Persona';
-import Footer from './components/layout/Footer/Footer';
-import './App.css';
+import Credentials from './pages/Credentials/Credentials';
 
-function App() {
+import './styles/globals.css';
+
+export default function App() {
   return (
-    <Router>
-      <div className="App">
-        <DotfieldBackground theme="dark" />
-        <Navbar />
-        
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Home />
-                <About />
-              </>
-            } />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/credentials" element={<Credentials />} />
-            <Route path="/persona" element={<Persona />} />
-          </Routes>
-        </main>
-        
-        <Footer />
-      </div>
-    </Router>
+    <>
+      <ScrollToTop />
+      <Navbar />
+
+      <main className="page-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/persona" element={<Persona />} />
+          <Route path="/credentials" element={<Credentials />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
+    </>
   );
 }
-
-export default App;

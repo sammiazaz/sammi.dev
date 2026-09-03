@@ -1,337 +1,735 @@
-.about-page {
-  width: 100%;
-  max-width: 950px;
+/* ══════════════════════════════════════════════════════════
+   ABOUT PAGE — EDITORIAL 2-COLUMN MINIMALIST ORANGE THEME
+   ══════════════════════════════════════════════════════════ */
+
+.about-editorial-page {
   min-height: 100vh;
+  padding: 140px 24px 100px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.about-editorial-container {
+  width: 100%;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 100px 24px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── 2-Column Composition with 2-Row Alignment ─── */
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 46fr 54fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 60px;
+  row-gap: 20px;
+  align-items: start;
+}
+
+/* ─── ROW 1, COL 1: Eyebrow + Large Heading ─── */
+.about-left-header {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  z-index: 10;
-  box-sizing: border-box;
 }
 
-.about-content {
-  width: 100%;
+/* Technical HUD Eyebrow in Signature Orange */
+.about-hud-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.about-title {
-  font-size: 40px;
+.hud-badge {
+  background: rgba(255, 75, 51, 0.12);
+  color: var(--red);
+  border: 1px solid rgba(255, 75, 51, 0.4);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hud-eyebrow-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  color: var(--grey);
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Large Visually Dominant Heading */
+.about-heading {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: clamp(2.8rem, 4.2vw, 4.2rem);
   font-weight: 800;
-  color: #fff;
-  margin-bottom: 32px;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  color: var(--black);
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
-/* Bento Grid System */
-.bento-grid {
+/* ─── ROW 2, COL 1: Editorial Body starting with 'I am Sammi' ─── */
+.about-left-body {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Lead Intro Paragraph */
+.about-lead {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--black);
+  font-weight: 400;
+  margin: 0 0 24px 0;
+  transition: color 0.3s ease;
+}
+
+.lead-name {
+  font-weight: 700;
+  color: var(--black);
+}
+
+.lead-highlight-amber {
+  font-weight: 700;
+  color: var(--red);
+  text-shadow: 0 0 16px rgba(255, 75, 51, 0.3);
+  transition: color 0.3s ease;
+}
+
+/* Editorial Body Paragraphs */
+.about-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.about-paragraphs p {
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: var(--grey);
+  margin: 0;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+/* Technical Telemetry Metadata Row (Positioned directly below map) */
+.about-metadata-row {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   width: 100%;
 }
 
-.bento-card {
-  padding: 24px;
+.about-meta-col {
   display: flex;
   flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s ease;
 }
 
-/* Specific Grid Spans */
-.card-location {
-  grid-column: span 5;
+.about-meta-col:hover {
+  border-color: rgba(255, 75, 51, 0.4);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.about-meta-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--grey);
+  opacity: 0.85;
+}
+
+.about-meta-value {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.about-meta-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: var(--grey);
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.about-meta-value.status-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--red);
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+  animation: radarBlipPulse 1.8s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes radarBlipPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.45);
+    opacity: 0.45;
+  }
+}
+
+/* ─── ROW 2, COL 2: Signature Delhi Map + Telemetry Row Below ─── */
+.about-editorial-right {
+  grid-column: 2;
+  grid-row: 2;
   position: relative;
-  overflow: hidden;
-  padding: 0;
-  min-height: 240px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.card-about {
-  grid-column: span 7;
-}
-
-.card-trend {
-  grid-column: span 12;
-}
-
-.card-growth {
-  grid-column: span 4;
-}
-
-.card-focus {
-  grid-column: span 4;
-}
-
-.card-craft {
-  grid-column: span 4;
-}
-
-/* Location Card Overrides */
-.card-location {
-  grid-column: span 5;
+.editorial-map-viewport {
   position: relative;
+  width: 100%;
+  height: 350px;
+  min-height: 320px;
+  max-height: 380px;
+  border-radius: 20px;
   overflow: hidden;
-  padding: 0;
-  min-height: 240px;
-  background: #18181a;
-  /* Slightly solid bg for the map lines to pop */
+  background: #090d14;
+  border: 1.5px solid rgba(255, 75, 51, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.card-about {
-  grid-column: span 7;
+.editorial-map-viewport:hover {
+  border-color: var(--red);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 32px rgba(255, 75, 51, 0.22);
 }
 
-.card-trend {
-  grid-column: span 12;
-}
-
-.card-growth {
-  grid-column: span 4;
-}
-
-.card-focus {
-  grid-column: span 4;
-}
-
-.card-craft {
-  grid-column: span 4;
-}
-
-/* Map Background */
-.map-bg {
+/* Technical Viewfinder Corner Crosshairs in Orange */
+.viewfinder-corner {
   position: absolute;
-  top: 0;
-  left: 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 75, 51, 0.55);
+  pointer-events: none;
+  z-index: 6;
+  line-height: 1;
+}
+
+.viewfinder-corner.top-left {
+  top: 12px;
+  left: 14px;
+}
+
+.viewfinder-corner.top-right {
+  top: 12px;
+  right: 14px;
+}
+
+.viewfinder-corner.bottom-left {
+  bottom: 12px;
+  left: 14px;
+}
+
+.viewfinder-corner.bottom-right {
+  bottom: 12px;
+  right: 14px;
+}
+
+/* Technical Header HUD */
+.map-hud-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+  letter-spacing: 1.2px;
+}
+
+.hud-target {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hud-coords {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.hud-location-tag {
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.74rem;
+}
+
+/* ─── Interactive Vector SVG Map Canvas ─── */
+.interactive-svg-map-wrapper {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   z-index: 1;
+  background: #090d14;
 }
 
-/* Map Pin */
-.map-pin {
-  position: absolute;
-  top: 40%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
-
-.pin-shadow {
-  width: 24px;
-  height: 8px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0px;
-  filter: blur(2px);
-  z-index: -1;
-}
-
-.card-location:hover .map-pin {
-  transform: translate(-50%, -55%);
-}
-
-/* Bottom Content Overlay */
-.card-content-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.interactive-svg-canvas {
   width: 100%;
-  padding: 24px;
-  z-index: 3;
+  height: 100%;
+  display: block;
+}
+
+.country-vector-path {
+  fill: rgba(255, 255, 255, 0.07);
+  stroke: rgba(255, 255, 255, 0.42);
+  stroke-width: 1.1px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  cursor: pointer;
+  transition: fill 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    stroke 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.22s ease;
+}
+
+.country-vector-path:hover,
+.country-vector-path.hovered-country {
+  fill: var(--red) !important;
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+  filter: drop-shadow(0 0 14px rgba(var(--red-rgb), 0.85));
+}
+
+/* Official India Boundary — Majestic, Distinct, Proud */
+.country-vector-path.home-country {
+  fill: rgba(var(--red-rgb), 0.24);
+  stroke: #ff4b33;
+  stroke-width: 1.9px;
+  filter: drop-shadow(0 0 8px rgba(var(--red-rgb), 0.5));
+}
+
+/* Delhi Location Pin in SVG */
+.delhi-map-pin {
+  pointer-events: none;
+  z-index: 5;
+}
+
+.delhi-pin-wave {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 1.5;
+  opacity: 0.8;
+  animation: svgPinPulse 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  transform-origin: center;
+}
+
+.delhi-pin-wave.wave-delay {
+  animation-delay: 1.1s;
+}
+
+@keyframes svgPinPulse {
+  0% {
+    r: 4;
+    opacity: 0.9;
+  }
+  100% {
+    r: 22;
+    opacity: 0;
+  }
+}
+
+/* ─── Dedicated Country Telemetry & Fact Strip (Outside Map) ─── */
+.about-fact-strip {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(14, 18, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 75, 51, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to top, rgba(11, 11, 13, 1) 0%, rgba(11, 11, 13, 0.6) 60%, transparent 100%);
-  pointer-events: none;
+  gap: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.location-subtitle {
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
+.about-fact-strip.active-hover {
+  border-color: var(--red);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 20px rgba(var(--red-rgb), 0.22);
+  background: rgba(18, 22, 32, 0.95);
 }
 
-.card-location h2 {
-  font-size: 26px;
-  font-weight: 700;
+.fact-strip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fact-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fact-country-flag {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.fact-country-name {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 800;
   color: #ffffff;
-  margin: 0 0 6px 0;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.2px;
 }
 
-.card-location .coordinates {
-  font-size: 11px;
-  color: #3ecf8e;
-  font-family: monospace;
+.fact-country-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--red);
+  background: rgba(var(--red-rgb), 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(var(--red-rgb), 0.3);
+}
+
+.fact-country-coords {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: #94a3b8;
+  letter-spacing: 0.3px;
+}
+
+.fact-strip-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+}
+
+.fact-capital-tag {
+  color: #64748b;
   font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
-.card-about p {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  margin: 0 0 16px 0;
+.fact-capital-name {
+  color: #e2e8f0;
+  font-weight: 700;
 }
 
-.card-about .quote {
-  font-size: 13px;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.4);
+.fact-strip-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-left: 2.5px solid var(--red);
+}
+
+.fact-bulb-icon {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.fact-strip-desc {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #e2e8f0;
   margin: 0;
 }
 
-/* Trend Card (Row 2) */
-.card-trend .card-header {
+/* ─── Thin Glowing Orange / Coral-Red Vertical Laser Line ─── */
+.editorial-laser-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+      rgba(255, 75, 51, 0) 0%,
+      rgba(255, 255, 255, 0.95) 20%,
+      var(--red) 50%,
+      rgba(255, 255, 255, 0.95) 80%,
+      rgba(255, 75, 51, 0) 100%);
+  box-shadow: 0 0 12px rgba(255, 75, 51, 0.9),
+    0 0 26px rgba(255, 75, 51, 0.55),
+    0 0 50px rgba(255, 75, 51, 0.3);
+  animation: technicalLaserScan 6.5s ease-in-out infinite alternate;
+}
+
+@keyframes technicalLaserScan {
+  0% {
+    left: 20%;
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 80%;
+    opacity: 0.75;
+  }
+}
+
+/* Technical Vignette for Contrast & Focus */
+.editorial-map-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(9, 13, 20, 0.45) 100%),
+    linear-gradient(to top, rgba(9, 13, 20, 0.75) 0%, transparent 22%),
+    linear-gradient(to bottom, rgba(9, 13, 20, 0.75) 0%, transparent 18%);
+}
+
+/* Technical Footer HUD in Orange */
+.map-hud-footer {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.76rem;
+  letter-spacing: 1.2px;
 }
 
-.badges {
-  display: flex;
-  gap: 8px;
-}
-
-.badge {
-  background: rgba(62, 207, 142, 0.1);
-  color: #3ecf8e;
-  padding: 4px 8px;
-  border-radius: 99px;
-  font-size: 9px;
-}
-
-.badge.warning {
-  background: rgba(249, 115, 22, 0.1);
-  color: #f97316;
-}
-
-.trend-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
-}
-
-.trend-stats h3 {
-  font-size: 32px;
-  font-weight: 800;
-  color: #fff;
-  margin: 0 0 4px 0;
-}
-
-.trend-stats p {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0 0 16px 0;
-}
-
-.trend-legend {
-  display: flex;
-  gap: 16px;
-  font-size: 10px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.legend-item {
+.hud-timezone {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.dot {
+.hud-label {
+  color: #64748b;
+}
+
+.hud-val {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.hud-radar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.radar-blip {
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+  animation: radarBlipPulse 1.8s infinite ease-in-out;
 }
 
-.dot.blue {
-  background: #3ecf8e;
+/* ─── Light Mode Cohesive Styling ─── */
+[data-theme="light"] .about-editorial-page {
+  background-color: var(--bg);
 }
 
-.dot.orange {
-  background: #f97316;
+[data-theme="light"] .about-hud-badge {
+  background: rgba(255, 75, 51, 0.1);
+  color: var(--red);
+  border-color: rgba(255, 75, 51, 0.35);
 }
 
-.trend-chart {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+[data-theme="light"] .lead-highlight-amber {
+  color: var(--red);
+  text-shadow: none;
 }
 
-.chart-svg {
-  width: 100%;
-  height: 64px;
+[data-theme="light"] .about-meta-col {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
 }
 
-.chart-labels {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10%;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.3);
-  margin-top: 8px;
+[data-theme="light"] .about-meta-col:hover {
+  background: #ffffff;
+  border-color: rgba(255, 75, 51, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 75, 51, 0.1);
 }
 
-/* Bottom Cards */
-.card-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin: 0 0 12px 0;
+[data-theme="light"] .about-meta-value.status-open {
+  color: var(--red);
 }
 
-.card-title.purple {
-  color: #a8a8ff;
+[data-theme="light"] .status-indicator {
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(255, 75, 51, 0.6);
 }
 
-.card-title.blue {
-  color: #3ecf8e;
+[data-theme="light"] .editorial-map-viewport {
+  background: #ffffff;
+  border: 1.5px solid rgba(255, 75, 51, 0.35);
+  box-shadow: 0 18px 45px -8px rgba(0, 0, 0, 0.18), 0 0 25px rgba(255, 75, 51, 0.12);
 }
 
-.card-title.orange {
-  color: #f97316;
+[data-theme="light"] .editorial-map-viewport:hover {
+  border-color: var(--red);
+  box-shadow: 0 22px 55px -8px rgba(0, 0, 0, 0.22), 0 0 32px rgba(255, 75, 51, 0.22);
 }
 
-.card-growth p,
-.card-focus p,
-.card-craft p {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.6;
-  margin: 0;
+[data-theme="light"] .interactive-svg-map-wrapper {
+  background: #f8fafc;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .card-location {
-    grid-column: span 12;
+[data-theme="light"] .country-vector-path {
+  fill: #f1f5f9;
+  stroke: #64748b;
+  stroke-width: 1.1px;
+}
+
+[data-theme="light"] .country-vector-path.home-country {
+  fill: rgba(var(--red-rgb), 0.16);
+  stroke: var(--red);
+  stroke-width: 2px;
+}
+
+[data-theme="light"] .about-fact-strip {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 75, 51, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .about-fact-strip.active-hover {
+  background: #ffffff;
+  border-color: var(--red);
+  box-shadow: 0 8px 24px rgba(255, 75, 51, 0.15);
+}
+
+[data-theme="light"] .fact-country-name {
+  color: #0f172a;
+}
+
+[data-theme="light"] .fact-capital-name {
+  color: #1e293b;
+}
+
+[data-theme="light"] .fact-strip-body {
+  background: #f1f5f9;
+}
+
+[data-theme="light"] .fact-strip-desc {
+  color: #334155;
+}
+
+/* ─── Responsive Breakpoints ─── */
+@media (max-width: 992px) {
+  .about-editorial-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 36px;
   }
 
-  .card-about {
-    grid-column: span 12;
+  .about-left-header {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .card-growth {
-    grid-column: span 12;
+  .about-left-body {
+    grid-column: 1;
+    grid-row: 2;
   }
 
-  .card-focus {
-    grid-column: span 12;
+  .about-editorial-right {
+    grid-column: 1;
+    grid-row: 3;
   }
 
-  .card-craft {
-    grid-column: span 12;
+  .editorial-map-viewport {
+    height: 380px;
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-editorial-page {
+    padding: 110px 20px 70px 20px;
   }
 
-  .trend-content {
-    flex-direction: column;
-    align-items: flex-start;
+  .about-heading {
+    font-size: 2.4rem;
+  }
+
+  .about-lead {
+    font-size: 1.05rem;
+  }
+
+  .about-metadata-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 20px;
+  }
+
+  .editorial-map-viewport {
+    height: 340px;
+    min-height: 320px;
+    padding: 18px;
+  }
+
+  .map-hud-header,
+  .map-hud-footer {
+    font-size: 0.68rem;
   }
 }
