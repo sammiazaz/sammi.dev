@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import './About.css';
 import CompetitiveJourney from '../../components/CompetitiveJourney/CompetitiveJourney';
+import IlianGlobe from '../../components/Globe/IlianGlobe';
 import { ACADEMIC_TRANSCRIPT_DATA } from '../../data/academicTranscript';
 import locationMapImg from './assets/images/delhi_location_map.png';
 import hoverImg1 from './assets/hover_image/iStock-1025313432-2-EDITED-Header_Mobile.jpg';
@@ -72,33 +73,43 @@ export default function About() {
           {/* Top Row: 50% / 50% Split (Location & About) */}
           <div className="bento-top-row">
             {/* Box 1: Location Card */}
-            <motion.div
-              className={`bento-card bento-location-card ${isIndiaHovered ? 'is-india-hovered' : ''}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              onMouseEnter={handleIndiaMouseEnter}
-              onMouseLeave={handleIndiaMouseLeave}
-            >
-              <div
-                className={`location-map-bg ${isIndiaHovered ? 'hover-active' : ''}`}
-                style={{
-                  backgroundImage: `url(${isIndiaHovered ? HOVER_IMAGES[indiaHoverIndex] : locationMapImg})`
-                }}
-              />
-              <div className="location-overlay" />
-              <div className="location-laser-line" />
+            {isIlian ? (
+              <motion.div
+                className="bento-card ilian-bento-globe-card"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ padding: 0, overflow: 'hidden', minHeight: '350px' }}
+              >
+                <IlianGlobe />
+              </motion.div>
+            ) : (
+              <motion.div
+                className={`bento-card bento-location-card ${isIndiaHovered ? 'is-india-hovered' : ''}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                onMouseEnter={handleIndiaMouseEnter}
+                onMouseLeave={handleIndiaMouseLeave}
+              >
+                <div
+                  className={`location-map-bg ${isIndiaHovered ? 'hover-active' : ''}`}
+                  style={{
+                    backgroundImage: `url(${isIndiaHovered ? HOVER_IMAGES[indiaHoverIndex] : locationMapImg})`
+                  }}
+                />
+                <div className="location-overlay" />
+                <div className="location-laser-line" />
 
-
-
-              <div className="location-info">
-                <h2 className="location-country">
-                  <span className="highlight-cyan hover-india-btn">INDIA</span>
-                </h2>
-                <p className="location-coords"><span className="highlight-gold">28.6139° N, 77.2090° E</span></p>
-                <p className="location-timezone"><span className="highlight-gold">GMT+5:30</span></p>
-              </div>
-            </motion.div>
+                <div className="location-info">
+                  <h2 className="location-country">
+                    <span className="highlight-cyan hover-india-btn">INDIA</span>
+                  </h2>
+                  <p className="location-coords"><span className="highlight-gold">28.6139° N, 77.2090° E</span></p>
+                  <p className="location-timezone"><span className="highlight-gold">GMT+5:30</span></p>
+                </div>
+              </motion.div>
+            )}
 
             {/* Box 2: About Bio Card */}
             <motion.div

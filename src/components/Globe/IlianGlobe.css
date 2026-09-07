@@ -1,0 +1,156 @@
+/* ─── ILIAN THEME 3D DOTTED GLOBE CARD ─── */
+
+.ilian-globe-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #020204;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ilian-globe-card:active {
+  cursor: grabbing;
+}
+
+.ilian-globe-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+/* ─── LIGHT MODE ADAPTATION ─── */
+[data-theme="light"] .ilian-globe-card {
+  background: #fcfcfd;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .ilian-globe-card:hover {
+  border-color: rgba(0, 0, 0, 0.22);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── HEADER: Where I Live ─── */
+.ilian-globe-header {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.ilian-globe-pin-icon {
+  color: #ffffff;
+  stroke: #ffffff;
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .ilian-globe-pin-icon {
+  color: #09090b;
+  stroke: #09090b;
+}
+
+.ilian-globe-title {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #e4e4e7;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="light"] .ilian-globe-title {
+  color: #52525b;
+}
+
+.ilian-globe-title-bold {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme="light"] .ilian-globe-title-bold {
+  color: #09090b;
+}
+
+/* ─── CANVAS LAYER ─── */
+.ilian-globe-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ─── FLOATING PILL OVER COUNTRY (IN India) ─── */
+.ilian-globe-pill {
+  position: absolute;
+  z-index: 15;
+  transform: translate(-50%, -100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(16, 16, 22, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55), 0 0 15px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.25s ease, transform 0.15s ease-out;
+}
+
+[data-theme="light"] .ilian-globe-pill {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.globe-pill-code {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  letter-spacing: 0.5px;
+}
+
+[data-theme="light"] .globe-pill-code {
+  color: #71717a;
+}
+
+.globe-pill-country {
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="light"] .globe-pill-country {
+  color: #09090b;
+}
+
+@media (max-width: 768px) {
+  .ilian-globe-card {
+    min-height: 300px;
+  }
+
+  .ilian-globe-header {
+    top: 18px;
+    left: 18px;
+  }
+
+  .ilian-globe-title {
+    font-size: 0.88rem;
+  }
+}
