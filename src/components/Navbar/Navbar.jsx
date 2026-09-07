@@ -72,17 +72,12 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   useLenis((lenis) => {
-    setIsScrolled(lenis.scroll > 15);
+    const scrolled = lenis.scroll > 15;
+    setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
   });
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    setIsScrolled(window.scrollY > 15);
   }, [location.pathname]);
 
   return (

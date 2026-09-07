@@ -46,7 +46,7 @@ function AppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+      <ReactLenis root options={{ lerp: 0.12, duration: 0.7, smoothWheel: true, wheelMultiplier: 1.15, touchMultiplier: 1.6 }}>
         <AppContent />
       </ReactLenis>
     </ThemeProvider>

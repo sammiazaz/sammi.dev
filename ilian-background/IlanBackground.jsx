@@ -261,28 +261,61 @@ export default function IlanBackground() {
       else if (cycleFrame > messageDuration + fadeFrames) bannerAlpha = 1 - (cycleFrame - messageDuration - fadeFrames) / fadeFrames;
       const radius = effectRadius + Math.sin(frame / 15) * 30;
       const radiusSquared = radius * radius;
+      const hasMouse = mouseX > -9000 && mouseY > -9000;
+
+      // Color constants to avoid thousands of string allocations per frame
+      const colorA = themeLight ? 'rgba(70,70,80,0.32)' : 'rgba(237,237,234,0.18)';
+      const colorB = themeLight ? 'rgba(70,70,80,0.22)' : 'rgba(237,237,234,0.12)';
+      const unlitDotRadius = themeLight ? 0.7 : dotRadius;
+
+      // Batch queues for unlit particles (95% of screen)
+      const unlitDotsA = [];
+      const unlitDotsB = [];
+      const unlitPlusesA = [];
+      const unlitPlusesB = [];
+
       particles.forEach((particle) => {
         const key = `${particle.column},${particle.row}`;
         const isLit = litMap?.has(key);
         const pixelColor = litColorMap[key];
         const targetLit = isLit ? bannerAlpha : 0;
         particle.lit += (targetLit - particle.lit) * 0.12;
-        const distanceX = particle.x - mouseX;
-        const distanceY = particle.y - mouseY;
-        const distanceSquared = distanceX * distanceX + distanceY * distanceY;
-        if (distanceSquared < radiusSquared && distanceSquared > 0) {
-          const distance = Math.sqrt(distanceSquared);
-          const strength = (1 - distance / radius) * repelForce;
-          particle.velocityX += (distanceX / distance) * strength;
-          particle.velocityY += (distanceY / distance) * strength;
+
+        if (hasMouse) {
+          const distanceX = particle.x - mouseX;
+          const distanceY = particle.y - mouseY;
+          const distanceSquared = distanceX * distanceX + distanceY * distanceY;
+          if (distanceSquared < radiusSquared && distanceSquared > 0) {
+            const distance = Math.sqrt(distanceSquared);
+            const strength = (1 - distance / radius) * repelForce;
+            particle.velocityX += (distanceX / distance) * strength;
+            particle.velocityY += (distanceY / distance) * strength;
+          }
         }
+
         particle.velocityX += (particle.homeX - particle.x) * healFactor;
         particle.velocityY += (particle.homeY - particle.y) * healFactor;
         particle.velocityX *= damping;
         particle.velocityY *= damping;
         particle.x += particle.velocityX;
         particle.y += particle.velocityY;
+
         const glow = particle.lit;
+
+        // Fast path for unlit particles (batching drastically reduces draw calls from 4000 to ~4)
+        if (glow <= 0.05 && !pixelColor) {
+          const isGroupA = (particle.column + particle.row) % 3 === 0;
+          if (particle.baseShape === 'dot') {
+            if (isGroupA) unlitDotsA.push(particle);
+            else unlitDotsB.push(particle);
+          } else {
+            if (isGroupA) unlitPlusesA.push(particle);
+            else unlitPlusesB.push(particle);
+          }
+          return;
+        }
+
+        // Lit particles (high fidelity image/video/text glow)
         const baseAlpha = themeLight ? ((particle.column + particle.row) % 3 === 0 ? 0.32 : 0.22) : ((particle.column + particle.row) % 3 === 0 ? 0.18 : 0.12);
         let red;
         let green;
@@ -313,7 +346,7 @@ export default function IlanBackground() {
         const shape = glow > 0.3 ? (particle.baseShape === 'dot' ? 'plus' : 'dot') : particle.baseShape;
         if (shape === 'dot') {
           context.beginPath();
-          context.arc(particle.x, particle.y, (themeLight ? 0.7 : dotRadius) + glow * (pixelColor && currentIsImage ? 1.8 : 1.2), 0, Math.PI * 2);
+          context.arc(particle.x, particle.y, unlitDotRadius + glow * (pixelColor && currentIsImage ? 1.8 : 1.2), 0, Math.PI * 2);
           context.fillStyle = color;
           context.fill();
         } else {
@@ -328,6 +361,61 @@ export default function IlanBackground() {
           context.stroke();
         }
       });
+
+      // Render batched unlit dots Group A
+      if (unlitDotsA.length > 0) {
+        context.beginPath();
+        context.fillStyle = colorA;
+        for (let i = 0; i < unlitDotsA.length; i += 1) {
+          const p = unlitDotsA[i];
+          context.moveTo(p.x + unlitDotRadius, p.y);
+          context.arc(p.x, p.y, unlitDotRadius, 0, Math.PI * 2);
+        }
+        context.fill();
+      }
+
+      // Render batched unlit dots Group B
+      if (unlitDotsB.length > 0) {
+        context.beginPath();
+        context.fillStyle = colorB;
+        for (let i = 0; i < unlitDotsB.length; i += 1) {
+          const p = unlitDotsB[i];
+          context.moveTo(p.x + unlitDotRadius, p.y);
+          context.arc(p.x, p.y, unlitDotRadius, 0, Math.PI * 2);
+        }
+        context.fill();
+      }
+
+      // Render batched unlit pluses Group A
+      if (unlitPlusesA.length > 0) {
+        context.beginPath();
+        context.strokeStyle = colorA;
+        context.lineWidth = 1;
+        for (let i = 0; i < unlitPlusesA.length; i += 1) {
+          const p = unlitPlusesA[i];
+          context.moveTo(p.x - plusSize, p.y);
+          context.lineTo(p.x + plusSize, p.y);
+          context.moveTo(p.x, p.y - plusSize);
+          context.lineTo(p.x, p.y + plusSize);
+        }
+        context.stroke();
+      }
+
+      // Render batched unlit pluses Group B
+      if (unlitPlusesB.length > 0) {
+        context.beginPath();
+        context.strokeStyle = colorB;
+        context.lineWidth = 1;
+        for (let i = 0; i < unlitPlusesB.length; i += 1) {
+          const p = unlitPlusesB[i];
+          context.moveTo(p.x - plusSize, p.y);
+          context.lineTo(p.x + plusSize, p.y);
+          context.moveTo(p.x, p.y - plusSize);
+          context.lineTo(p.x, p.y + plusSize);
+        }
+        context.stroke();
+      }
+
       animationFrame = requestAnimationFrame(animate);
     }
 
