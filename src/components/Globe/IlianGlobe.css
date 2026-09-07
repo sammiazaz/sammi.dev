@@ -81,6 +81,35 @@
   color: #09090b;
 }
 
+/* ─── INTERACTION HINT: Drag or scroll ─── */
+.ilian-globe-rotate-hint {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #a1a1aa;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.2s ease;
+}
+
+[data-theme="light"] .ilian-globe-rotate-hint {
+  color: #71717a;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.09);
+}
+
 /* ─── CANVAS LAYER ─── */
 .ilian-globe-canvas {
   position: absolute;
