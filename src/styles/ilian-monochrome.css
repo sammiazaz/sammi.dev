@@ -157,13 +157,6 @@
 [data-site-theme="ilian"] .bento-card,
 [data-site-theme="ilian"] .bento-academic-trend-card,
 [data-site-theme="ilian"] .cj-dashboard-card,
-[data-site-theme="ilian"] .cj-lc-stats-card,
-[data-site-theme="ilian"] .cj-lc-rating-card,
-[data-site-theme="ilian"] .cj-lc-badges-card,
-[data-site-theme="ilian"] .cj-lc-heatmap-card,
-[data-site-theme="ilian"] .cj-cf-stats-card,
-[data-site-theme="ilian"] .cj-cf-rating-card,
-[data-site-theme="ilian"] .cj-cf-badges-card,
 [data-site-theme="ilian"] .featured-project-editorial,
 [data-site-theme="ilian"] .project-card-editorial,
 [data-site-theme="ilian"] .cert-preview-card,
@@ -190,9 +183,6 @@
 [data-site-theme="ilian"] .experience-card-editorial,
 [data-site-theme="ilian"] .education-card-editorial,
 [data-site-theme="ilian"] .skill-group-box,
-[data-site-theme="ilian"] .cj-leetcode-card,
-[data-site-theme="ilian"] .cj-metric-item,
-[data-site-theme="ilian"] .cj-streak-banner,
 [data-site-theme="ilian"] .stat-card,
 [data-site-theme="ilian"] .metric-tile {
   background: rgba(255, 255, 255, 0.03) !important;
@@ -210,13 +200,6 @@
 [data-site-theme="ilian"][data-theme="light"] .bento-card,
 [data-site-theme="ilian"][data-theme="light"] .bento-academic-trend-card,
 [data-site-theme="ilian"][data-theme="light"] .cj-dashboard-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-stats-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-badges-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-heatmap-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-stats-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-rating-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card,
 [data-site-theme="ilian"][data-theme="light"] .featured-project-editorial,
 [data-site-theme="ilian"][data-theme="light"] .project-card-editorial,
 [data-site-theme="ilian"][data-theme="light"] .cert-preview-card,
@@ -243,9 +226,6 @@
 [data-site-theme="ilian"][data-theme="light"] .experience-card-editorial,
 [data-site-theme="ilian"][data-theme="light"] .education-card-editorial,
 [data-site-theme="ilian"][data-theme="light"] .skill-group-box,
-[data-site-theme="ilian"][data-theme="light"] .cj-leetcode-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-metric-item,
-[data-site-theme="ilian"][data-theme="light"] .cj-streak-banner,
 [data-site-theme="ilian"][data-theme="light"] .stat-card,
 [data-site-theme="ilian"][data-theme="light"] .metric-tile {
   background: rgba(255, 255, 255, 0.75) !important;
@@ -263,16 +243,6 @@
 [data-site-theme="ilian"] .bento-card:hover,
 [data-site-theme="ilian"] .bento-academic-trend-card:hover,
 [data-site-theme="ilian"] .cj-dashboard-card:hover,
-[data-site-theme="ilian"] .cj-lc-stats-card:hover,
-[data-site-theme="ilian"] .cj-lc-rating-card:hover,
-[data-site-theme="ilian"] .cj-lc-badges-card:hover,
-[data-site-theme="ilian"] .cj-lc-heatmap-card:hover,
-[data-site-theme="ilian"] .cj-cf-stats-card:hover,
-[data-site-theme="ilian"] .cj-cf-rating-card:hover,
-[data-site-theme="ilian"] .cj-cf-badges-card:hover,
-[data-site-theme="ilian"] .cj-leetcode-card:hover,
-[data-site-theme="ilian"] .cj-metric-item:hover,
-[data-site-theme="ilian"] .cj-streak-banner:hover,
 [data-site-theme="ilian"] .featured-project-editorial:hover,
 [data-site-theme="ilian"] .project-card-editorial:hover,
 [data-site-theme="ilian"] .cert-preview-card:hover,
@@ -311,16 +281,6 @@
 [data-site-theme="ilian"][data-theme="light"] .bento-card:hover,
 [data-site-theme="ilian"][data-theme="light"] .bento-academic-trend-card:hover,
 [data-site-theme="ilian"][data-theme="light"] .cj-dashboard-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-stats-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-badges-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-lc-heatmap-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-stats-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-rating-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-leetcode-card:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-metric-item:hover,
-[data-site-theme="ilian"][data-theme="light"] .cj-streak-banner:hover,
 [data-site-theme="ilian"][data-theme="light"] .featured-project-editorial:hover,
 [data-site-theme="ilian"][data-theme="light"] .project-card-editorial:hover,
 [data-site-theme="ilian"][data-theme="light"] .cert-preview-card:hover,
@@ -374,8 +334,13 @@
   font-size: 1.05rem !important;
 }
 
-[data-site-theme="ilian"] .cj-ambient-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px) !important;
+[data-site-theme="ilian"] .cj-ambient-dots,
+.cj-ambient-dots {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background-image: none !important;
+  pointer-events: none !important;
 }
 
 [data-site-theme="ilian"] .cj-tabs-bar {
@@ -396,7 +361,48 @@
 [data-site-theme="ilian"] .cj-tab-btn.is-active {
   background: #ffffff !important;
   color: #000000 !important;
+  font-weight: 700 !important;
   box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* LeetCode Sub-cards: seamlessly match About/Transcript Ref card surface */
+[data-site-theme="ilian"] .cj-lc-stats-card,
+[data-site-theme="ilian"] .cj-lc-rating-card,
+[data-site-theme="ilian"] .cj-lc-badges-card,
+[data-site-theme="ilian"] .cj-lc-heatmap-card,
+[data-site-theme="ilian"] .cj-cf-stats-card,
+[data-site-theme="ilian"] .cj-cf-rating-card,
+[data-site-theme="ilian"] .cj-cf-badges-card,
+[data-site-theme="ilian"] .cj-leetcode-card,
+[data-site-theme="ilian"] .cj-badges-card,
+[data-site-theme="ilian"] .cj-metric-item,
+[data-site-theme="ilian"] .cj-streak-banner,
+[data-site-theme="ilian"] .cj-mini-stat-card {
+  background: rgba(255, 255, 255, 0.015) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 14px !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.3s ease, background 0.3s ease !important;
+}
+
+[data-site-theme="ilian"] .cj-lc-stats-card:hover,
+[data-site-theme="ilian"] .cj-lc-rating-card:hover,
+[data-site-theme="ilian"] .cj-lc-badges-card:hover,
+[data-site-theme="ilian"] .cj-lc-heatmap-card:hover,
+[data-site-theme="ilian"] .cj-cf-stats-card:hover,
+[data-site-theme="ilian"] .cj-cf-rating-card:hover,
+[data-site-theme="ilian"] .cj-cf-badges-card:hover,
+[data-site-theme="ilian"] .cj-leetcode-card:hover,
+[data-site-theme="ilian"] .cj-badges-card:hover,
+[data-site-theme="ilian"] .cj-metric-item:hover,
+[data-site-theme="ilian"] .cj-streak-banner:hover,
+[data-site-theme="ilian"] .cj-mini-stat-card:hover {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 /* ─── 4. Projects Page Polish in Ilian Theme ─── */
@@ -1337,7 +1343,11 @@
 
 /* ─── 6. Competitive Journey in Ilian Light ─── */
 [data-site-theme="ilian"][data-theme="light"] .cj-ambient-dots {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background-image: none !important;
+  pointer-events: none !important;
 }
 
 [data-site-theme="ilian"][data-theme="light"] .cj-tabs-bar {
@@ -1366,10 +1376,17 @@
 [data-site-theme="ilian"][data-theme="light"] .cj-lc-heatmap-card,
 [data-site-theme="ilian"][data-theme="light"] .cj-cf-stats-card,
 [data-site-theme="ilian"][data-theme="light"] .cj-cf-rating-card,
-[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card {
-  background: #ffffff !important;
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-leetcode-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-badges-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-metric-item,
+[data-site-theme="ilian"][data-theme="light"] .cj-streak-banner,
+[data-site-theme="ilian"][data-theme="light"] .cj-mini-stat-card {
+  background: rgba(0, 0, 0, 0.02) !important;
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 [data-site-theme="ilian"][data-theme="light"] .lc-solved-big,

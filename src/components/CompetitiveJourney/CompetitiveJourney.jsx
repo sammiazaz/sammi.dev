@@ -168,16 +168,14 @@ export default function CompetitiveJourney() {
           </p>
         </motion.div>
 
-        {/* ─── 2. MAIN DASHBOARD CONTAINER ─── */}
+        {/* ─── 2. MAIN DASHBOARD CONTAINER (Matches Bento Card) ─── */}
         <motion.div
-          className="cj-dashboard-card"
+          className="bento-card cj-dashboard-card"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Ambient matrix grid dots background */}
-          <div className="cj-ambient-dots" aria-hidden="true" />
 
           {/* A. PLATFORM TABS */}
           <div className="cj-tabs-wrapper">

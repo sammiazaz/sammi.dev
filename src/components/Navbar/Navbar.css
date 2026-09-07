@@ -110,58 +110,112 @@ nav.export-navbar {
   width: 100%;
   height: 100%;
 }
-.site-theme-toggle-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  color: var(--black, #ffffff);
+/* ─── SEGMENTED THEME SWITCH (NEW / OLD - REFERENCE IMAGE REPLICATION) ─── */
+.theme-segmented-switch {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  height: 38px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.76rem;
+  background: #0d1014;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
+  padding: 3px;
+  height: 36px;
+  gap: 2px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.theme-segmented-switch:hover {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.theme-segment-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #88909b;
+  font-family: var(--font-primary, 'Inter', -apple-system, sans-serif);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  cursor: pointer;
   white-space: nowrap;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
 }
 
-.site-theme-toggle-btn:hover {
-  background: var(--card-bg);
-  border-color: var(--primary);
-  transform: translateY(-1px);
-  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.25);
+.theme-segment-btn:hover:not(.is-active) {
+  color: #d1d5db;
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.theme-toggle-indicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 8px var(--primary);
-  transition: all 0.3s ease;
+/* Active "NEW" Segment (Ilian Monochrome Theme - Pure White Outline & Text) */
+.theme-segmented-switch .theme-segment-btn.is-active:first-child {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
-.site-theme-toggle-btn.sammi .theme-toggle-indicator {
-  background: #ff4b33;
-  box-shadow: 0 0 8px #ff4b33;
+/* Active "OLD" Segment */
+.theme-segmented-switch .theme-segment-btn.is-active:last-child {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
-.site-theme-toggle-btn.ilian .theme-toggle-indicator {
-  background: #ffffff;
-  box-shadow: 0 0 8px #ffffff;
+[data-site-theme="sammi"] .theme-segmented-switch .theme-segment-btn.is-active:last-child {
+  background: rgba(255, 75, 51, 0.15);
+  color: #ff4b33;
+  border: 1.5px solid rgba(255, 75, 51, 0.85);
+  box-shadow: 0 0 14px rgba(255, 75, 51, 0.25);
 }
 
-[data-theme="light"] .site-theme-toggle-btn.ilian .theme-toggle-indicator {
+/* ─── Light Mode Support ─── */
+[data-theme="light"] .theme-segmented-switch {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .theme-segment-btn {
+  color: #71717a;
+}
+
+[data-theme="light"] .theme-segment-btn:hover:not(.is-active) {
+  color: #09090b;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .theme-segmented-switch .theme-segment-btn.is-active:first-child {
   background: #09090b;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border: 1.5px solid #09090b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
-.theme-toggle-text {
-  line-height: 1;
+[data-theme="light"] .theme-segmented-switch .theme-segment-btn.is-active:last-child {
+  background: #09090b;
+  color: #ffffff;
+  border: 1.5px solid #09090b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="light"][data-site-theme="sammi"] .theme-segmented-switch .theme-segment-btn.is-active:last-child {
+  background: #ff4b33;
+  color: #ffffff;
+  border: 1.5px solid #ff4b33;
+  box-shadow: 0 2px 8px rgba(255, 75, 51, 0.25);
 }
 
 .theme-toggle-btn {
@@ -569,11 +623,19 @@ nav.export-navbar {
     height: 17px;
   }
 
-  .site-theme-toggle-btn {
+  .theme-segmented-switch {
     height: 32px;
-    padding: 3px 8px;
-    font-size: 0.68rem;
-    gap: 4px;
+    padding: 2px;
+    border-radius: 8px;
+    gap: 1px;
+  }
+
+  .theme-segment-btn {
+    height: 26px;
+    padding: 0 8px;
+    font-size: 0.66rem;
+    letter-spacing: 0.4px;
+    border-radius: 5px;
   }
 
   .theme-toggle-btn {

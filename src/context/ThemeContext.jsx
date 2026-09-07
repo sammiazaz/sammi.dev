@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext({
-  siteTheme: 'sammi',
+  siteTheme: 'ilian',
   colorMode: 'dark',
   toggleSiteTheme: () => {},
   toggleColorMode: () => {},
@@ -11,17 +11,26 @@ const ThemeContext = createContext({
 
 export function ThemeProvider({ children }) {
   const [siteTheme, setSiteTheme] = useState(() => {
-    return localStorage.getItem('site_theme') || 'sammi';
+    // New theme ('ilian') is the primary default
+    const savedV2 = localStorage.getItem('site_theme_v2');
+    if (savedV2) {
+      return savedV2;
+    }
+    // Migrate or default to 'ilian'
+    localStorage.setItem('site_theme', 'ilian');
+    localStorage.setItem('site_theme_v2', 'ilian');
+    return 'ilian';
   });
 
   const [colorMode, setColorMode] = useState(() => {
     return localStorage.getItem('theme') || 'dark';
   });
 
-  // Sync site theme (sammi vs ilian)
+  // Sync site theme (ilian vs sammi)
   useEffect(() => {
     document.documentElement.setAttribute('data-site-theme', siteTheme);
     localStorage.setItem('site_theme', siteTheme);
+    localStorage.setItem('site_theme_v2', siteTheme);
   }, [siteTheme]);
 
   // Sync color mode (dark vs light)

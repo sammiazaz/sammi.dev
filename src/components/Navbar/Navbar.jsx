@@ -66,7 +66,7 @@ const MOBILE_DOCK_ITEMS = [
 ];
 
 export default function Navbar() {
-  const { siteTheme, colorMode, toggleSiteTheme, toggleColorMode } = useTheme();
+  const { siteTheme, colorMode, toggleSiteTheme, toggleColorMode, setSiteTheme } = useTheme();
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -116,17 +116,33 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Theme Switcher Button */}
-          <button
-            type="button"
-            onClick={toggleSiteTheme}
-            className={`site-theme-toggle-btn ${siteTheme}`}
-            title={`Active: ${siteTheme === 'sammi' ? 'SAMMI Theme' : 'ILIAN Theme'} (Click to switch)`}
-            aria-label="Switch between Sammi and Ilian visual themes"
+          {/* Segmented Theme Switcher (NEW vs OLD) */}
+          <div
+            className={`theme-segmented-switch ${siteTheme}`}
+            role="radiogroup"
+            aria-label="Select Site Theme: NEW (Ilian) or OLD (Sammi)"
           >
-            <span className="theme-toggle-indicator" />
-            <span className="theme-toggle-text">{siteTheme === 'sammi' ? 'SAMMI' : 'ILIAN'}</span>
-          </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={siteTheme === 'ilian'}
+              onClick={() => setSiteTheme('ilian')}
+              className={`theme-segment-btn ${siteTheme === 'ilian' ? 'is-active' : ''}`}
+              title="Switch to NEW (Ilian) Theme"
+            >
+              NEW
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={siteTheme === 'sammi'}
+              onClick={() => setSiteTheme('sammi')}
+              className={`theme-segment-btn ${siteTheme === 'sammi' ? 'is-active' : ''}`}
+              title="Switch to OLD (Sammi) Theme"
+            >
+              OLD
+            </button>
+          </div>
 
           {/* Dark Mode Toggle */}
           <button
@@ -153,10 +169,6 @@ export default function Navbar() {
               </svg>
             )}
           </button>
-
-          <Link to="/resume" className="btn btn-solid">
-            Resume
-          </Link>
         </div>
       </nav>
 
