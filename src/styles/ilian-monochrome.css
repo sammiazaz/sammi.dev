@@ -1,0 +1,1806 @@
+/* ══════════════════════════════════════════════════════════════════
+   ILIAN THEME: PURE MONOCHROME (BLACK, GREY & WHITE) OVERRIDES
+   Ensures complete removal of orange/red across all site sections
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── Global Tokens & Typography in Ilian Theme ─── */
+[data-site-theme="ilian"] {
+  --red: #ffffff;
+  --red-rgb: 255, 255, 255;
+  --red-light: rgba(255, 255, 255, 0.12);
+  --primary: #ffffff;
+  --primary-rgb: 255, 255, 255;
+  --btn-color: #ffffff;
+  --btn-hover: #e4e4e7;
+  --skill-color: #ffffff;
+  --card-bg: rgba(14, 14, 18, 0.52);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+/* ─── Titles & Gradient Texts ─── */
+[data-site-theme="ilian"] .section-title,
+[data-site-theme="ilian"] .page-title,
+[data-site-theme="ilian"] .hero-title,
+[data-site-theme="ilian"] .about-title,
+[data-site-theme="ilian"] .journey-title,
+[data-site-theme="ilian"] .gradient-text {
+  background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .section-tag,
+[data-site-theme="ilian"] .badge-tag,
+[data-site-theme="ilian"] .category-badge,
+[data-site-theme="ilian"] .role-tag {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* ─── Buttons & Interactive Controls ─── */
+[data-site-theme="ilian"] .btn-solid,
+[data-site-theme="ilian"] .btn-primary,
+[data-site-theme="ilian"] .primary-btn,
+[data-site-theme="ilian"] .modal-close {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-site-theme="ilian"] .btn-solid:hover,
+[data-site-theme="ilian"] .btn-primary:hover,
+[data-site-theme="ilian"] .primary-btn:hover,
+[data-site-theme="ilian"] .modal-close:hover {
+  background: #e4e4e7 !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+[data-site-theme="ilian"] .btn-outline,
+[data-site-theme="ilian"] .btn-secondary {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-site-theme="ilian"] .btn-outline:hover,
+[data-site-theme="ilian"] .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #ffffff !important;
+}
+
+/* ─── Active Nav Links & Socials ─── */
+[data-site-theme="ilian"] .nav-links a.active {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .nav-links a.active::after {
+  background: #ffffff !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-site-theme="ilian"] .social-icon:hover {
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   UNIVERSAL LAYOUT & CARD SPEC (STANDARDIZED 1300PX CARD SYSTEM)
+   Applied across all sections in Ilian Theme: 1300px Max Width
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Universal Page Containers: Exact 1300px Alignment with Projects ─── */
+[data-site-theme="ilian"] .about-container,
+[data-site-theme="ilian"] .credentials-editorial-container,
+[data-site-theme="ilian"] .persona-editorial-container,
+[data-site-theme="ilian"] .contact-editorial-container,
+[data-site-theme="ilian"] .resume-editorial-container,
+[data-site-theme="ilian"] .projects-editorial-container,
+[data-site-theme="ilian"] .experience-container {
+  max-width: 1300px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+[data-site-theme="ilian"] .about-page,
+[data-site-theme="ilian"] .competitive-journey-section,
+[data-site-theme="ilian"] .projects-editorial-page,
+[data-site-theme="ilian"] .credentials-editorial-page,
+[data-site-theme="ilian"] .persona-editorial-page,
+[data-site-theme="ilian"] .contact-editorial-page,
+[data-site-theme="ilian"] .resume-editorial-page,
+[data-site-theme="ilian"] .experience-page,
+[data-site-theme="ilian"] .page-content,
+[data-site-theme="ilian"] .home-page {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  box-sizing: border-box !important;
+}
+
+/* Competitive Journey inside About Page: Full Width matching Academic Transcript Card */
+[data-site-theme="ilian"] .competitive-journey-section,
+[data-site-theme="ilian"] .about-container .competitive-journey-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 40px 0 0 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+[data-site-theme="ilian"] .competitive-journey-container,
+[data-site-theme="ilian"] .about-container .competitive-journey-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+[data-site-theme="ilian"] .cj-dashboard-card,
+[data-site-theme="ilian"] .about-container .cj-dashboard-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* ─── 2. Universal Card Style: Standardized across all pages ─── */
+[data-site-theme="ilian"] .bento-card,
+[data-site-theme="ilian"] .bento-academic-trend-card,
+[data-site-theme="ilian"] .cj-dashboard-card,
+[data-site-theme="ilian"] .cj-lc-stats-card,
+[data-site-theme="ilian"] .cj-lc-rating-card,
+[data-site-theme="ilian"] .cj-lc-badges-card,
+[data-site-theme="ilian"] .cj-lc-heatmap-card,
+[data-site-theme="ilian"] .cj-cf-stats-card,
+[data-site-theme="ilian"] .cj-cf-rating-card,
+[data-site-theme="ilian"] .cj-cf-badges-card,
+[data-site-theme="ilian"] .featured-project-editorial,
+[data-site-theme="ilian"] .project-card-editorial,
+[data-site-theme="ilian"] .cert-preview-card,
+[data-site-theme="ilian"] .telemetry-box,
+[data-site-theme="ilian"] .cert-showcase-box,
+[data-site-theme="ilian"] .cert-item-card,
+[data-site-theme="ilian"] .cert-media-preview-box,
+[data-site-theme="ilian"] .college-card-editorial,
+[data-site-theme="ilian"] .persona-statement-box,
+[data-site-theme="ilian"] .persona-pillar-card,
+[data-site-theme="ilian"] .connect-channel-tile,
+[data-site-theme="ilian"] .persona-college-card,
+[data-site-theme="ilian"] .persona-quote-box,
+[data-site-theme="ilian"] .pillar-card,
+[data-site-theme="ilian"] .thought-stream-card,
+[data-site-theme="ilian"] .contact-status-card,
+[data-site-theme="ilian"] .editorial-form-wrapper,
+[data-site-theme="ilian"] .channel-contact-item,
+[data-site-theme="ilian"] .contact-info-panel,
+[data-site-theme="ilian"] .contact-form-card,
+[data-site-theme="ilian"] .editorial-resume-card,
+[data-site-theme="ilian"] .resume-card-box,
+[data-site-theme="ilian"] .experience-card,
+[data-site-theme="ilian"] .experience-card-editorial,
+[data-site-theme="ilian"] .education-card-editorial,
+[data-site-theme="ilian"] .skill-group-box,
+[data-site-theme="ilian"] .cj-leetcode-card,
+[data-site-theme="ilian"] .cj-metric-item,
+[data-site-theme="ilian"] .cj-streak-banner,
+[data-site-theme="ilian"] .stat-card,
+[data-site-theme="ilian"] .metric-tile {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 20px !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bento-card,
+[data-site-theme="ilian"][data-theme="light"] .bento-academic-trend-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-dashboard-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-stats-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-badges-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-heatmap-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-stats-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-rating-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card,
+[data-site-theme="ilian"][data-theme="light"] .featured-project-editorial,
+[data-site-theme="ilian"][data-theme="light"] .project-card-editorial,
+[data-site-theme="ilian"][data-theme="light"] .cert-preview-card,
+[data-site-theme="ilian"][data-theme="light"] .telemetry-box,
+[data-site-theme="ilian"][data-theme="light"] .cert-showcase-box,
+[data-site-theme="ilian"][data-theme="light"] .cert-item-card,
+[data-site-theme="ilian"][data-theme="light"] .cert-media-preview-box,
+[data-site-theme="ilian"][data-theme="light"] .college-card-editorial,
+[data-site-theme="ilian"][data-theme="light"] .persona-statement-box,
+[data-site-theme="ilian"][data-theme="light"] .persona-pillar-card,
+[data-site-theme="ilian"][data-theme="light"] .connect-channel-tile,
+[data-site-theme="ilian"][data-theme="light"] .persona-college-card,
+[data-site-theme="ilian"][data-theme="light"] .persona-quote-box,
+[data-site-theme="ilian"][data-theme="light"] .pillar-card,
+[data-site-theme="ilian"][data-theme="light"] .thought-stream-card,
+[data-site-theme="ilian"][data-theme="light"] .contact-status-card,
+[data-site-theme="ilian"][data-theme="light"] .editorial-form-wrapper,
+[data-site-theme="ilian"][data-theme="light"] .channel-contact-item,
+[data-site-theme="ilian"][data-theme="light"] .contact-info-panel,
+[data-site-theme="ilian"][data-theme="light"] .contact-form-card,
+[data-site-theme="ilian"][data-theme="light"] .editorial-resume-card,
+[data-site-theme="ilian"][data-theme="light"] .resume-card-box,
+[data-site-theme="ilian"][data-theme="light"] .experience-card,
+[data-site-theme="ilian"][data-theme="light"] .experience-card-editorial,
+[data-site-theme="ilian"][data-theme="light"] .education-card-editorial,
+[data-site-theme="ilian"][data-theme="light"] .skill-group-box,
+[data-site-theme="ilian"][data-theme="light"] .cj-leetcode-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-metric-item,
+[data-site-theme="ilian"][data-theme="light"] .cj-streak-banner,
+[data-site-theme="ilian"][data-theme="light"] .stat-card,
+[data-site-theme="ilian"][data-theme="light"] .metric-tile {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 20px !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-site-theme="ilian"] .bento-card:hover,
+[data-site-theme="ilian"] .bento-academic-trend-card:hover,
+[data-site-theme="ilian"] .cj-dashboard-card:hover,
+[data-site-theme="ilian"] .cj-lc-stats-card:hover,
+[data-site-theme="ilian"] .cj-lc-rating-card:hover,
+[data-site-theme="ilian"] .cj-lc-badges-card:hover,
+[data-site-theme="ilian"] .cj-lc-heatmap-card:hover,
+[data-site-theme="ilian"] .cj-cf-stats-card:hover,
+[data-site-theme="ilian"] .cj-cf-rating-card:hover,
+[data-site-theme="ilian"] .cj-cf-badges-card:hover,
+[data-site-theme="ilian"] .cj-leetcode-card:hover,
+[data-site-theme="ilian"] .cj-metric-item:hover,
+[data-site-theme="ilian"] .cj-streak-banner:hover,
+[data-site-theme="ilian"] .featured-project-editorial:hover,
+[data-site-theme="ilian"] .project-card-editorial:hover,
+[data-site-theme="ilian"] .cert-preview-card:hover,
+[data-site-theme="ilian"] .telemetry-box:hover,
+[data-site-theme="ilian"] .cert-showcase-box:hover,
+[data-site-theme="ilian"] .cert-item-card:hover,
+[data-site-theme="ilian"] .college-card-editorial:hover,
+[data-site-theme="ilian"] .persona-statement-box:hover,
+[data-site-theme="ilian"] .persona-pillar-card:hover,
+[data-site-theme="ilian"] .connect-channel-tile:hover,
+[data-site-theme="ilian"] .persona-college-card:hover,
+[data-site-theme="ilian"] .persona-quote-box:hover,
+[data-site-theme="ilian"] .pillar-card:hover,
+[data-site-theme="ilian"] .thought-stream-card:hover,
+[data-site-theme="ilian"] .contact-status-card:hover,
+[data-site-theme="ilian"] .editorial-form-wrapper:hover,
+[data-site-theme="ilian"] .channel-contact-item:hover,
+[data-site-theme="ilian"] .contact-info-panel:hover,
+[data-site-theme="ilian"] .contact-form-card:hover,
+[data-site-theme="ilian"] .editorial-resume-card:hover,
+[data-site-theme="ilian"] .resume-card-box:hover,
+[data-site-theme="ilian"] .experience-card:hover,
+[data-site-theme="ilian"] .experience-card-editorial:hover,
+[data-site-theme="ilian"] .education-card-editorial:hover,
+[data-site-theme="ilian"] .skill-group-box:hover,
+[data-site-theme="ilian"] .stat-card:hover,
+[data-site-theme="ilian"] .metric-tile:hover {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+  transform: none !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bento-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .bento-academic-trend-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-dashboard-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-stats-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-badges-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-heatmap-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-stats-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-rating-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-leetcode-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-metric-item:hover,
+[data-site-theme="ilian"][data-theme="light"] .cj-streak-banner:hover,
+[data-site-theme="ilian"][data-theme="light"] .featured-project-editorial:hover,
+[data-site-theme="ilian"][data-theme="light"] .project-card-editorial:hover,
+[data-site-theme="ilian"][data-theme="light"] .cert-preview-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .telemetry-box:hover,
+[data-site-theme="ilian"][data-theme="light"] .cert-showcase-box:hover,
+[data-site-theme="ilian"][data-theme="light"] .cert-item-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .college-card-editorial:hover,
+[data-site-theme="ilian"][data-theme="light"] .persona-statement-box:hover,
+[data-site-theme="ilian"][data-theme="light"] .persona-pillar-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .connect-channel-tile:hover,
+[data-site-theme="ilian"][data-theme="light"] .persona-college-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .persona-quote-box:hover,
+[data-site-theme="ilian"][data-theme="light"] .pillar-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .thought-stream-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .contact-status-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .editorial-form-wrapper:hover,
+[data-site-theme="ilian"][data-theme="light"] .channel-contact-item:hover,
+[data-site-theme="ilian"][data-theme="light"] .contact-info-panel:hover,
+[data-site-theme="ilian"][data-theme="light"] .contact-form-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .editorial-resume-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .resume-card-box:hover,
+[data-site-theme="ilian"][data-theme="light"] .experience-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .experience-card-editorial:hover,
+[data-site-theme="ilian"][data-theme="light"] .education-card-editorial:hover,
+[data-site-theme="ilian"][data-theme="light"] .skill-group-box:hover,
+[data-site-theme="ilian"][data-theme="light"] .stat-card:hover,
+[data-site-theme="ilian"][data-theme="light"] .metric-tile:hover {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08) !important;
+  transform: none !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+/* ─── 3. Competitive Journey Polish in Ilian Theme ─── */
+[data-site-theme="ilian"] .cj-title {
+  color: #ffffff !important;
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem) !important;
+}
+
+[data-site-theme="ilian"] .cj-title-highlight {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .cj-subtitle {
+  color: #8c8c9c !important;
+  font-size: 1.05rem !important;
+}
+
+[data-site-theme="ilian"] .cj-ambient-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px) !important;
+}
+
+[data-site-theme="ilian"] .cj-tabs-bar {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px !important;
+}
+
+[data-site-theme="ilian"] .cj-tab-btn {
+  color: #a1a1aa !important;
+}
+
+[data-site-theme="ilian"] .cj-tab-btn:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+[data-site-theme="ilian"] .cj-tab-btn.is-active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ─── 4. Projects Page Polish in Ilian Theme ─── */
+[data-site-theme="ilian"] .projects-main-title {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .projects-title-highlight {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .projects-lead-desc {
+  color: #8c8c9c !important;
+}
+
+[data-site-theme="ilian"] .project-card-topbar {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* ─── 5. Credentials Page Polish in Ilian Theme ─── */
+[data-site-theme="ilian"] .credentials-main-title {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .credentials-title-highlight {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .credentials-lead-desc {
+  color: #8c8c9c !important;
+}
+
+/* ─── 6. Persona Page Polish in Ilian Theme ─── */
+[data-site-theme="ilian"] .persona-main-title {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .title-highlight-name {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ─── 7. Contact Page Polish in Ilian Theme ─── */
+[data-site-theme="ilian"] .contact-main-title {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .contact-title-highlight {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .contact-lead-desc {
+  color: #8c8c9c !important;
+}
+
+/* ─── 8. Resume Page Polish in Ilian Theme ─── */
+[data-site-theme="ilian"] .resume-main-title {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .resume-title-highlight {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .resume-lead-desc {
+  color: #8c8c9c !important;
+}
+
+/* Primary Resume Download Button (White Solid, Black Text & Icon) */
+[data-site-theme="ilian"] .resume-btn-primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.22) !important;
+}
+
+[data-site-theme="ilian"] .resume-btn-primary svg {
+  stroke: #000000 !important;
+}
+
+[data-site-theme="ilian"] .resume-btn-primary span,
+[data-site-theme="ilian"] .resume-btn-primary .btn-arrow {
+  color: #000000 !important;
+}
+
+[data-site-theme="ilian"] .resume-btn-primary:hover {
+  background: #e4e4e7 !important;
+  border-color: #e4e4e7 !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Secondary Resume Button */
+[data-site-theme="ilian"] .resume-btn-secondary {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .resume-btn-secondary svg {
+  stroke: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .resume-btn-secondary span,
+[data-site-theme="ilian"] .resume-btn-secondary .btn-arrow {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .resume-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Section Header Badges & Icons */
+[data-site-theme="ilian"] .sec-num-badge {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .sec-icon-badge {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-site-theme="ilian"] .sec-icon-badge svg {
+  stroke: currentColor !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .sec-header-rule {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-site-theme="ilian"] .resume-item-subtitle {
+  color: #a1a1aa !important;
+}
+
+[data-site-theme="ilian"] .bullet-dash {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .resume-date-badge {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #d4d4d8 !important;
+}
+
+/* Skills Row & Hover */
+[data-site-theme="ilian"] .resume-skill-row {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-site-theme="ilian"] .resume-skill-row:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+[data-site-theme="ilian"] .editorial-resume-card:hover {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ─── 9. Universal Monochrome Icons & Hovers across Pages (Dark Mode) ─── */
+/* Projects Buttons, Hovers & Modals */
+[data-site-theme="ilian"] .btn-primary-action {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .btn-primary-action:hover {
+  background: #e4e4e7 !important;
+  border-color: #e4e4e7 !important;
+  color: #000000 !important;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+[data-site-theme="ilian"] .btn-outline-action:hover {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-2px) !important;
+}
+
+[data-site-theme="ilian"] .btn-text-action:hover {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+[data-site-theme="ilian"] .editorial-modal-box {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.06) !important;
+}
+
+[data-site-theme="ilian"] .modal-demo-strip {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-site-theme="ilian"] .modal-close-btn:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-site-theme="ilian"] .stack-cat {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .modal-category-tag {
+  color: #a1a1aa !important;
+}
+
+/* Persona Badges & Hovers */
+[data-site-theme="ilian"] .college-logo-badge {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .college-status-dot {
+  background: #ffffff !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-site-theme="ilian"] .pillar-num {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .persona-pillar-card:hover .pillar-pill {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .highlight-pill {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+[data-site-theme="ilian"] .persona-tag-pill:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .connect-status-tag {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .connect-channel-tile:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-site-theme="ilian"] .connect-channel-tile:hover .channel-arrow {
+  color: #ffffff !important;
+}
+
+/* Credentials Badges & Hovers */
+[data-site-theme="ilian"] .academic-degree-badge {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .telemetry-sub-tag {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .comp-level-badge.level-expert {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .competency-row:hover {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-site-theme="ilian"] .cert-verify-action-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .cert-verify-action-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25) !important;
+}
+
+[data-site-theme="ilian"] .cert-issuer-name {
+  color: #ffffff !important;
+}
+
+/* Contact Badges & Hovers */
+[data-site-theme="ilian"] .status-radar-blip {
+  background: #ffffff !important;
+  box-shadow: 0 0 10px #ffffff !important;
+}
+
+[data-site-theme="ilian"] .status-label {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .channel-contact-item:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-site-theme="ilian"] .form-submit-action-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .form-submit-action-btn:hover {
+  background: #e4e4e7 !important;
+  color: #000000 !important;
+  border-color: #e4e4e7 !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Experience Badges & Hovers */
+[data-site-theme="ilian"] .exp-company {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .exp-bullets li::before {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .exp-tech-pill:hover {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-site-theme="ilian"] .exp-date-badge {
+  color: #d4d4d8 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* ─── About Section (1300px Wide Cards Matching Projects System) ─── */
+[data-site-theme="ilian"] .about-page {
+  padding: 60px 24px 80px 24px !important;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box !important;
+}
+
+[data-site-theme="ilian"] .about-container {
+  max-width: 1300px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+[data-site-theme="ilian"] .about-main-wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+[data-site-theme="ilian"] .bento-layout {
+  max-width: 100% !important;
+  width: 100% !important;
+  gap: 24px !important;
+  margin-bottom: 30px !important;
+}
+
+[data-site-theme="ilian"] .bento-top-row {
+  gap: 24px !important;
+}
+
+[data-site-theme="ilian"] .bento-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 20px !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bento-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-site-theme="ilian"] .bento-card:hover {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  transform: none !important;
+  transition: border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+[data-site-theme="ilian"] .bento-location-card,
+[data-site-theme="ilian"] .bento-bio-card {
+  min-height: 350px !important;
+  padding: 34px 38px !important;
+}
+
+[data-site-theme="ilian"] .bento-academic-trend-card {
+  min-height: 275px !important;
+  padding: 36px 40px !important;
+}
+
+[data-site-theme="ilian"] .about-header-title {
+  color: #ffffff !important;
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem) !important;
+}
+
+[data-site-theme="ilian"] .about-title-highlight {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 40%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+[data-site-theme="ilian"] .about-subtitle {
+  color: #8c8c9c !important;
+  font-size: 1.05rem !important;
+}
+
+/* Location Card Monochromatic */
+[data-site-theme="ilian"] .location-country,
+[data-site-theme="ilian"] .location-country span {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .location-coords,
+[data-site-theme="ilian"] .location-coords span,
+[data-site-theme="ilian"] .location-timezone,
+[data-site-theme="ilian"] .location-timezone span {
+  color: #a1a1aa !important;
+}
+
+[data-site-theme="ilian"] .location-laser-line {
+  background: #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Bio Card Monochromatic */
+[data-site-theme="ilian"] .bio-top-tag {
+  color: #71717a !important;
+  font-family: var(--font-primary) !important;
+  letter-spacing: 2px !important;
+}
+
+[data-site-theme="ilian"] .bio-main-p {
+  color: #a1a1aa !important;
+  font-size: 1.05rem !important;
+  line-height: 1.68 !important;
+  font-family: var(--font-primary) !important;
+}
+
+[data-site-theme="ilian"] .bio-main-p strong {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .bio-divider-line {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-site-theme="ilian"] .bio-quote {
+  color: #71717a !important;
+  font-family: var(--font-primary) !important;
+}
+
+/* Academic Card Monochromatic */
+[data-site-theme="ilian"] .academic-ref-label {
+  color: #71717a !important;
+}
+
+[data-site-theme="ilian"] .academic-title {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .academic-sem-badge {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-site-theme="ilian"] .academic-verify-btn {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-site-theme="ilian"] .academic-verify-btn:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .academic-cpi-val {
+  color: #ffffff !important;
+}
+
+[data-site-theme="ilian"] .academic-cpi-label,
+[data-site-theme="ilian"] .academic-subtext {
+  color: #8c8c9c !important;
+}
+
+[data-site-theme="ilian"] .academic-watermark {
+  fill: rgba(255, 255, 255, 0.03) !important;
+}
+
+[data-site-theme="ilian"] .legend-dash.spi {
+  background: #ffffff !important;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6) !important;
+}
+
+[data-site-theme="ilian"] .legend-dash.cpi {
+  background: #a1a1aa !important;
+  box-shadow: none !important;
+}
+
+[data-site-theme="ilian"] .stat-card:hover,
+[data-site-theme="ilian"] .metric-tile:hover {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+[data-site-theme="ilian"] .cgpa-badge,
+[data-site-theme="ilian"] .highlight-pill {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ILIAN LIGHT THEME: COMPREHENSIVE HIGH-CONTRAST MONOCHROME SPEC
+   Ensures crystal-clear visibility for all text, headings, buttons,
+   badges, cards, and interactive controls across the entire site
+   ══════════════════════════════════════════════════════════════════ */
+
+[data-site-theme="ilian"][data-theme="light"] {
+  --red: #09090b;
+  --red-rgb: 9, 9, 11;
+  --red-light: rgba(9, 9, 11, 0.08);
+  --primary: #09090b;
+  --primary-rgb: 9, 9, 11;
+  --black: #09090b;
+  --grey: #52525b;
+  --border: rgba(0, 0, 0, 0.12);
+  --bg: #f5f3ee;
+  --pill-bg: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-bg-surface: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.09);
+  --btn-color: #09090b;
+  --btn-hover: #27272a;
+  --skill-color: #09090b;
+  --skill-bg-alpha: rgba(0, 0, 0, 0.05);
+  --skill-border-alpha: rgba(0, 0, 0, 0.14);
+  --nav-bg: rgba(245, 243, 238, 0.9);
+}
+
+/* ─── 1. Universal Headings, Titles & Gradients in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .section-title,
+[data-site-theme="ilian"][data-theme="light"] .page-title,
+[data-site-theme="ilian"][data-theme="light"] .hero-title,
+[data-site-theme="ilian"][data-theme="light"] .about-title,
+[data-site-theme="ilian"][data-theme="light"] .journey-title,
+[data-site-theme="ilian"][data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, #09090b 35%, #52525b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #09090b !important;
+}
+
+/* Page Titles */
+[data-site-theme="ilian"][data-theme="light"] .projects-main-title,
+[data-site-theme="ilian"][data-theme="light"] .credentials-main-title,
+[data-site-theme="ilian"][data-theme="light"] .persona-main-title,
+[data-site-theme="ilian"][data-theme="light"] .contact-main-title,
+[data-site-theme="ilian"][data-theme="light"] .resume-main-title,
+[data-site-theme="ilian"][data-theme="light"] .about-header-title,
+[data-site-theme="ilian"][data-theme="light"] .cj-title,
+[data-site-theme="ilian"][data-theme="light"] .exp-title,
+[data-site-theme="ilian"][data-theme="light"] .exp-role,
+[data-site-theme="ilian"][data-theme="light"] .featured-title,
+[data-site-theme="ilian"][data-theme="light"] .project-card-title,
+[data-site-theme="ilian"][data-theme="light"] .academic-title,
+[data-site-theme="ilian"][data-theme="light"] .cert-main-heading,
+[data-site-theme="ilian"][data-theme="light"] .modal-headline {
+  color: #09090b !important;
+}
+
+/* Title Highlights */
+[data-site-theme="ilian"][data-theme="light"] .projects-title-highlight,
+[data-site-theme="ilian"][data-theme="light"] .credentials-title-highlight,
+[data-site-theme="ilian"][data-theme="light"] .title-highlight-name,
+[data-site-theme="ilian"][data-theme="light"] .contact-title-highlight,
+[data-site-theme="ilian"][data-theme="light"] .resume-title-highlight,
+[data-site-theme="ilian"][data-theme="light"] .about-title-highlight,
+[data-site-theme="ilian"][data-theme="light"] .cj-title-highlight {
+  background: linear-gradient(135deg, #09090b 30%, #52525b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #09090b !important;
+}
+
+/* Lead Descriptions & Secondary Text */
+[data-site-theme="ilian"][data-theme="light"] .projects-lead-desc,
+[data-site-theme="ilian"][data-theme="light"] .credentials-lead-desc,
+[data-site-theme="ilian"][data-theme="light"] .persona-bio-text p,
+[data-site-theme="ilian"][data-theme="light"] .contact-lead-desc,
+[data-site-theme="ilian"][data-theme="light"] .resume-lead-desc,
+[data-site-theme="ilian"][data-theme="light"] .about-subtitle,
+[data-site-theme="ilian"][data-theme="light"] .cj-subtitle,
+[data-site-theme="ilian"][data-theme="light"] .featured-main-text,
+[data-site-theme="ilian"][data-theme="light"] .project-card-desc,
+[data-site-theme="ilian"][data-theme="light"] .cert-summary-paragraph,
+[data-site-theme="ilian"][data-theme="light"] .modal-subheadline {
+  color: #52525b !important;
+}
+
+/* Subtitles / Mono labels */
+[data-site-theme="ilian"][data-theme="light"] .featured-subtitle-desc,
+[data-site-theme="ilian"][data-theme="light"] .project-card-subtitle,
+[data-site-theme="ilian"][data-theme="light"] .sec-num-badge,
+[data-site-theme="ilian"][data-theme="light"] .project-index-num,
+[data-site-theme="ilian"][data-theme="light"] .college-badge,
+[data-site-theme="ilian"][data-theme="light"] .status-label,
+[data-site-theme="ilian"][data-theme="light"] .form-card-badge,
+[data-site-theme="ilian"][data-theme="light"] .modal-category-tag,
+[data-site-theme="ilian"][data-theme="light"] .stack-cat {
+  color: #09090b !important;
+}
+
+/* ─── 2. Buttons & Interactive Controls in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .btn-solid,
+[data-site-theme="ilian"][data-theme="light"] .btn-primary,
+[data-site-theme="ilian"][data-theme="light"] .primary-btn,
+[data-site-theme="ilian"][data-theme="light"] .btn-primary-action,
+[data-site-theme="ilian"][data-theme="light"] .resume-btn-primary,
+[data-site-theme="ilian"][data-theme="light"] .form-submit-action-btn,
+[data-site-theme="ilian"][data-theme="light"] .modal-close {
+  background: #09090b !important;
+  color: #ffffff !important;
+  border: 1.5px solid #09090b !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .btn-solid:hover,
+[data-site-theme="ilian"][data-theme="light"] .btn-primary:hover,
+[data-site-theme="ilian"][data-theme="light"] .primary-btn:hover,
+[data-site-theme="ilian"][data-theme="light"] .btn-primary-action:hover,
+[data-site-theme="ilian"][data-theme="light"] .resume-btn-primary:hover,
+[data-site-theme="ilian"][data-theme="light"] .form-submit-action-btn:hover,
+[data-site-theme="ilian"][data-theme="light"] .modal-close:hover {
+  background: #27272a !important;
+  color: #ffffff !important;
+  border-color: #27272a !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Outline & Secondary Buttons */
+[data-site-theme="ilian"][data-theme="light"] .btn-outline,
+[data-site-theme="ilian"][data-theme="light"] .btn-secondary,
+[data-site-theme="ilian"][data-theme="light"] .btn-outline-action,
+[data-site-theme="ilian"][data-theme="light"] .resume-btn-secondary,
+[data-site-theme="ilian"][data-theme="light"] .btn-text-action {
+  background: #ffffff !important;
+  color: #09090b !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.16) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .btn-outline:hover,
+[data-site-theme="ilian"][data-theme="light"] .btn-secondary:hover,
+[data-site-theme="ilian"][data-theme="light"] .btn-outline-action:hover,
+[data-site-theme="ilian"][data-theme="light"] .resume-btn-secondary:hover,
+[data-site-theme="ilian"][data-theme="light"] .btn-text-action:hover {
+  background: #09090b !important;
+  color: #ffffff !important;
+  border-color: #09090b !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Verification Buttons */
+[data-site-theme="ilian"][data-theme="light"] .academic-verify-btn,
+[data-site-theme="ilian"][data-theme="light"] .cert-verify-action-btn {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #09090b !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .academic-verify-btn:hover,
+[data-site-theme="ilian"][data-theme="light"] .cert-verify-action-btn:hover {
+  background: #09090b !important;
+  color: #ffffff !important;
+  border-color: #09090b !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Arrow & Carousel Buttons */
+[data-site-theme="ilian"][data-theme="light"] .cert-arrow-button {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.14) !important;
+  color: #09090b !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cert-arrow-button:hover {
+  background: #09090b !important;
+  color: #ffffff !important;
+  border-color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cert-step-counter {
+  color: #52525b !important;
+}
+
+/* Modal Close Buttons */
+[data-site-theme="ilian"][data-theme="light"] .modal-close-btn,
+[data-site-theme="ilian"][data-theme="light"] .tm-close-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .modal-close-btn:hover,
+[data-site-theme="ilian"][data-theme="light"] .tm-close-btn:hover {
+  background: #09090b !important;
+  color: #ffffff !important;
+  border-color: #09090b !important;
+}
+
+/* Persona Floating Button */
+[data-site-theme="ilian"][data-theme="light"] .persona-btn {
+  background: #ffffff !important;
+  color: #09090b !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.14) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .persona-btn:hover {
+  background: #09090b !important;
+  color: #ffffff !important;
+  border-color: #09090b !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* ─── 3. Navbar in Ilian Light Theme ─── */
+[data-site-theme="ilian"][data-theme="light"] .logo {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .nav-links a {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .nav-links a:hover {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .nav-links a.active {
+  color: #09090b !important;
+  font-weight: 700 !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .nav-links a.active::after {
+  background: #09090b !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .social-icon {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .social-icon:hover {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .site-theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .site-theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .site-theme-toggle-btn.ilian .theme-toggle-indicator {
+  background: #09090b !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .theme-toggle-btn {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .theme-toggle-btn:hover {
+  color: #09090b !important;
+  border-color: #09090b !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ─── 4. Badges, Tags & Pills in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .section-tag,
+[data-site-theme="ilian"][data-theme="light"] .badge-tag,
+[data-site-theme="ilian"][data-theme="light"] .category-badge,
+[data-site-theme="ilian"][data-theme="light"] .role-tag,
+[data-site-theme="ilian"][data-theme="light"] .cgpa-badge,
+[data-site-theme="ilian"][data-theme="light"] .highlight-pill,
+[data-site-theme="ilian"][data-theme="light"] .academic-sem-badge,
+[data-site-theme="ilian"][data-theme="light"] .cert-meta-pill,
+[data-site-theme="ilian"][data-theme="light"] .pillar-pill,
+[data-site-theme="ilian"][data-theme="light"] .persona-tag-pill,
+[data-site-theme="ilian"][data-theme="light"] .tech-tag-item {
+  color: #18181b !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  font-weight: 600 !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .tech-tag-item:hover,
+[data-site-theme="ilian"][data-theme="light"] .persona-tag-pill:hover {
+  color: #09090b !important;
+  border-color: #09090b !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .featured-category-tag,
+[data-site-theme="ilian"][data-theme="light"] .project-category-tag,
+[data-site-theme="ilian"][data-theme="light"] .college-location-tag,
+[data-site-theme="ilian"][data-theme="light"] .form-card-protocol {
+  color: #52525b !important;
+}
+
+/* ─── 5. About Page Specifics in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .location-country,
+[data-site-theme="ilian"][data-theme="light"] .location-country span {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .location-coords,
+[data-site-theme="ilian"][data-theme="light"] .location-coords span,
+[data-site-theme="ilian"][data-theme="light"] .location-timezone,
+[data-site-theme="ilian"][data-theme="light"] .location-timezone span {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .location-laser-line {
+  background: #09090b !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bio-top-tag,
+[data-site-theme="ilian"][data-theme="light"] .academic-ref-label {
+  color: #71717a !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bio-main-p {
+  color: #3f3f46 !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bio-main-p strong {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bio-divider-line {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bio-quote {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .academic-cpi-val {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .academic-cpi-label,
+[data-site-theme="ilian"][data-theme="light"] .academic-subtext {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .academic-watermark {
+  fill: rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .legend-dash.spi {
+  background: #09090b !important;
+  box-shadow: none !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .legend-dash.cpi {
+  background: #71717a !important;
+  box-shadow: none !important;
+}
+
+/* ─── 6. Competitive Journey in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .cj-ambient-dots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cj-tabs-bar {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cj-tab-btn {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cj-tab-btn:hover {
+  color: #09090b !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cj-tab-btn.is-active {
+  background: #09090b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-stats-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-badges-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-heatmap-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-stats-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-rating-card,
+[data-site-theme="ilian"][data-theme="light"] .cj-cf-badges-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .lc-solved-big,
+[data-site-theme="ilian"][data-theme="light"] .lc-solved-status,
+[data-site-theme="ilian"][data-theme="light"] .lc-pill-val strong,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-val,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rank-val,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-badge-count-val,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-badge-name,
+[data-site-theme="ilian"][data-theme="light"] .cj-streak-val,
+[data-site-theme="ilian"][data-theme="light"] .cj-streak-title {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .lc-total-slash,
+[data-site-theme="ilian"][data-theme="light"] .lc-attempting-status,
+[data-site-theme="ilian"][data-theme="light"] .lc-pill-total,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-sub,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-badge-label,
+[data-site-theme="ilian"][data-theme="light"] .cj-streak-desc {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .lc-diff-pill,
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-bottom {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cj-lc-rating-tag {
+  color: #09090b !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+/* ─── 7. Credentials Page Specifics in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .cert-preview-left {
+  background: #fbf9f5 !important;
+  border-right-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cert-issuer-name {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .cert-dash,
+[data-site-theme="ilian"][data-theme="light"] .cert-date-text,
+[data-site-theme="ilian"][data-theme="light"] .cert-id-shield-wrap {
+  color: #52525b !important;
+}
+
+/* ─── 8. Persona Page Specifics in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .college-card-topbar {
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .college-name-bold {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .college-desc-editorial {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .channel-name {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .channel-handle {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .channel-arrow {
+  color: #71717a !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .connect-channel-tile:hover .channel-arrow {
+  color: #09090b !important;
+}
+
+/* ─── 9. Contact Page Specifics in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .status-headline {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .status-sub,
+[data-site-theme="ilian"][data-theme="light"] .status-meta-item {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .status-radar-blip {
+  background: #09090b !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .editorial-field-label {
+  color: #27272a !important;
+  font-weight: 700 !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .editorial-input,
+[data-site-theme="ilian"][data-theme="light"] .editorial-textarea {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.14) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .editorial-input:focus,
+[data-site-theme="ilian"][data-theme="light"] .editorial-textarea:focus {
+  border-color: #09090b !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ─── 10. Modals in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .editorial-modal-box,
+[data-site-theme="ilian"][data-theme="light"] .transcript-modal-container {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .modal-content {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.14) !important;
+  color: #09090b !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .modal-content h2 {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .modal-content p {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .feature-title,
+[data-site-theme="ilian"][data-theme="light"] .tm-student-name,
+[data-site-theme="ilian"][data-theme="light"] .tm-pill-val,
+[data-site-theme="ilian"][data-theme="light"] .demo-strip-link {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .feature-block,
+[data-site-theme="ilian"][data-theme="light"] .stack-items,
+[data-site-theme="ilian"][data-theme="light"] .tm-degree,
+[data-site-theme="ilian"][data-theme="light"] .tm-pill-label,
+[data-site-theme="ilian"][data-theme="light"] .demo-strip-note,
+[data-site-theme="ilian"][data-theme="light"] .modal-section-label {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .modal-demo-strip {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .demo-strip-label {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .tm-header {
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .tm-institution-badge {
+  color: #09090b !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .tm-metric-pill {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ─── 11. Resume Page Specifics in Ilian Light ─── */
+[data-site-theme="ilian"][data-theme="light"] .sec-num-badge {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .sec-icon-badge {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #09090b !important;
+  box-shadow: none !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .sec-icon-badge svg {
+  stroke: currentColor !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .sec-header-rule {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .resume-item-subtitle {
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .bullet-dash {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .resume-date-badge {
+  background: #f4f4f5 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #52525b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .resume-skill-row {
+  background: #fbf9f5 !important;
+  border-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .resume-skill-row:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  background: #f4f4f5 !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .editorial-resume-card:hover {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ─── 12. Universal Monochrome Icons & Hovers in Ilian Light ─── */
+/* Persona */
+[data-site-theme="ilian"][data-theme="light"] .college-logo-badge {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .college-status-dot {
+  background: #09090b !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .pillar-num {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .persona-pillar-card:hover .pillar-pill {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .highlight-pill {
+  color: #09090b !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .persona-tag-pill:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .connect-status-tag {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .connect-channel-tile:hover {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Credentials */
+[data-site-theme="ilian"][data-theme="light"] .academic-degree-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .telemetry-sub-tag {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .comp-level-badge.level-expert {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.16) !important;
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .competency-row:hover {
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Experience */
+[data-site-theme="ilian"][data-theme="light"] .exp-company {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .exp-bullets li::before {
+  color: #09090b !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .exp-tech-pill:hover {
+  color: #09090b !important;
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .exp-date-badge {
+  color: #52525b !important;
+  background: #f4f4f5 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-site-theme="ilian"][data-theme="light"] .experience-card:hover {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* ─── ILIAN THEME RESPONSIVE MEDIA QUERIES FOR MOBILE DEVICES ─── */
+@media (max-width: 900px) {
+  [data-site-theme="ilian"] .bento-academic-trend-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 24px 20px !important;
+    min-height: auto !important;
+    gap: 20px !important;
+  }
+
+  [data-site-theme="ilian"] .academic-right-chart {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  [data-site-theme="ilian"] .academic-chart-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-site-theme="ilian"] .about-page,
+  [data-site-theme="ilian"] .competitive-journey-section,
+  [data-site-theme="ilian"] .projects-editorial-page,
+  [data-site-theme="ilian"] .credentials-editorial-page,
+  [data-site-theme="ilian"] .persona-editorial-page,
+  [data-site-theme="ilian"] .contact-editorial-page,
+  [data-site-theme="ilian"] .resume-editorial-page,
+  [data-site-theme="ilian"] .experience-page,
+  [data-site-theme="ilian"] .page-content,
+  [data-site-theme="ilian"] .home-page {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  [data-site-theme="ilian"] .about-page {
+    padding-top: 80px !important;
+    padding-bottom: 50px !important;
+  }
+
+  [data-site-theme="ilian"] .projects-editorial-page,
+  [data-site-theme="ilian"] .credentials-editorial-page,
+  [data-site-theme="ilian"] .persona-editorial-page,
+  [data-site-theme="ilian"] .contact-editorial-page,
+  [data-site-theme="ilian"] .resume-editorial-page,
+  [data-site-theme="ilian"] .experience-page {
+    padding-top: 85px !important;
+    padding-bottom: 50px !important;
+  }
+
+  [data-site-theme="ilian"] .cj-title,
+  [data-site-theme="ilian"] .about-header-title {
+    font-size: clamp(2.1rem, 7.5vw, 2.8rem) !important;
+  }
+
+  [data-site-theme="ilian"] .bento-layout {
+    gap: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  [data-site-theme="ilian"] .bento-top-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  [data-site-theme="ilian"] .bento-location-card,
+  [data-site-theme="ilian"] .bento-bio-card {
+    min-height: auto !important;
+    padding: 22px 18px !important;
+  }
+
+  [data-site-theme="ilian"] .bento-academic-trend-card {
+    min-height: auto !important;
+    padding: 22px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  [data-site-theme="ilian"] .cj-dashboard-card,
+  [data-site-theme="ilian"] .about-container .cj-dashboard-card {
+    padding: 16px 12px !important;
+    border-radius: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  [data-site-theme="ilian"] .about-page,
+  [data-site-theme="ilian"] .competitive-journey-section,
+  [data-site-theme="ilian"] .projects-editorial-page,
+  [data-site-theme="ilian"] .credentials-editorial-page,
+  [data-site-theme="ilian"] .persona-editorial-page,
+  [data-site-theme="ilian"] .contact-editorial-page,
+  [data-site-theme="ilian"] .resume-editorial-page,
+  [data-site-theme="ilian"] .experience-page,
+  [data-site-theme="ilian"] .page-content,
+  [data-site-theme="ilian"] .home-page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  [data-site-theme="ilian"] .cj-title,
+  [data-site-theme="ilian"] .about-header-title {
+    font-size: clamp(1.85rem, 8vw, 2.35rem) !important;
+  }
+
+  [data-site-theme="ilian"] .bento-location-card,
+  [data-site-theme="ilian"] .bento-bio-card,
+  [data-site-theme="ilian"] .bento-academic-trend-card {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+}

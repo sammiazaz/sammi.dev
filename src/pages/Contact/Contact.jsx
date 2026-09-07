@@ -69,10 +69,6 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="contact-hud-eyebrow">
-            <span className="hud-badge">CONTACT // 05</span>
-            <span className="hud-eyebrow-tag">INITIATE DIRECT COMMUNICATION</span>
-          </div>
           <h1 className="contact-main-title">Get In Touch</h1>
           <p className="contact-lead-desc">
             Available for software engineering roles, full-stack architecture discussions, and machine learning collaborations. Drop a message below or connect directly.

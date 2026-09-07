@@ -48,10 +48,6 @@ export default function Credentials() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="credentials-hud-eyebrow">
-            <span className="hud-badge">CREDENTIALS // 03</span>
-            <span className="hud-eyebrow-tag">VERIFIED ARCHIVES & HONORS</span>
-          </div>
           <h1 className="credentials-main-title">Certifications & Achievements</h1>
           <p className="credentials-lead-desc">
             A verified record of industry-recognized certifications, academic distinctions, and specialized technical competencies.

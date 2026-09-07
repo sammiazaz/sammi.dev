@@ -14,7 +14,7 @@
 
 .projects-editorial-container {
   width: 100%;
-  max-width: 1160px;
+  max-width: var(--container-width, 1300px);
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -77,21 +77,25 @@
 .featured-project-editorial {
   position: relative;
   width: 100%;
+  max-width: 1300px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   padding: 36px;
-  margin-bottom: 44px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 150px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .featured-project-editorial:hover {
   transform: translateY(-4px);
   border-color: rgba(255, 75, 51, 0.45);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.15);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .featured-meta-bar {
@@ -265,26 +269,30 @@
 .secondary-projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 30px;
 }
 
 .project-card-editorial {
   display: flex;
   flex-direction: column;
+  min-height: 540px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .project-card-editorial:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 75, 51, 0.45);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.12);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .project-card-topbar {
@@ -300,7 +308,7 @@
 .project-card-thumbnail {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 235px;
   overflow: hidden;
   background: #090d14;
 }
@@ -325,7 +333,7 @@
 }
 
 .project-card-body {
-  padding: 22px;
+  padding: 26px 24px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -536,6 +544,9 @@
 [data-theme="light"] .featured-project-editorial:hover {
   border-color: rgba(255, 75, 51, 0.45);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 25px rgba(255, 75, 51, 0.1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 [data-theme="light"] .project-card-editorial {
@@ -547,6 +558,9 @@
 [data-theme="light"] .project-card-editorial:hover {
   border-color: rgba(255, 75, 51, 0.45);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(255, 75, 51, 0.1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 [data-theme="light"] .project-card-topbar {
@@ -590,6 +604,7 @@
 
   .featured-project-editorial {
     padding: 24px;
+    margin-bottom: 48px;
   }
 
   .secondary-projects-grid {
@@ -608,5 +623,58 @@
 
   .editorial-modal-box {
     padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-editorial-page {
+    padding: 85px 14px 50px 14px;
+  }
+
+  .projects-main-title {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
+
+  .featured-project-editorial {
+    padding: 18px 14px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+  }
+
+  .featured-title {
+    font-size: 1.45rem;
+  }
+
+  .featured-visual-frame {
+    height: 190px;
+    border-radius: 10px;
+  }
+
+  .project-card-editorial {
+    min-height: auto;
+    border-radius: 14px;
+  }
+
+  .project-card-thumbnail {
+    height: 180px;
+  }
+
+  .project-card-body {
+    padding: 18px 14px;
+  }
+
+  .editorial-modal-backdrop {
+    padding: 10px;
+  }
+
+  .editorial-modal-box {
+    padding: 20px 16px;
+    border-radius: 14px;
+    max-height: 90vh;
+  }
+
+  .stack-row {
+    flex-direction: column;
+    gap: 2px;
   }
 }

@@ -4,7 +4,7 @@ nav.export-navbar {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 48px);
-  max-width: 1180px;
+  max-width: var(--container-width, 1300px);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -110,6 +110,60 @@ nav.export-navbar {
   width: 100%;
   height: 100%;
 }
+.site-theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--black, #ffffff);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  height: 38px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.site-theme-toggle-btn:hover {
+  background: var(--card-bg);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.25);
+}
+
+.theme-toggle-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+  transition: all 0.3s ease;
+}
+
+.site-theme-toggle-btn.sammi .theme-toggle-indicator {
+  background: #ff4b33;
+  box-shadow: 0 0 8px #ff4b33;
+}
+
+.site-theme-toggle-btn.ilian .theme-toggle-indicator {
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+[data-theme="light"] .site-theme-toggle-btn.ilian .theme-toggle-indicator {
+  background: #09090b;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle-text {
+  line-height: 1;
+}
+
 .theme-toggle-btn {
   background: transparent;
   border: 1px solid var(--border);
@@ -137,6 +191,77 @@ nav.export-navbar {
   width: 20px;
   height: 20px;
 }
+
+/* ─── ILIAN THEME NAVBAR (FULL WIDTH WITH SYNCHRONIZED ELEMENT POSITIONS) ─── */
+[data-site-theme="ilian"] nav.export-navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 16px max(52px, calc((100% - 1300px) / 2 + 28px));
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: none;
+  transition: border-bottom-color 0.25s ease, background 0.25s ease;
+}
+
+[data-site-theme="ilian"] nav.export-navbar.is-scrolled {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-site-theme="ilian"][data-theme="light"] nav.export-navbar {
+  border: none;
+  border-bottom: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: none;
+  transition: border-bottom-color 0.25s ease, background 0.25s ease;
+}
+
+[data-site-theme="ilian"][data-theme="light"] nav.export-navbar.is-scrolled {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-site-theme="ilian"] .nav-links a.active {
+  color: var(--primary, #ffffff);
+}
+
+[data-site-theme="ilian"] .nav-links a.active::after {
+  background: var(--primary, #ffffff);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+[data-site-theme="ilian"] .social-icon:hover {
+  color: var(--primary, #ffffff);
+}
+
+[data-site-theme="ilian"] .theme-toggle-btn:hover {
+  color: var(--primary, #ffffff);
+  border-color: var(--primary, #ffffff);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+[data-site-theme="ilian"] .btn-solid:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+[data-site-theme="ilian"][data-theme="light"] .btn-solid:hover {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
 
 .btn {
   font-family: 'Inter', sans-serif;
@@ -181,29 +306,319 @@ nav.export-navbar {
   box-shadow: 0 6px 20px rgba(var(--red-rgb), 0.3);
 }
 
+/* ─── Mobile Bottom Floating Navigation Dock (Hidden on Desktop) ─── */
+.mobile-bottom-dock {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  /* ─── Top Navbar on Mobile (Logo on left, Social + Theme + Resume on right) ─── */
   nav.export-navbar {
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    padding: 10px 18px;
-    flex-wrap: wrap;
-    gap: 8px;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 10px 16px !important;
+    background: var(--nav-bg, rgba(10, 10, 12, 0.85)) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    z-index: 999;
   }
 
+  [data-theme="light"] nav.export-navbar {
+    background: var(--nav-bg, rgba(245, 243, 238, 0.88)) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  [data-site-theme="ilian"] nav.export-navbar {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    padding: 10px 16px !important;
+    background: rgba(10, 10, 12, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  [data-site-theme="ilian"][data-theme="light"] nav.export-navbar {
+    background: rgba(255, 255, 255, 0.88) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  /* Hide Desktop Links from Top Navbar on Mobile */
   .nav-links {
-    position: static;
-    transform: none;
-    width: 100%;
-    justify-content: center;
-    gap: 20px;
-    order: 3;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border, #222222);
+    display: none !important;
   }
 
   .nav-actions {
+    display: flex;
+    align-items: center;
     gap: 8px;
+    margin-left: auto;
+    flex-wrap: nowrap;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 2px;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .site-theme-toggle-btn {
+    height: 34px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    gap: 5px;
+  }
+
+  .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+  }
+
+  .btn.btn-solid {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+  }
+
+  /* ─── Mobile Bottom Floating Navigation Dock (Inspired by Reference Pill Design) ─── */
+  .mobile-bottom-dock {
+    display: flex !important;
+    position: fixed !important;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px)) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+    pointer-events: none;
+    width: calc(100% - 24px);
+    max-width: 440px;
+    justify-content: center;
+  }
+
+  .mobile-dock-inner {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 6px 8px;
+    border-radius: 9999px;
+    background: rgba(14, 14, 18, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.12);
+    width: 100%;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .mobile-dock-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    min-width: 42px;
+    padding: 8px 12px;
+    border-radius: 9999px;
+    color: #8c8c9c;
+    text-decoration: none;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .mobile-dock-item:hover {
+    color: #ffffff;
+  }
+
+  .mobile-dock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: inherit;
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-dock-label {
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.2s ease,
+                margin-left 0.25s ease;
+    margin-left: 0;
+    pointer-events: none;
+  }
+
+  /* Active State (Expands to pill with label matching reference image) */
+  .mobile-dock-item.is-active {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    padding: 8px 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .mobile-dock-item.is-active .mobile-dock-icon {
+    transform: scale(1.05);
+  }
+
+  .mobile-dock-item.is-active .mobile-dock-label {
+    max-width: 95px;
+    opacity: 1;
+    margin-left: 6px;
+  }
+
+  /* Theme: Sammi Dark Active Pill */
+  [data-site-theme="sammi"] .mobile-dock-item.is-active {
+    background: rgba(255, 75, 51, 0.18);
+    border: 1px solid rgba(255, 75, 51, 0.35);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(255, 75, 51, 0.25);
+  }
+
+  /* Theme: Ilian Dark Active Pill */
+  [data-site-theme="ilian"] .mobile-dock-inner {
+    background: rgba(14, 14, 18, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  [data-site-theme="ilian"] .mobile-dock-item.is-active {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Light Mode Support */
+  [data-theme="light"] .mobile-dock-inner {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  [data-theme="light"] .mobile-dock-item {
+    color: #71717a;
+  }
+
+  [data-theme="light"] .mobile-dock-item:hover {
+    color: #09090b;
+  }
+
+  [data-theme="light"] .mobile-dock-item.is-active {
+    background: #09090b;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  }
+
+  [data-site-theme="sammi"][data-theme="light"] .mobile-dock-item.is-active {
+    background: #ff4b33;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(255, 75, 51, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  nav.export-navbar,
+  [data-site-theme="ilian"] nav.export-navbar {
+    padding: 8px 12px !important;
+  }
+
+  .logo {
+    font-size: 1.12rem;
+  }
+
+  .social-links {
+    gap: 7px;
+    margin-right: 1px;
+  }
+
+  .social-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .site-theme-toggle-btn {
+    height: 32px;
+    padding: 3px 8px;
+    font-size: 0.68rem;
+    gap: 4px;
+  }
+
+  .theme-toggle-btn {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+  }
+
+  .btn.btn-solid {
+    padding: 5px 11px;
+    font-size: 0.76rem;
+  }
+
+  /* Compact Bottom Dock on Small Phones */
+  .mobile-bottom-dock {
+    width: calc(100% - 16px);
+    bottom: max(12px, env(safe-area-inset-bottom, 12px)) !important;
+  }
+
+  .mobile-dock-inner {
+    padding: 4px 6px;
+    gap: 2px;
+  }
+
+  .mobile-dock-item {
+    height: 38px;
+    min-width: 38px;
+    padding: 6px 9px;
+  }
+
+  .mobile-dock-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mobile-dock-item.is-active {
+    padding: 6px 13px;
+  }
+
+  .mobile-dock-label {
+    font-size: 0.76rem;
+  }
+
+  .mobile-dock-item.is-active .mobile-dock-label {
+    max-width: 80px;
+    margin-left: 5px;
   }
 }

@@ -14,7 +14,7 @@
 
 .persona-editorial-container {
   width: 100%;
-  max-width: 1160px;
+  max-width: var(--container-width, 1300px);
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -117,20 +117,25 @@
 .college-card-editorial {
   position: relative;
   width: 100%;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+  border-radius: var(--card-radius-hero, 20px);
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-hero, 1px solid rgba(255, 255, 255, 0.09));
+  box-shadow: var(--card-shadow-hero, 0 20px 50px rgba(0, 0, 0, 0.35));
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .college-card-editorial:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 75, 51, 0.45);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 30px rgba(255, 75, 51, 0.12);
+  border-color: var(--card-hover-border, rgba(255, 75, 51, 0.45));
+  box-shadow: var(--card-hover-shadow-hero, 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.15));
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .college-card-topbar {
@@ -274,21 +279,26 @@
 .persona-statement-box {
   position: relative;
   width: 100%;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border-radius: var(--card-radius-hero, 20px);
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-hero, 1px solid rgba(255, 255, 255, 0.09));
+  box-shadow: var(--card-shadow-hero, 0 20px 50px rgba(0, 0, 0, 0.35));
   padding: 40px;
   margin-bottom: 48px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .persona-statement-box:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 75, 51, 0.45);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.12);
+  border-color: var(--card-hover-border, rgba(255, 75, 51, 0.45));
+  box-shadow: var(--card-hover-shadow-hero, 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.15));
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .statement-top-meta {
@@ -358,20 +368,25 @@
 .persona-pillar-card {
   display: flex;
   flex-direction: column;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: var(--card-radius-grid, 16px);
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-grid, 1px solid rgba(255, 255, 255, 0.08));
+  box-shadow: var(--card-shadow-grid, 0 10px 30px rgba(0, 0, 0, 0.25));
   padding: 30px 28px;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .persona-pillar-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 75, 51, 0.45);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.12);
+  border-color: var(--card-hover-border, rgba(255, 75, 51, 0.45));
+  box-shadow: var(--card-hover-shadow-grid, 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.12));
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .pillar-header {
@@ -487,9 +502,9 @@
   align-items: center;
   gap: 14px;
   padding: 16px 20px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--card-radius-sm, 12px);
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-grid, 1px solid rgba(255, 255, 255, 0.08));
   text-decoration: none;
   color: inherit;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -647,5 +662,52 @@
 
   .connect-links-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .persona-editorial-page {
+    padding: 85px 14px 50px 14px;
+  }
+
+  .persona-main-title {
+    font-size: clamp(2rem, 8vw, 2.6rem) !important;
+  }
+
+  .persona-bio-text p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .college-card-editorial {
+    border-radius: 16px;
+  }
+
+  .college-card-topbar {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .college-photo-frame {
+    height: 160px;
+  }
+
+  .college-info-block {
+    padding: 18px 14px;
+  }
+
+  .college-name-bold {
+    font-size: 1.18rem;
+  }
+
+  .persona-pillar-card {
+    padding: 20px 14px;
+    border-radius: 14px;
+  }
+
+  .connect-channel-tile {
+    padding: 12px 14px;
+    gap: 10px;
   }
 }

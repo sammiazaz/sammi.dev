@@ -16,13 +16,17 @@
 
 .competitive-journey-container {
   width: 100%;
-  max-width: var(--container-width, 1180px);
+  max-width: var(--container-width, 1300px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 24px;
   position: relative;
   z-index: 1;
+}
+
+.about-container .competitive-journey-container {
+  max-width: 100%;
 }
 
 /* ─── 1. PAGE HEADER ─── */
@@ -64,20 +68,21 @@
 /* ─── 2. MAIN DASHBOARD CONTAINER ─── */
 .cj-dashboard-card {
   position: relative;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: var(--card-radius-hero, 20px);
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-hero, 1px solid rgba(255, 255, 255, 0.09));
+  box-shadow: var(--card-shadow-hero, 0 20px 50px rgba(0, 0, 0, 0.35));
   padding: 28px;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: var(--card-transition, border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .cj-dashboard-card:hover {
-  border-color: rgba(255, 75, 51, 0.35);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(255, 75, 51, 0.08);
+  border-color: var(--card-hover-border, rgba(255, 75, 51, 0.45));
+  box-shadow: var(--card-hover-shadow-hero, 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.15));
+  transition: var(--card-transition, border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 /* Ambient dotted background mesh */
@@ -159,7 +164,9 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 14px;
   box-sizing: border-box;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-lc-stats-card:hover,
@@ -168,6 +175,9 @@
 .cj-lc-heatmap-card:hover {
   background: rgba(255, 255, 255, 0.035);
   border-color: rgba(255, 75, 51, 0.3);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* 1. Stats Card */
@@ -189,8 +199,8 @@
 
 .cj-lc-stats-card .lc-gauge-wrapper {
   position: relative;
-  width: 155px;
-  height: 155px;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,27 +222,32 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  pointer-events: none;
 }
 
 .cj-lc-stats-card .lc-main-solved-num {
   font-family: var(--font-primary, 'Inter', sans-serif);
-  line-height: 1.1;
+  line-height: 1;
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 1px;
+  gap: 2px;
 }
 
 .cj-lc-stats-card .lc-solved-big {
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  color: var(--black, #ffffff);
-  letter-spacing: -0.3px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 .cj-lc-stats-card .lc-total-slash {
-  font-size: 0.72rem;
-  color: var(--grey, #888888);
+  font-size: 0.78rem;
+  color: #8c8c8c;
   font-weight: 500;
   font-family: var(--font-primary, 'Inter', sans-serif);
 }
@@ -240,19 +255,19 @@
 .cj-lc-stats-card .lc-solved-status {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 0.68rem;
-  color: #2cbb5d;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: #ffffff;
   font-weight: 600;
-  margin-top: 2px;
+  margin-top: 3px;
   letter-spacing: 0.2px;
   font-family: var(--font-primary, 'Inter', sans-serif);
 }
 
 .cj-lc-stats-card .lc-attempting-status {
-  font-size: 0.62rem;
-  color: var(--grey, #888888);
-  margin-top: 3px;
+  font-size: 0.65rem;
+  color: #8c8c8c;
+  margin-top: 4px;
   font-family: var(--font-primary, 'Inter', sans-serif);
   letter-spacing: 0.1px;
 }
@@ -262,31 +277,31 @@
   flex-direction: column;
   gap: 8px;
   flex: 1;
-  max-width: 135px;
+  max-width: 125px;
 }
 
 .cj-lc-stats-card .lc-diff-pill {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
-  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 7px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   transition: all 0.25s ease;
 }
 
 .cj-lc-stats-card .lc-diff-pill:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 75, 51, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
 }
 
 .cj-lc-stats-card .lc-pill-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
 .cj-lc-stats-card .lc-pill-label.easy { color: #00b8a3; }
@@ -295,19 +310,22 @@
 
 .cj-lc-stats-card .lc-pill-val {
   font-size: 0.86rem;
-  color: var(--black, #ffffff);
-  font-family: var(--font-mono, monospace);
+  color: #ffffff;
+  font-family: var(--font-primary, 'Inter', sans-serif);
   margin-top: 2px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 }
 
 .cj-lc-stats-card .lc-pill-val strong {
   font-weight: 700;
-  color: var(--black, #ffffff);
+  color: #ffffff;
 }
 
 .cj-lc-stats-card .lc-pill-total {
-  font-size: 0.75rem;
-  color: var(--grey, #888888);
+  font-size: 0.72rem;
+  color: #8c8c8c;
 }
 
 /* 2. Rating & Rank Card */
@@ -655,13 +673,18 @@
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-leetcode-card:hover {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 75, 51, 0.3);
   transform: translateY(-2px);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-overview-header {
@@ -860,13 +883,18 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-metric-item:hover {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 75, 51, 0.3);
   transform: translateY(-2px);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-metric-icon-box {
@@ -935,13 +963,18 @@
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-streak-banner:hover {
   transform: translateY(-2px);
   border-color: var(--red, #ff4b33);
   box-shadow: 0 0 25px rgba(255, 75, 51, 0.2);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .cj-streak-flame-icon {
@@ -1320,5 +1353,77 @@
 
   .cj-mini-stats-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .competitive-journey-section {
+    padding: 24px 0 16px 0;
+  }
+
+  .cj-dashboard-card {
+    padding: 14px 10px;
+    border-radius: 14px;
+  }
+
+  .cj-lc-stats-card,
+  .cj-lc-rating-card,
+  .cj-lc-badges-card,
+  .cj-lc-heatmap-card {
+    padding: 14px 10px;
+    border-radius: 12px;
+  }
+
+  .cj-lc-stats-card .leetcode-stats-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cj-lc-stats-card .lc-diff-pills-column {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .cj-lc-stats-card .lc-diff-pill {
+    padding: 6px 8px;
+    flex: 1;
+  }
+
+  .cj-lc-badge-visual {
+    position: static;
+    transform: none;
+    margin: 12px auto;
+  }
+
+  .cj-lc-badges-card:hover .cj-lc-badge-visual {
+    transform: none;
+  }
+
+  .cj-lc-heatmap-card {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cj-lc-heatmap-grid,
+  .cj-lc-calendar-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cj-tabs-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .cj-tabs-bar::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -32,13 +32,30 @@
   --text-muted: #888888;
 
   /* ─── Layout Tokens ─── */
-  --container-width: 1180px;
+  --container-width: 1300px;
 
   /* ─── Radius Tokens ─── */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-pill: 100px;
+
+  /* ─── Card Design System Tokens (Standardized from Projects Card Reference) ─── */
+  --card-radius-hero: 20px;
+  --card-radius-grid: 16px;
+  --card-radius-sm: 12px;
+
+  --card-bg-surface: #ffffff;
+  --card-border-hero: 1px solid rgba(0, 0, 0, 0.08);
+  --card-border-grid: 1px solid rgba(0, 0, 0, 0.08);
+  --card-shadow-hero: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --card-shadow-grid: 0 8px 24px rgba(0, 0, 0, 0.04);
+  --card-hover-border: rgba(255, 75, 51, 0.45);
+  --card-hover-shadow-hero: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 25px rgba(255, 75, 51, 0.1);
+  --card-hover-shadow-grid: 0 16px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(255, 75, 51, 0.1);
+  --card-transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                     border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+                     box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 [data-theme="dark"] {
@@ -69,4 +86,56 @@
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
   --text-muted: #686868;
+
+  /* Card Tokens in Dark Mode */
+  --card-bg-surface: rgba(255, 255, 255, 0.03);
+  --card-border-hero: 1px solid rgba(255, 255, 255, 0.09);
+  --card-border-grid: 1px solid rgba(255, 255, 255, 0.08);
+  --card-shadow-hero: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --card-shadow-grid: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --card-hover-border: rgba(255, 75, 51, 0.45);
+  --card-hover-shadow-hero: 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.15);
+  --card-hover-shadow-grid: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.12);
 }
+
+/* ─── ILIAN THEME: Primary Accent = White (#ffffff in Dark, #111111 in Light) ─── */
+[data-site-theme="ilian"] {
+  --red: #ffffff;
+  --red-rgb: 255, 255, 255;
+  --red-light: rgba(255, 255, 255, 0.14);
+  --primary: #ffffff;
+  --primary-rgb: 255, 255, 255;
+  --btn-color: #ffffff;
+  --btn-hover: #e6e6e6;
+  --skill-bg-alpha: rgba(255, 255, 255, 0.08);
+  --skill-border-alpha: rgba(255, 255, 255, 0.22);
+  --skill-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-bg-surface: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --nav-bg: rgba(8, 8, 10, 0.75);
+}
+
+[data-site-theme="ilian"][data-theme="light"] {
+  --red: #09090b;
+  --red-rgb: 9, 9, 11;
+  --red-light: rgba(9, 9, 11, 0.08);
+  --primary: #09090b;
+  --primary-rgb: 9, 9, 11;
+  --black: #09090b;
+  --grey: #52525b;
+  --border: rgba(0, 0, 0, 0.12);
+  --bg: #f5f3ee;
+  --btn-color: #09090b;
+  --btn-hover: #27272a;
+  --skill-bg-alpha: rgba(0, 0, 0, 0.05);
+  --skill-border-alpha: rgba(0, 0, 0, 0.15);
+  --skill-color: #09090b;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-bg-surface: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.09);
+  --card-hover-border: rgba(0, 0, 0, 0.35);
+  --card-hover-shadow-hero: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow-grid: 0 14px 35px rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(245, 243, 238, 0.9);
+}

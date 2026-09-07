@@ -20,11 +20,6 @@ export default function Persona() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="persona-hud-eyebrow">
-              <span className="hud-badge">PERSONA // 04</span>
-              <span className="hud-eyebrow-tag">ENGINEERING MINDSET & PHILOSOPHY</span>
-            </div>
-
             <h1 className="persona-main-title">
               Hi, I'm <span className="title-highlight-name">Sammi</span>
             </h1>

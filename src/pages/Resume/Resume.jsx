@@ -17,10 +17,6 @@ export default function Resume() {
         >
           <div className="resume-header-top">
             <div>
-              <div className="resume-hud-eyebrow">
-                <span className="hud-badge">RESUME // 06</span>
-                <span className="hud-eyebrow-tag">EXPERIENCE & TRACK RECORD</span>
-              </div>
               <h1 className="resume-main-title">Curriculum Vitae</h1>
               <p className="resume-lead-desc">
                 A chronological breakdown of my technical trajectory, software engineering experience, applied machine learning systems, and academic milestones.
@@ -29,7 +25,7 @@ export default function Resume() {
 
             <div className="resume-header-actions">
               <a
-                href="/Sammi_Azaz_Resume.pdf"
+                href={`${import.meta.env.BASE_URL}Sammi_Azaz_Resume.pdf`}
                 download="Sammi_Azaz_Resume.pdf"
                 className="resume-download-btn resume-btn-primary"
                 title="Download Official Sammi Azaz Resume (PDF)"
@@ -44,7 +40,7 @@ export default function Resume() {
               </a>
 
               <a
-                href="/Sammi_Azaz_Resume.pdf"
+                href={`${import.meta.env.BASE_URL}Sammi_Azaz_Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="resume-download-btn resume-btn-secondary"

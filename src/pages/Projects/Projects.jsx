@@ -42,10 +42,6 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="projects-hud-eyebrow">
-            <span className="hud-badge">PROJECTS // 02</span>
-            <span className="hud-eyebrow-tag">ENGINEERING & SYSTEMS</span>
-          </div>
           <h1 className="projects-main-title">Selected Work</h1>
           <p className="projects-lead-desc">
             A selection of systems, products and experiments I've built across full-stack development, AI/ML and software engineering.
@@ -222,6 +218,7 @@ export default function Projects() {
           >
             <motion.div
               className="editorial-modal-box"
+              data-lenis-prevent
               initial={{ scale: 0.95, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}

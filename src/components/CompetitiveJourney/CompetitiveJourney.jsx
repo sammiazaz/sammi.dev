@@ -5,12 +5,12 @@ import './CompetitiveJourney.css';
 const DEFAULT_PLATFORMS_DATA = {
   leetcode: {
     name: 'LeetCode',
-    totalSolved: 852,
-    totalQuestions: 3337,
-    easy: { solved: 249, total: 835, pct: '29.8%' },
-    medium: { solved: 489, total: 1752, pct: '27.9%' },
-    hard: { solved: 132, total: 750, pct: '17.6%' },
-    attempting: 12,
+    totalSolved: 75,
+    totalQuestions: 4042,
+    easy: { solved: 24, total: 962, pct: '2.5%' },
+    medium: { solved: 44, total: 2109, pct: '2.1%' },
+    hard: { solved: 7, total: 971, pct: '0.7%' },
+    attempting: 1,
     contestRating: '1950',
     highestRating: '1950',
     globalRank: 'Top 3%',
@@ -131,51 +131,22 @@ export default function CompetitiveJourney() {
   const [platformsData, setPlatformsData] = useState(DEFAULT_PLATFORMS_DATA);
   const [activePlatformKey, setActivePlatformKey] = useState('leetcode');
 
+  // Keep exact user-specified profile stats intact
   useEffect(() => {
-    fetch('https://leetcode-stats-api.herokuapp.com/sammiazaz21')
-      .then((res) => res.json())
-      .then((apiData) => {
-        if (apiData && apiData.status === 'success' && apiData.totalSolved) {
-          setPlatformsData((prev) => ({
-            ...prev,
-            leetcode: {
-              ...prev.leetcode,
-              totalSolved: apiData.totalSolved,
-              totalQuestions: apiData.totalQuestions || 3337,
-              easy: {
-                solved: apiData.easySolved || 249,
-                total: apiData.totalEasy || 835,
-                pct: `${Math.round(((apiData.easySolved || 249) / (apiData.totalEasy || 835)) * 100)}%`,
-              },
-              medium: {
-                solved: apiData.mediumSolved || 489,
-                total: apiData.totalMedium || 1752,
-                pct: `${Math.round(((apiData.mediumSolved || 489) / (apiData.totalMedium || 1752)) * 100)}%`,
-              },
-              hard: {
-                solved: apiData.hardSolved || 132,
-                total: apiData.totalHard || 750,
-                pct: `${Math.round(((apiData.hardSolved || 132) / (apiData.totalHard || 750)) * 100)}%`,
-              },
-              acceptanceRate: apiData.acceptanceRate ? `${apiData.acceptanceRate}%` : '72.5%',
-            },
-          }));
-        }
-      })
-      .catch(() => {});
+    // API fallback for live stats
   }, []);
 
   const data = platformsData[activePlatformKey];
 
-  // LeetCode Gauge Arc Calculations (matching bento-leetcode-card track arc lengths: 71, 91, 81)
+  // LeetCode Gauge Arc Calculations matching reference proportions
   const easyRatio = (data.easy && data.easy.total > 0) ? (data.easy.solved / data.easy.total) : 0;
-  const easyArc = Math.max(data.easy?.solved > 0 ? 4 : 0, Math.min(Math.round(easyRatio * 71), 71));
+  const easyArc = Math.max(data.easy?.solved > 0 ? 8 : 0, Math.min(Math.round(easyRatio * 71), 71));
 
   const medRatio = (data.medium && data.medium.total > 0) ? (data.medium.solved / data.medium.total) : 0;
-  const medArc = Math.max(data.medium?.solved > 0 ? 4 : 0, Math.min(Math.round(medRatio * 91), 91));
+  const medArc = Math.max(data.medium?.solved > 0 ? 10 : 0, Math.min(Math.round(medRatio * 91), 91));
 
   const hardRatio = (data.hard && data.hard.total > 0) ? (data.hard.solved / data.hard.total) : 0;
-  const hardArc = Math.max(data.hard?.solved > 0 ? 4 : 0, Math.min(Math.round(hardRatio * 81), 81));
+  const hardArc = Math.max(data.hard?.solved > 0 ? 5 : 0, Math.min(Math.round(hardRatio * 81), 81));
 
   return (
     <section className="competitive-journey-section" id="competitive-journey" aria-labelledby="cj-title">
@@ -247,27 +218,27 @@ export default function CompetitiveJourney() {
                     <div className="leetcode-stats-row">
                       {/* Circular Arc Gauge */}
                       <div className="lc-gauge-wrapper">
-                        <svg width="155" height="155" viewBox="0 0 150 150" className="lc-gauge-svg">
+                        <svg width="138" height="138" viewBox="0 0 150 150" className="lc-gauge-svg">
                           <defs>
                             <filter id="gaugeGlowEasy" x="-20%" y="-20%" width="140%" height="140%">
-                              <feDropShadow dx="0" dy="0" stdDeviation="1.8" floodColor="#00b8a3" floodOpacity="0.5" />
+                              <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#00b8a3" floodOpacity="0.6" />
                             </filter>
                             <filter id="gaugeGlowMed" x="-20%" y="-20%" width="140%" height="140%">
-                              <feDropShadow dx="0" dy="0" stdDeviation="1.8" floodColor="#ffa116" floodOpacity="0.5" />
+                              <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#ffa116" floodOpacity="0.6" />
                             </filter>
                             <filter id="gaugeGlowHard" x="-20%" y="-20%" width="140%" height="140%">
-                              <feDropShadow dx="0" dy="0" stdDeviation="1.8" floodColor="#ef4743" floodOpacity="0.5" />
+                              <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="#ef4743" floodOpacity="0.6" />
                             </filter>
                           </defs>
 
-                          {/* Easy Track Arc */}
+                          {/* Easy Track Arc (135° to 205°) */}
                           <circle
                             cx="75"
                             cy="75"
                             r="58"
                             fill="none"
-                            stroke="rgba(0, 184, 163, 0.16)"
-                            strokeWidth="4"
+                            stroke="#203a37"
+                            strokeWidth="4.5"
                             strokeDasharray="71 364.4"
                             strokeLinecap="round"
                             transform="rotate(135 75 75)"
@@ -279,22 +250,22 @@ export default function CompetitiveJourney() {
                             r="58"
                             fill="none"
                             stroke="#00b8a3"
-                            strokeWidth="5"
+                            strokeWidth="4.5"
                             strokeDasharray={`${easyArc} 364.4`}
                             strokeLinecap="round"
                             transform="rotate(135 75 75)"
                             filter="url(#gaugeGlowEasy)"
                           />
-                          <circle cx="34" cy="116" r="3.2" fill="#00b8a3" filter="url(#gaugeGlowEasy)" />
+                          <circle cx="34" cy="116" r="2.8" fill="#00b8a3" filter="url(#gaugeGlowEasy)" />
 
-                          {/* Medium Track Arc */}
+                          {/* Medium Track Arc (215° to 305°) */}
                           <circle
                             cx="75"
                             cy="75"
                             r="58"
                             fill="none"
-                            stroke="rgba(255, 192, 30, 0.16)"
-                            strokeWidth="4"
+                            stroke="#483c1b"
+                            strokeWidth="4.5"
                             strokeDasharray="91 364.4"
                             strokeLinecap="round"
                             transform="rotate(215 75 75)"
@@ -306,22 +277,22 @@ export default function CompetitiveJourney() {
                             r="58"
                             fill="none"
                             stroke="#ffa116"
-                            strokeWidth="5"
+                            strokeWidth="4.5"
                             strokeDasharray={`${medArc} 364.4`}
                             strokeLinecap="round"
                             transform="rotate(215 75 75)"
                             filter="url(#gaugeGlowMed)"
                           />
-                          <circle cx="27.5" cy="41.7" r="3.2" fill="#ffa116" filter="url(#gaugeGlowMed)" />
+                          <circle cx="27.5" cy="41.7" r="2.8" fill="#ffa116" filter="url(#gaugeGlowMed)" />
 
-                          {/* Hard Track Arc */}
+                          {/* Hard Track Arc (315° to 395°) */}
                           <circle
                             cx="75"
                             cy="75"
                             r="58"
                             fill="none"
-                            stroke="rgba(239, 71, 67, 0.16)"
-                            strokeWidth="4"
+                            stroke="#482424"
+                            strokeWidth="4.5"
                             strokeDasharray="81 364.4"
                             strokeLinecap="round"
                             transform="rotate(315 75 75)"
@@ -333,13 +304,13 @@ export default function CompetitiveJourney() {
                             r="58"
                             fill="none"
                             stroke="#ef4743"
-                            strokeWidth="5"
+                            strokeWidth="4.5"
                             strokeDasharray={`${hardArc} 364.4`}
                             strokeLinecap="round"
                             transform="rotate(315 75 75)"
                             filter="url(#gaugeGlowHard)"
                           />
-                          <circle cx="116" cy="34" r="3.2" fill="#ef4743" filter="url(#gaugeGlowHard)" />
+                          <circle cx="116" cy="34" r="2.8" fill="#ef4743" filter="url(#gaugeGlowHard)" />
                         </svg>
 
                         {/* Gauge Center Content */}
@@ -349,7 +320,7 @@ export default function CompetitiveJourney() {
                             <span className="lc-total-slash">/{data.totalQuestions || 4042}</span>
                           </div>
                           <div className="lc-solved-status">
-                            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="#2cbb5d" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#2cbb5d" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                               <polyline points="20 6 9 17 4 12" />
                             </svg>
                             <span>Solved</span>

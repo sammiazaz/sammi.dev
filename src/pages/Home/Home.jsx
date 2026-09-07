@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import About from '../About/About';
 import { SKILLS_DATA } from '../../data/skills';
 import './Home.css';
@@ -44,6 +45,7 @@ function Pill({ skill, smoothMouseX, smoothMouseY, windowSize, onClick, index, s
 }
 
 export default function Home() {
+  const { siteTheme } = useTheme();
   const isClient = typeof window !== 'undefined';
   const mouseX = useMotionValue(isClient ? window.innerWidth / 2 : 0);
   const mouseY = useMotionValue(isClient ? window.innerHeight / 2 : 0);
@@ -86,48 +88,99 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      <section id="hero" style={{ perspective: '1000px' }}>
+      <section id="hero" className={siteTheme === 'ilian' ? 'ilian-hero-section' : ''} style={{ perspective: '1000px' }}>
+        {siteTheme === 'sammi' ? (
+          <>
+            <motion.div
+              className="hero-content"
+              initial={!hasPlayedEntrance ? { opacity: 0, scale: 0.7, y: 30 } : false}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={!hasPlayedEntrance ? { duration: 0.8, ease: 'easeOut' } : { duration: 0 }}
+              style={{ x: heroX, y: heroY }}
+            >
+              <div className="hero-box">
+                <h1><span className="terminal-logo">&gt;<span className="mono-dot">_</span></span> Software Engineer</h1>
+              </div>
+            </motion.div>
 
-        <motion.div
-          className="hero-content"
-          initial={!hasPlayedEntrance ? { opacity: 0, scale: 0.7, y: 30 } : false}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={!hasPlayedEntrance ? { duration: 0.8, ease: 'easeOut' } : { duration: 0 }}
-          style={{ x: heroX, y: heroY }}
-        >
-          <div className="hero-box">
-            <h1><span className="terminal-logo">&gt;<span className="mono-dot">_</span></span> Software Engineer</h1>
+            {SKILLS_DATA.map((skill, index) => {
+              if (selectedSkill?.label === skill.label) {
+                return null;
+              }
+
+              return (
+                <Pill
+                  key={skill.label}
+                  skill={skill}
+                  smoothMouseX={smoothMouseX}
+                  smoothMouseY={smoothMouseY}
+                  windowSize={windowSize}
+                  onClick={setSelectedSkill}
+                  index={index}
+                  skipAnimation={hasPlayedEntrance}
+                />
+              );
+            })}
+
+            {/* Scroll hint placed inside #hero at bottom of viewport */}
+            <button
+              type="button"
+              className="scroll-hint"
+              onClick={() => {
+                document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              move your cursor around | click to explore about
+            </button>
+          </>
+        ) : (
+          /* ─── ILIAN THEME HERO (MATCHING USER REFERENCE) ─── */
+          <div className="ilian-showcase-wrapper">
+            <motion.div
+              className="ilian-showcase-content"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* Main Headline */}
+              <h1 className="ilian-showcase-title">
+                Building <span className="text-highlight">intelligent</span><br />
+                <span className="text-highlight">systems</span> &amp; resilient<br />
+                software.
+              </h1>
+
+              {/* Status Pill */}
+              <div className="ilian-showcase-status">
+                <span className="ilian-showcase-dot" />
+                <span className="ilian-showcase-avail">Available for Opportunities</span>
+                <span className="ilian-showcase-sep">•</span>
+                <span className="ilian-showcase-loc">Delhi, India</span>
+              </div>
+
+              {/* Kicker */}
+              <div className="ilian-showcase-kicker">
+                <span className="ilian-showcase-kicker-text">SOFTWARE ENGINEER &amp; ML BUILDER</span>
+                <span className="ilian-showcase-kicker-line" />
+              </div>
+
+              {/* Bio Narrative */}
+              <p className="ilian-showcase-bio">
+                CS student at <strong className="ilian-bio-bold">IILM University</strong> crafting full-stack architectures, machine learning pipelines, and security-centric digital experiences with clean engineering.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="ilian-showcase-buttons">
+                <Link to="/projects" className="ilian-btn-explore">
+                  <span>Explore Projects</span>
+                  <span className="ilian-arrow">→</span>
+                </Link>
+                <Link to="/resume" className="ilian-btn-resume">
+                  Resume
+                </Link>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-
-        {SKILLS_DATA.map((skill, index) => {
-          if (selectedSkill?.label === skill.label) {
-            return null;
-          }
-
-          return (
-            <Pill
-              key={skill.label}
-              skill={skill}
-              smoothMouseX={smoothMouseX}
-              smoothMouseY={smoothMouseY}
-              windowSize={windowSize}
-              onClick={setSelectedSkill}
-              index={index}
-              skipAnimation={hasPlayedEntrance}
-            />
-          );
-        })}
-        {/* Scroll hint placed inside #hero at bottom of viewport */}
-        <button
-          type="button"
-          className="scroll-hint"
-          onClick={() => {
-            document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          move your cursor around | click to explore about
-        </button>
+        )}
       </section>
 
       <AnimatePresence>

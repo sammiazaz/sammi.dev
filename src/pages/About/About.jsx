@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import './About.css';
 import CompetitiveJourney from '../../components/CompetitiveJourney/CompetitiveJourney';
 import { ACADEMIC_TRANSCRIPT_DATA } from '../../data/academicTranscript';
@@ -23,6 +24,12 @@ const SEM_POINTS = [
 ];
 
 export default function About() {
+  const { siteTheme, colorMode } = useTheme();
+  const isIlian = siteTheme === 'ilian';
+  const isLight = colorMode === 'light';
+  const spiColor = isIlian ? (isLight ? '#09090b' : '#ffffff') : '#00e5ff';
+  const cpiColor = isIlian ? (isLight ? '#71717a' : '#a1a1aa') : '#f59e0b';
+
   const [indiaHoverIndex, setIndiaHoverIndex] = useState(0);
   const [isIndiaHovered, setIsIndiaHovered] = useState(false);
   const [isTranscriptOpen, setIsTranscriptOpen] = useState(false);
@@ -88,7 +95,7 @@ export default function About() {
                 <h2 className="location-country">
                   <span className="highlight-cyan hover-india-btn">INDIA</span>
                 </h2>
-                <p className="location-coords"><span className="highlight-gold">28.6139Â° N, 77.2090Â° E</span></p>
+                <p className="location-coords"><span className="highlight-gold">28.6139° N, 77.2090° E</span></p>
                 <p className="location-timezone"><span className="highlight-gold">GMT+5:30</span></p>
               </div>
             </motion.div>
@@ -102,7 +109,7 @@ export default function About() {
             >
               <div className="bio-top-tag">/ ABOUT</div>
               <p className="bio-main-p">
-                I'm <strong>Sammi</strong> â€” a CS student at <strong>IILM University</strong>, building at the intersection of full-stack systems and machine learning. I care deeply about clean architecture, meaningful products, and open-source collaboration.
+                I'm <strong>Sammi</strong> — a CS student at <strong>IILM University</strong>, building at the intersection of full-stack systems and machine learning. I care deeply about clean architecture, meaningful products, and open-source collaboration.
               </p>
               <div className="bio-divider-line" />
               <p className="bio-quote">
@@ -147,12 +154,12 @@ export default function About() {
               <p className="academic-subtext">Consistent growth across 6 sems, peak 8.03 SPI in Sem 5</p>
 
               <div className="academic-legend-row">
-                <div className="academic-legend-item" style={{ color: '#00e5ff' }}>
-                  <span className="legend-dash spi" />
+                <div className="academic-legend-item" style={{ color: spiColor }}>
+                  <span className="legend-dash spi" style={{ background: spiColor }} />
                   <span>SPI</span>
                 </div>
-                <div className="academic-legend-item" style={{ color: '#f59e0b' }}>
-                  <span className="legend-dash cpi" />
+                <div className="academic-legend-item" style={{ color: cpiColor }}>
+                  <span className="legend-dash cpi" style={{ background: cpiColor }} />
                   <span>CPI</span>
                 </div>
               </div>
@@ -162,10 +169,10 @@ export default function About() {
               <svg width="360" height="125" viewBox="0 0 360 125" className="academic-chart-svg">
                 <defs>
                   <filter id="glowCyan" x="-30%" y="-30%" width="160%" height="160%">
-                    <feDropShadow dx="0" dy="0" stdDeviation="2.5" floodColor="#00e5ff" floodOpacity="0.8" />
+                    <feDropShadow dx="0" dy="0" stdDeviation="2.5" floodColor={spiColor} floodOpacity="0.8" />
                   </filter>
                   <filter id="glowGold" x="-30%" y="-30%" width="160%" height="160%">
-                    <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#f59e0b" floodOpacity="0.6" />
+                    <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor={cpiColor} floodOpacity="0.6" />
                   </filter>
                 </defs>
 
@@ -184,21 +191,21 @@ export default function About() {
                   IILM - UN
                 </text>
 
-                {/* CPI Line (Gold/Orange) */}
+                {/* CPI Line */}
                 <path
                   d="M 30,71 L 90,71 L 150,63 L 210,59 L 270,53 L 330,54"
                   fill="none"
-                  stroke="#f59e0b"
+                  stroke={cpiColor}
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
 
-                {/* SPI Line (Cyan) */}
+                {/* SPI Line */}
                 <path
                   d="M 30,71 L 90,72 L 150,49 L 210,48 L 270,34 L 330,59"
                   fill="none"
-                  stroke="#00e5ff"
+                  stroke={spiColor}
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -211,7 +218,7 @@ export default function About() {
                     cx={pt.x}
                     cy={pt.cpiY}
                     r={pt.sem === 6 ? 3.2 : 2.6}
-                    fill="#f59e0b"
+                    fill={cpiColor}
                     filter={pt.sem === 6 ? 'url(#glowGold)' : undefined}
                   />
                 ))}
@@ -223,7 +230,7 @@ export default function About() {
                     cx={pt.x}
                     cy={pt.spiY}
                     r={pt.sem === 5 ? 4.2 : 3.2}
-                    fill="#00e5ff"
+                    fill={spiColor}
                     filter={pt.sem === 5 ? 'url(#glowCyan)' : undefined}
                   />
                 ))}
@@ -245,7 +252,7 @@ export default function About() {
                       x={pt.x}
                       y="110"
                       textAnchor="middle"
-                      fill={hoveredSem?.sem === pt.sem ? '#ffffff' : '#666666'}
+                      fill={hoveredSem?.sem === pt.sem ? (isLight ? '#09090b' : '#ffffff') : (isLight ? '#52525b' : '#666666')}
                       fontSize="11"
                       fontFamily="monospace"
                       fontWeight={hoveredSem?.sem === pt.sem ? '700' : '500'}
@@ -290,6 +297,7 @@ export default function About() {
           >
             <motion.div
               className="transcript-modal-container"
+              data-lenis-prevent
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}

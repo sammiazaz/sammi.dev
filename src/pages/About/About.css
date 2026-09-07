@@ -1,7 +1,7 @@
 .about-page {
   --accent-glow: rgba(255, 75, 51, 0.25);
   --tertiary: #f59e0b;
-  --container-width: 960px;
+  --container-width: 1300px;
 }
 
 /* ─── Page Header (Styled to match Competitive Journey) ─── */
@@ -19,7 +19,7 @@
 .persona-main-title {
   margin: 0;
   font-family: var(--font-primary, 'Inter', sans-serif) !important;
-  font-size: clamp(2.2rem, 3.8vw, 3.2rem) !important;
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem) !important;
   font-weight: 800 !important;
   letter-spacing: -1px !important;
   color: var(--black, #ffffff) !important;
@@ -57,11 +57,12 @@
 
 .about-page {
   min-height: 100vh;
-  padding: 100px 5% 40px 5%;
+  padding: 60px 24px 80px 24px;
   display: flex;
   justify-content: center;
   background-color: var(--bg);
   font-family: var(--font-primary, 'Inter', sans-serif) !important;
+  box-sizing: border-box;
 }
 
 .about-page h2,
@@ -73,7 +74,8 @@
 
 .about-container {
   width: 100%;
-  max-width: var(--container-width);
+  max-width: var(--container-width, 1300px);
+  margin: 0 auto;
 }
 
 /* ─── Bento Grid Section (Matching Reference Image) ─── */
@@ -217,46 +219,48 @@
 .bento-layout {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   flex: 1;
-  max-width: var(--container-width);
-  margin: 0 auto 50px auto;
+  width: 100%;
+  max-width: var(--container-width, 1300px);
+  margin: 0 auto 30px auto;
 }
 
 .bento-top-row,
 .bento-middle-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
 .bento-bottom-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .bento-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 24px;
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-grid, 1px solid rgba(255, 255, 255, 0.08));
+  border-radius: var(--card-radius-hero, 20px);
+  padding: 34px 38px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.35s ease,
-    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--card-shadow-grid, 0 10px 30px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .bento-card:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 75, 51, 0.45);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.12);
+  border-color: var(--card-hover-border, rgba(255, 75, 51, 0.45));
+  box-shadow: var(--card-hover-shadow-grid, 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 75, 51, 0.12));
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 /* ─── Academic Trend Banner Card ─── */
@@ -264,12 +268,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 34px 36px;
-  min-height: 230px;
+  border-radius: var(--card-radius-hero, 20px) !important;
+  background: var(--card-bg-surface, rgba(255, 255, 255, 0.03));
+  border: var(--card-border-hero, 1px solid rgba(255, 255, 255, 0.09));
+  box-shadow: var(--card-shadow-hero, 0 20px 50px rgba(0, 0, 0, 0.35));
+  padding: 36px 40px;
+  min-height: 275px;
   gap: 28px;
   width: 100%;
   box-sizing: border-box;
   overflow: visible !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
+}
+
+.bento-academic-trend-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-hover-border, rgba(255, 75, 51, 0.45));
+  box-shadow: var(--card-hover-shadow-hero, 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 75, 51, 0.15));
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .academic-left {
@@ -804,6 +826,55 @@
   color: #f59e0b;
 }
 
+[data-theme="light"] .transcript-modal-container {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .tm-header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .tm-tabs-bar {
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .tm-tab-btn {
+  color: #52525b;
+}
+
+[data-theme="light"] .tm-tab-btn:hover {
+  color: #09090b;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .tm-table th {
+  color: #52525b;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .tm-table td {
+  color: #09090b;
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .tm-table tr:hover td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .tm-sem-summary-footer {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .tm-metric-pill {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
 /* All Sems Blocks */
 .tm-all-sems-wrapper {
   display: flex;
@@ -1157,8 +1228,8 @@
 
 /* Box 2: Location Card */
 .bento-location-card {
-  min-height: 250px;
-  padding: 24px;
+  min-height: 350px;
+  padding: 34px 38px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1278,8 +1349,8 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  padding: 24px 28px;
-  min-height: 250px;
+  padding: 34px 38px;
+  min-height: 350px;
 }
 
 .bio-main-p {
@@ -1819,15 +1890,19 @@
 
 /* ─── Light Mode Cohesive System (Matches Projects Page) ─── */
 [data-theme="light"] .bento-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="light"] .bento-card:hover {
-  background: #ffffff;
   border-color: rgba(255, 75, 51, 0.45);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(255, 75, 51, 0.1);
+  transition: var(--card-transition, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 [data-theme="light"] .vertical-side-pill-bar {
@@ -1919,4 +1994,179 @@
 
 [data-theme="light"] .contrib-legend {
   color: #555555;
+}
+
+/* ─── Competitive Journey Alignment inside About Page (Matches Bento / Transcript Card Width) ─── */
+.about-container .competitive-journey-section {
+  width: 100%;
+  max-width: 100%;
+  padding: 40px 0 0 0;
+  box-sizing: border-box;
+}
+
+.about-container .competitive-journey-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.about-container .cj-dashboard-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* ─── Mobile Responsiveness (Phone & Tablet) ─── */
+@media (max-width: 900px) {
+  .bento-academic-trend-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 28px 24px !important;
+    min-height: auto !important;
+    gap: 22px !important;
+  }
+
+  .academic-right-chart {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .academic-chart-svg {
+    width: 100% !important;
+    max-width: 400px !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 90px 16px 60px 16px !important;
+  }
+
+  .about-header,
+  .persona-page-header {
+    margin-bottom: 28px;
+  }
+
+  .about-header-title {
+    font-size: clamp(2.2rem, 8vw, 3rem) !important;
+  }
+
+  .about-subtitle {
+    font-size: 0.94rem;
+    padding: 0 8px;
+  }
+
+  .bento-top-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .bento-card {
+    padding: 24px 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .bento-location-card,
+  .bento-bio-card {
+    min-height: auto !important;
+    padding: 24px 20px !important;
+  }
+
+  .bento-academic-trend-card {
+    padding: 22px 18px !important;
+    border-radius: 16px !important;
+    gap: 18px !important;
+  }
+
+  .academic-header-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .academic-metric-row {
+    margin: 8px 0;
+  }
+
+  .academic-cpi-val {
+    font-size: 2.2rem;
+  }
+
+  .academic-subtext {
+    font-size: 0.85rem;
+  }
+
+  .academic-legend-row {
+    margin-top: 10px;
+  }
+
+  /* Transcript Modal Mobile Polish */
+  .transcript-modal-overlay {
+    padding: 12px;
+  }
+
+  .transcript-modal-container {
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+
+  .tm-header {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .tm-student-name {
+    font-size: 1.25rem;
+  }
+
+  .tm-header-metrics {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .tm-tabs-bar {
+    padding: 8px 16px;
+  }
+
+  .tm-body {
+    padding: 16px;
+  }
+
+  .tm-sem-summary-footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 80px 12px 50px 12px !important;
+  }
+
+  .about-header-title {
+    font-size: clamp(1.9rem, 8.5vw, 2.4rem) !important;
+  }
+
+  .bento-location-card {
+    min-height: 220px !important;
+  }
+
+  .location-country {
+    font-size: 1.4rem;
+  }
+
+  .bio-main-p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .tm-sem-summary-footer {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }

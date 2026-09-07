@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 @import './variables.css';
 @import './animations.css';
+@import './ilian-monochrome.css';
+@import 'lenis/dist/lenis.css';
 
 *,
 *::before,
@@ -14,7 +16,6 @@ html {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   scroll-padding-top: 112px;
 }
 
@@ -32,6 +33,17 @@ body {
   width: 100%;
   min-height: 100vh;
   zoom: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  #root {
+    zoom: 1;
+  }
+  .page-content {
+    padding-bottom: 84px;
+  }
 }
 
 a {
@@ -113,7 +125,7 @@ textarea {
 
 .persona-main-title {
   font-family: var(--font-primary) !important;
-  font-size: 3.2rem !important;
+  font-size: clamp(2rem, 6vw, 3.2rem) !important;
   font-weight: 700 !important;
   letter-spacing: -1.5px !important;
   color: var(--black) !important;
@@ -180,7 +192,7 @@ textarea {
 .persona-link-container {
   display: flex;
   justify-content: center;
-  margin: 60px 0 80px 0;
+  margin: 48px 0 60px 0;
   position: relative;
   z-index: 20;
 }
@@ -205,9 +217,57 @@ textarea {
   -webkit-backdrop-filter: blur(10px);
 }
 
+@media (max-width: 480px) {
+  .persona-btn {
+    padding: 11px 24px;
+    font-size: 0.84rem;
+    gap: 8px;
+  }
+
+  .persona-link-container {
+    margin: 36px 0 48px 0;
+  }
+}
+
 .persona-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* ─── Standard Card System Utility Classes (Reference: Projects Card) ─── */
+.card-surface-hero {
+  border-radius: var(--card-radius-hero);
+  background: var(--card-bg-surface);
+  border: var(--card-border-hero);
+  box-shadow: var(--card-shadow-hero);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: var(--card-transition);
+}
+
+.card-surface-hero:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow-hero);
+  transition: var(--card-transition);
+}
+
+.card-surface-grid {
+  border-radius: var(--card-radius-grid);
+  background: var(--card-bg-surface);
+  border: var(--card-border-grid);
+  box-shadow: var(--card-shadow-grid);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: var(--card-transition);
+}
+
+.card-surface-grid:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow-grid);
+  transition: var(--card-transition);
+}
+
